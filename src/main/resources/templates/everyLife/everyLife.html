@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,48 +12,7 @@
 </head>
 <body>
      <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
-     <header>
-        <div class="header-wrapper">
-          <div class="header-left">
-            <div class="logo-box">
-              <a href="./../main/main.html"
-                ><img src="./../../img/main/timenotion.png" alt="로고 사진 넣어주세요"
-              /></a>
-            </div>
-            <div class="category-box">
-              <ul>
-                <li><a href="#">about</a></li>
-                <li><a href="./../myLife/mypage.html">나의 일대기</a></li>
-                <li><a href="./../yourLife/yourLife.html">너의 일대기</a></li>
-                <li><a href="./../everyLife/everyLife.html">모두의 일대기</a></li>
-                <li><a href="./../community/inquiry.html">커뮤니티</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="header-right">
-            <!-- 로그인 전 ----------- -->
-            <div class="login-box">
-              <a href="./../user/login.html" class="login-wrap">
-                <div class="header-img-box"><img src="./../../img/main/로그인.png" alt="" /></div>
-                <span>로그인</span>
-              </a>
-            </div>
-            <div class="regist-box">
-              <a href="./../user/join.html" class="regist-wrap">
-                <div class="header-img-box"><img src="./../../img/main/회원가입.png" alt="" /></div>
-                <span>회원가입</span>
-              </a>
-            </div>
-            <!-- 로그인 후 ------------ .logout-box : display : none -->
-            <div class="logout-box">
-              <a href="#" class="logout-wrap">
-                <div class="logout-img-box"><img src="./../../img/main/로그아웃.png" alt="" /></div>
-                <span>로그아웃</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+     <div th:replace="~{/fragment/header::header}"></div>
       <!-- 헤더 끝-========================================================================== -->
 
     <!-- 모두의 일대기 전체 감싸는 div -->

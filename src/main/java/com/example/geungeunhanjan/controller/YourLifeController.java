@@ -4,12 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/yourLife")
 public class YourLifeController {
 
-    @GetMapping("/boardList")
-    public String boardList() {
-        return "boardList";
+    @Controller
+    @RequestMapping("/yourLife")
+    public class HomeController {
+
+        @GetMapping("/yourLife")
+        public String yourLife() {
+            return "yourLife/yourLife";
+        }
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -13,9 +13,7 @@
 
 <body>
    <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
-   <header>
-
-  </header>
+   <div th:replace="~{/fragment/header::header}"></div>
   <!-- 헤더 끝-========================================================================== -->
 
   <main>
@@ -47,7 +45,7 @@
           </p>
         </div>
         <div class="write-button">
-          <a href="./../../HTML/myLife/detail_writingMode.html"><button>글쓰기</button></a>
+          <a href="/main/detail_writingMode"><button>글쓰기</button></a>
         </div>
       </div>
     </div>

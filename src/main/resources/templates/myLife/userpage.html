@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -14,9 +14,7 @@
 
 <body>
   <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
-  <header>
-    
-  </header>
+  <div th:replace="~{/fragment/header::header}"></div>
   <!-- 헤더 끝-========================================================================== -->
 
   <main>

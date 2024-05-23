@@ -1,4 +1,4 @@
-fetch('./../../HTML/fragment/footer.html')
+fetch('/fragment/footer.html')
   .then(response => {
     if (!response.ok) {
       throw new Error('실패');
@@ -11,4 +11,5 @@ fetch('./../../HTML/fragment/footer.html')
   })
   .catch(error => {
     console.error('문제발생', error);
+    console.log(error);
   });

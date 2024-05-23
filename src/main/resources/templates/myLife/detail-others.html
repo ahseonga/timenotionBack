@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -15,8 +15,9 @@
     <script defer src="./../../js/fragment/footerFetch.js"></script>
 
     <body>
+<div th:replace="~{/fragment/header::header}"></div>
         <div id="wrapper">
-            <header></header>
+
             <main>
                 <div class="container">
                     <!--1. 상단 날짜 / 수정 삭제 버튼 ----------------->
