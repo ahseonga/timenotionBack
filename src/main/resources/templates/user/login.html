@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 
 <body>
  <!-- ===================header==================== -->
-  <header>header</header>
+ <div th:replace="~{/fragment/header::header}"></div>
   <!-- ===================main==================== -->
   <main>
     <div class="top">
@@ -41,7 +41,7 @@
       </div>
       <!-- =================버튼================= -->
       <div class="login">
-        <a href="./../main/main.html">
+        <a href="../main/main.html">
         <button id="gomain">로그인</button>
       </a>
       </div>

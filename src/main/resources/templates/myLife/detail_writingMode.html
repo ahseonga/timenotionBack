@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -15,10 +15,10 @@
 </head>
 
 <body>
+<div th:replace="~{/fragment/header::header}"></div>
     <div id="wrapper">
         <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
-        <header>
-        </header>
+
         <!-- 헤더 끝-========================================================================== -->
         <main>
             <!-- 메인 컨텐츠 영역 -->
@@ -80,7 +80,7 @@
                 <hr>
                 <!-- 4. 저장 / 취소 버튼 -->
                 <div class="wrapper-button">
-                    <button type="submit" class="btn-save"><a id="btn-save" href="./../../HTML/myLife/detail_my.html">저장</a></button>
+                    <button type="submit" class="btn-save"><a id="btn-save" href="/main/detail-my">저장</a></button>
                     <button type="button" class="btn-cancel" onclick="window.history.back();"><a id="detail_button_2" href="./../../HTML/myLife/detail_my.html">취소</a></button>
                 </div>
             </div>
