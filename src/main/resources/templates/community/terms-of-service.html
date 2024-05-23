@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,9 +13,10 @@
     <script defer src="./../../js/fragment/footerFetch.js"></script>
   </head>
   <body>
+  <div th:replace="~{/fragment/header::header}"></div>
     <div id="wrapper">
       <!-- 요 태그만 넣어주세요, footer도 마찬가지 -->
-      <header></header>
+
       <main>
         <div class="container">
           <div class="title">이용약관</div>

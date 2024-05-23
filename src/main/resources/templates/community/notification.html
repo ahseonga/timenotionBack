@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     <script defer src="./../../js/community/notification.js"></script>
 </head>
 <body>
-    <header></header>
+<div th:replace="~{/fragment/header::header}"></div>
     <!-- 공지 전체 감싸는 div -->
     <div class="notification-container container">
         <!-- 공지/문의 선택 버튼 감싸는 div -->

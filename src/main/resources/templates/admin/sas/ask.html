@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>문의</title>
+    <title>관리자 문의</title>
     <link rel="stylesheet" href="./../../css/reset.css">
     <link rel="stylesheet" href="./../../css/notion.css">
-    <link rel="stylesheet" href="./../../css/community/inquiry.css">
-    <script defer src="./../../js/community/inquiry.js"></script>
+    <link rel="stylesheet" href="./../../css/community/ask.css">
+    <script defer src="./../../js/community/ask.js"></script>
     <script defer src="./../../js/fragment/headerFetch.js"></script>
     <script defer src="./../../js/fragment/footerFetch.js"></script>
 </head>
 
 <body>
-<div th:replace="~{/fragment/header::header}"></div>
+    <header></header>
     <div class="inquiry-container container">
         <div class="inquiry-wrap1">
             <div class="inquiry-selector">
@@ -23,9 +23,6 @@
                 </span>
                 <span class="inquiry-title">
                     <button type="button">문의</button>
-                </span>
-                <span class="inquiry-button">
-                    <button type="button">물어보세요</button>
                 </span>
                 <div class="inquiry-modal">
                     <div class="modal-main-img">
@@ -74,6 +71,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-open">공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -86,6 +84,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-closed">비공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -98,6 +97,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-open">공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -110,6 +110,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-closed">비공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -122,6 +123,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-open">공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -134,6 +136,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-closed">비공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -146,6 +149,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-open">공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -158,6 +162,7 @@
                     <span class="contents-number">7</span>
                     <span class="contents-title">
                         <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <span class="contents-closed">비공개</span>
                     </span>
                 </div>
                 <div class="contents-next-content">
@@ -210,10 +215,14 @@
                 <div class="inquiry-modal-answer-realAnswer">
                     답변 전
                 </div>
-            </div>
-            <div class="inquiry-modal-answer-btns">
-                <button type="button" class="inquiry-modal-answer-delete">삭제</button>
-                <button type="button" class="inquiry-modal-answer-exit">닫기</button>
+                <div class="inquiry-modal-modify">
+                    <textarea cols="40" rows="20" name="" placeholder="답변을 입력하세요"></textarea>
+                </div>
+                <div class="inquiry-modal-answer-btns">
+                    <button type="button" class="inquiry-modal-answer-comment">답변달기</button>
+                    <button type="button" class="inquiry-modal-answer-modify" style="display: none;">수정</button>
+                    <button type="button" class="inquiry-modal-answer-exit">닫기</button>
+                </div>
             </div>
         </div>
     </div>
