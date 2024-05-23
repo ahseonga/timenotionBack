@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용자의 일대기</title>
+  <link rel="stylesheet" href="./../../css/myLife/userpage.css">
+  <link rel="stylesheet" href="./../../css/reset.css">
+  <script defer src="./../../js/myLife/userpage.js"></script>
+  <script defer src="./../../js/fragment/headerFetch.js"></script>
+    <script defer src="./../../js/fragment/footerFetch.js"></script>
+</head>
+
+<body>
+  <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
+  <div th:replace="~{/fragment/header::header}"></div>
+  <!-- 헤더 끝-========================================================================== -->
+
+  <main>
+    <div class="container">
+    <div class="first-container">
+      <div class="profile-background">
+        <div class="profile-background-dark"></div>
+        <div class="profile-bg-img-box"><img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt="">
+        </div>
+        <div class="profile">
+          <div class="profile-img-box"><img src="./../../img/myLife/jyg-baby_20240514_104047744.jpg" alt=""></div>
+          <div class="profile-detail">
+            <p id="profile-nickname">장윤근</p>
+            <p>
+              <span class="follower-number">36</span>
+              <span class="follower">팔로워</span>
+            </p>
+            <p>
+              <span class="follower-number">128</span>
+              <span class="follower">팔로잉</span>
+            </p>
+            <p class="profile-heart"><img src="./../../img/myLife/mdj-heart_negative.png" alt="하투" class="detail_page_heart" id="heart-image"></p>
+          </div>
+        </div>
+      </div>
+      <div class="profile-text">
+        <div class="profile-introduce">
+          <p>여기 자기소개란 너비는 그대로 뒀습니다 일단?? 넓히니 너무 넓어서, 그리고 글자사이즈 줄였구요.<br>
+            프로필사진 영역 사진 구겨들어가게 되어있길래 수정했고 글자 안보여서 profile-img 위에 <mark>dark div</mark>넣어서
+            배경이미지 자체를 좀 어두워져 보이게 만들었습니다.
+          </p>
+        </div>
+        <!--       <div class="write-button">
+          <button>글쓰기</button>
+        </div> -->
+      </div>
+    </div>
+    <hr>
+    <!-- /* 유아기 유년기 아동기 청소년기 성인 중년 노년 */ -->
+    <div class="third-container">
+      <div class="third-container-category">
+        <div class="infancy">
+          <a href="">유아기</a>
+        </div>
+        <div class="babyhood">
+          <a href="">유년기</a>
+        </div>
+        <div class="childhood">
+          <a href="">아동기</a>
+        </div>
+        <div class="adolescence">
+          <a href="">청소년기</a>
+        </div>
+        <div class="adult">
+          <a href="">성인</a>
+        </div>
+        <div class="middle-age">
+          <a href="">중년</a>
+        </div>
+        <div class="old-age">
+          <a href="">노년</a>
+        </div>
+      </div>
+    </div>
+    <div class="fourth-container">
+      <div class="list">
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>필독 -- </h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>여기 누르면 '남이보는 detail 페이지'로 들어갑니다
+                  mypage에선 누르면 '내 detail 페이지'로 이동합니다
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>필독 -- 2 </h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>
+                  이거 제목 한줄 넘어가면 ellipsis 넣어서 ...나오게 해주셔야해요
+                  모르겠으면 main페이지 참고해주세요 <br><br>
+                  본문도 영역 넘어가면 overflow hidden이랑 ellipsis 들어가야해요
+                  지금은 그냥 넘어가
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에...</h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에...</h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에...</h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에...</h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에...</h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에...</h3>
+                <p>조회수 10</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="list-one">
+          <a href="./../../HTML/myLife/detail_others.html">
+            <div class="list-one-detail">
+              <div class="title">
+                <h3>나의 유치원 시절에ㅋㅋㅋㅋㅋㅋㅋ...</h3>
+                <p>조회수 100</p>
+              </div>
+              <div class="list-date">
+                <p>작성일 : 2024년 12월 12일</p>
+              </div>
+              <div class="list-text">
+                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
+                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
+                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
+                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="fifth-container">
+
+      <ul class="pagination">
+        <li>
+          <a href="">
+            < </a>
+        </li>
+        <li>
+          <a href="">1</a>
+        </li>
+        <li>
+          <a href="">2</a>
+        </li>
+        <li>
+          <a href="">3</a>
+        </li>
+        <li>
+          <a href="">4</a>
+        </li>
+        <li>
+          <a href="">5</a>
+        </li>
+        <li>
+          <a href="">></a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  </main>
+  <footer>
+   
+  </footer>
+</body>
+
+</html>
