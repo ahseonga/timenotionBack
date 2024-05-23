@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class YourLifeController {
 
-    @Controller
-    @RequestMapping("/yourLife")
-    public class HomeController {
-
-        @GetMapping("/yourLife")
-        public String yourLife() {
-            return "yourLife/yourLife";
-        }
-    }
+//    @Controller
+//    @RequestMapping("/yourLife")
+//    public class HomeController {
+//
+//        @GetMapping("/yourLife")
+//        public String yourLife() {
+//            return "yourLife/yourLife";
+//        }
+//    }
 }

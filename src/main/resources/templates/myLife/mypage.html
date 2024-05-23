@@ -25,7 +25,7 @@
         <div class="profile">
           <div class="profile-img-box"> <img src="./../../img/myLife/jyg-profile_img_20240512_163410241.jpg" alt=""></div>
           <div class="profile-detail">
-            <p id="profile-nickname">장윤근</p>
+            <p id="profile-nickname" >장윤근</p>
             <p>
               <span class="follower-number">36</span>
               <span class="follower">팔로워</span>
@@ -91,186 +91,25 @@
     </div>
     <div class="fourth-container">
       <div class="list">
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
+        <div th:each="board : ${boards}" class="list-one">
+          <a href="/myLife/detail_my">
             <div class="list-one-detail">
               <div class="title">
-                <h3>나의 유치원 시절</h3>
+                <h3 th:text="${board.boardTitle}"></h3>
                 <p>조회수 10</p>
               </div>
               <div class="list-date">
                 <p>작성일 : 2024년 12월 12일</p>
               </div>
               <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오민트초코 프라푸치노 
+                <p th:text="${board.boardContent}">
                 </p>
               </div>
             </div>
           </a>
         </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>파란만장 유년시절!</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>초등학교 입학식!!</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>나의 유치원 시절에...</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>나의 유치원 시절에...</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>나의 유치원 시절에...</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>나의 유치원 시절에...</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>나의 유치원 시절에...</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="list-one">
-          <a href="./../../HTML/myLife/detail_my.html">
-            <div class="list-one-detail">
-              <div class="title">
-                <h3>나의 유치원 시절에...</h3>
-                <p>조회수 10</p>
-              </div>
-              <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
-              </div>
-              <div class="list-text">
-                <p>오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                  아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다.
-                  우리는 오랜만에 만나 서로의 최근 소식을 나누며 웃었다.
-                  가끔은 이런 여유로운 시간이 필요하다고 느꼈다. 집에 돌아오
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
+
+
       </div>
     </div>
     <div class="fifth-container">
