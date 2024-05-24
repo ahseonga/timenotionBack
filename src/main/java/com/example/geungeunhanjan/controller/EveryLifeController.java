@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/yourLife")
-public class YourLifeController {
+@RequestMapping("/everyLife")
+public class EveryLifeController {
 
-    @GetMapping("/userpage")
-    public String userPage() {
-        return "/myLife/userpage";
+    @GetMapping("/detail-others")
+
+    public String everyDetailOthers() {
+        return "myLife/detail-others";
     }
-
 }

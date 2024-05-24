@@ -2,7 +2,6 @@ package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.vo.BoardVO;
 import com.example.geungeunhanjan.service.BoardService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +19,9 @@ public class HomeController {
         this.boardService = boardService;
     }
 
-    @GetMapping("/main")
-    public String main() {
-        return "main/main";
+    @GetMapping
+    public String index() {
+        return "main/index";
     }
 
     @GetMapping("/about")
@@ -60,7 +59,7 @@ public class HomeController {
     }
 
     @GetMapping("/inquiry")
-    public String inquiry(){
+    public String inquiry() {
         return "community/inquiry";
     }
 
