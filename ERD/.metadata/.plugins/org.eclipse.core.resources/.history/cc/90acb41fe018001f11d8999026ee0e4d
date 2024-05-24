@@ -12,8 +12,6 @@ CREATE TABLE GGHJ_USER
     CONSTRAINT PK_USER PRIMARY KEY (USER_ID)
 );
 
-SELECT  * FROM  GGHJ_USER;
-
 
 /*카카오 유저 ---------------------------------------- */
 CREATE TABLE GGHJ_KAKAO_USER
