@@ -12,4 +12,14 @@ public class CommunityController {
     public String community() {
         return "community/inquiry";
     }
+
+    @GetMapping("/notification")
+    public String notification() {
+        return "community/notification";
+    }
+
+    @GetMapping("/notification/community_detail")
+    public String notificationDetail() {
+        return "community/community_detail";
+    }
 }
