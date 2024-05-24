@@ -29,5 +29,10 @@ public class MyPageController {
     public String mypageNotification(){
         return "/myLife/myPageNotification";
     }
+
+    @GetMapping("/mypagePasswordChange")
+    public String changepassword(){
+        return "/myLife/mypagePasswordChange";
+    }
 }
 
