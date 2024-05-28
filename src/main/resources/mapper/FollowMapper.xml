@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.geungeunhanjan.mapper.FollowMapper">
+    <!-- 나를 팔로우한 사람의 정보 조회 ; 팔로워 -->
+    <!-- ★★★  임의로 follow to user = 5로 넣어뒀음 수정해야함 ★★★★★ -->
+    <select id="selectFollower" resultType="com.example.geungeunhanjan.domain.dto.FollowDTO">
+        SELECT
+            u.USER_ID AS followerId,
+            u.USER_NICKNAME AS userNickname,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount
+        FROM
+            GGHJ_USER u
+                JOIN
+            GGHJ_FOLLOW f ON u.USER_ID = f.FOLLOW_FROM_USER
+        WHERE
+            f.FOLLOW_TO_USER = 5
+        UNION ALL
+        SELECT
+            k.KAKAO_ID AS followerId,
+            k.kakao_nickname AS userNickname,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount
+        FROM
+            GGHJ_KAKAO k
+                JOIN
+            GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
+                JOIN
+            GGHJ_FOLLOW f ON uni.UNI_ID = f.FOLLOW_FROM_USER
+        WHERE
+            f.FOLLOW_TO_USER = 5
+    </select>
+
+    <!-- 내가 팔로우한 사람의 정보 조회 ; 팔로잉 -->
+    <!-- ★★★  임의로 follow from user = 1로 넣어뒀음 수정해야함 ★★★★★ -->
+    <select id="selectFollowing" resultType="com.example.geungeunhanjan.domain.dto.FollowDTO">
+        SELECT
+            u.USER_ID AS followingId,
+            u.USER_NICKNAME AS userNickname,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount
+        FROM
+            GGHJ_USER u
+                JOIN
+            GGHJ_FOLLOW f ON u.USER_ID = f.FOLLOW_TO_USER
+        WHERE
+            f.FOLLOW_FROM_USER = 1
+        UNION ALL
+        SELECT
+            k.KAKAO_ID AS followingId,
+            k.kakao_nickname AS userNickname,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount
+        FROM
+            GGHJ_KAKAO k
+                JOIN
+            GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
+                JOIN
+            GGHJ_FOLLOW f ON uni.UNI_ID = f.FOLLOW_TO_USER
+        WHERE
+            f.FOLLOW_FROM_USER = 1
+    </select>
+    <!-- 이미지 불러오는 쿼리문    -->
+    <!-- 임의로 id를 2로 설정해두었다 ★ ★ ★ ★ ★    -->
+    <select id="selectFile" resultType="FileVO">
+        SELECT f.FILE_PROFILE_SOURCE
+        FROM GGHJ_FILE f
+                 JOIN GGHJ_UNI u ON f.USER_ID = u.UNI_ID
+                 LEFT JOIN GGHJ_USER uu ON u.USER_ID = uu.USER_ID
+                 LEFT JOIN GGHJ_KAKAO k ON u.KAKAO_ID = k.KAKAO_ID
+        WHERE uu.USER_ID = 1 OR k.KAKAO_ID = 1
+    </select>
+    <!-- 팔로워, 팔로잉 리스트에 들어온 회원들의 보드 수를 체크하는 쿼리문     -->
+    <select id="selectBoardCount" resultType="FollowDTO">
+        SELECT COUNT(b.BOARD_ID) AS BOARD_COUNT
+        FROM GGHJ_BOARD b
+                 JOIN GGHJ_UNI u ON b.USER_ID = u.UNI_ID
+                 LEFT JOIN GGHJ_USER uu ON u.USER_ID = uu.USER_ID
+                 LEFT JOIN GGHJ_KAKAO k ON u.KAKAO_ID = k.KAKAO_ID
+        WHERE uu.USER_ID = 1 OR k.KAKAO_ID = 1
+    </select>
+    <!-- 팔로우 리스트 , 팔로워  리스트의 상세페이지로 이동 select문   -->
+    <!-- 다른사람의 상세페이지 겹치는거 가지고 와서 컨트롤러 타임리프 ?    -->
+
+
+</mapper>

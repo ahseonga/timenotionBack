@@ -104,6 +104,7 @@ footer {
   border-radius: 6px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .flwers-left {
