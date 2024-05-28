@@ -15,9 +15,16 @@ import java.util.List;
 public class CommunityController {
 
     private final NoticeService noticeService;
+    @GetMapping("/inquiry")
+    public String community() {
+
+        return "community/inquiry";
+
+    }
 
     public CommunityController (NoticeService noticeService) {
         this.noticeService = noticeService;
+
     }
 
     //공지버튼 클릭시
@@ -46,3 +53,5 @@ public class CommunityController {
 
 
 }
+
+
