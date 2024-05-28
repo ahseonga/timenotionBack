@@ -23,9 +23,16 @@ public class BoardServiceImple implements BoardService {
         return cnt;
     }
 
+    // Board의 리스트
     //특정 회원의 게시글 보기(마이페이지)
     @Override
     public List<BoardVO> selectBoard(Long userId) {
         return boardMapper.selectBoard(userId);
+    }
+
+    // 그 main 4칸 짜리 게시물
+    @Override
+    public List<BoardVO> mainBoardbyViews() {
+        return boardMapper.mainBoardbyViews();
     }
 }
