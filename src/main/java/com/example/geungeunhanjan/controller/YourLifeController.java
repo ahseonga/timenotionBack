@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping("/yourLife")
 public class YourLifeController {
 
-<<<<<<< HEAD
+
     // myLife의 userpage
     @GetMapping("/userpage")
     public String userPage() {
         return "/myLife/userpage";
     }
-=======
+
 //    private final com.example.geungeunhanjan.service.mdjFollowService mdjFollowService;
 //
 //    public YourLifeController(com.example.geungeunhanjan.service.mdjFollowService mdjFollowService) {
@@ -39,7 +39,7 @@ public class YourLifeController {
 //
 //        return "/yourLife/yourLife";
 //    }
->>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
+
 
 }
 
