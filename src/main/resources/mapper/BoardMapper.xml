@@ -5,23 +5,27 @@
 
     <!-- 나의 일대기 게시판 정보 불러오기 -->
     <select id="selectBoard" resultType="BoardVO">
-        SELECT
+        SELECT *
         FROM GGHJ_BOARD
         WHERE USER_ID = #{userId}
     </select>
 
-
-
-
-
-
-
-
+    <!--    메인 화면 4개 게시글-->
+    <select id="mainBoardbyViews" resultType="BoardVO">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID FROM
+            GGHJ_BOARD
+        WHERE rownum BETWEEN 1 AND 4
+        ORDER BY BOARD_VIEW_COUNT DESC
+    </select>
 
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
+<<<<<<< HEAD
 
     <insert id="insertBoard" parameterType="boardVO">
 
+=======
+    <insert id="insertBoard" parameterType="BoardVO">
+>>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
         INSERT INTO GGHJ_BOARD ( BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE
                                , BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, USER_ID)
         VALUES ( #{boardId}, #{boardTitle}, #{boardContent}, #{boardPublic}, SYSDATE, SYSDATE
@@ -52,5 +56,13 @@
         WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
     </select>
 
-</mapper>
+    <!--키워드 검색(안에 'a'는 임시값)-->
+    <select id="selectByKeywordMain">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE, BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+        FROM GGHJ_BOARD
+        WHERE BOARD_TITLE LIKE '%a%'
+           OR BOARD_CONTENT LIKE '%a%'
+        ORDER BY BOARD_CREATED_DATE DESC
+    </select>
 
+</mapper>

@@ -101,7 +101,7 @@ header {
 
 .logout-box {
   padding: 8px 6px;
-  display: none; /* 이거 풀면 나오요!!!! */
+  /*display: none; !* 이거 풀면 나오요!!!! *!*/
 }
 
 .logout-box:hover {
@@ -120,5 +120,5 @@ header {
 .logout-img-box img {
   width: 45%;
   height: 60%;
-  object-fit: cover;
+  /*object-fit: cover;*/
 }

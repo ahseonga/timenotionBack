@@ -180,6 +180,7 @@ button[type="button"]:hover{
     justify-content: flex-start;
 }
 .inquiry-contents{
+    font-size: 14px;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
