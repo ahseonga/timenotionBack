@@ -1,7 +1,11 @@
 package com.example.geungeunhanjan.controller;
 
+import com.example.geungeunhanjan.domain.dto.InquiryDTO;
+import com.example.geungeunhanjan.service.InquiryService;
+
 import com.example.geungeunhanjan.domain.dto.NoticeDTO;
 import com.example.geungeunhanjan.service.NoticeService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,19 +14,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+
+// 커뮤티니로
+
 @Controller
 @RequestMapping("/community")
 public class CommunityController {
-
+    private final InquiryService inquiryService;
     private final NoticeService noticeService;
+<<<<<<< HEAD
     @GetMapping("/inquiry")
     public String community() {
         return "community/inquiry";
+=======
+
+    public CommunityController(InquiryService inquiryService, NoticeService noticeService) {
+        this.inquiryService = inquiryService;
+        this.noticeService = noticeService;
+>>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
 
     }
 
-    public CommunityController (NoticeService noticeService) {
-        this.noticeService = noticeService;
+
+    @GetMapping("/inquiry")
+    public String community(Model model) {
+
+
+        List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
+
+        // 문의 리스트 7개로 제한
+        if (inquiries.size() > 7) {
+            inquiries = inquiries.subList(0, 7);
+        }
+
+        model.addAttribute("inquiries", inquiries);
+        return "community/inquiry";
 
     }
 
@@ -47,7 +73,10 @@ public class CommunityController {
         return "community/community_detail";
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
 }
 
 

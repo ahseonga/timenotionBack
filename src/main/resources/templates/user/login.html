@@ -21,17 +21,18 @@
       <h1>로그인</h1>
     </div>
     <!-- 로그인 제외하고 감싸기 -->
+    <form action="/login" method="post">
     <div>
       <!-- ======================id,pw============== -->
       <div class="textId">
         <p id="login-id-paragraph">아이디</p>
-          <input id="login-id-input" type="input" placeholder="영문,숫자포함 8자 이상으로 입력해주세요">
+          <input id="login-id-input" type="input" name="userEmail" placeholder="영문,숫자포함 8자 이상으로 입력해주세요">
         <p id="login-id-result"></p>
       </div>
       <div>
         <div class="textPassword">
           <p id="login-password-paragraph">비밀번호</p>
-            <input id="login-password-input" type="password" placeholder="영문,숫자포함 8자 이상으로 입력해주세요">
+            <input id="login-password-input" type="password" name="userPassword" placeholder="영문,숫자포함 8자 이상으로 입력해주세요">
           <p id="login-password-result"></p>
         </div>
       </div>
@@ -41,12 +42,12 @@
       </div>
       <!-- =================버튼================= -->
       <div class="login">
-        <a href="../main/index.html">
-        <button id="gomain">로그인</button>
-      </a>
+
+        <button id="gomain" type="submit">로그인</button>
+
       </div>
       <div class="kakao-login">
-        <button>카카오 로그인</button>
+        <button type="button">카카오 로그인</button>
       </div>
       <!-- ================회원가입 이동================ -->
       <div class="move-join">
@@ -54,6 +55,7 @@
         <a href="./../user/join.html">회원가입</a>
       </div>
     </div>
+    </form>
   </main>
 
 </body>
