@@ -1,1 +1,1 @@
-{"resources":{"Scripts/geungeunhanjan.sql":{"default-datasource":"oracle_thin-18f9ae69c16-f4c9a895e93e61c","default-schema":"GEUNGEUNHANJAN"}}}
+{"resources":{"Scripts/insertData.sql":{"default-schema":"GEUNGEUNHANJAN","default-datasource":"oracle_thin-18f9ae69c16-f4c9a895e93e61c"},"Scripts/select.sql":{"default-schema":"GEUNGEUNHANJAN","default-datasource":"oracle_thin-18f9ae69c16-f4c9a895e93e61c"}}}

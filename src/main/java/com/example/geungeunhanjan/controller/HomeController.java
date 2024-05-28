@@ -1,11 +1,11 @@
 package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.vo.BoardVO;
+import com.example.geungeunhanjan.domain.vo.UserVO;
 import com.example.geungeunhanjan.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,9 +14,11 @@ import java.util.List;
 public class HomeController {
 
     private final BoardService boardService;
+    private final UserVO userVO;
 
-    public HomeController(BoardService boardService) {
+    public HomeController(BoardService boardService, UserVO userVO) {
         this.boardService = boardService;
+        this.userVO = userVO;
     }
 
     @GetMapping
@@ -29,21 +31,31 @@ public class HomeController {
         return "main/about";
     }
 
+//    마이페이지에서 내가 쓴 게시글 리스트 뽑기
     @GetMapping("/mypage")
     public String mypage(Model model){
-
+//        List<BoardVO> boards = boardService.selectBoard(userVO.getUserId());
         List<BoardVO> boards = boardService.selectBoard(1L);
         model.addAttribute("boards", boards);
-
         return "myLife/mypage";
     }
-
-    @GetMapping("/detail_writingMode")
-    public String detailWritingMode(){
+//    게시글 작성페이지로 들어가기
+    @GetMapping("/mypage/detail_writingMode")
+    public String detailWritingMode(Model model){
+        model.addAttribute("boardVO",new BoardVO());
         return "myLife/detail_writingMode";
     }
 
-    @GetMapping("/detail-my")
+//    작성한 게시글 db저장
+    @PostMapping("/mypage/detail_writingMode")
+    public String detailWriting(@ModelAttribute("boardVO") BoardVO boardVO,
+                                @RequestParam("userId") Long userId){
+        boardVO.setUserId(userId);
+        boardService.insertBoard(boardVO);
+        return "redirect:/myLife/mypage";
+    }
+
+    @GetMapping("/mypage/detail-my")
     public String detailMy(){
         return "myLife/detail-my";
     }
