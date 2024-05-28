@@ -10,6 +10,9 @@ public class CommunityController {
 
     @GetMapping("/inquiry")
     public String community() {
+
         return "community/inquiry";
     }
 }
+
+

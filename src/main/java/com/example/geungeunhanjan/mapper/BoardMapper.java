@@ -10,3 +10,5 @@ public interface BoardMapper {
     List<BoardVO> selectBoard(Long userId);
 
 }
+
+

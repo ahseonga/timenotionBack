@@ -14,3 +14,5 @@ public class CommentVO {
     private Long boardId;
     private Long userId;
 }
+
+
