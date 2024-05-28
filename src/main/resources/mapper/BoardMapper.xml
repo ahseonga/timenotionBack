@@ -5,22 +5,13 @@
 
     <!-- 나의 일대기 게시판 정보 불러오기 -->
     <select id="selectBoard" resultType="BoardVO">
-        SELECT
+        SELECT *
         FROM GGHJ_BOARD
         WHERE USER_ID = #{userId}
     </select>
 
 
-
-
-
-
-
-
-
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
-
-    <insert id="insertBoard" parameterType="BoardVO">
 
     <insert id="insertBoard" parameterType="boardVO">
 

@@ -15,6 +15,7 @@
                  JOIN GGHJ_NOTICE n ON uni.UNI_ID = n.USER_ID
         ORDER BY NOTICE_ID DESC
     </select>
+
     <!-- 공지 리스트중 한개 클릭시 공지상세페이지 조회하는 쿼리문  -->
     <select id="selectNoticeDetail" resultType="NoticeDTO">
         SELECT
