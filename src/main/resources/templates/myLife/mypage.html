@@ -45,7 +45,7 @@
           </p>
         </div>
         <div class="write-button">
-          <a href="/main/detail_writingMode"><button>글쓰기</button></a>
+          <a href="/main/mypage/detail_writingMode"><button>글쓰기</button></a>
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
                 <p>조회수 10</p>
               </div>
               <div class="list-date">
-                <p>작성일 : 2024년 12월 12일</p>
+                <p th:text="${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 HH시 mm분')}"></p>
               </div>
               <div class="list-text">
                 <p th:text="${board.boardContent}">
