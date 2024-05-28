@@ -1,0 +1,67 @@
+2024-05-28 20:22:20.664 - DBeaver 23.2.5.202311191730 is starting
+2024-05-28 20:22:20.665 - OS: Windows 11 10.0 (amd64)
+2024-05-28 20:22:20.665 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
+2024-05-28 20:22:20.666 - Install path: 'C:\Program Files\DBeaver'
+2024-05-28 20:22:20.666 - Instance path: 'file:/D:/web_1300_jyg/geungeunhanjan/workspace/geungeunhanjan/ERD/'
+2024-05-28 20:22:20.667 - Memory available 64Mb/1024Mb
+2024-05-28 20:22:20.685 - Create display
+2024-05-28 20:22:20.868 - Initializing DBeaver 23.2.5
+2024-05-28 20:22:20.870 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 23.2.5.202311191730
+2024-05-28 20:22:20.871 - Initialize desktop platform...
+2024-05-28 20:22:21.114 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.10.100.v20230717-1727]
+> Start Core Resource Management [org.eclipse.core.resources 3.19.100.v20230814-1312]
+> Start Team Support Core [org.eclipse.team.core 3.10.100.v20230726-0617]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.119.202311191730]
+2024-05-28 20:22:21.456 - Initialize base platform...
+2024-05-28 20:22:21.486 - Platform initialized (615ms)
+2024-05-28 20:22:21.545 - Starting instance server at http://localhost:53482
+2024-05-28 20:22:21.555 - Run workbench
+> Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.134.202311191730]
+> Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.17.100.v20230727-0604]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.4.100.v20230708-0809]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.6.100.v20230630-1554]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.4.100.v20230727-0604]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.14.100.v20230630-1554]
+> Start Eclipse e4 core commands [org.eclipse.e4.core.commands 1.1.100.v20230630-1554]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.35.0.v20230801-1141]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.14.100.v20230727-0604]
+> Start Eclipse e4 Workbench Add-ons [org.eclipse.e4.ui.workbench.addons.swt 1.5.100.v20230727-0604]
+> Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.16.100.v20230801-1255]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.0.v20230429-1914]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.100.v20230727-0604]
+2024-05-28 20:22:23.934 - Configure workbench window
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.109.202311191730]
+2024-05-28 20:22:24.104 - Total database drivers: 107 (107)
+> Start Help System Core [org.eclipse.help 3.10.100.v20230726-0617]
+2024-05-28 20:22:24.214 - Create actions
+2024-05-28 20:22:24.220 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2024-05-28 20:22:24.220 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2024-05-28 20:22:24.222 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+> Start jna [com.sun.jna 5.13.0.v20230812-1000]
+2024-05-28 20:22:25.086 - Initialize workbench window
+2024-05-28 20:22:25.093 - Finish initialization
+> Start Default Text Editor [org.eclipse.ui.editors 3.17.0.v20230821-1342]
+> Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.17.100.v20230821-0745]
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.119.202311191730]
+> Start Internet Connection Management UI [org.eclipse.ui.net 1.5.100.v20230726-0617]
+> Start Internet Connection Management [org.eclipse.core.net 1.5.100.v20230630-1232]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.119.202311191730]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.156.202311191730]
+> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.125.202311191730]
+> Start GEF Classic Draw2d [org.eclipse.draw2d 3.14.0.202308311129]
+> Start GEF Classic GEF (MVC) [org.eclipse.gef 3.15.0.202308311129]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.79.202311191730]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.79.202311191730]
+2024-05-28 20:22:27.539 - Connect with 'localhost' (oracle_thin-18f9ae69c16-f4c9a895e93e61c)
+> Start DBeaver JDBC Model [org.jkiss.dbeaver.model.jdbc 1.0.12.202311191730]
+> Start DBeaver Oracle Model [org.jkiss.dbeaver.ext.oracle 2.1.204.202311191730]
+2024-05-28 20:22:27.638 - Execution context opened (localhost; Main; 0)
+2024-05-28 20:22:28.825 - Execution context opened (localhost; Metadata; 1)
+2024-05-28 20:22:28.980 - Connected (oracle_thin-18f9ae69c16-f4c9a895e93e61c, Oracle JDBC driver [12.2.0.1.0])
+> Start ICU4J Base [com.ibm.icu.base 58.2.0.v20170418-1837]
+> Start DBeaver Oracle UI [org.jkiss.dbeaver.ext.oracle.ui 1.0.106.202311191730]
+2024-05-28 20:22:31.384 - Can't get column 'COLUMN_NAMES_NUMS': Invalid column name
+2024-05-28 20:23:07.545 - DBeaver is stopping
+2024-05-28 20:23:07.546 - Stop instance server
+2024-05-28 20:23:08.547 - DBeaver shutdown completed

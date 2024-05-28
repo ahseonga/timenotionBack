@@ -15,7 +15,15 @@ public class BoardServiceImple implements BoardService {
         this.boardMapper = boardMapper;
     }
 
+    //게시글 등록하기
+    @Override
+    public int insertBoard(BoardVO boardVO) {
+//        boardVO.setBoardId(boardVO.getBoardId());
+        int cnt = boardMapper.insertBoard(boardVO);
+        return cnt;
+    }
 
+    //특정 회원의 게시글 보기(마이페이지)
     @Override
     public List<BoardVO> selectBoard(Long userId) {
         return boardMapper.selectBoard(userId);
