@@ -80,3 +80,4 @@
 > Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.97.202311191730]
 2024-05-28 20:29:46.915 - Execution context opened (localhost; SQLEditor <insertData.sql>; 3)
 > Start DBeaver SQL Language Semantic Model [org.jkiss.dbeaver.model.lsm 1.0.14.202311191730]
+2024-05-28 20:43:11.808 - Execution context opened (localhost; SQLEditor <Create.sql>; 4)
