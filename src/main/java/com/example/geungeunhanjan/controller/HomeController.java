@@ -98,17 +98,7 @@ public class HomeController {
     }
 
 
-    @GetMapping("/detail_writingMode")
-    public String detailWritingMode(HttpSession session) {
-        // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/login";
-        }
-        return "myLife/detail_writingMode";
-    }
-
-    @GetMapping("/detail-my")
+    @GetMapping("/mypage/detail_writingMode")
     public String detailMy(Model model, HttpSession session) {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");

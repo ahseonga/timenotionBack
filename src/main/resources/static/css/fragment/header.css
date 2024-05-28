@@ -120,5 +120,5 @@ header {
 .logout-img-box img {
   width: 45%;
   height: 60%;
-  object-fit: cover;
+  /*object-fit: cover;*/
 }
