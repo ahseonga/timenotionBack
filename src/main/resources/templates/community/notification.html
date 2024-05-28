@@ -24,13 +24,10 @@
                     <button type="button">공지</button>
                 </span>
                 <span class="inquiry-title">
-<<<<<<< HEAD
-                    <button type="button" onClick="location.href='/community/inquiry'">문의</button>
-=======
+
 <!--                    <button type="button" onClick="location.href='/main/inquiry'">문의</button>-->
                     <button type="button" th:onclick="|location.href='@{/main/inquiry}'|">문의</button>
 
->>>>>>> mdj
                 </span>
             </div>
             <div class="notification-title-hr"><hr></div>
@@ -52,11 +49,9 @@
                 <div class="contents-prev-content">
                     <span class="contents-number" th:text="${notice.noticeId}"></span>
                     <span class="contents-title">
-<<<<<<< HEAD
-                        <a href="/community/notification/community_detail">우리 모두 화이팅^^~</a>
-=======
+
                         <a th:href="@{/community/notification/community_detail/{noticeId}(noticeId=${notice.noticeId})}" th:text="${notice.noticeTitle}"></a>
->>>>>>> mdj
+
                     </span>
                 </div>
                 <div class="contents-next-content">

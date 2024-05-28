@@ -17,11 +17,7 @@
   <div th:replace="~{/fragment/header::header}"></div>
     <div id="wrapper">
 
-<<<<<<< HEAD
 
-        <!-- 헤더 끝-========================================================================== -->
-=======
->>>>>>> mdj
       <main>
         <div class="container">
           <!-- 1. 타이틀 글자 부분 -->
@@ -42,15 +38,10 @@
                 <!-- 2-1-1. 왼쪽 -->
 <!--                팔로워는 나를 누군가가 팔로우한 상태를 뜻한다 -->
                 <div class="flwers-left">
-<<<<<<< HEAD
-                  <a href="/yourLife/userpage">
-                    <div class="flwers-img-box">
-                      <img src="./../../img/main/봉준호 (3).jpg" alt="" />
-=======
                   <a href="./../../HTML/myLife/userpage.html">
                     <div class="flwers-img-box"  th:each=" file : ${files}" >
                       <img  th:src="${file.fileProfileSource}" alt="" />
->>>>>>> mdj
+
                     </div>
                     <div class="flwers-nick-count-box">
                       <span class="nickname"  th:text="${follower.userNickname}">nickname</span>
@@ -78,15 +69,11 @@
               <div class="flwers-box"  th:each=" following : ${followings}">
                 <!-- 2-1-1. 왼쪽 -->
                 <div class="flwers-left">
-<<<<<<< HEAD
-                  <a href="/yourLife/userpage">
-                    <div class="flwers-img-box">
-                      <img src="./../../img/main/봉준호 (3).jpg" alt="" />
-=======
+
                   <a href="./../../HTML/myLife/userpage.html" >
                     <div class="flwers-img-box"   th:each=" file : ${files}">
                       <img  th:src="${file.fileProfileSource}"  alt="" />
->>>>>>> mdj
+
                     </div>
                     <div class="flwers-nick-count-box">
                       <span class="nickname" th:text="${following.userNickname}">nickname</span>

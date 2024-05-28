@@ -2,11 +2,9 @@ package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.dto.FollowDTO;
 import com.example.geungeunhanjan.domain.vo.BoardVO;
-<<<<<<< HEAD
 import com.example.geungeunhanjan.domain.vo.UserVO;
-=======
 import com.example.geungeunhanjan.domain.vo.FileVO;
->>>>>>> mdj
+
 import com.example.geungeunhanjan.service.BoardService;
 import com.example.geungeunhanjan.service.FollowService;
 import org.springframework.stereotype.Controller;
@@ -20,20 +18,17 @@ import java.util.List;
 public class HomeController {
 
     private final BoardService boardService;
-<<<<<<< HEAD
     private final UserVO userVO;
-
-    public HomeController(BoardService boardService, UserVO userVO) {
-        this.boardService = boardService;
-        this.userVO = userVO;
-=======
     private final FollowService followService;
 
-    public HomeController(BoardService boardService,  FollowService followService) {
+    public HomeController(BoardService boardService, UserVO userVO,  FollowService followService) {
         this.boardService = boardService;
+        this.userVO = userVO;
         this.followService = followService;
->>>>>>> mdj
     }
+
+
+
 
     @GetMapping
     public String index() {
