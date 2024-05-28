@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class InquiryServiceImpe implements InquiryService {
+public class InquiryServiceImlpe implements InquiryService {
 
     //주입
     private  final InquiryMapper inquiryMapper;
 
-    public InquiryServiceImpe(InquiryMapper inquiryMapper) {this.inquiryMapper = inquiryMapper;}
+    public InquiryServiceImlpe(InquiryMapper inquiryMapper) {this.inquiryMapper = inquiryMapper;}
 
 
 

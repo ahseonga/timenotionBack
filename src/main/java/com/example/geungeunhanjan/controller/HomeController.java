@@ -23,23 +23,16 @@ public class HomeController {
     // HttpSession만 빼면 됩니다
 
     private final BoardService boardService;
-<<<<<<< HEAD
     private final UserService userService;
     private final InquiryService inquiryService;
 //    private final HttpSession session;
-
-    public HomeController(BoardService boardService, UserService userService, InquiryService inquiryService) {
-        this.boardService = boardService;
-        this.userService = userService;
-//        this.session = session.getAttribute("userId");
-        this.inquiryService = inquiryService;
-=======
     private final UserVO userVO;
 
-    public HomeController(BoardService boardService, UserVO userVO) {
+    public HomeController(BoardService boardService, UserService userService, InquiryService inquiryService, UserVO userVO) {
         this.boardService = boardService;
+        this.userService = userService;
+        this.inquiryService = inquiryService;
         this.userVO = userVO;
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
     }
 
     @GetMapping
@@ -75,24 +68,18 @@ public class HomeController {
 
 //    마이페이지에서 내가 쓴 게시글 리스트 뽑기
     @GetMapping("/mypage")
-<<<<<<< HEAD
     public String mypage(Model model, HttpSession session) {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/login";
         }
-
         List<BoardVO> boards = boardService.selectBoard(userId);
-=======
-    public String mypage(Model model){
-//        List<BoardVO> boards = boardService.selectBoard(userVO.getUserId());
-        List<BoardVO> boards = boardService.selectBoard(1L);
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
         model.addAttribute("boards", boards);
+
         return "myLife/mypage";
     }
-<<<<<<< HEAD
+
 
     @GetMapping("/detail_writingMode")
     public String detailWritingMode(HttpSession session) {
@@ -105,18 +92,15 @@ public class HomeController {
     }
 
     @GetMapping("/detail-my")
-    public String detailMy(HttpSession session) {
+    public String detailMy(Model model, HttpSession session) {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/login";
         }
-=======
-//    게시글 작성페이지로 들어가기
-    @GetMapping("/mypage/detail_writingMode")
-    public String detailWritingMode(Model model){
         model.addAttribute("boardVO",new BoardVO());
         return "myLife/detail_writingMode";
+//    게시글 작성페이지로 들어가기
     }
 
 //    작성한 게시글 db저장
@@ -130,7 +114,6 @@ public class HomeController {
 
     @GetMapping("/mypage/detail-my")
     public String detailMy(){
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
         return "myLife/detail-my";
     }
 
