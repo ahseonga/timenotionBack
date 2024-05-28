@@ -15,17 +15,23 @@
   <div class="header-wrapper" th:fragment="header">
     <div class="header-left">
       <div class="logo-box">
+<<<<<<< HEAD
         <a href="/main">
           <img src="./../../img/main/timenotion.png" alt="로고 사진 넣어주세요"/>
+=======
+        <a href="../main/index.html">
+<!--        <img src="./../../img/main/timenotion.png" alt="로고 사진 넣어주세요"-->
+          <img th:src="@{/img/main/timenotion.png}" alt="로고 사진 넣어주세요"/>
+>>>>>>> mdj
         </a>
       </div>
       <div class="category-box">
         <ul>
           <li><a href="/main/about">about</a></li>
           <li><a href="/main/mypage">나의 일대기</a></li>
-          <li><a href="/main/yourLife">너의 일대기</a></li>
+          <li><a th:href="@{/main/yourLife}">너의 일대기</a></li>
           <li><a href="/main/everyLife">모두의 일대기</a></li>
-          <li><a href="/main/inquiry">커뮤니티</a></li>
+          <li><a th:href="@{/main/inquiry}">커뮤니티</a></li>
         </ul>
       </div>
     </div>
@@ -33,13 +39,16 @@
       <!-- 로그인 전 ----------- -->
       <div class="login-box">
         <a href="./../user/login.html" class="login-wrap">
-          <div class="header-img-box"><img src="./../../img/main/로그인.png" alt=""/></div>
+<!--          <div class="header-img-box"><img src="./../../img/main/로그인.png" alt=""/></div>-->
+          <div class="header-img-box"><img th:src="@{/img/main/로그인.png}" alt=""/></div>
           <span>로그인</span>
         </a>
       </div>
       <div class="regist-box">
         <a href="./../user/join.html" class="regist-wrap">
-          <div class="header-img-box"><img src="./../../img/main/회원가입.png" alt=""/></div>
+<!--          <div class="header-img-box"><img src="./../../img/main/회원가입.png" alt=""/></div>-->
+          <div class="header-img-box"><img th:src="@{/img/main/회원가입.png}" alt=""/></div>
+
           <span>회원가입</span>
         </a>
       </div>

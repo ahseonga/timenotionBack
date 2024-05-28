@@ -1,8 +1,14 @@
 package com.example.geungeunhanjan.controller;
 
+import com.example.geungeunhanjan.domain.dto.FollowDTO;
 import com.example.geungeunhanjan.domain.vo.BoardVO;
+<<<<<<< HEAD
 import com.example.geungeunhanjan.domain.vo.UserVO;
+=======
+import com.example.geungeunhanjan.domain.vo.FileVO;
+>>>>>>> mdj
 import com.example.geungeunhanjan.service.BoardService;
+import com.example.geungeunhanjan.service.FollowService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +20,19 @@ import java.util.List;
 public class HomeController {
 
     private final BoardService boardService;
+<<<<<<< HEAD
     private final UserVO userVO;
 
     public HomeController(BoardService boardService, UserVO userVO) {
         this.boardService = boardService;
         this.userVO = userVO;
+=======
+    private final FollowService followService;
+
+    public HomeController(BoardService boardService,  FollowService followService) {
+        this.boardService = boardService;
+        this.followService = followService;
+>>>>>>> mdj
     }
 
     @GetMapping
@@ -61,7 +75,20 @@ public class HomeController {
     }
 
     @GetMapping("/yourLife")
-    public String yourLife(){
+    public String yourLife(Model model){
+
+        List<FollowDTO> followers = followService.selectFollower();
+        model.addAttribute("followers", followers);
+
+        List<FollowDTO> followings = followService.selectFollowing();
+        model.addAttribute("followings", followings);
+
+        List<FileVO> files = followService.selectFile();
+        model.addAttribute("files", files);
+
+        List<FollowDTO> boards = followService.selectBoardCount();
+        model.addAttribute("boards", boards);
+
         return "yourLife/yourLife";
     }
 
@@ -70,9 +97,12 @@ public class HomeController {
         return "everyLife/everyLife";
     }
 
+//    @GetMapping("/inquiry")
+//    public String inquiry() {
+//        return "community/inquiry";
+//    }
+
     @GetMapping("/inquiry")
-    public String inquiry() {
-        return "community/inquiry";
-    }
+    public String community() {return "community/inquiry";}
 
 }
