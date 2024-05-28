@@ -17,7 +17,6 @@ public class CommunityController {
     private final NoticeService noticeService;
     @GetMapping("/inquiry")
     public String community() {
-
         return "community/inquiry";
 
     }
@@ -47,9 +46,6 @@ public class CommunityController {
 
         return "community/community_detail";
     }
-
-
-
 
 
 }

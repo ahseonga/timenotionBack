@@ -97,7 +97,8 @@ public class HomeController {
 //        return "community/inquiry";
 //    }
 
-    @GetMapping("/inquiry")
-    public String community() {return "community/inquiry";}
+
+
+
 
 }
