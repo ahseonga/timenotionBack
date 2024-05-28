@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
+<<<<<<< HEAD:.metadata/.plugins/org.jkiss.dbeaver.core/column_settings.xml
 	<item id="NodeList/DataSourceDescriptor">
 		<column name="이름" visible="true" order="0" width="100"/>
 		<column name="설명" visible="true" order="1" width="100"/>
@@ -8,6 +9,29 @@
 	</item>
 	<item id="NodeList/OracleSchema">
 		<column name="Name" visible="true" order="0" width="174"/>
+=======
+	<item id="NodeList/DBNProjectDatabases/DBNBookmarkFolder/DBNDiagramFolder/DBNResource">
+		<column name="Name" visible="true" order="0" width="107"/>
+		<column name="Path" visible="true" order="1" width="150"/>
+		<column name="Size" visible="true" order="2" width="100"/>
+		<column name="Last modified" visible="true" order="3" width="106"/>
+	</item>
+	<item id="NodeList/DBNResource">
+		<column name="Name" visible="true" order="0" width="158"/>
+		<column name="Path" visible="true" order="1" width="259"/>
+		<column name="Size" visible="true" order="2" width="100"/>
+		<column name="Last modified" visible="true" order="3" width="175"/>
+	</item>
+	<item id="NodeList/OracleSequence">
+		<column name="Sequence Name" visible="true" order="0" width="141"/>
+		<column name="Value" visible="true" order="1" width="100"/>
+		<column name="Min Value" visible="true" order="2" width="100"/>
+		<column name="Max Value" visible="true" order="3" width="265"/>
+		<column name="Increment" visible="true" order="4" width="100"/>
+		<column name="Cache" visible="true" order="5" width="100"/>
+		<column name="Cycle" visible="true" order="6" width="100"/>
+		<column name="Ordered" visible="true" order="7" width="100"/>
+>>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a:ERD/.metadata/.plugins/org.jkiss.dbeaver.core/column_settings.xml
 	</item>
 	<item id="NodeList/OracleTable">
 		<column name="Name" visible="true" order="0" width="100"/>
@@ -30,7 +54,11 @@
 		<column name="Comment" visible="true" order="6" width="100"/>
 	</item>
 	<item id="Suggestion/NodeList/OracleTableColumn">
+<<<<<<< HEAD:.metadata/.plugins/org.jkiss.dbeaver.core/column_settings.xml
 		<column name="컬럼명" visible="true" order="0" width="187"/>
+=======
+		<column name="Column Name" visible="true" order="0" width="195"/>
+>>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a:ERD/.metadata/.plugins/org.jkiss.dbeaver.core/column_settings.xml
 		<column name="#" visible="true" order="1" width="33"/>
 		<column name="Type" visible="true" order="2" width="131"/>
 		<column name="Type Mod" visible="false" order="3" width="100"/>

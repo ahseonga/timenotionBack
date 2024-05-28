@@ -1,0 +1,46 @@
+--시퀀스
+select SEQ_BOARD.NEXTVAL FROM DUAL;
+
+-- 게시판 정보 불러오기 
+--        SELECT *
+--        FROM GGHJ_BOARD
+--        WHERE USER_ID = #{userId}
+        
+SELECT *
+FROM GGHJ_BOARD 
+WHERE USER_ID = 1 ;
+
+--게시판 데이터 입력하기
+
+-- INSERT INTO GGHJ_BOARD (BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE, BOARD_UPDATED_DATE
+--                               , BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, USER_ID)
+--        VALUES  (#{boardId},#{boardTitle},#{boardContent},#{boardPublic},SYSDATE,SYSDATE
+--                ,#{boardViewCount},#{boardLifeCycle},#{boardLikeCount},#{userId})
+
+
+
+
+<!-- 특정 글 삭제 -->
+--        DELETE
+--        FROM post
+--        WHERE USER_ID = #{id}
+
+DELETE  FROM GGHJ_BOARD WHERE USER_ID = 1;
+        
+        
+<!-- 글 수정 -->
+--   UPDATE post
+--           SET title   = #{title}
+--             , content = #{content}
+--         WHERE id = #{id}
+
+UPDATE GGHJ_BOARD 
+SET BOARD_TITLE  , BOARD_CONTENT 
+WHERE USER_ID = 1;
+         
+         
+
+  SELECT *
+        FROM GGHJ_BOARD
+        WHERE  BOARDLIFECYCLE= 유아기
+    
