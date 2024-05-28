@@ -11,6 +11,7 @@
     <script defer src="./../../js/fragment/headerFetch.js"></script>
     <!-- <link rel="stylesheet" href="./../../css/community/inquiry.css"> -->
     <script defer src="./../../js/community/notification.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:replace="~{/fragment/header::header}"></div>
@@ -23,7 +24,9 @@
                     <button type="button">공지</button>
                 </span>
                 <span class="inquiry-title">
-                    <button type="button" onClick="location.href='inquiry.html'">문의</button>
+<!--                    <button type="button" onClick="location.href='/main/inquiry'">문의</button>-->
+                    <button type="button" th:onclick="|location.href='@{/main/inquiry}'|">문의</button>
+
                 </span>
             </div>
             <div class="notification-title-hr"><hr></div>
@@ -40,102 +43,21 @@
                     <span class="contents-date">작성일</span>
                 </div> 
             </div>
-            <div class="notification-contents">
+<!--            리스트  -->
+            <div class="notification-contents" th:each="notice : ${notices}" >
                 <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
+                    <span class="contents-number" th:text="${notice.noticeId}"></span>
                     <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
+                        <a th:href="@{/community/notification/community_detail/{noticeId}(noticeId=${notice.noticeId})}" th:text="${notice.noticeTitle}"></a>
                     </span>
                 </div>
                 <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
+                    <span class="contents-writer" th:text="${notice.nickname}">닉네임</span>
+                    <span class="contents-date" th:text="${#temporals.format(notice.noticeCreatedDate, 'yyyy.MM.dd')}"></span>
                 </div> 
             </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="notification-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <a href="community_detail.html">우리 모두 화이팅^^~</a>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
+
+
         </div>
         <!-- 페이징 처리위한 숫자와 기호 -->
         <div class="notification-paging">
@@ -151,7 +73,7 @@
             <div class="notification-banner-img">
                 <a href="#"><img src="./../../img/community/community_banner1.png" alt="배너이미지"></a>
             </div>
-            <div class="notification-banner-img">
+            <div class="notification-banner-img">-->
                 <a href="#"><img src="./../../img/community/community_banner7.png" alt="배너이미지"></a>
             </div>
             <div class="notification-banner-img">
@@ -164,9 +86,10 @@
                 <a href="#"><img src="./../../img/community/community_banner10.png" alt="배너이미지"></a>
             </div>
         </div>
-        <div class="notification-prev prev">&lt;</div>
-        <div class="notification-next next">&gt;</div>
+        <div class="notification-prev prev">&lt;</div><div class="notification-next next">&gt;</div>
+
     </div>
+
     <footer></footer>
     </div>
 </body>

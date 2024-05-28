@@ -16,50 +16,7 @@
   <body>
   <div th:replace="~{/fragment/header::header}"></div>
     <div id="wrapper">
-        <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
 
-          <div class="header-wrapper">
-            <div class="header-left">
-              <div class="logo-box">
-                <a href="../main/main.html"
-                  ><img src="./../../img/main/timenotion.png" alt="로고 사진 넣어주세요"
-                /></a>
-              </div>
-              <div class="category-box">
-                <ul>
-                  <li><a href="#">about</a></li>
-                  <li><a href="./../myLife/mypage.html">나의 일대기</a></li>
-                  <li><a href="./../yourLife/yourLife.html">너의 일대기</a></li>
-                  <li><a href="./../everyLife/everyLife.html">모두의 일대기</a></li>
-                  <li><a href="./../community/inquiry.html">커뮤니티</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="header-right">
-              <!-- 로그인 전 ----------- -->
-              <div class="login-box">
-                <a href="./../user/login.html" class="login-wrap">
-                  <div class="header-img-box"><img src="./../../img/main/로그인.png" alt="" /></div>
-                  <span>로그인</span>
-                </a>
-              </div>
-              <div class="regist-box">
-                <a href="./../user/join.html" class="regist-wrap">
-                  <div class="header-img-box"><img src="./../../img/main/회원가입.png" alt="" /></div>
-                  <span>회원가입</span>
-                </a>
-              </div>
-              <!-- 로그인 후 ------------ .logout-box : display : none -->
-              <div class="logout-box">
-                <a href="#" class="logout-wrap">
-                  <div class="logout-img-box"><img src="./../../img/main/로그아웃.png" alt="" /></div>
-                  <span>로그아웃</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </header>
-        <!-- 헤더 끝-========================================================================== -->
       <main>
         <div class="container">
           <!-- 1. 타이틀 글자 부분 -->
@@ -76,18 +33,19 @@
 
 
               <!--☆★☆★☆★☆★ 이 박스가 한 개 ☆★☆★☆★☆★-->
-              <div class="flwers-box">
+              <div class="flwers-box" th:each=" follower : ${followers}" >
                 <!-- 2-1-1. 왼쪽 -->
+<!--                팔로워는 나를 누군가가 팔로우한 상태를 뜻한다 -->
                 <div class="flwers-left">
                   <a href="./../../HTML/myLife/userpage.html">
-                    <div class="flwers-img-box">
-                      <img src="./../../img/main/봉준호 (3).jpg" alt="" />
+                    <div class="flwers-img-box"  th:each=" file : ${files}" >
+                      <img  th:src="${file.fileProfileSource}" alt="" />
                     </div>
                     <div class="flwers-nick-count-box">
-                      <span class="nickname">nickname</span>
-                      <div class="count-box">
-                        <span>일기</span><span class="life-count bold">25</span><span>팔로워</span
-                        ><span class="follower-count bold">105</span>
+                      <span class="nickname"  th:text="${follower.userNickname}">nickname</span>
+                      <div class="count-box"   th:each=" board : ${boards}">
+                        <span>일기</span><span class="life-count bold"  th:text="${board.boardCount}">25</span><span>팔로워</span
+                        ><span class="follower-count bold"  th:text="${follower.followerCount}">105</span>
                       </div>
                     </div>
                   </a>
@@ -105,18 +63,19 @@
             <div class="flwers-wrapper">
               <div class="title">팔로잉</div>
               <!--☆★☆★☆★☆★ 이 박스가 한 개 ☆★☆★☆★☆★-->
-              <div class="flwers-box">
+<!--              팔로잉은 내가 그사람을 팔로우 했을때 값이 증가한다 -->
+              <div class="flwers-box"  th:each=" following : ${followings}">
                 <!-- 2-1-1. 왼쪽 -->
                 <div class="flwers-left">
-                  <a href="./../../HTML/myLife/userpage.html">
-                    <div class="flwers-img-box">
-                      <img src="./../../img/main/봉준호 (3).jpg" alt="" />
+                  <a href="./../../HTML/myLife/userpage.html" >
+                    <div class="flwers-img-box"   th:each=" file : ${files}">
+                      <img  th:src="${file.fileProfileSource}"  alt="" />
                     </div>
                     <div class="flwers-nick-count-box">
-                      <span class="nickname">nickname</span>
-                      <div class="count-box">
-                        <span>일기</span><span class="life-count bold">25</span><span>팔로워</span
-                        ><span class="follower-count bold">105</span>
+                      <span class="nickname" th:text="${following.userNickname}">nickname</span>
+                      <div class="count-box"  th:each=" board : ${boards}">
+                        <span>일기</span><span class="life-count bold" th:text="${board.boardCount}">25</span><span>팔로워</span
+                        ><span class="follower-count bold" th:text="${following.followerCount}">105</span>
                       </div>
                     </div>
                   </a>
@@ -141,48 +100,9 @@
         </div>
       </main>
 
-      <footer>
-        <div class="footer-wrapper">
-          <!-- 상단 링크박스 --------------- -->
-          <div class="ft-linkbox">
-            <ul class="ft-linkbox-ul">
-              <li><a href="#">회사소개</a></li>
-              <li><a href="#">이용약관</a></li>
-              <li><a href="#">공지사항</a></li>
-              <li><a href="#">입점신청</a></li>
-              <li><a href="#">개인정보 처리방침</a></li>
-              <li><a href="#">고객문의</a></li>
-            </ul>
-          </div>
-          <div class="underline"></div>
-          <!-- 하단 정보 ------------------ -->
-          <div class="ft-info">
-            <!-- 왼쪽 -->
-            <div class="ft-info-left">
-              <div>타임노션</div>
-              <div>
-                대표 : 근근한잔 | 서울시 강남구 역삼동 테헤란로 어딘가 | 사업자등록번호 334-22-9987
-              </div>
-              <div>Email : geungeun-one-shot@gmail.com</div>
-              <div>추억을 기록하는 사이트, 무언가 제법 있어보이는 사이트</div>
-              <div class="ft-box1">운영시간 : 월~금 09:00 ~ 18:00</div>
-            </div>
-            <!-- 가운데 -->
-            <div class="ft-info-middle">
-              <div class="ft-call-number">고객센터 1588-1122</div>
-              <div class="ft-call-time">운영시간 : 월~금 09:00 ~ 18:00, 주말 휴무</div>
-              <div class="title-sns">Company SNS</div>
-              <div class="box-sns">
-                <a href="#"><div class="sns"><span>instagram</span></div></a>
-                <a href="#"><div class="sns"><span>facebook</span></div></a>
-                <a href="#"><div class="sns"><span>kakao</span></div></a>
-              </div>
-            </div>
-            <!-- 오른쪽 -->
-            <div class="ft-info-right"></div>
-          </div>
-        </div>
-      </footer>
+<!--      <footer>-->
+<!--        -->
+<!--      </footer>-->
     </div>
   </body>
 </html>
