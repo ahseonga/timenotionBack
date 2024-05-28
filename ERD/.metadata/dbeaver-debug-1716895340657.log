@@ -1,0 +1,172 @@
+2024-05-28 19:29:15.077 - DBeaver 23.2.5.202311191730 is starting
+2024-05-28 19:29:15.078 - OS: Windows 11 10.0 (amd64)
+2024-05-28 19:29:15.078 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
+2024-05-28 19:29:15.079 - Install path: 'C:\Program Files\DBeaver'
+2024-05-28 19:29:15.079 - Instance path: 'file:/D:/web_1300_jyg/geungeunhanjan/workspace/geungeunhanjan/ERD/'
+2024-05-28 19:29:15.079 - Memory available 64Mb/1024Mb
+2024-05-28 19:29:15.090 - Create display
+2024-05-28 19:29:15.241 - Initializing DBeaver 23.2.5
+2024-05-28 19:29:15.242 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 23.2.5.202311191730
+2024-05-28 19:29:15.243 - Initialize desktop platform...
+2024-05-28 19:29:15.455 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.10.100.v20230717-1727]
+> Start Core Resource Management [org.eclipse.core.resources 3.19.100.v20230814-1312]
+> Start Team Support Core [org.eclipse.team.core 3.10.100.v20230726-0617]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.119.202311191730]
+2024-05-28 19:29:15.828 - Initialize base platform...
+2024-05-28 19:29:15.850 - Platform initialized (607ms)
+2024-05-28 19:29:16.159 - Error accessing instance server: java.net.ConnectException
+2024-05-28 19:29:16.183 - Starting instance server at http://localhost:53051
+2024-05-28 19:29:16.202 - Run workbench
+> Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.134.202311191730]
+> Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.17.100.v20230727-0604]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.4.100.v20230708-0809]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.6.100.v20230630-1554]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.4.100.v20230727-0604]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.14.100.v20230630-1554]
+> Start Eclipse e4 core commands [org.eclipse.e4.core.commands 1.1.100.v20230630-1554]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.35.0.v20230801-1141]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.14.100.v20230727-0604]
+> Start Eclipse e4 Workbench Add-ons [org.eclipse.e4.ui.workbench.addons.swt 1.5.100.v20230727-0604]
+> Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.16.100.v20230801-1255]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.0.v20230429-1914]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.100.v20230727-0604]
+2024-05-28 19:29:26.658 - Configure workbench window
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.109.202311191730]
+2024-05-28 19:29:26.880 - Total database drivers: 107 (107)
+> Start Help System Core [org.eclipse.help 3.10.100.v20230726-0617]
+2024-05-28 19:29:27.028 - Create actions
+2024-05-28 19:29:27.034 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2024-05-28 19:29:27.035 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2024-05-28 19:29:27.035 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+> Start jna [com.sun.jna 5.13.0.v20230812-1000]
+2024-05-28 19:29:28.474 - Initialize workbench window
+2024-05-28 19:29:28.479 - Finish initialization
+> Start Default Text Editor [org.eclipse.ui.editors 3.17.0.v20230821-1342]
+> Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.17.100.v20230821-0745]
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.119.202311191730]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.119.202311191730]
+> Start DBeaver SQL Terminal [org.jkiss.dbeaver.ui.editors.sql.terminal 1.0.95.202311191730]
+> Start Core Compare Support [org.eclipse.compare.core 3.8.100.v20230726-0617]
+> Start Internet Connection Management UI [org.eclipse.ui.net 1.5.100.v20230726-0617]
+> Start Internet Connection Management [org.eclipse.core.net 1.5.100.v20230630-1232]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.156.202311191730]
+> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.125.202311191730]
+> Start GEF Classic Draw2d [org.eclipse.draw2d 3.14.0.202308311129]
+> Start GEF Classic GEF (MVC) [org.eclipse.gef 3.15.0.202308311129]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.79.202311191730]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.79.202311191730]
+> Start DBeaver JDBC Model [org.jkiss.dbeaver.model.jdbc 1.0.12.202311191730]
+> Start DBeaver Oracle Model [org.jkiss.dbeaver.ext.oracle 2.1.204.202311191730]
+> Start Console [org.eclipse.ui.console 3.13.0.v20230726-0617]
+> Start Debug Core [org.eclipse.debug.core 3.21.100.v20230731-1425]
+2024-05-28 19:29:32.698 - Connect with 'localhost' (oracle_thin-18f9ae69c16-f4c9a895e93e61c)
+2024-05-28 19:29:32.735 - Execution context opened (localhost; Main; 0)
+2024-05-28 19:29:33.899 - Execution context opened (localhost; Metadata; 1)
+2024-05-28 19:29:34.046 - Connected (oracle_thin-18f9ae69c16-f4c9a895e93e61c, Oracle JDBC driver [12.2.0.1.0])
+2024-05-28 19:29:34.222 - Execution context opened (localhost; SQLEditor <select.sql>; 2)
+> Start DBeaver Tasks - Native Tools UI [org.jkiss.dbeaver.tasks.native.ui 1.0.97.202311191730]
+> Start DBeaver Oracle UI [org.jkiss.dbeaver.ext.oracle.ui 1.0.106.202311191730]
+> Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.97.202311191730]
+> Start DBeaver SQL Language Semantic Model [org.jkiss.dbeaver.model.lsm 1.0.14.202311191730]
+> Start DBeaver SQL Server Model [org.jkiss.dbeaver.ext.mssql 1.0.213.202311191730]
+> Start DBeaver SQLite Model [org.jkiss.dbeaver.ext.sqlite 1.0.168.202311191730]
+> Start DBeaver Generic Plug-in [org.jkiss.dbeaver.ext.generic 2.3.205.202311191730]
+2024-05-28 20:18:23.681 - Can't get column 'EXTERNAL_NAME': Invalid column name
+2024-05-28 20:18:23.683 - Can't get column 'ACCOUNT_STATUS': Invalid column name
+2024-05-28 20:18:23.683 - Can't get column 'LOCK_DATE': Invalid column name
+2024-05-28 20:18:23.683 - Can't get column 'EXPIRY_DATE': Invalid column name
+2024-05-28 20:18:23.684 - Can't get column 'DEFAULT_TABLESPACE': Invalid column name
+2024-05-28 20:18:23.684 - Can't get column 'TEMPORARY_TABLESPACE': Invalid column name
+2024-05-28 20:18:23.684 - Can't get column 'PROFILE': Invalid column name
+2024-05-28 20:18:23.684 - Can't get column 'INITIAL_RSRC_CONSUMER_GROUP': Invalid column name
+2024-05-28 20:18:26.763 - Core Exception caught while reading saved collapsed folding positions
+org.eclipse.core.internal.resources.ResourceException(/General/Scripts/geungeunhanjan.sql)[368]: java.lang.Exception: Resource '/General/Scripts/geungeunhanjan.sql' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:367)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:241)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:247)
+	at org.eclipse.core.internal.resources.Resource.getPersistentProperty(Resource.java:1172)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.getSavedCollapsedAnnotationsOffsets(SQLReconcilingStrategy.java:126)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.reconcile(SQLReconcilingStrategy.java:250)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.onDataSourceChange(SQLReconcilingStrategy.java:188)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorSourceViewerConfiguration.onDataSourceChange(SQLEditorSourceViewerConfiguration.java:421)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.reloadSyntaxRules(SQLEditorBase.java:818)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.reloadSyntaxRules(SQLEditor.java:3339)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.lambda$20(SQLEditor.java:2214)
+	at org.jkiss.dbeaver.ui.UIExecutionQueue.executeInUI(UIExecutionQueue.java:68)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4047)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3663)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:645)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:552)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.jkiss.dbeaver.ui.app.standalone.DBeaverApplication.start(DBeaverApplication.java:280)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+2024-05-28 20:18:26.792 - Core Exception caught while reading saved collapsed folding positions
+org.eclipse.core.internal.resources.ResourceException(/General/Scripts/geungeunhanjan.sql)[368]: java.lang.Exception: Resource '/General/Scripts/geungeunhanjan.sql' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:367)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:241)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:247)
+	at org.eclipse.core.internal.resources.Resource.getPersistentProperty(Resource.java:1172)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.getSavedCollapsedAnnotationsOffsets(SQLReconcilingStrategy.java:126)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.reconcile(SQLReconcilingStrategy.java:250)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.onDataSourceChange(SQLReconcilingStrategy.java:188)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorSourceViewerConfiguration.onDataSourceChange(SQLEditorSourceViewerConfiguration.java:421)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.reloadSyntaxRules(SQLEditorBase.java:818)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.reloadSyntaxRules(SQLEditor.java:3339)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor.onDataSourceChange(SQLEditor.java:2923)
+	at org.jkiss.dbeaver.ui.UIExecutionQueue.executeInUI(UIExecutionQueue.java:68)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4047)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3663)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:645)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:552)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.jkiss.dbeaver.ui.app.standalone.DBeaverApplication.start(DBeaverApplication.java:280)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+2024-05-28 20:18:30.274 - Execution context opened (localhost; SQLEditor <insertData.sql>; 3)
+> Start ICU4J Base [com.ibm.icu.base 58.2.0.v20170418-1837]
+2024-05-28 20:19:32.668 - Can't get column 'COLUMN_NAMES_NUMS': Invalid column name
+2024-05-28 20:19:38.836 - Execution context closed (localhost, 3)
+2024-05-28 20:19:38.899 - Execution context closed (localhost, 2)
+2024-05-28 20:19:39.269 - DBeaver is stopping
+2024-05-28 20:19:39.274 - Stop instance server
+2024-05-28 20:19:40.278 - DBeaver shutdown completed

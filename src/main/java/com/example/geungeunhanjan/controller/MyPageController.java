@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/myLife")
 public class MyPageController {
 
+<<<<<<< HEAD
     // 내가 쓴 댓글로
+=======
+
+>>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(){
 
