@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.geungeunhanjan.mapper.UserMapper">
+    <!--1. 유저 정보 전체조회
+        userId / 닉네임 / 이메일 / 소개글 / 생일 / 회원상태 -->
+    <select id="selectAllUserInfo" resultType="UserDTO">
+        SELECT UNI.UNI_ID      UNI_ID,
+               U.USER_NICKNAME NICKNAME,
+               U.USER_EMAIL    EMAIL,
+               UNI.UNI_ABOUT   ABOUT,
+               U.USER_BIRTH    BIRTH,
+               UNI.UNI_STATUS  STATUS
+        FROM GGHJ_UNI UNI
+                 JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+        WHERE UNI.UNI_ID = #{userId}
+        UNION ALL
+        SELECT UNI.UNI_ID       UNI_ID,
+               K.KAKAO_NICKNAME NICKNAME,
+               K.KAKAO_EMAIL    EMAIL,
+               UNI.UNI_ABOUT    ABOUT,
+               K.KAKAO_BIRTH    BIRTH,
+               UNI.UNI_STATUS   STATUS
+        FROM GGHJ_UNI UNI
+                 JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+        WHERE UNI.UNI_ID = #{userId}
+    </select>
+    <!--2. 회원 프사 / 배사 가져옴 -->
+    <select id="selectAllUserFile" resultType="FileVO">
+        SELECT *
+        FROM GGHJ_FILE F
+                 JOIN GGHJ_UNI UNI ON F.USER_ID = UNI.UNI_ID
+        WHERE uni.UNI_ID = #{userId}
+    </select>
+    <!--3. 회원 업데이트문 추후 업뎃예정-->
+    <!--4. 회원 탈퇴 -->
+</mapper>
