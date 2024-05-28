@@ -14,17 +14,17 @@ import java.util.List;
 @RequestMapping("/community")
 public class CommunityController {
 
-<<<<<<< HEAD
+    private final NoticeService noticeService;
     @GetMapping("/inquiry")
     public String community() {
 
         return "community/inquiry";
-=======
-    private final NoticeService noticeService;
+
+    }
 
     public CommunityController (NoticeService noticeService) {
         this.noticeService = noticeService;
->>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
+
     }
 
     //공지버튼 클릭시

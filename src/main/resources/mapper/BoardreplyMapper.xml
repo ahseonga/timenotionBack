@@ -3,6 +3,7 @@
 
 <mapper namespace="com.example.geungeunhanjan.mapper.BoardreplyMapper">
     <select id="selectBoard" resultType="CommentVO">
+-- 댓글 구현 후 대댓글 mapper 작업 예정 --
         SELECT *
         FROM GGHJ_BOARD
         WHERE USER_ID = #{userId}
