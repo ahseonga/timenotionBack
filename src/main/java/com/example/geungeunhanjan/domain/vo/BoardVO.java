@@ -11,7 +11,7 @@ public class BoardVO {
     private Long boardId;
     private String boardTitle;
     private String boardContent;
-    private boolean boardPublic;
+    private String boardPublic;
     private LocalDateTime boardCreatedDate;
     private LocalDateTime boardUpdatedDate;
     private int boardViewCount;

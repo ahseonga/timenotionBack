@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/myLife")
 public class MyPageController {
 
+
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(){
 
