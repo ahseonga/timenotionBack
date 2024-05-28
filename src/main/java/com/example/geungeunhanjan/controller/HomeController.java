@@ -44,8 +44,8 @@ public class HomeController {
     @GetMapping("/mypage")
     public String mypage(Model model){
 //        List<BoardVO> boards = boardService.selectBoard(userVO.getUserId());
-        List<BoardVO> boards = boardService.selectBoard(1L);
-        model.addAttribute("boards", boards);
+/*        List<BoardVO> boards = boardService.selectBoard(1L);
+        model.addAttribute("boards", boards);*/
         return "myLife/mypage";
     }
 //    게시글 작성페이지로 들어가기

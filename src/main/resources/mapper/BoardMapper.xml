@@ -20,8 +20,6 @@
 
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
 
-    <insert id="insertBoard" parameterType="BoardVO">
-
     <insert id="insertBoard" parameterType="boardVO">
 
         INSERT INTO GGHJ_BOARD ( BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE
