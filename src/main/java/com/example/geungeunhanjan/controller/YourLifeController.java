@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/yourLife")
 public class YourLifeController {
 
+    // myLife의 userpage
     @GetMapping("/userpage")
     public String userPage() {
         return "/myLife/userpage";

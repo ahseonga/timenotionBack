@@ -2,9 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.geungeunhanjan.mapper.BoardMapper">
+<!--  보드 전체  -->
     <select id="selectBoard" resultType="BoardVO">
-        SELECT *
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
         FROM GGHJ_BOARD
         WHERE USER_ID = #{userId}
+    </select>
+<!--    메인 화면 4개 게시글-->
+    <select id="mainBoardbyViews" resultType="BoardVO">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID FROM
+            GGHJ_BOARD
+        WHERE rownum BETWEEN 1 AND 4
+        ORDER BY BOARD_VIEW_COUNT DESC
+    </select>
+<!--키워드 검색(안에 'a'는 임시값)-->
+    <select id="selectByKeywordMain">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE, BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+        FROM GGHJ_BOARD
+        WHERE BOARD_TITLE LIKE '%a%'
+           OR BOARD_CONTENT LIKE '%a%'
+        ORDER BY BOARD_CREATED_DATE DESC
     </select>
 </mapper>

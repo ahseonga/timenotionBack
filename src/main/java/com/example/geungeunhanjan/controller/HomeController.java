@@ -1,66 +1,143 @@
 package com.example.geungeunhanjan.controller;
 
+import com.example.geungeunhanjan.domain.dto.InquiryDTO;
 import com.example.geungeunhanjan.domain.vo.BoardVO;
 import com.example.geungeunhanjan.service.BoardService;
+import com.example.geungeunhanjan.service.InquiryService;
+import com.example.geungeunhanjan.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/main")
 public class HomeController {
+    // 여기서 HttpSession 사용해서 로그인 관리 해봤는데
+    // 이거 때문에 로그인 해야지 원하는 화면으로 가실 수 있어서
+    // 불편하시면 빼고 진행해주시면 감사하겠습니다
+    // HttpSession만 빼면 됩니다
 
     private final BoardService boardService;
+    private final UserService userService;
+    private final InquiryService inquiryService;
+//    private final HttpSession session;
 
-    public HomeController(BoardService boardService) {
+    public HomeController(BoardService boardService, UserService userService, InquiryService inquiryService) {
         this.boardService = boardService;
+        this.userService = userService;
+//        this.session = session.getAttribute("userId");
+        this.inquiryService = inquiryService;
     }
 
     @GetMapping
-    public String index() {
+    public String index(Model model, HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+//        if (userId == null) {
+//            return "/main";
+//        }
+
+        List<BoardVO> boards = boardService.mainBoardbyViews();
+        List<String> userNicknames = new ArrayList<>();
+        for (BoardVO boardList : boards) {
+            Long boardId = boardList.getBoardId();
+            userNicknames.add(userService.mainBoardByViewsNickname(boardId));
+        }
+
+        model.addAttribute("boards", boards);
+        model.addAttribute("userNicknames", userNicknames);
+
         return "main/index";
     }
 
     @GetMapping("/about")
-    public String about(){
+    public String about(HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/login";
+        }
         return "main/about";
     }
 
     @GetMapping("/mypage")
-    public String mypage(Model model){
+    public String mypage(Model model, HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/login";
+        }
 
-        List<BoardVO> boards = boardService.selectBoard(1L);
+        List<BoardVO> boards = boardService.selectBoard(userId);
         model.addAttribute("boards", boards);
 
         return "myLife/mypage";
     }
 
     @GetMapping("/detail_writingMode")
-    public String detailWritingMode(){
+    public String detailWritingMode(HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/login";
+        }
         return "myLife/detail_writingMode";
     }
 
     @GetMapping("/detail-my")
-    public String detailMy(){
+    public String detailMy(HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/login";
+        }
         return "myLife/detail-my";
     }
 
     @GetMapping("/yourLife")
-    public String yourLife(){
+    public String yourLife(HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/login";
+        }
         return "yourLife/yourLife";
     }
 
     @GetMapping("/everyLife")
-    public String everyLife(){
+    public String everyLife(HttpSession session) {
+        // 로그인 여부 확인
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/login";
+        }
         return "everyLife/everyLife";
     }
 
     @GetMapping("/inquiry")
-    public String inquiry() {
+    public String community(Model model) {
+
+        List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
+
+        if (inquiries.size() > 7) {
+            inquiries = inquiries.subList(0, 7);
+        }
+
+        model.addAttribute("inquiries", inquiries);
+
+
         return "community/inquiry";
     }
 
+    // 로그아웃
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();  // 세션 무효화
+        return "redirect:/main";
+    }
 }

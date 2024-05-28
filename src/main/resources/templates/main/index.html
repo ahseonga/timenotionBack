@@ -93,109 +93,23 @@
                     <!-- 2-2. 인기컨텐츠 컨텐츠  -->
                     <div class="pop-main-content">
                         <!-- 컨텐츠 (1) -->
-                        <div class="wrap-pop-main">
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-title">
-                                <div class="pop-title"><span>글자글자글자길게길게길게길게</span></div>
+                        <div th:each="board, i : ${boards}" class="wrap-pop-main">
+                            <a href="/everyLife/detail-others" class="link-pop-title">
+                                <div class="pop-title"><span th:text="${board.boardTitle}"></span></div>
                             </a>
-                            <div class="pop-views">조회수 00</div>
-                            <div class="pop-date">작성일 : 2024년 4월 44일</div>
-                            <a href="./../../HTML/myLife/userpage.html" class="link-pop-profile">
-                                <div class="pop-profile-wrap">
+                            <div class="pop-views" th:text="|조회수 : ${board.boardViewCount}|"></div>
+                            <div class="pop-date" th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yyyy년 mm월 dd일')}|"></div>
+                            <a href="/everyLife/detail-others" class="link-pop-profile">
+                                <div  class="pop-profile-wrap">
                                     <div class="box-profile-img">
                                         <img src="./../../img/main/봉준호 (8).jpg" alt="" />
                                     </div>
-                                    <div class="box-profile-nickname"><span>nickname</span></div>
+                                    <div class="box-profile-nickname"><span th:text="${userNicknames[i.index]}"></span></div>
                                 </div>
                             </a>
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-content">
+                            <a href="/everyLife/detail-others" class="link-pop-content">
                                 <div class="pop-content">
-                                    <span>
-                      여기서 왜 ellipsis가..,,, 오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                      아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다. 우리는 오랜만에 만나
-                      서로의 최근 소식을 나누며 웃었다. 가끔은 이런 여유로운 시간이 필요하다고
-                      느꼈다. 집에 돌아오는 길에는 하늘이 유난히 맑아 기분이 좋았다.
-                    </span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- 컨텐츠 (2) -->
-                        <div class="wrap-pop-main">
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-title">
-                                <div class="pop-title"><span>글자글자글자길게길게길게길게</span></div>
-                            </a>
-                            <div class="pop-views">조회수 00</div>
-                            <div class="pop-date">작성일 : 2024년 4월 44일</div>
-                            <a href="./../../HTML/myLife/userpage.html" class="link-pop-profile">
-                                <div class="pop-profile-wrap">
-                                    <div class="box-profile-img">
-                                        <img src="./../../img/main/봉준호 (8).jpg" alt="" />
-                                    </div>
-                                    <div class="box-profile-nickname"><span>nickname</span></div>
-                                </div>
-                            </a>
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-content">
-                                <div class="pop-content">
-                                    <span>
-                      여기서 왜 ellipsis가..,,, 오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                      아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다. 우리는 오랜만에 만나
-                      서로의 최근 소식을 나누며 웃었다. 가끔은 이런 여유로운 시간이 필요하다고
-                      느꼈다. 집에 돌아오는 길에는 하늘이 유난히 맑아 기분이 좋았다.
-                    </span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- 컨텐츠 (3) -->
-                        <div class="wrap-pop-main">
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-title">
-                                <div class="pop-title"><span>글자글자글자길게길게길게길게</span></div>
-                            </a>
-                            <div class="pop-views">조회수 00</div>
-                            <div class="pop-date">작성일 : 2024년 4월 44일</div>
-                            <a href="./../../HTML/myLife/userpage.html" class="link-pop-profile">
-                                <div class="pop-profile-wrap">
-                                    <div class="box-profile-img">
-                                        <img src="./../../img/main/봉준호 (8).jpg" alt="" />
-                                    </div>
-                                    <div class="box-profile-nickname"><span>nickname</span></div>
-                                </div>
-                            </a>
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-content">
-                                <div class="pop-content">
-                                    <span>
-                      여기서 왜 ellipsis가..,,, 오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                      아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다. 우리는 오랜만에 만나
-                      서로의 최근 소식을 나누며 웃었다. 가끔은 이런 여유로운 시간이 필요하다고
-                      느꼈다. 집에 돌아오는 길에는 하늘이 유난히 맑아 기분이 좋았다.
-                    </span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- 컨텐츠 (4) -->
-                        <div class="wrap-pop-main">
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-title">
-                                <div class="pop-title"><span>글자글자글자길게길게길게길게</span></div>
-                            </a>
-                            <div class="pop-views">조회수 00</div>
-                            <div class="pop-date">작성일 : 2024년 4월 44일</div>
-                            <a href="./../../HTML/myLife/userpage.html" class="link-pop-profile">
-                                <div class="pop-profile-wrap">
-                                    <div class="box-profile-img">
-                                        <img src="./../../img/main/봉준호 (8).jpg" alt="" />
-                                    </div>
-                                    <div class="box-profile-nickname"><span>nickname</span></div>
-                                </div>
-                            </a>
-                            <a href="./../../HTML/myLife/detail_others.html" class="link-pop-content">
-                                <div class="pop-content">
-                                    <span>
-                      여기서 왜 ellipsis가..,,, 오늘은 새로운 카페에서 친구들과 시간을 보냈다.
-                      아늑한 분위기와 따뜻한 커피가 완벽한 조화를 이뤘다. 우리는 오랜만에 만나
-                      서로의 최근 소식을 나누며 웃었다. 가끔은 이런 여유로운 시간이 필요하다고
-                      느꼈다. 집에 돌아오는 길에는 하늘이 유난히 맑아 기분이 좋았다.
-                    </span>
+                                    <span th:text="${board.boardContent}"></span>
                                 </div>
                             </a>
                         </div>

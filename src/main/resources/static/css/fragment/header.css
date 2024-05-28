@@ -101,7 +101,7 @@ header {
 
 .logout-box {
   padding: 8px 6px;
-  display: none; /* 이거 풀면 나오요!!!! */
+  /*display: none; !* 이거 풀면 나오요!!!! *!*/
 }
 
 .logout-box:hover {
