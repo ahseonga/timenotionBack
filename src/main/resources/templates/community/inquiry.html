@@ -69,102 +69,103 @@
                     <span class="contents-date">작성일</span>
                 </div>
             </div>
-            <div class="inquiry-contents">
+            <div class="inquiry-contents" th:each="inquiry : ${inquiries}">
                 <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
+                    <span class="contents-number" th:text="${inquiry.inquiryId}">7</span>
                     <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
+                        <button type="button" class="inquiry-content-button"  th:text="${inquiry.inquiryTitle}">우리 모두 화이팅^^~</button>
                     </span>
                 </div>
                 <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
+                    <span class="contents-writer"  th:text="${inquiry.userNickname}">닉네임</span>
+                    <span class="contents-date"  th:text="${#temporals.format(inquiry.inquiryCreatedDate, 'yyyy.MM.dd')}">2024.05.09</span>
                 </div>
             </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
-            <div class="inquiry-contents">
-                <div class="contents-prev-content">
-                    <span class="contents-number">7</span>
-                    <span class="contents-title">
-                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>
-                    </span>
-                </div>
-                <div class="contents-next-content">
-                    <span class="contents-writer">닉네임</span>
-                    <span class="contents-date">2024.05.09</span>
-                </div>
-            </div>
+
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inquiry-contents">-->
+<!--                <div class="contents-prev-content">-->
+<!--                    <span class="contents-number">7</span>-->
+<!--                    <span class="contents-title">-->
+<!--                        <button type="button" class="inquiry-content-button">우리 모두 화이팅^^~</button>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div class="contents-next-content">-->
+<!--                    <span class="contents-writer">닉네임</span>-->
+<!--                    <span class="contents-date">2024.05.09</span>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
         <div class="inquiry-paging">
             <span class="paging-backward"><a href="#">&lt;</a></span>
