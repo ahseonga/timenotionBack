@@ -22,10 +22,17 @@ import java.util.List;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
+    @GetMapping("/inquiry")
+    public String community() {
+
+        return "community/inquiry";
+
+    }
 
     public CommunityController(InquiryService inquiryService, NoticeService noticeService) {
         this.inquiryService = inquiryService;
         this.noticeService = noticeService;
+
     }
 
 
@@ -69,3 +76,5 @@ public class CommunityController {
     }
 
 }
+
+

@@ -20,3 +20,5 @@ public interface BoardMapper {
     // 메인 4칸짜리 게시물
     List<BoardVO> mainBoardbyViews();
 }
+
+

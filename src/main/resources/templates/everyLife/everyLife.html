@@ -50,8 +50,8 @@
                         </span>
                     </div>
                     <div class="everyLife-select-bar">
-                        <form action="#">
-                            <input type="text" name="" placeholder="검색어를 입력해주세요">
+                        <form th:action="@{/main/everyLife}" method="get">
+                            <input type="text" name="serachKeyword" placeholder="검색어를 입력해주세요">
                             <button type="submit" class="everyLife-magnifier">
                                 <img src="./../../img/main/돋보기.png">
                             </button> 
