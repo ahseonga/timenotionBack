@@ -1,12 +1,22 @@
 package com.example.geungeunhanjan.controller;
 
+<<<<<<< HEAD
 import com.example.geungeunhanjan.domain.dto.InquiryDTO;
+=======
+import com.example.geungeunhanjan.domain.dto.FollowDTO;
+>>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
 import com.example.geungeunhanjan.domain.vo.BoardVO;
 import com.example.geungeunhanjan.domain.vo.UserVO;
+import com.example.geungeunhanjan.domain.vo.FileVO;
+
 import com.example.geungeunhanjan.service.BoardService;
+<<<<<<< HEAD
 import com.example.geungeunhanjan.service.InquiryService;
 import com.example.geungeunhanjan.service.UserService;
 import jakarta.servlet.http.HttpSession;
+=======
+import com.example.geungeunhanjan.service.FollowService;
+>>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +37,22 @@ public class HomeController {
     private final InquiryService inquiryService;
 //    private final HttpSession session;
     private final UserVO userVO;
+    private final FollowService followService;
 
+<<<<<<< HEAD
     public HomeController(BoardService boardService, UserService userService, InquiryService inquiryService, UserVO userVO) {
+=======
+    public HomeController(BoardService boardService, UserVO userVO,  FollowService followService) {
+>>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
         this.boardService = boardService;
         this.userService = userService;
         this.inquiryService = inquiryService;
         this.userVO = userVO;
+        this.followService = followService;
     }
+
+
+
 
     @GetMapping
     public String index(Model model, HttpSession session) {
@@ -118,12 +137,29 @@ public class HomeController {
     }
 
     @GetMapping("/yourLife")
+<<<<<<< HEAD
     public String yourLife(HttpSession session) {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/login";
         }
+=======
+    public String yourLife(Model model){
+
+        List<FollowDTO> followers = followService.selectFollower();
+        model.addAttribute("followers", followers);
+
+        List<FollowDTO> followings = followService.selectFollowing();
+        model.addAttribute("followings", followings);
+
+        List<FileVO> files = followService.selectFile();
+        model.addAttribute("files", files);
+
+        List<FollowDTO> boards = followService.selectBoardCount();
+        model.addAttribute("boards", boards);
+
+>>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
         return "yourLife/yourLife";
     }
 
@@ -137,7 +173,13 @@ public class HomeController {
         return "everyLife/everyLife";
     }
 
+//    @GetMapping("/inquiry")
+//    public String inquiry() {
+//        return "community/inquiry";
+//    }
+
     @GetMapping("/inquiry")
+<<<<<<< HEAD
     public String community(Model model) {
 
         List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
@@ -151,6 +193,9 @@ public class HomeController {
 
         return "community/inquiry";
     }
+=======
+    public String community() {return "community/inquiry";}
+>>>>>>> 7bc2f127f563150cc982edd7850fb3ad34eb85b5
 
     // 로그아웃
     @GetMapping("/logout")

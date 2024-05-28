@@ -132,3 +132,4 @@ function checkEnd(){
     inquiryNext.style.display = 'block';
   }
 }
+
