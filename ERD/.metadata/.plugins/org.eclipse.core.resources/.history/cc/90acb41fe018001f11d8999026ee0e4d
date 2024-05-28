@@ -54,7 +54,7 @@ CREATE TABLE GGHJ_BOARD
 (
     BOARD_ID           NUMBER,--PK
     BOARD_TITLE        VARCHAR2(50)           NOT NULL,
-    BOARD_CONTENT      VARCHAR2(2000) NOT NULL,
+    BOARD_CONTENT VARCHAR2(2000) NOT NULL,
     BOARD_PUBLIC       NUMBER(1)              NOT NULL,--default
     BOARD_CREATED_DATE DATE   DEFAULT SYSDATE NOT NULL,
     BOARD_UPDATED_DATE DATE   DEFAULT SYSDATE,
@@ -255,6 +255,12 @@ VALUES (3, 'user3', 'password3', 'user3@example.com', 'user3', TO_DATE('1992-03-
 
 INSERT INTO GGHJ_USER (USER_ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_NICKNAME, USER_BIRTH, USER_STATUS, user_isadmin)
 VALUES (4, 'user4', 'password4', 'user4@example.com', 'user4', TO_DATE('1993-04-04', 'YYYY-MM-DD'), '일반', '0');
+
+INSERT INTO GGHJ_USER (USER_ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_NICKNAME, USER_BIRTH, USER_STATUS, user_isadmin)
+VALUES (5, 'user5', 'password4', 'user5@example.com', 'user5', TO_DATE('1993-04-04', 'YYYY-MM-DD'), '일반', '0');
+
+INSERT INTO GGHJ_USER (USER_ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_NICKNAME, USER_BIRTH, USER_STATUS, user_isadmin)
+VALUES (6, 'user6', 'password4', 'user6@example.com', 'user6', TO_DATE('1993-04-04', 'YYYY-MM-DD'), '일반', '0');
 
 
 -- GGHJ_KAKAO_USER 테이블 더미 데이터 삽입

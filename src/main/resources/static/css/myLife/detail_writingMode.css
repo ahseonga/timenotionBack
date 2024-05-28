@@ -140,17 +140,37 @@ textarea {
 }
 
 #file {
-    display: none;
+    cursor: pointer;
 }
 
-.btn-upload {
+::-webkit-file-upload-button{
+    height: 30px;
+    width: 100px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.file-input-label{
+    padding-left: 15px;
+    width: 80px;
+    cursor: pointer;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+}
+
+.file-input-container {
     margin-bottom: 20px;
-    border: 1px solid black;
-    width: 10%;
+    width: 100%;
     border-radius: 6px;
     text-align: center;
-    cursor: pointer;
     line-height: 25px;
+}
+
+#file-names{
+    /* background-color: aqua; */
 }
 
 
@@ -174,6 +194,16 @@ textarea {
     line-height: 50px;
     padding-left: 30px;
     margin: 20px 0px;
+}
+
+.title{
+    width: 600px;
+    background-color: rgb(230, 227, 227);
+    border-radius: 6px;
+    font-size: 25px;
+    font-weight: bolder;
+    line-height: 50px;
+    padding-left: 30px;
 }
 
 .wrapper-select-box {
@@ -214,10 +244,11 @@ textarea {
     width: 100%;
     border-radius: 6px;
     text-align: center;
-    cursor: pointer;
     line-height: 25px;
     margin: 20px 0;
 }
+
+
 
 
 /*3-2. 텍스트 영역 */
@@ -253,6 +284,7 @@ textarea {
     background-color: #ac8d71;
     border-radius: 6px;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .btn-cancel {
@@ -263,4 +295,5 @@ textarea {
     border-radius: 6px;
     font-size: 15px;
     margin-left: 6px;
+    cursor: pointer;
 }

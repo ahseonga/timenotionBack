@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
+	<item id="NodeList/DBNProjectDatabases/DBNBookmarkFolder/DBNDiagramFolder/DBNResource">
+		<column name="Name" visible="true" order="0" width="107"/>
+		<column name="Path" visible="true" order="1" width="150"/>
+		<column name="Size" visible="true" order="2" width="100"/>
+		<column name="Last modified" visible="true" order="3" width="106"/>
+	</item>
+	<item id="NodeList/DBNResource">
+		<column name="Name" visible="true" order="0" width="158"/>
+		<column name="Path" visible="true" order="1" width="259"/>
+		<column name="Size" visible="true" order="2" width="100"/>
+		<column name="Last modified" visible="true" order="3" width="175"/>
+	</item>
 	<item id="NodeList/OracleSequence">
 		<column name="Sequence Name" visible="true" order="0" width="141"/>
 		<column name="Value" visible="true" order="1" width="100"/>
@@ -35,7 +47,7 @@
 		<column name="Comment" visible="true" order="3" width="100"/>
 	</item>
 	<item id="Suggestion/NodeList/OracleTableColumn">
-		<column name="Column Name" visible="true" order="0" width="191"/>
+		<column name="Column Name" visible="true" order="0" width="195"/>
 		<column name="#" visible="true" order="1" width="33"/>
 		<column name="Type" visible="true" order="2" width="131"/>
 		<column name="Type Mod" visible="false" order="3" width="100"/>
