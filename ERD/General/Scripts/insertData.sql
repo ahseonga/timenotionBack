@@ -95,6 +95,10 @@ VALUES (4, 'Travel Diaries', 'Sharing my travel experiences and adventures.', 'O
 INSERT INTO GGHJ_BOARD (BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE, BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID)
 VALUES (5, 'Family Memories', 'Cherishing the moments spent with family.', 'X', SYSDATE, SYSDATE, 0, '노년', 0, 2024, 5);
 
+INSERT INTO GGHJ_BOARD (BOARD_ID, BOARD_TITLE, BOARD_CONTENT, USER_ID)
+VALUES (10, 'Example Title', 'Example Content', 1);
+
+
 -- Board-file 더미
 INSERT INTO GGHJ_BOARD_FILE (BOARD_FILE_ID, BOARD_FILE_NAME, BOARD_FILE_SOURCE_NAME, BOARD_ID)
 VALUES (1, '/images/photo1.jpg', 'photo1.jpg', 1);

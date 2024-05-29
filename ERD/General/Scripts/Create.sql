@@ -10,11 +10,11 @@ CREATE TABLE GGHJ_USER
 /*    user_isadmin  char(1)      default '0',*/
     CONSTRAINT PK_USER PRIMARY KEY (USER_ID)
 );
-<<<<<<< HEAD
+SELECT *FROM GGHJ_BOARD ;
+SELECT * FROM GGHJ_USER gu ;
 -- 유저 소개글 추가해야됨 
 =======
--- 유저 소개글 추가해야됨
->>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd
+
 
 SELECT * FROM GGHJ_USER gu ;
 
@@ -56,7 +56,7 @@ CREATE TABLE GGHJ_UNI(
 );
 
 -- 정지회원 댓글, 글 작성 불가
->>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd
+
 
 
 /*유저 사진 -----------------------------------*/
@@ -290,8 +290,6 @@ CREATE SEQUENCE SEQ_NOTICE;
 
 CREATE SEQUENCE SEQ_INQUIRY;
 
-<<<<<<< HEAD
 CREATE SEQUENCE SEQ_LIKE;
-=======
-CREATE SEQUENCE SEQ_LIKE;
->>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd
+
+
