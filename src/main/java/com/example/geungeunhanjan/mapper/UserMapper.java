@@ -5,6 +5,7 @@ import com.example.geungeunhanjan.domain.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+
 @Mapper
 public interface UserMapper {
     // 메인 4칸짜리 게시물 유저 닉네임
@@ -33,4 +34,5 @@ public interface UserMapper {
 //
     // 통합 유저 id값
     Long findUniIdByUserIdOrKakaoId(@Param("userId") long userId, @Param("kakaoId") long kakaoId);
+
 }
