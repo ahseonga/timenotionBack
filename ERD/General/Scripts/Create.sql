@@ -10,7 +10,11 @@ CREATE TABLE GGHJ_USER
 /*    user_isadmin  char(1)      default '0',*/
     CONSTRAINT PK_USER PRIMARY KEY (USER_ID)
 );
+<<<<<<< HEAD
 -- 유저 소개글 추가해야됨 
+=======
+-- 유저 소개글 추가해야됨
+>>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd
 
 SELECT * FROM GGHJ_USER gu ;
 
@@ -26,6 +30,7 @@ CREATE TABLE GGHJ_KAKAO
 
 /*통합회원 --------------------------------------------*/
 CREATE TABLE GGHJ_UNI(
+<<<<<<< HEAD
       UNI_ID NUMBER, 
     UNI_STATUS VARCHAR2(20) DEFAULT '일반' NOT NULL,
     UNI_ABOUT VARCHAR2(255), 
@@ -38,6 +43,20 @@ CREATE TABLE GGHJ_UNI(
 );
 
 -- 정지회원 댓글, 글 작성 불가 
+=======
+                         UNI_ID NUMBER,
+                         UNI_STATUS VARCHAR2(20) DEFAULT '일반' NOT NULL,
+                         UNI_ABOUT VARCHAR2(255),
+                         USER_ID NUMBER,
+                         KAKAO_ID NUMBER,
+                         CONSTRAINT PK_UNI PRIMARY KEY (UNI_ID),
+                         CONSTRAINT FK_UNI_USER FOREIGN KEY(USER_ID) REFERENCES GGHJ_USER(USER_ID),
+                         CONSTRAINT FK_UNI_KAKAO FOREIGN KEY(KAKAO_ID) REFERENCES GGHJ_KAKAO(KAKAO_ID),
+                         CONSTRAINT CHECK_UNI_STATUS CHECK (UNI_STATUS IN ('일반', '정지', '탈퇴'))
+);
+
+-- 정지회원 댓글, 글 작성 불가
+>>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd
 
 
 /*유저 사진 -----------------------------------*/
@@ -271,4 +290,8 @@ CREATE SEQUENCE SEQ_NOTICE;
 
 CREATE SEQUENCE SEQ_INQUIRY;
 
+<<<<<<< HEAD
 CREATE SEQUENCE SEQ_LIKE;
+=======
+CREATE SEQUENCE SEQ_LIKE;
+>>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd

@@ -21,9 +21,17 @@
 
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
     <insert id="insertBoard" parameterType="BoardVO">
+<<<<<<< HEAD
 <!--            <selectKey keyProperty="boardId" resultType="Long" order="BEFORE">-->
 <!--                SELECT SEQ_BOARD FROM DUAL-->
 <!--            </selectKey>-->
+=======
+<<<<<<< HEAD
+>>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
+=======
+
+>>>>>>> 5cf1ba1f16f68672efd85b53f19888abd5bbd0bd
+>>>>>>> main
         INSERT INTO GGHJ_BOARD ( BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE
                                , BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, USER_ID)
         VALUES ( #{boardId}, #{boardTitle}, #{boardContent}, #{boardPublic}, SYSDATE, SYSDATE
