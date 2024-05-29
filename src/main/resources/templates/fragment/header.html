@@ -24,18 +24,18 @@
             </div>
             <div class="category-box">
                 <ul>
-                    <li><a href="/main/about">about</a></li>
-                    <li><a href="/main/mypage">나의 일대기</a></li>
-                    <li><a href="/main/yourLife">너의 일대기</a></li>
-                    <li><a href="/main/everyLife">모두의 일대기</a></li>
-                    <li><a href="/main/inquiry">커뮤니티</a></li>
+                    <li><a th:href="@{/main/about}">about</a></li>
+                    <li><a th:href="@{/myLife}">나의 일대기</a></li>
+                    <li><a th:href="@{/yourLife}">너의 일대기</a></li>
+                    <li><a th:href="@{/everyLife}">모두의 일대기</a></li>
+                    <li><a th:href="@{/community/notification}">커뮤니티</a></li>
                 </ul>
             </div>
         </div>
         <div class="header-right">
             <!-- 로그인 전 ----------- -->
             <div th:if="${session.userId == null}" class="login-box">
-                <a href="/login" class="login-wrap">
+                <a th:href="@{/user/login}" class="login-wrap">
 <!--                    <div class="header-img-box"><img src="./../../img/main/로그인.png" alt=""/></div>-->
                     <div class="header-img-box"><img th:src="@{/img/main/로그인.png}" alt=""/></div>
 
@@ -43,7 +43,7 @@
                 </a>
             </div>
             <div class="regist-box">
-                <a href="/join" class="regist-wrap">
+                <a th:href="@{/user/join}" class="regist-wrap">
 <!--                    <div class="header-img-box"><img src="./../../img/main/회원가입.png" alt=""/></div>-->
                     <div class="header-img-box"><img th:src="@{/img/main/회원가입.png}" alt=""/></div>
 
@@ -52,7 +52,7 @@
             </div>
             <!-- 로그인 후 ------------ .logout-box : display : none -->
             <div th:if="${session.userId != null}" class="logout-box">
-                <a href="/main/logout" class="logout-wrap">
+                <a th:href="@{/user/logout}" class="logout-wrap">
 <!--                    <div class="logout-img-box"><img src="./../../img/main/로그아웃.png" alt=""/></div>-->
                     <div class="header-img-box"><img th:src="@{/img/main/로그아웃.png}" alt=""/></div>
 
