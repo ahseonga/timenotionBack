@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 
-// 커뮤티니로
+// 커뮤티니
 
 @Controller
 @RequestMapping("/community")
@@ -23,6 +23,7 @@ public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
 
+    //의존성 주입
     public CommunityController(InquiryService inquiryService, NoticeService noticeService) {
         this.inquiryService = inquiryService;
         this.noticeService = noticeService;

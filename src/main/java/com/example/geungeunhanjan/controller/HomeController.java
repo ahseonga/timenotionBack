@@ -124,6 +124,7 @@ public class HomeController {
         return "myLife/detail-my";
     }
 
+    // 너의 일대기 팔로우 페이지
     @GetMapping("/yourLife")
     public String yourLife(Model model, HttpSession session) {
         // 로그인 여부 확인
@@ -132,16 +133,19 @@ public class HomeController {
             return "redirect:/login";
         }
 
-
+        //팔로워 리스트 조회하기
         List<FollowDTO> followers = followService.selectFollower();
         model.addAttribute("followers", followers);
 
+        //팔로잉 리스트 조회하기
         List<FollowDTO> followings = followService.selectFollowing();
         model.addAttribute("followings", followings);
 
+        //프로필 이미지 정보 가져오기
         List<FileVO> files = followService.selectFile();
         model.addAttribute("files", files);
 
+        //유저의 일기 수 정보 가져오기
         List<FollowDTO> boards = followService.selectBoardCount();
         model.addAttribute("boards", boards);
 
