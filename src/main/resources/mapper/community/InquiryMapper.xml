@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.geungeunhanjan.mapper.community.InquiryMapper">
+<!--문의 전체 쫙 뿌려주는거-->
+    <select id="selectInquiryAll" resultType="InquiryDTO">
+        SELECT inq.INQUIRY_ID , inq.INQUIRY_TITLE, u.USER_NICKNAME AS userNickname, inq.INQUIRY_CREATED_DATE
+        FROM GGHJ_USER u
+                 JOIN GGHJ_UNI uni ON u.USER_ID = uni.USER_ID
+                 JOIN GGHJ_INQUIRY inq ON uni.UNI_ID = inq.USER_ID
+        UNION ALL
+        SELECT inq.INQUIRY_ID, inq.INQUIRY_TITLE, k.kakao_nickname AS nickname, inq.INQUIRY_CREATED_DATE
+        FROM GGHJ_KAKAO k
+                 JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
+                 JOIN GGHJ_INQUIRY inq ON uni.UNI_ID = inq.USER_ID
+        ORDER BY INQUIRY_ID desc
+    </select>
+<!--문의 상세-->
+    <select id="selectInquiryDetail" resultType="InquiryDTO">
+        SELECT
+            I.INQUIRY_TITLE,
+            I.INQUIRY_CONTENT,
+            I.INQUIRY_RESPONSE ,
+            I.INQUIRY_PUBLIC
+        FROM
+            GGHJ_INQUIRY I
+                JOIN
+            GGHJ_UNI U ON I.USER_ID = U.UNI_ID
+        WHERE
+            I.INQUIRY_ID = #{inquiryId}
+    </select>
+<!--문의 작성-->
+    <insert id="inquiryWrite" parameterType="InquiryDTO">
+        INSERT INTO GGHJ_INQUIRY (INQUIRY_ID, INQUIRY_TITLE, INQUIRY_CONTENT, INQUIRY_RESPONSE, INQUIRY_CREATED_DATE, INQUIRY_PUBLIC, USER_ID)
+        VALUES (SEQ_INQUIRY_ID.NEXTVAL, #{inquiryTitle}, #{inquiryContent}, NULL, SYSDATE, #{inquiryPublic}, #{userId})
+    </insert>
+<!--문의 삭제-->
+    <delete id="inquiryDelete">
+        DELETE FROM GGHJ_INQUIRY
+        WHERE INQUIRY_ID = #{inquiryId} and USER_ID = #{userID}
+    </delete>
+</mapper>
