@@ -85,22 +85,13 @@ public class HomeController {
 
 //    마이페이지에서 내가 쓴 게시글 리스트 뽑기
     @GetMapping("/mypage")
-<<<<<<< HEAD
-    public String mypage(Model model){
-//        List<BoardVO> boards = boardService.selectBoard(userVO.getUserId());
-/*        List<BoardVO> boards = boardService.selectBoard(1L);
-        model.addAttribute("boards", boards);*/
-=======
     public String mypage(Model model, HttpSession session) {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/login";
         }
-        List<BoardVO> boards = boardService.selectBoard(userId);
-        model.addAttribute("boards", boards);
 
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
         return "myLife/mypage";
     }
 
@@ -187,7 +178,10 @@ public class HomeController {
         return "community/inquiry";
     }
 
-    public String community() {return "community/inquiry";}
+    @PostMapping("/inquiry")
+    public String community() {
+        return "community/inquiry";
+        }
 
 
     // 로그아웃

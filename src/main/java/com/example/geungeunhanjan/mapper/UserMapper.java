@@ -1,15 +1,10 @@
 package com.example.geungeunhanjan.mapper;
 
-<<<<<<< HEAD
-import org.apache.ibatis.annotations.Mapper;
-
-@Mapper
-public interface UserMapper {
-=======
 import com.example.geungeunhanjan.domain.vo.UniVO;
 import com.example.geungeunhanjan.domain.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
 
 @Mapper
 public interface UserMapper {
@@ -39,5 +34,5 @@ public interface UserMapper {
 //
     // 통합 유저 id값
     Long findUniIdByUserIdOrKakaoId(@Param("userId") long userId, @Param("kakaoId") long kakaoId);
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
+
 }

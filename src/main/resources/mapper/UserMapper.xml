@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.geungeunhanjan.mapper.UserMapper">
-<<<<<<< HEAD
+
     <!--1. 유저 정보 전체조회
         userId / 닉네임 / 이메일 / 소개글 / 생일 / 회원상태 -->
     <select id="selectAllUserInfo" resultType="UserDTO">
@@ -35,7 +35,7 @@
     </select>
     <!--3. 회원 업데이트문 추후 업뎃예정-->
     <!--4. 회원 탈퇴 -->
-=======
+
 <!--    main화면 게시글 userNickname 알려주는 쿼리-->
     <select id="mainBoardByViewsNickname" resultType="string">
         SELECT USER_NAME
@@ -91,5 +91,4 @@
         INSERT INTO GGHJ_UNI (UNI_ID, UNI_STATUS, UNI_ABOUT, USER_ID, KAKAO_ID)
         VALUES (#{uniId}, '일반', null, #{userId}, null)
     </insert>
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
 </mapper>
