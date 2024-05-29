@@ -16,4 +16,7 @@ public interface InquiryMapper {
     InquiryDTO selectInquiryDetail(Long inquiryId);
 
     void inquiryWrite(InquiryDTO inquiryDTO);
+
+    // 문의한 사람 닉네임
+    String userNickNamebyInquiryId(Long inquiryId);
 }

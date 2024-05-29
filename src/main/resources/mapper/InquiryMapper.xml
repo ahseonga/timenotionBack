@@ -20,7 +20,7 @@
         SELECT
             I.INQUIRY_TITLE,
             I.INQUIRY_CONTENT,
-            I.INQUIRY_RESPONSE ,
+            I.INQUIRY_RESPONSE,
             I.INQUIRY_PUBLIC
         FROM
             GGHJ_INQUIRY I
@@ -39,4 +39,14 @@
         DELETE FROM GGHJ_INQUIRY
         WHERE INQUIRY_ID = #{inquiryId} and USER_ID = #{userID}
     </delete>
+
+<!--    문의글 id에서 usernickname 받아오기-->
+    <select id="userNickNamebyInquiryId" resultType="string">
+        SELECT COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS USERNICKNAME
+        FROM GGHJ_UNI UNI
+                 LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                 LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                 LEFT JOIN GGHJ_INQUIRY inq ON inq.USER_ID = uni.UNI_ID
+        WHERE INQ.INQUIRY_ID = #{inquiryId}
+    </select>
 </mapper>

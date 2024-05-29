@@ -15,5 +15,6 @@ public interface InquiryService {
     // 각 id별 문의 상세
     InquiryDTO selectInquiryDetail(Long inquiryId);
 
+    String userNickNamebyInquiryId(Long inquiryId);
 
 }

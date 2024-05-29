@@ -45,6 +45,7 @@ button[type="button"]:hover{
     justify-content: flex-start;
 }
 .notification-contents{
+    font-size: 14px;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;

@@ -1,11 +1,13 @@
 package com.example.geungeunhanjan;
 
+import com.example.geungeunhanjan.domain.dto.InquiryDTO;
 import com.example.geungeunhanjan.domain.vo.BoardVO;
 
 import com.example.geungeunhanjan.domain.vo.UserVO;
 
 import com.example.geungeunhanjan.mapper.BoardMapper;
 
+import com.example.geungeunhanjan.mapper.InquiryMapper;
 import com.example.geungeunhanjan.service.BoardService;
 import com.example.geungeunhanjan.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -21,14 +23,14 @@ class GeungeunhanjanApplicationTests {
     @Autowired
     private BoardService boardService;
     @Autowired
-
     private UserService userService;
     @Autowired
     private UserVO userVO;
     LocalDateTime dateTime;
-
-
     private BoardMapper boardMapper;
+
+    @Autowired
+    private InquiryMapper inquiryMapper;
 
     @Test
     void contextLoads() {
@@ -83,5 +85,14 @@ class GeungeunhanjanApplicationTests {
     void userNickName(){
         String nickname = userService.selectUserNickname(1L);
         System.out.println(nickname);
+    }
+
+    @Test
+    void inquiryDetailTest(){
+        InquiryDTO inquiryDTO = new InquiryDTO();
+        String userNickname = userService.selectUserNickname(1L);
+
+        System.out.println(inquiryMapper.selectInquiryDetail(1L));
+
     }
 }

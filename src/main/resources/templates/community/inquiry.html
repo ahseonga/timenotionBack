@@ -11,6 +11,7 @@
     <script defer src="./../../js/community/inquiry.js"></script>
     <script defer src="./../../js/fragment/headerFetch.js"></script>
     <script defer src="./../../js/fragment/footerFetch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -73,7 +74,7 @@
             <div class="contents-prev-content">
                 <span class="contents-number" th:text="${inquiry.inquiryId}">7</span>
                 <span class="contents-title">
-                        <button type="button" class="inquiry-content-button"  th:text="${inquiry.inquiryTitle}">우리 모두 화이팅^^~</button>
+                        <button type="button" class="inquiry-content-button" data-inquiryid="1" th:text="${inquiry.inquiryTitle}"></button>
                     </span>
             </div>
             <div class="contents-next-content">

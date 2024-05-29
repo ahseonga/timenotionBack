@@ -1,6 +1,7 @@
 package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.dto.InquiryDTO;
+import com.example.geungeunhanjan.mapper.InquiryMapper;
 import com.example.geungeunhanjan.service.InquiryService;
 
 import com.example.geungeunhanjan.domain.dto.NoticeDTO;
@@ -8,9 +9,7 @@ import com.example.geungeunhanjan.service.NoticeService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,11 +21,12 @@ import java.util.List;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
+    private final InquiryMapper inquiryMapper;
 
-    public CommunityController(InquiryService inquiryService, NoticeService noticeService) {
+    public CommunityController(InquiryService inquiryService, NoticeService noticeService, InquiryMapper inquiryMapper) {
         this.inquiryService = inquiryService;
         this.noticeService = noticeService;
-
+        this.inquiryMapper = inquiryMapper;
     }
 
 
@@ -43,7 +43,13 @@ public class CommunityController {
 
         model.addAttribute("inquiries", inquiries);
         return "community/inquiry";
+    }
 
+
+    @GetMapping("/inquiry/{inquiryId}")
+    @ResponseBody
+    public InquiryDTO inquiryDetail(@PathVariable("inquiryId") Long inquiryId, Model model) {
+        return inquiryService.selectInquiryDetail(inquiryId);
     }
 
     //공지버튼 클릭시
