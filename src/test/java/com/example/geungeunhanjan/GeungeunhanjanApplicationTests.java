@@ -1,11 +1,8 @@
 package com.example.geungeunhanjan;
 
 import com.example.geungeunhanjan.domain.vo.BoardVO;
-<<<<<<< HEAD
 import com.example.geungeunhanjan.domain.vo.UserVO;
-=======
 import com.example.geungeunhanjan.mapper.BoardMapper;
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
 import com.example.geungeunhanjan.service.BoardService;
 import com.example.geungeunhanjan.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -21,15 +18,14 @@ class GeungeunhanjanApplicationTests {
     @Autowired
     private BoardService boardService;
     @Autowired
-<<<<<<< HEAD
     private UserService userService;
     @Autowired
     private UserVO userVO;
     LocalDateTime dateTime;
 
-=======
+    @Autowired
     private BoardMapper boardMapper;
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
+
     @Test
     void contextLoads() {
     }
@@ -39,21 +35,19 @@ class GeungeunhanjanApplicationTests {
         System.out.println(boards);
     }
 
-    @Test
-<<<<<<< HEAD
+/*    @Test
     void mainBoardTest(){
         List<BoardVO> boards = boardService.mainBoardbyViews();
         System.out.println(boards);
     }
-=======
+
     public void insertBoardTest(BoardVO boardVO) {
         Long boardId = boardMapper.getSeq();
         boardVO.setBoardId(boardId);
         boardMapper.insertBoard(boardVO);
         System.out.println(boardVO);
-    }
+    }*/
 
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a
 
     @Test
     void userNickTest(){

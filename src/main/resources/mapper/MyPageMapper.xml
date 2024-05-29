@@ -7,8 +7,9 @@
     <select id="selectMyLike" resultType="LikeDTO">
         SELECT B.BOARD_TITLE,
                L.LIKE_CREATED_DATE,
-               COALESCE(K.KAKAO_NICKNAME, U.USER_NICKNAME) AS BOARD_WRITER,
-               L.USER_ID                                      LIKE_CLICK_USER
+               K.KAKAO_NICKNAME,
+               U.USER_NICKNAME,
+               L.USER_ID "LIKE_CLICK_USER"
         FROM GGHJ_LIKE L
                  JOIN GGHJ_BOARD B ON L.BOARD_ID = B.BOARD_ID
                  JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
@@ -18,7 +19,7 @@
     </select>
     <!--2. 내가 쓴 댓글 목록-->
     <!--댓글 내용 / 댓글 쓴 날 / 게시글 제목 / 댓글 작성자 id-->
-    <select id="selectMyReply" resultType="CommentDTO">
+    <select id="selectMyComment" resultType="CommentDTO">
         SELECT C.COMMENT_CONTENT      AS COMMENTS_CONTENT,
                C.COMMENT_CREATED_DATE AS CREATED_DATE,
                B.BOARD_TITLE          AS BOARD_TITLE,
@@ -38,12 +39,11 @@
                  JOIN GGHJ_BOARD B
                       ON C.BOARD_ID = B.BOARD_ID
         WHERE R.USER_ID = #{userId}
-        ORDER BY
-            CREATED_DATE DESC
+        ORDER BY CREATED_DATE DESC
     </select>
     <!--3. 내 알림 (신고) 목록 -->
     <select id="selectMyReported" resultType="ReportDTO">
-        SELECT ROWNUM "ROW_NUMBER",
+        SELECT ROWNUM        "ROW_NUMBER",
                REPORT_ID,
                REPORT_REASON,
                REPORT_CREATED_DATE,
@@ -54,4 +54,5 @@
         WHERE USER_ID = #{userId}
     </select>
     <!--4. 회원정보 수정-->
+
 </mapper>

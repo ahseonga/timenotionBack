@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #fcfaf7;
 }
 
 main {
@@ -39,7 +40,7 @@ header {
 
 /* 수정1 : 검은거 한 겹 추가 */
 .profile-background-dark {
-  background-color: #12121230;
+  background-color: #12121261;
   width: 100%;
   height: 100%;
   border-radius: 6px 6px 0 0;
@@ -49,7 +50,7 @@ header {
 
 .profile-bg-img-box {
   width: 100%;
-  height: 167px;
+  height: 175px;
   border-radius: 6px 6px 0 0;
 }
 
@@ -108,12 +109,12 @@ header {
 /* 수정2 : 프로필 닉네임 */
 #profile-nickname {
   font-weight: 700;
-  text-shadow: 1px 2px 5px#14141430;
+
 }
 
 .follower-number {
   font-weight: 700;
-  text-shadow: 1px 2px 5px#14141430;
+
 }
 
 .profile-heart img {
@@ -124,7 +125,7 @@ header {
 
 .follower {
   font-size: 12px;
-  text-shadow: 1px 2px 5px#14141430;
+
 }
 
 .follower-number {
@@ -148,8 +149,7 @@ header {
 .profile-introduce p {
   margin: 0;
 
-  font-size: 12px;
-  font-size: 16px;
+  font-size: 14px;
   /* font-weight: bold; */
 
   width: 600px;

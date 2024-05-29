@@ -50,7 +50,7 @@ footer {
   /* height: 1200px; 임의로 준 것, 실제론 지우세요  */
 
   box-sizing: border-box;
-  padding: 40px;
+  padding: 50px 20px;
   min-width: 1000px;
 }
 /* 컨텐츠영역 보느라 넣어둔것 지우고 알아서 쓰세욤 */

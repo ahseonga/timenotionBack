@@ -5,13 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="./../../css/notion.css" />
-    <link rel="stylesheet" href="./../../css/reset.css" /> -->
-    <!-- <link rel="stylesheet" href="./../../css/fragment/header.css" />
-    <link rel="stylesheet" href="./../../css/fragment/footer.css" /> -->
+    <link rel="stylesheet" href="./../../css/reset.css">
     <link rel="stylesheet" href="./../../css/myLife/mypageCommentList.css">
-    <script defer src="./../../js/fragment/headerFetch.js"></script>
-    <script defer src="./../../js/fragment/footerFetch.js"></script>
+
   </head>
   <body>
 
@@ -84,125 +80,21 @@
             <article class="commet-list-article">
               <ul class="comment-contents">
 
-                <li class="comment-lists">
+                <li class="comment-lists" th:each="comment : ${comments}">
                   <div class="comment-list-left">
+                    <!--14px-->
                     <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
+                    <p><a th:text="${comment.commentsContent}" href="./../../HTML/myLife/detail_user.html"></a></p>
+                    <p class="comment-list-left-title"><a th:text="${comment.boardTitle}" href="./../../HTML/myLife/detail-my.html"></a></p>
                   </div>
+                  <!--12px-->
                   <div class="comment-list-right">
-                    <p>2024.05.12</p>
+                    <p th:text="${#temporals.format(comment.createdDate, 'yyyy.MM.dd')}"></p>
                   </div>
                 </li>
                 <hr>
 
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
 
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
-
-                <li class="comment-lists">
-                  <div class="comment-list-left">
-                    <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
-                    <p><a href="./../../HTML/myLife/detail_user.html">아 멋진 일대기를 보내셨네요~</a></p>
-                    <p class="comment-list-left-title"><a href="./../../HTML/myLife/detail-my.html">게시글 제목</a></p>
-                  </div>
-                  <div class="comment-list-right">
-                    <p>2024.05.12</p>
-                  </div>
-                </li>
-                <hr>
             
               </ul>
 
@@ -225,9 +117,8 @@
           </div>
         </div>
       </main>
-      <footer>
-        
-      </footer>
+      <div th:replace="~{/fragment/footer::footer}"></div>
+
     </div>
   </body>
 </html>

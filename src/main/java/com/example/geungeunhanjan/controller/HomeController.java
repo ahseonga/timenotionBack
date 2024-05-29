@@ -91,6 +91,8 @@ public class HomeController {
         if (userId == null) {
             return "redirect:/login";
         }
+        List<BoardVO> boards = boardService.selectBoard(userId);
+        model.addAttribute("boards", boards);
 
         return "myLife/mypage";
     }

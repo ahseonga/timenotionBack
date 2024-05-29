@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class LikeDTO {
     private String boardTitle;
     private LocalDateTime likeCreatedDate;
-    private String boardWriter;
+    private String kakaoNickname;
+    private String userNickname;
     private Long likeClickUser;
 }
