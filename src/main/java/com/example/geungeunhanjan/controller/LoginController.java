@@ -4,6 +4,7 @@ import com.example.geungeunhanjan.domain.vo.UserVO;
 import com.example.geungeunhanjan.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 // 로그인으로
@@ -29,13 +30,14 @@ public class LoginController {
 
     // 실제 로그인 처리
     @PostMapping()
-    public String userLogin(@RequestParam("userEmail") String userEmail, @RequestParam("userPassword") String userPassword, HttpSession session){
+    public String userLogin(@RequestParam("userEmail") String userEmail, @RequestParam("userPassword") String userPassword, Model model, HttpSession session){
 
         Long userId = userService.userLogin(userEmail, userPassword);
+        String userNickname = userService.selectUserNickname(1L);
         boolean result = userId != null && userId > 0;
-        session.removeAttribute("userId");
 
         if(result){
+            model.addAttribute("userNickname", userNickname);
             session.setAttribute("userId", userId);
             return "redirect:/main";
         }else {
