@@ -38,7 +38,7 @@
                 <!-- 2-1-1. 왼쪽 -->
 <!--                팔로워는 나를 누군가가 팔로우한 상태를 뜻한다 -->
                 <div class="flwers-left">
-                  <a href="./../../HTML/myLife/userpage.html">
+                  <a th:href="@{/yourLife/userpage}">
                     <div class="flwers-img-box"  th:each=" file : ${files}" >
                       <img  th:src="${file.fileProfileSource}" alt="" />
 

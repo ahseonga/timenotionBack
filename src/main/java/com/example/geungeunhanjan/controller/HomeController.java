@@ -1,30 +1,29 @@
 package com.example.geungeunhanjan.controller;
 
-import com.example.geungeunhanjan.domain.dto.InquiryDTO;
-
-import com.example.geungeunhanjan.domain.dto.FollowDTO;
-
-import com.example.geungeunhanjan.domain.vo.BoardVO;
-import com.example.geungeunhanjan.domain.vo.UserVO;
-import com.example.geungeunhanjan.domain.vo.FileVO;
-
-import com.example.geungeunhanjan.service.BoardService;
-
-import com.example.geungeunhanjan.service.InquiryService;
-import com.example.geungeunhanjan.service.UserService;
+import com.example.geungeunhanjan.domain.vo.board.BoardVO;
+import com.example.geungeunhanjan.domain.vo.user.UniVO;
+import com.example.geungeunhanjan.domain.vo.user.UserVO;
+import com.example.geungeunhanjan.mapper.user.UserMapper;
+import com.example.geungeunhanjan.service.board.BoardService;
+import com.example.geungeunhanjan.service.community.InquiryService;
+import com.example.geungeunhanjan.service.user.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-import com.example.geungeunhanjan.service.FollowService;
+import com.example.geungeunhanjan.service.lifes.FollowService;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/main")
+@AllArgsConstructor
 public class HomeController {
     // 여기서 HttpSession 사용해서 로그인 관리 해봤는데
     // 이거 때문에 로그인 해야지 원하는 화면으로 가실 수 있어서
@@ -33,23 +32,11 @@ public class HomeController {
 
     private final BoardService boardService;
     private final UserService userService;
+    private final UserMapper userMapper;
     private final InquiryService inquiryService;
-//    private final HttpSession session;
+    //    private final HttpSession session;
     private final UserVO userVO;
     private final FollowService followService;
-
-
-
-    public HomeController(BoardService boardService, UserVO userVO, InquiryService inquiryService, UserService userService,  FollowService followService) {
-
-        this.boardService = boardService;
-        this.userService = userService;
-        this.inquiryService = inquiryService;
-        this.userVO = userVO;
-        this.followService = followService;
-    }
-
-
 
 
     @GetMapping
@@ -78,20 +65,13 @@ public class HomeController {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
-            return "redirect:/login";
+            return "redirect:/main/login";
         }
         return "main/about";
     }
 
-//    마이페이지에서 내가 쓴 게시글 리스트 뽑기
-    @GetMapping("/mypage")
-    public String mypage(Model model, HttpSession session) {
-        // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/login";
-        }
 
+<<<<<<< HEAD
         return "myLife/mypage";
     }
 
@@ -196,4 +176,6 @@ public class HomeController {
         session.invalidate();  // 세션 무효화
         return "redirect:/main";
     }
+=======
+>>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6
 }
