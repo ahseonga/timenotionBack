@@ -164,11 +164,11 @@ public class HomeController {
 //        return "community/inquiry";
 //    }
 
-<<<<<<< HEAD
 
 
 
-=======
+
+
     @GetMapping("/inquiry")
 
     public String community(Model model) {
@@ -186,7 +186,7 @@ public class HomeController {
     }
 
     public String community() {return "community/inquiry";}
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
+
 
 
     // 로그아웃

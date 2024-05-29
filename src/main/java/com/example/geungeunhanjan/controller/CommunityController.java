@@ -22,16 +22,12 @@ import java.util.List;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
-<<<<<<< HEAD
-    @GetMapping("/inquiry")
-    public String community() {
-        return "community/inquiry";
-=======
+
+
 
     public CommunityController(InquiryService inquiryService, NoticeService noticeService) {
         this.inquiryService = inquiryService;
         this.noticeService = noticeService;
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
 
     }
 
@@ -72,11 +68,6 @@ public class CommunityController {
 
         return "community/community_detail";
     }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
 }
 
 

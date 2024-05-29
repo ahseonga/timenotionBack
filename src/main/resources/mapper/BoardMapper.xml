@@ -19,15 +19,15 @@
     </select>
 
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
-<<<<<<< HEAD
 
 
 
-    <insert id="insertBoard" parameterType="boardVO">
 
-=======
+
+
+
     <insert id="insertBoard" parameterType="BoardVO">
->>>>>>> 05e079ae3e54f3ebd1d82ea125fc3b282de72288
+
         INSERT INTO GGHJ_BOARD ( BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_PUBLIC, BOARD_CREATED_DATE
                                , BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_LIKE_COUNT, USER_ID)
         VALUES ( #{boardId}, #{boardTitle}, #{boardContent}, #{boardPublic}, SYSDATE, SYSDATE
