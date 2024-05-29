@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.geungeunhanjan.mapper.ViewMapper">
+    <select id="selectView" resultType="ViewDTO">
+        SELECT
+        u.USER_NICKNAME, b.BOARD_TITLE, b.BOARD_CREATED_DATE, b.BOARD_LIKE_COUNT, b.BOARD_VIEW_COUNT
+        FROM
+        GGHJ_BOARD b JOIN GGHJ_USER u
+        ON u.user_id = b.USER_ID
+        <choose>
+            <when test="sortType == 'latest'">
+                ORDER BY b.BOARD_CREATED_DATE DESC
+            </when>
+            <when test="sortType == 'popularity'">
+                ORDER BY b.BOARD_LIKE_COUNT DESC
+            </when>
+            <when test="sortType == 'views'">
+                ORDER BY b.BOARD_VIEW_COUNT DESC
+            </when>
+            <otherwise>
+                ORDER BY b.BOARD_CREATED_DATE DESC
+            </otherwise>
+        </choose>
+
+    </select>
+</mapper>

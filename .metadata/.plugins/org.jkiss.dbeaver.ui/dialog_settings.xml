@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="DBeaver.DriverTabbedViewer">
-	</section>
-	<section name="DBeaver.ActiveWizardDialog.NewConnectionWizard">
-		<item key="DIALOG_X_ORIGIN" value="152"/>
-		<item key="DIALOG_Y_ORIGIN" value="-20"/>
-		<item key="DIALOG_WIDTH" value="1137"/>
-		<item key="DIALOG_HEIGHT" value="694"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-	</section>
-	<section name="DriverDownload">
-	</section>
-	<section name="DBeaver.DriverDownloadDialog">
-		<item key="DIALOG_X_ORIGIN" value="262"/>
-		<item key="DIALOG_Y_ORIGIN" value="-16"/>
-		<item key="DIALOG_WIDTH" value="613"/>
-		<item key="DIALOG_HEIGHT" value="580"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-	</section>
-	<section name="DBeaver.SelectDataSourceDialog">
-		<item key="DIALOG_X_ORIGIN" value="782"/>
-		<item key="DIALOG_Y_ORIGIN" value="27"/>
-		<item key="DIALOG_WIDTH" value="375"/>
-		<item key="DIALOG_HEIGHT" value="739"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-	</section>
 	<section name="DBeaver.QM.LogViewer">
 	</section>
 	<section name="ResultSetViewer">
@@ -32,23 +7,11 @@
 			<section name="spreadsheet">
 				<item key="enabledPanelIds" value="value-view"/>
 				<item key="activePanelId" value="value-view"/>
-<<<<<<< HEAD:.metadata/.plugins/org.jkiss.dbeaver.ui/dialog_settings.xml
-				<item key="panelRatio" value="300"/>
+				<item key="panelRatio" value="93"/>
 				<item key="panelsVisible" value="true"/>
-=======
-				<item key="panelRatio" value="81"/>
-				<item key="panelsVisible" value="false"/>
->>>>>>> 5c64ec62254cd6bc9193a1322db818dc1f6a545a:ERD/.metadata/.plugins/org.jkiss.dbeaver.ui/dialog_settings.xml
 				<item key="verticalLayout" value="false"/>
 			</section>
 		</section>
-	</section>
-	<section name="DBeaver.ScriptSelectorPopup">
-		<item key="DIALOG_X_ORIGIN" value="688"/>
-		<item key="DIALOG_Y_ORIGIN" value="251"/>
-		<item key="DIALOG_WIDTH" value="563"/>
-		<item key="DIALOG_HEIGHT" value="402"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="DBeaver.ShowTipOfTheDayDialog">
 		<item key="DIALOG_X_ORIGIN" value="781"/>
@@ -57,11 +20,20 @@
 		<item key="DIALOG_HEIGHT" value="288"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
-	<section name="DBeaver.TransactionLogDialog">
-		<item key="DIALOG_X_ORIGIN" value="9"/>
-		<item key="DIALOG_Y_ORIGIN" value="281"/>
-		<item key="DIALOG_WIDTH" value="987"/>
-		<item key="DIALOG_HEIGHT" value="350"/>
+	<section name="DBeaver.DriverTabbedViewer">
+	</section>
+	<section name="DBeaver.ActiveWizardDialog.NewConnectionWizard">
+		<item key="DIALOG_X_ORIGIN" value="401"/>
+		<item key="DIALOG_Y_ORIGIN" value="94"/>
+		<item key="DIALOG_WIDTH" value="1137"/>
+		<item key="DIALOG_HEIGHT" value="694"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="DBeaver.ScriptSelectorPopup">
+		<item key="DIALOG_X_ORIGIN" value="688"/>
+		<item key="DIALOG_Y_ORIGIN" value="251"/>
+		<item key="DIALOG_WIDTH" value="563"/>
+		<item key="DIALOG_HEIGHT" value="402"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>
