@@ -140,8 +140,8 @@ public class HomeController {
         model.addAttribute("followings", followings);
 
         //프로필 이미지 정보 가져오기
-        List<FileVO> files = followService.selectFile();
-        model.addAttribute("files", files);
+//        List<FileVO> files = followService.selectFile();
+//        model.addAttribute("files", files);
 
         //유저의 일기 수 정보 가져오기
         List<FollowDTO> boards = followService.selectBoardCount();

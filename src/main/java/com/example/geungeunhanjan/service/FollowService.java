@@ -14,7 +14,7 @@ public interface FollowService {
     //    팔로잉 리스트 조회하기
     List<FollowDTO> selectFollowing();
     //    팔로우 팔로워 의 이미지소스 파일 조회하기
-    List<FileVO> selectFile();
+//    List<FileVO> selectFile();
     // 팔로우 팔로워의 일기 수 조회하기
     List<FollowDTO> selectBoardCount();
 }

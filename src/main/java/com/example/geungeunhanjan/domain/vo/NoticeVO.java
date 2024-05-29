@@ -12,7 +12,7 @@ public class NoticeVO {
     private String noticeTitle;
     private String noticeContent;
     private LocalDateTime noticeCreatedDate;
-    private String noticeBannerName;
-    private String noticeBannerSource;
+//    private String noticeBannerName;
+//    private String noticeBannerSource;
     private Long userId;
 }

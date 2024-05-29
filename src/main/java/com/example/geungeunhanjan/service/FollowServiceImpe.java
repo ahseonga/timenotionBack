@@ -29,10 +29,10 @@ public class FollowServiceImpe implements FollowService {
         return followMapper.selectFollowing();
     }
     //    팔로우 팔로워 의 이미지소스 파일 조회하기
-    @Override
-    public List<FileVO> selectFile() {
-        return followMapper.selectFile();
-    }
+//    @Override
+//    public List<FileVO> selectFile() {
+//        return followMapper.selectFile();
+//    }
 
     @Override
     public List<FollowDTO> selectBoardCount() {

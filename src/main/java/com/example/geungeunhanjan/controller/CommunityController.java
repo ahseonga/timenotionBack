@@ -1,6 +1,8 @@
 package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.dto.InquiryDTO;
+import com.example.geungeunhanjan.domain.vo.BoardVO;
+import com.example.geungeunhanjan.domain.vo.NoticeVO;
 import com.example.geungeunhanjan.service.InquiryService;
 
 import com.example.geungeunhanjan.domain.dto.NoticeDTO;
@@ -8,9 +10,7 @@ import com.example.geungeunhanjan.service.NoticeService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -68,6 +68,19 @@ public class CommunityController {
         return "community/community_detail";
     }
 
+    @GetMapping("/notification/notification-detail")
+    public String notificationDetail() {
+        return "community/notification-detail";
+    }
+
+    @PostMapping("/notification/notification-detail")
+    public String insertNotice(@ModelAttribute("noticeVO") NoticeVO noticeVO,
+                               @RequestParam("userId") Long userId){
+        noticeVO.setNoticeId(noticeService.getNoticeSeqNext()) ;
+        noticeService.insertNotice(noticeVO);
+        return "redirect:/community/notification";
+//     ☆★☆★   더미데이터 값 delete하고 다시 확인해보기 ☆★☆★☆★☆★
+    }
 }
 
 

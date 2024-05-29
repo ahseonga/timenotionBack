@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./../../css/community/notification.css">
     <!-- <link rel="stylesheet" href="./../../css/community/inquiry.css"> -->
     <script defer src="./../../js/community/notification.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <div th:replace="~{/fragment/header::header}"></div>
@@ -18,15 +18,21 @@
         <!-- 공지/문의 선택 버튼 감싸는 div -->
         <div class="notification-wrap1">
             <div class="notification-selector">
-                <span class="notification-title">
+                <div>
+                    <span class="notification-title">
                     <button type="button">공지</button>
-                </span>
-                <span class="inquiry-title">
+                    </span>
+                    <span class="inquiry-title">
+                        <button type="button" th:onclick="|location.href='@{/main/inquiry}'|">문의</button>
+                    </span>
+                </div>
 
-<!--                    <button type="button" onClick="location.href='/main/inquiry'">문의</button>-->
-                    <button type="button" th:onclick="|location.href='@{/main/inquiry}'|">문의</button>
-
-                </span>
+<!--                관리자만 들어갈 수 있는 작성 삭제 버튼 -->
+                <div>
+                    <span class="delete-title">
+                        <button type="button" th:onclick="|location.href='@{/community/notification/notification-detail}'|">작성</button>
+                    </span>
+                </div>
             </div>
             <div class="notification-title-hr"><hr></div>
         </div>
@@ -47,9 +53,10 @@
                 <div class="contents-prev-content">
                     <span class="contents-number" th:text="${notice.noticeId}"></span>
                     <span class="contents-title">
-
                         <a th:href="@{/community/notification/community_detail/{noticeId}(noticeId=${notice.noticeId})}" th:text="${notice.noticeTitle}"></a>
-
+                    </span>
+                    <span>
+                        <button type="button">삭제</button>
                     </span>
                 </div>
                 <div class="contents-next-content">

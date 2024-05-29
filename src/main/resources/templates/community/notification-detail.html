@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>detail_notification</title>
+    <link rel="stylesheet" href="/css/community/notification-detail.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/notion.css">
+
+
+</head>
+
+<body>
+<div id="wrapper">
+    <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
+    <div th:replace="~{/fragment/header::header}"></div>
+    <!-- 헤더 끝-========================================================================== -->
+    <main>
+        <form method="post" th:action="@{/community/notification-detail.html}" th:object="${NoticeVO}">
+        <!-- 메인 컨텐츠 영역 -->
+        <div class="container">
+            <div class="container-title">
+                <h1>공지 작성</h1>
+            </div>
+            <!-- 1. 타이틀 -->
+            <input class="notification-title" maxlength="44">
+
+            <hr>
+            <!-- 3. 파일추가 / 텍스트영역 -->
+            <div class="wrapper-add-text">
+                <!-- 3-1. 텍스트 영역 -->
+                <textarea id="textarea" name="text"></textarea>
+            </div>
+            <!-- 4. 저장 / 취소 버튼 -->
+            <div class="save-cancel-button">
+                <button type="submit" class="save"><a id="btn-save" href="./../../HTML/community/notification.html">저장</a></button>
+                <button type="button" class="cancel" onclick="window.history.back();"><a id="detail_button_2" href="./../../HTML/community/notification.html">취소</a></button>
+            </div>
+        </div>
+        </form>
+    </main>
+    <footer>
+    </footer>
+</div>
+</body>
+
+</html>

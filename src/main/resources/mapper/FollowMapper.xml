@@ -9,27 +9,28 @@
             u.USER_ID AS followerId,
             u.USER_NICKNAME AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+            f.FILE_PROFILE_SOURCE
         FROM
             GGHJ_USER u
-                JOIN
-            GGHJ_FOLLOW f ON u.USER_ID = f.FOLLOW_FROM_USER
+                JOIN GGHJ_FOLLOW fo ON u.USER_ID = fo.FOLLOW_FROM_USER
+                LEFT JOIN GGHJ_FILE f ON u.USER_ID = f.USER_ID
         WHERE
-            f.FOLLOW_TO_USER = 5
+            fo.FOLLOW_TO_USER = 1
         UNION ALL
         SELECT
             k.KAKAO_ID AS followerId,
             k.kakao_nickname AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+            ff.FILE_PROFILE_SOURCE
         FROM
             GGHJ_KAKAO k
-                JOIN
-            GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
-                JOIN
-            GGHJ_FOLLOW f ON uni.UNI_ID = f.FOLLOW_FROM_USER
+                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
+                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_FROM_USER
+                LEFT JOIN GGHJ_FILE ff ON k.KAKAO_ID = ff.USER_ID
         WHERE
-            f.FOLLOW_TO_USER = 5
+            fo.FOLLOW_TO_USER = 1
     </select>
 
     <!-- 내가 팔로우한 사람의 정보 조회 ; 팔로잉 -->
@@ -39,38 +40,36 @@
             u.USER_ID AS followingId,
             u.USER_NICKNAME AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+            f.FILE_PROFILE_SOURCE
         FROM
             GGHJ_USER u
-                JOIN
-            GGHJ_FOLLOW f ON u.USER_ID = f.FOLLOW_TO_USER
+                JOIN GGHJ_FOLLOW fo ON u.USER_ID = fo.FOLLOW_TO_USER
+                LEFT JOIN GGHJ_FILE f ON u.USER_ID = f.USER_ID
         WHERE
-            f.FOLLOW_FROM_USER = 1
+            fo.FOLLOW_FROM_USER = 1
         UNION ALL
         SELECT
             k.KAKAO_ID AS followingId,
             k.kakao_nickname AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount
+            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+            ff.FILE_PROFILE_SOURCE
         FROM
             GGHJ_KAKAO k
-                JOIN
-            GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
-                JOIN
-            GGHJ_FOLLOW f ON uni.UNI_ID = f.FOLLOW_TO_USER
+                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
+                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER
+                LEFT JOIN GGHJ_FILE ff ON k.KAKAO_ID = ff.USER_ID
         WHERE
-            f.FOLLOW_FROM_USER = 1
+            fo.FOLLOW_FROM_USER = 1
     </select>
     <!-- 이미지 불러오는 쿼리문    -->
     <!-- 임의로 id를 2로 설정해두었다 ★ ★ ★ ★ ★    -->
-    <select id="selectFile" resultType="FileVO">
-        SELECT f.FILE_PROFILE_SOURCE
-        FROM GGHJ_FILE f
-                 JOIN GGHJ_UNI u ON f.USER_ID = u.UNI_ID
-                 LEFT JOIN GGHJ_USER uu ON u.USER_ID = uu.USER_ID
-                 LEFT JOIN GGHJ_KAKAO k ON u.KAKAO_ID = k.KAKAO_ID
-        WHERE uu.USER_ID = 1 OR k.KAKAO_ID = 1
-    </select>
+<!--    <select id="selectFile" resultType="FileVO">-->
+<!--        SELECT f.FILE_PROFILE_SOURCE-->
+<!--        FROM GGHJ_FILE f-->
+<!--                 JOIN GGHJ_UNI u ON f.USER_ID = u.UNI_ID-->
+<!--    </select>-->
     <!-- 팔로워, 팔로잉 리스트에 들어온 회원들의 보드 수를 체크하는 쿼리문     -->
     <select id="selectBoardCount" resultType="FollowDTO">
         SELECT COUNT(b.BOARD_ID) AS BOARD_COUNT
