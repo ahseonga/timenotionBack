@@ -26,11 +26,11 @@
             <div class="container">
                 <!-- 1. 타이틀 -->
                 <div class="wrapper-title">
-                    제목 : <input class="title" th:field="*{boardTitle}">
+                    제목 : <input class="title" type="text" th:field="*{boardTitle}" />
                 </div>
                 <!-- 2. 년도 / 공개여부 셀렉트박스 -->
                 <div class="wrapper-select-box">
-                    <select id="select-year-detail" name="year2" th:field="*{boardLifeCycle}">
+                    <select id="select-year-detail" name="year2" th:field="*{boardYear}">
                         <option value="1924">1924</option>
                         <option value="1925">1925</option>
                         <option value="1926">1926</option>
@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-            <input type="hidden" name="userId" th:value="1">
+<!--            <input type="hidden" name="userId" th:value="${userId}">-->
         </form>
         <div class="period">
             <ul class="period_1">

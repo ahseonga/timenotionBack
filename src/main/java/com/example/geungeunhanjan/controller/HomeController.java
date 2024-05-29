@@ -110,14 +110,28 @@ public class HomeController {
 //    게시글 작성페이지로 들어가기
     }
 
-//    작성한 게시글 db저장
-    @PostMapping("/mypage/detail_writingMode")
-    public String detailWriting(@ModelAttribute("boardVO") BoardVO boardVO,
-                                @RequestParam("userId") Long userId){
-        boardVO.setUserId(userId);
-        boardService.insertBoard(boardVO);
+////    작성한 게시글 db저장
+//    @PostMapping("/mypage/detail_writingMode")
+//    public String detailWriting(@ModelAttribute("boardVO") BoardVO boardVO,
+//                                @RequestParam("userId") Long userId){
+//        boardVO.setUserId(userId);
+//        boardService.insertBoard(boardVO);
+//        return "redirect:/myLife/mypage";
+//    }
+@PostMapping("/mypage/detail_writingMode")
+public String detailWriting(@ModelAttribute("boardVO") BoardVO boardVO,
+                            @RequestParam("userId") Long userId){
+    boardVO.setUserId(userId);
+    int result = boardService.createBoard(boardVO); // 수정: createBoard 메소드로 변경
+    if (result > 0) {
         return "redirect:/myLife/mypage";
+    } else {
+        // 게시글 등록 실패 시 예외 처리 (예: 오류 페이지로 이동)
+        return "redirect:/error";
     }
+}
+
+
 
     @GetMapping("/mypage/detail-my")
     public String detailMy(){

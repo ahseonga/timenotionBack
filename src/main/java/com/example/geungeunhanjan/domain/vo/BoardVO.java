@@ -17,5 +17,6 @@ public class BoardVO {
     private int boardViewCount;
     private String boardLifeCycle;
     private int boardLikeCount;
+    private int boardYear;
     private Long userId;
 }

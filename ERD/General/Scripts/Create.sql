@@ -12,6 +12,7 @@ CREATE TABLE GGHJ_USER
 );
 -- 유저 소개글 추가해야됨 
 
+SELECT * FROM GGHJ_USER gu ;
 
 /*카카오 유저 ---------------------------------------- */
 CREATE TABLE GGHJ_KAKAO
