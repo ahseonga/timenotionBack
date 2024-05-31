@@ -23,6 +23,8 @@ button[type="button"]:hover{
 }
 .notification-selector{
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .notification-selector button{
     height: 100%;
@@ -78,23 +80,50 @@ button[type="button"]:hover{
     width: 100px;
     text-align: center;
 }
-.notification-paging{
-    margin: 40px auto 120px auto;
-    display: flex;
-    width: 150px;
-    font-size: 14px;
-    /* border: 1px solid black; */
-    justify-content: space-around;
+.contents-next-content form button{
+    margin-right: 30px;
 }
-.notification-paging a{
+.contents-next-content{
+    display: flex;
+}
+
+/*페이지 css */
+/*  css는 추후 수정하는 것으로   */
+.page-box a{
     color: black;
 }
-.paging-backward{
-    display: none;
+
+.page-a {
+    text-decoration: none;
+    /*color: #00c7ae;*/
 }
-.paging-forward{
-    display: block;
+
+.page-box {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.page-num {
+    /*border: 1px solid black;*/
+    width: 30px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    /*background-color: white;*/
+    cursor: pointer;
+}
+
+/*.active,*/
+/*.page-num:hover {*/
+/*    !*background-color: #00c7ae;*!*/
+/*    color: white;*/
+/*}*/
+
+/* --   배너    ---*/
 .notification-banner{
     height: 175px;
     width: 900px;
@@ -125,23 +154,4 @@ button[type="button"]:hover{
     position: relative;
     /* right: 1800px; */
     /* overflow: hidden; */
-}
-.prev, .next{
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    font-size: 25px;
-    background-color: white;
-    border-radius: 50%;
-    bottom: 330px;
-    cursor: pointer;
-}
-.notification-prev{
-    left: 23px;
-    display: none;
-}
-.notification-next{
-    right: 39px;
 }
