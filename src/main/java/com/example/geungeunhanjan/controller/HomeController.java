@@ -1,13 +1,13 @@
 package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
-import com.example.geungeunhanjan.domain.vo.user.UniVO;
+
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.community.InquiryService;
 import com.example.geungeunhanjan.service.user.UserService;
-import jakarta.servlet.http.HttpServletRequest;
+
 import jakarta.servlet.http.HttpSession;
 
 import com.example.geungeunhanjan.service.lifes.FollowService;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,109 +71,5 @@ public class HomeController {
     }
 
 
-<<<<<<< HEAD
-        return "myLife/mypage";
-    }
 
-
-    @GetMapping("/mypage/detail_writingMode")
-    public String detailMy(Model model, HttpSession session) {
-        // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/login";
-        }
-        model.addAttribute("boardVO",new BoardVO());
-        return "myLife/detail_writingMode";
-//    게시글 작성페이지로 들어가기
-    }
-
-//    작성한 게시글 db저장
-    @PostMapping("/mypage/detail_writingMode")
-    public String detailWriting(@ModelAttribute("boardVO") BoardVO boardVO,
-                                @RequestParam("userId") Long userId){
-        boardVO.setUserId(userId);
-        boardService.insertBoard(boardVO);
-        return "redirect:/myLife/mypage";
-    }
-
-    @GetMapping("/mypage/detail-my")
-    public String detailMy(){
-        return "myLife/detail-my";
-    }
-
-    // 너의 일대기 팔로우 페이지
-    @GetMapping("/yourLife")
-    public String yourLife(Model model, HttpSession session) {
-        // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/login";
-        }
-
-        //팔로워 리스트 조회하기
-        List<FollowDTO> followers = followService.selectFollower();
-        model.addAttribute("followers", followers);
-
-        //팔로잉 리스트 조회하기
-        List<FollowDTO> followings = followService.selectFollowing();
-        model.addAttribute("followings", followings);
-
-        //프로필 이미지 정보 가져오기
-//        List<FileVO> files = followService.selectFile();
-//        model.addAttribute("files", files);
-
-        //유저의 일기 수 정보 가져오기
-        List<FollowDTO> boards = followService.selectBoardCount();
-        model.addAttribute("boards", boards);
-
-
-        return "yourLife/yourLife";
-    }
-
-    @GetMapping("/everyLife")
-    public String everyLife(HttpSession session) {
-        // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/login";
-        }
-        return "everyLife/everyLife";
-    }
-
-//    @GetMapping("/inquiry")
-//    public String inquiry() {
-//        return "community/inquiry";
-//    }
-
-    @GetMapping("/inquiry")
-
-    public String community(Model model) {
-
-        List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
-
-        if (inquiries.size() > 7) {
-            inquiries = inquiries.subList(0, 7);
-        }
-
-        model.addAttribute("inquiries", inquiries);
-
-
-        return "community/inquiry";
-    }
-
-    @PostMapping("/inquiry")
-    public String community() {
-        return "community/inquiry";
-        }
-
-
-    // 로그아웃
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();  // 세션 무효화
-        return "redirect:/main";
-    }
-=======
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6
 }

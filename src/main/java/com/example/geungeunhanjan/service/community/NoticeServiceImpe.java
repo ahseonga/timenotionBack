@@ -1,15 +1,14 @@
 package com.example.geungeunhanjan.service.community;
 
-<<<<<<< HEAD:src/main/java/com/example/geungeunhanjan/service/NoticeServiceImpe.java
-import com.example.geungeunhanjan.domain.dto.NoticeDTO;
-import com.example.geungeunhanjan.domain.vo.BoardVO;
-import com.example.geungeunhanjan.domain.vo.NoticeVO;
-import com.example.geungeunhanjan.mapper.NoticeMapper;
-=======
-import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
-import com.example.geungeunhanjan.mapper.community.NoticeMapper;
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6:src/main/java/com/example/geungeunhanjan/service/community/NoticeServiceImpe.java
 
+import com.example.geungeunhanjan.domain.dto.NoticePage.NoticeCriteria;
+import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
+import com.example.geungeunhanjan.domain.dto.community.NoticePageDTO;
+import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
+import com.example.geungeunhanjan.mapper.community.NoticeMapper;
+
+
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,9 +18,11 @@ public class NoticeServiceImpe implements NoticeService {
 
     //의존성주입
     private final NoticeMapper noticeMapper;
+    private final HttpSession httpSession;
 
-    public NoticeServiceImpe(NoticeMapper noticeMapper) {
+    public NoticeServiceImpe(NoticeMapper noticeMapper, HttpSession httpSession) {
         this.noticeMapper = noticeMapper;
+        this.httpSession = httpSession;
     }
 
 
@@ -41,11 +42,32 @@ public class NoticeServiceImpe implements NoticeService {
     public NoticeDTO selectNoticeDetail(Long noticeId) {
         return noticeMapper.selectNoticeDetail(noticeId);
     }
+
     //공지글 작성하기
     @Override
     public void insertNotice(NoticeVO noticeVO) {
+        noticeMapper.insertNotice(noticeVO);
+    }
+    //공지글 삭제하기
+    @Override
+    public void deleteNotice(Long noticeId) {
+        noticeMapper.deleteNotice(noticeId);
     }
 
+    @Override
+    public List<NoticePageDTO> selectAllPageNotice(NoticeCriteria noticeCriteria) {
+        return noticeMapper.selectAllPageNotice(noticeCriteria);
+    }
+
+    @Override
+    public List<NoticePageDTO> selectAllNotice() {
+        return noticeMapper.selectAllNotice();
+    }
+
+    @Override
+    public int selectTotalNotice() {
+        return noticeMapper.selectTotalNotice();
+    }
 
 
 }
