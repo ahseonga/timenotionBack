@@ -21,12 +21,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-<<<<<<< HEAD
 
 import java.io.File;
 import java.io.IOException;
-=======
->>>>>>> main
+
 import java.util.List;
 
 // myLife로 가는 컨트롤러
@@ -123,12 +121,7 @@ public class MyPageController {
         return "myLife/detail-my";
     }
 
-<<<<<<< HEAD
 
-
-=======
-    // 내가 쓴 댓글로
->>>>>>> main
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
