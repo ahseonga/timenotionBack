@@ -45,7 +45,7 @@ public class HomeController {
         Long userId = (Long) session.getAttribute("userId");
 //        if (userId == null) {
 //            return "/main";
-//        }
+
 
         List<BoardVO> boards = boardService.mainBoardbyViews();
         List<String> userNicknames = new ArrayList<>();
@@ -70,18 +70,5 @@ public class HomeController {
         return "main/about";
     }
 
-<<<<<<< HEAD
-//    마이페이지에서 내가 쓴 게시글 리스트 뽑기
-    @GetMapping("/mypage")
-    public String mypage(Model model, HttpSession session) {
-        // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/login";
-        }
-        List<BoardVO> boards = boardService.selectBoard(userId);
-        model.addAttribute("boards", boards);
-=======
->>>>>>> main
 
 }

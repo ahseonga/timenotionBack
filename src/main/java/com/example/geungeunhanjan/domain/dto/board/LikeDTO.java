@@ -8,9 +8,11 @@ import java.time.LocalDateTime;
 @Component
 @Data
 public class LikeDTO {
+    private Long likeId;
     private String boardTitle;
+    private Long boardId;
+    private String nickname;
+    private Long userId;
     private LocalDateTime likeCreatedDate;
-    private String kakaoNickname;
-    private String userNickname;
-    private Long likeClickUser;
+
 }

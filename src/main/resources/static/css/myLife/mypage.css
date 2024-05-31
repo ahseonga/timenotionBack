@@ -16,7 +16,14 @@ main {
 a {
   text-decoration: none;
 }
-
+.container {
+  max-width: 1000px;
+  width: 1000px;
+  background-color: #fcfaf7;
+  box-sizing: border-box;
+  padding: 50px 10px;
+  min-width: 1000px;
+}
 #header {
   display: flex;
   height: 140px;

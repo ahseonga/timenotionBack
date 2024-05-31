@@ -11,5 +11,6 @@ public class CommentDTO {
     private String commentsContent;
     private LocalDateTime createdDate;
     private String boardTitle;
+    private Long boardId;
     private Long userId; // 댓글 작성자 id
 }

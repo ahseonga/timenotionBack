@@ -1,13 +1,5 @@
 package com.example.geungeunhanjan;
 
-<<<<<<< HEAD
-import com.example.geungeunhanjan.domain.vo.BoardVO;
-import com.example.geungeunhanjan.domain.vo.UserVO;
-import com.example.geungeunhanjan.mapper.BoardMapper;
-import com.example.geungeunhanjan.service.BoardService;
-import com.example.geungeunhanjan.service.UserService;
-=======
-
 
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
@@ -16,7 +8,7 @@ import com.example.geungeunhanjan.mapper.board.BoardMapper;
 
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.user.UserService;
->>>>>>> main
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,20 +22,13 @@ class GeungeunhanjanApplicationTests {
     @Autowired
     private BoardService boardService;
     @Autowired
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     private UserService userService;
     @Autowired
     private UserVO userVO;
     LocalDateTime dateTime;
 
-<<<<<<< HEAD
-    @Autowired
-=======
 
->>>>>>> main
+    @Autowired
     private BoardMapper boardMapper;
 
     @Test
@@ -55,17 +40,17 @@ class GeungeunhanjanApplicationTests {
         System.out.println(boards);
     }
 
-<<<<<<< HEAD
+
 /*    @Test
-=======
+
     @Test
 
->>>>>>> main
+
     void mainBoardTest(){
         List<BoardVO> boards = boardService.mainBoardbyViews();
         System.out.println(boards);
     }
-<<<<<<< HEAD
+
 
     public void insertBoardTest(BoardVO boardVO) {
         Long boardId = boardMapper.getSeq();
@@ -74,7 +59,7 @@ class GeungeunhanjanApplicationTests {
         System.out.println(boardVO);
     }*/
 
-=======
+
 
 //    public void insertBoardTest(BoardVO boardVO) {
 //        Long boardId = boardMapper.getSeq();
@@ -84,7 +69,6 @@ class GeungeunhanjanApplicationTests {
 //    }
 
 
->>>>>>> main
 
     @Test
     void userNickTest(){
