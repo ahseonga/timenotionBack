@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Component
+// 문의 작성
 public class InquiryWriteDTO {
     private Long inquiryId;
     private String inquiryTitle;

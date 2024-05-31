@@ -19,14 +19,19 @@ public interface InquiryService {
     // 각 id별 문의 상세
     InquiryDTO selectInquiryDetail(Long inquiryId);
 
+    // 문의 작성자 닉네임
     String userNickNamebyInquiryId(Long inquiryId);
 
+    // 문의 삭제
     void inquiryDelete(@Param("inquiryId") Long inquiryId, @Param("userId") Long userId);
 
+    // 문의 작성
     void inquiryWrite(InquiryWriteDTO inquiryWriteDTO);
 
+    // 문의 페이징
     List<InquiryPagingDTO> selectAllInquiryPage(Criteria criteria);
 
+    // 문의 총 갯수
     int selectInquiryTotal();
 
 }

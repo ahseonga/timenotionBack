@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Component
+// 문의 페이징
 public class InquiryPagingDTO {
     private long inquiryId;
     private String inquiryTitle;

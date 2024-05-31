@@ -34,26 +34,31 @@ public class InquiryServiceImlpe implements InquiryService {
         return inquiryMapper.selectInquiryDetail(inquiryId);
     }
 
+    // 문의 닉네임
     @Override
     public String userNickNamebyInquiryId(Long inquiryId) {
         return inquiryMapper.userNickNamebyInquiryId(inquiryId);
     }
 
+    // 문의 삭제
     @Override
     public void inquiryDelete(@Param("inquiryId") Long inquiryId, @Param("userId") Long userId) {
         inquiryMapper.inquiryDelete(inquiryId, userId);
     }
 
+    // 문의 작성
     @Override
     public void inquiryWrite(InquiryWriteDTO inquiryWriteDTO) {
         inquiryMapper.inquiryWrite(inquiryWriteDTO);
     }
 
+    // 문의 페이징
     @Override
     public List<InquiryPagingDTO> selectAllInquiryPage(Criteria criteria){
         return inquiryMapper.selectAllInquiryPage(criteria);
     }
 
+    // 문의 총 갯수
     @Override
     public int selectInquiryTotal () {
         return inquiryMapper.selectInquiryTotal();
