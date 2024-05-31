@@ -8,7 +8,7 @@ function rgb(r, g, b) {
 
 // 이미지 변경 테스트중 화난다 아아..아아..아아ㅏ..==============================
 //일단 두기 
-
+/* 1. 프로필 이미지 변경 ----------------- */
 document.addEventListener("DOMContentLoaded", function() {
   // 이미지 변경 버튼 요소를 가져옵니다.
   let changeButton = document.querySelector('.edit-img-button-change');
@@ -44,6 +44,37 @@ console.log(profileImage);
       console.log(profileImage);
   });
 });
+
+/* 2. 배경 이미지 변경 ----------------- */
+
+document.addEventListener("DOMContentLoaded", function (){
+  let changeBackButton = document.querySelector('.edit-back-img-button-change');
+  let backFileInput = document.getElementById('file-input-back-img-change');
+  let backImage = document.getElementById('mypage-back-img');
+
+  // '이미지변경'클릭 -> input버튼 클릭되게
+  changeBackButton.addEventListener('click', function (){
+    // 사용자 상호작용을 유도하여 파일 선택 대화상자를 엽니다.
+    if(backFileInput){
+      backFileInput.click();
+    }
+
+  });
+
+  backFileInput.addEventListener('change', function (e){
+    let file = e.target.files[0];
+    if(file){
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function (){
+        backImage.src = reader.result;
+      }
+    }
+  });
+
+});
+
+
 
 //나중에 보자 이미지 변경============================================
 
