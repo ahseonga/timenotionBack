@@ -72,7 +72,7 @@
     </select>
     <!-- 이미지 불러오는 쿼리문    -->
     <!-- 임의로 id를 2로 설정해두었다 ★ ★ ★ ★ ★    -->
-    <select id="selectFile" resultType="FileVO">
+    <select id="selectFile" resultType="UserFileVO">
         SELECT f.FILE_PROFILE_SOURCE
         FROM GGHJ_FILE f
                  JOIN GGHJ_UNI u ON f.USER_ID = u.UNI_ID
@@ -93,7 +93,6 @@
         INSERT INTO GGHJ_FOLLOW (FOLLOW_ID , FOLLOW_TO_USER, FOLLOW_FROM_USER)
         VALUES(#{followId},#{follwToUser},#{followFromUser})
     </insert>
-
 
 
 </mapper>

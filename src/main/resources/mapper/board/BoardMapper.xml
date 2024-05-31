@@ -41,8 +41,6 @@
 
 
 
-
-
     <insert id="insertBoard" parameterType="BoardVO">
         <selectKey keyProperty="boardId" resultType="Long" order="BEFORE">
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL
