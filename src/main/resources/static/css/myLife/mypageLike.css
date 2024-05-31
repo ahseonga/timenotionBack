@@ -12,11 +12,11 @@
 
 .profile{
   position: absolute;
-  top: 90px; 
+  top: 90px;
   /* width: 100px; */
   display: flex;
   align-items: center;
-  margin-left: 25px;  
+  margin-left: 25px;
 }
 
 .profile > img {
@@ -107,7 +107,7 @@
 }
 /* 글쓰기  */
 .write-button{
-  
+
 }
 
 .write-button > button{
@@ -169,7 +169,7 @@
   font-weight: 700;
   font-size: 12px;
   color: black;
-  
+
 }
 .second-container-like:hover{
   cursor: pointer;
@@ -190,7 +190,7 @@
   font-weight: 700;
   font-size: 12px;
   color: black;
-  
+
 }
 .second-container-user:hover{
   cursor: pointer;
@@ -211,7 +211,7 @@
   font-weight: 700;
   font-size: 12px;
   color: black;
-  
+
 }
 .second-container-alarm:hover{
   cursor: pointer;
@@ -233,7 +233,7 @@ hr{
 /* 좋아요 목록 제목 박스 */
 .like-paragraph{
   /* background-color: lightblue; */
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
@@ -249,10 +249,10 @@ hr{
   display: flex;
   justify-content: space-between;
   height: 575px;
-} 
+}
 
 .like-content-left-title a{
-  width: 185.55px; /* 원하는 너비로 설정 */
+  max-width: 270px; /* 원하는 너비로 설정 */
   height: 24px; /* 두 줄 높이에 맞춰 설정 */
 
   display: -webkit-box;
@@ -273,28 +273,38 @@ hr{
 .like-contents-left{
   /* background-color: lightgray; */
   border-radius: 6px;
-  width: 450px;
+  /*  width: 450px;*/
+  width: 100%;
 }
 .like-contents-left li{
   background-color: #F2F3F2;
-  display: flex;
-  justify-content: space-between;
+  /*display: flex;*/
+  /*justify-content: space-between;*/
   align-items: center;
   height: 56px;
 }
-
+.box-lists{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 .like-content-left-list{
   display: flex;
-  height: 56px;
+  height: 60px;
   /* width: 100%; */
   align-items: center;
+  font-size: 14px;
 }
 .like-content-left-list img{
   width: 15px;
 }
-.like-content-left-list img,.like-content-left-list  p{
+.like-content-left-list img{
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+.like-content-left-list  p{
+  margin-right: 5px;
+  margin-left: 5px;
 }
 .like-content-left-nickname{
   font-weight: bolder ;
@@ -317,8 +327,13 @@ hr{
 .like-contents-left > li:nth-of-type(10){
   border-radius: 0 0 6px 6px;
 }
+.like-content-right-list{
+  align-content: center;
+  white-space: nowrap;
+}
 .like-content-right-list p{
   margin-right: 10px;
+  font-size: 12px;
 }
 
 /* 좋아요 오른쪽 박스 */
@@ -354,7 +369,7 @@ hr{
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  
+
 }
 .like-content-left-nickname-right a{
   font-weight: bolder;
