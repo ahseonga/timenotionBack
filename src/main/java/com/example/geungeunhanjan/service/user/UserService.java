@@ -11,7 +11,6 @@ public interface UserService {
 
     // main 4칸짜리 게시물 닉네임알아내기
     String mainBoardByViewsNickname(long boardId);
-
     // 일반 로그인
     Long userLogin(@Param("userEmail") String userEmail, @Param("userPassword") String userPassword);
 

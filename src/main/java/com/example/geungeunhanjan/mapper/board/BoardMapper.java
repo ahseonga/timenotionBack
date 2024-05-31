@@ -4,22 +4,24 @@ import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
 public interface BoardMapper {
 
-    // 보드 리스트
-
     //게시글 등록하기
-    int insertBoard(BoardVO boardVO);
+    void insertBoard(BoardVO boardVO);
 
     //특정 회원의 생일 불러오기
-    String selectUserBirth(Long userId);
+    LocalDateTime selectUserBirth(Long userId);
 
     //특정 회원의 게시글 보기(마이페이지)
     List<BoardVO> selectBoard(Long userId);
+
+    //내가쓴 특정게시물 상세페이지 들어가기
+    Optional<BoardVO> selectById(Long boardId);
 
     // 메인 4칸짜리 게시물
     List<BoardVO> mainBoardbyViews();
