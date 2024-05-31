@@ -17,7 +17,6 @@ import java.util.List;
 
 
 // 커뮤티니로
-
 @Controller
 @RequestMapping("/community")
 public class CommunityController {

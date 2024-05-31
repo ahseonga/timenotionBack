@@ -34,7 +34,6 @@ public interface BoardService {
     // 메인 4칸짜리 게시물
     List<BoardVO> mainBoardbyViews();
 
-<<<<<<< HEAD
     //나의 일대기 게시판 등록하기
 //    int createBoard(BoardVO boardVO);
 
@@ -42,7 +41,5 @@ public interface BoardService {
     List<BoardVO> everyLifeBoardbyViews();
 
     
-=======
-    //
->>>>>>> main
+
 }

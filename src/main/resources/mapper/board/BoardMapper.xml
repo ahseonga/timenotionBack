@@ -107,7 +107,7 @@
         ORDER BY BOARD_VIEW_COUNT DESC
     </select>
 
-    <select id="selectAllPage" parameterType="Criteria" resultType="BoardListDto">
+ <!--   <select id="selectAllPage" parameterType="Criteria" resultType="BoardListDto">
         <![CDATA[
         SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
         FROM (
@@ -132,7 +132,7 @@
              )
         WHERE RNUM > (#{page} - 1) * #{amount}
         ]]>
-    </select>
+    </select>-->
 
 
 
