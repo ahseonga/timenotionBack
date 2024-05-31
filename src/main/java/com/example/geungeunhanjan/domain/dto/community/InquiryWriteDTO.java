@@ -5,15 +5,15 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
 @Data
-public class InquiryDTO {
-    private long inquiryId;
+@Component
+public class InquiryWriteDTO {
+    private Long inquiryId;
     private String inquiryTitle;
-    private String userNickname;
-    private LocalDateTime inquiryCreatedDate;
     private String inquiryContent;
     private String inquiryResponse;
+    private LocalDateTime inquiryCreatedDate;
     private String inquiryPublic;
     private Long userId;
+    private String userNickname;
 }

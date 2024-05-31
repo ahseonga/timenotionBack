@@ -1,29 +1,24 @@
 package com.example.geungeunhanjan;
 
-<<<<<<< HEAD
-import com.example.geungeunhanjan.domain.dto.InquiryDTO;
-import com.example.geungeunhanjan.domain.vo.BoardVO;
-
-import com.example.geungeunhanjan.domain.vo.UserVO;
-
-import com.example.geungeunhanjan.mapper.BoardMapper;
-
-import com.example.geungeunhanjan.mapper.InquiryMapper;
-import com.example.geungeunhanjan.service.BoardService;
-import com.example.geungeunhanjan.service.UserService;
-=======
 
 
+
+
+import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
+import com.example.geungeunhanjan.domain.dto.page.Criteria;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.mapper.board.BoardMapper;
 
+import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
+import com.example.geungeunhanjan.service.community.InquiryService;
 import com.example.geungeunhanjan.service.user.UserService;
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
@@ -35,26 +30,20 @@ class GeungeunhanjanApplicationTests {
     @Autowired
     private BoardService boardService;
     @Autowired
-<<<<<<< HEAD
-=======
-
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6
     private UserService userService;
     @Autowired
     private UserVO userVO;
     LocalDateTime dateTime;
-<<<<<<< HEAD
+
     private BoardMapper boardMapper;
 
     @Autowired
     private InquiryMapper inquiryMapper;
+    @Qualifier("inquiryService")
+    @Autowired
+    private InquiryService inquiryService;
 
-=======
 
-
-    private BoardMapper boardMapper;
-
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6
     @Test
     void contextLoads() {
     }
@@ -78,10 +67,6 @@ class GeungeunhanjanApplicationTests {
 //        System.out.println(boardVO);
 //    }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6
 
     @Test
     void userNickTest(){
@@ -121,5 +106,15 @@ class GeungeunhanjanApplicationTests {
 
         System.out.println(inquiryMapper.selectInquiryDetail(1L));
 
+    }
+
+    @Test
+    void inquiryDeleteTest(){
+        inquiryMapper.inquiryDelete(1L, 1L);
+    }
+
+    @Test
+    void paging(Criteria criteria){
+        inquiryService.selectAllInquiryPage(criteria);
     }
 }

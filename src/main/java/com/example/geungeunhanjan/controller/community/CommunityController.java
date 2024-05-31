@@ -1,28 +1,35 @@
 package com.example.geungeunhanjan.controller.community;
 
-<<<<<<< HEAD:src/main/java/com/example/geungeunhanjan/controller/CommunityController.java
-import com.example.geungeunhanjan.domain.dto.InquiryDTO;
-import com.example.geungeunhanjan.mapper.InquiryMapper;
-import com.example.geungeunhanjan.service.InquiryService;
-=======
+
+import com.example.geungeunhanjan.domain.dto.community.*;
+import com.example.geungeunhanjan.domain.dto.page.Criteria;
+import com.example.geungeunhanjan.domain.dto.page.Page;
+import com.example.geungeunhanjan.mapper.community.InquiryMapper;
+import com.example.geungeunhanjan.service.community.InquiryService;
+
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.service.community.InquiryService;
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6:src/main/java/com/example/geungeunhanjan/controller/community/CommunityController.java
 
-import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
+
 import com.example.geungeunhanjan.service.community.NoticeService;
 
+import com.example.geungeunhanjan.service.user.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-<<<<<<< HEAD:src/main/java/com/example/geungeunhanjan/controller/CommunityController.java
+
 import org.springframework.web.bind.annotation.*;
-=======
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
->>>>>>> 8726178c37a347f042d657a15bd3fbed9e2c27e6:src/main/java/com/example/geungeunhanjan/controller/community/CommunityController.java
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,40 +41,46 @@ public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
     private final InquiryMapper inquiryMapper;
+    private final UserService userService;
 
-    public CommunityController(InquiryService inquiryService, NoticeService noticeService, InquiryMapper inquiryMapper) {
+    public CommunityController(InquiryService inquiryService, NoticeService noticeService, InquiryMapper inquiryMapper, UserService userService) {
         this.inquiryService = inquiryService;
         this.noticeService = noticeService;
         this.inquiryMapper = inquiryMapper;
+        this.userService = userService;
     }
 
 
     @GetMapping("/inquiry")
-    public String community(Model model) {
-
-
-        List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
-
-        // 문의 리스트 7개로 제한
-        if (inquiries.size() > 7) {
-            inquiries = inquiries.subList(0, 7);
-        }
+    public String community(Criteria criteria, Model model) {
+        List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(criteria);
+        int total = inquiryService.selectInquiryTotal();
+        Page page = new Page(criteria, total);
 
         model.addAttribute("inquiries", inquiries);
-        return "community/inquiry";
+        model.addAttribute("page", page);
+
+        System.out.println(total);
+        System.out.println("page = " + page);
+        
+        return "/community/inquiry";
+//
+//        List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
+//
+//
+//        model.addAttribute("inquiries", inquiries);
+//        return "community/inquiry";
     }
+
+
 
 
     @GetMapping("/inquiry/{inquiryId}")
     @ResponseBody
-    public InquiryDTO inquiryDetail(@PathVariable("inquiryId") Long inquiryId, Model model) {
+    public InquiryDTO inquiryDetail(@PathVariable("inquiryId") Long inquiryId) {
         return inquiryService.selectInquiryDetail(inquiryId);
     }
 
-    @PostMapping("/inquiry")
-    public String community() {
-        return "community/inquiry";
-    }
 
     //공지버튼 클릭시
     @GetMapping("/notification")
@@ -90,6 +103,33 @@ public class CommunityController {
         return "community/community_detail";
     }
 
+
+    @PostMapping("/inquiry/deleteInquiry")
+    public ResponseEntity<String> deleteInquiry(@RequestParam("inquiryId") Long inquiryId, @RequestParam("userId") Long userId) {
+        // inquiryId와 userId를 사용하여 삭제 작업 수행
+        inquiryMapper.inquiryDelete(inquiryId, userId);
+        // 응답에 성공 메시지를 포함하여 반환
+        return ResponseEntity.ok("삭제 완료");
+    }
+
+    @PostMapping("/inquiry/insertInquiry")
+    public String insertInquiry(@ModelAttribute ("inquiryWriteDTO") InquiryWriteDTO inquiryWriteDTO, @SessionAttribute("userId") Long userId){
+
+        String userNickname = userService.selectUserNickname(userId);;
+
+        inquiryWriteDTO.setUserId(userId);
+        System.out.println(userId);
+        inquiryWriteDTO.setUserNickname(userNickname);
+//        inquiryDTO.setInquiryCreatedDate();
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        inquiryWriteDTO.setInquiryCreatedDate(currentDateTime);
+//        inquiryWriteDTO.setInquiryCreatedDate(new Date().);
+
+
+        inquiryService.inquiryWrite(inquiryWriteDTO);
+
+        return "redirect:/community/inquiry";
+    }
 }
 
 

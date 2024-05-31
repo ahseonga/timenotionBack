@@ -7,7 +7,9 @@ import com.example.geungeunhanjan.mapper.board.BoardMapper;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service
 public class UserServiceImple implements UserService{
     private final UserMapper userMapper;
