@@ -11,8 +11,9 @@ public class FollowDTO {
     private Long followerId; //팔로워아이디
     private String userNickname; //유저 닉네임
 //  팔로잉 수
-    private int followingCount;// 추가된 필드
+    private int followingCount;// 팔로잉 수 추가된 필드
 //  팔로워 수
     private int followerCount;
     private int boardCount;// 일기 수
+    private String fileProfileSource;//파일 소스 추가필드
 }

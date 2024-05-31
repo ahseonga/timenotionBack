@@ -3,18 +3,16 @@ package com.example.geungeunhanjan.service;
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import com.example.geungeunhanjan.mapper.lifes.MyPageMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.ssl.SslProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +25,7 @@ import java.util.UUID;
 public class MyPageServiceImpl implements  MyPageService{
     // 마이페이지
     private final MyPageMapper myPageMapper;
-    private final FileVO fileVO;
+    private final UserFileVO userFileVO;
     private final UserVO userVO;
 
     //1. 내가 좋아요 한 목록 ~!
@@ -72,7 +70,7 @@ public class MyPageServiceImpl implements  MyPageService{
     private String fileDir;
 
     @Override
-    public void registProfileBackFile(FileVO fileVO, List<MultipartFile> files) throws IOException {  // 프사 / 배사 등록
+    public void registProfileBackFile(UserFileVO userFileVO, List<MultipartFile> files) throws IOException {  // 프사 / 배사 등록
         /* 파일 이름 경로 재설정한 객체를 받아서 저장함
         *  유저 아이디 넣어줌
         *  파일 정보를 DB에 저장 */
@@ -82,8 +80,8 @@ public class MyPageServiceImpl implements  MyPageService{
                 break;
             }
 //            fileVO.setUserId(userVO.getUserId());
-            FileVO renameFileVO = renameResourceFile(file);
-            myPageMapper.insertFileById(renameFileVO);
+            UserFileVO renameUserFileVO = renameResourceFile(file);
+            myPageMapper.insertFileById(renameUserFileVO);
         }
 
 
@@ -94,7 +92,7 @@ public class MyPageServiceImpl implements  MyPageService{
         return new SimpleDateFormat("yyyy/MM/dd").format(new Date());
     }
 
-    public FileVO renameResourceFile (MultipartFile files) throws IOException {
+    public UserFileVO renameResourceFile (MultipartFile files) throws IOException {
         /* 1. 사용자가 올린 파일 이름을 가져와 UUID 붙여주고 경로를 합침
         *  2. 경로가 없다면 경로가 필요한 곳에 경로 생성해줌
         *  3. 파일이름 + 전체경로 연결, 객체가 가진 파일을 우리가 만든 이름으로 저장해서 FileVO의 객체를 반환*/
@@ -124,16 +122,16 @@ public class MyPageServiceImpl implements  MyPageService{
         files.transferTo(uploadFile); // C:/upload/yyyy/MM/dd/파일이름.jpg <-- 이 이름으로 MultipartFile의 file이름을 대체함
 
         // 새 객체를 만들어서 우리가 만든 이름을 넣고 걔를 반환할 것
-        FileVO finalFileVO = new FileVO();
+        UserFileVO finalUserFileVO = new UserFileVO();
 
-        finalFileVO.setFileProfileUuid(uuid.toString());
-        finalFileVO.setFileProfileName(originalFilename);
-        finalFileVO.setFileProfileSource(getUploadPath()); // /yyyy/MM/dd 이걸 넣어줌
-        finalFileVO.setFileBackUuid(uuid.toString());
-        finalFileVO.setFileBackName(originalFilename);
-        finalFileVO.setFileBackSource(getUploadPath()); // /yyyy/MM/dd 이걸 넣어줌
+        finalUserFileVO.setUserFileProfileUuid(uuid.toString());
+        finalUserFileVO.setUserFileProfileName(originalFilename);
+        finalUserFileVO.setUserFileProfileSource(getUploadPath()); // /yyyy/MM/dd 이걸 넣어줌
+        finalUserFileVO.setUserFileBackUuid(uuid.toString());
+        finalUserFileVO.setUserFileBackName(originalFilename);
+        finalUserFileVO.setUserFileBackSource(getUploadPath()); // /yyyy/MM/dd 이걸 넣어줌
 
-        return finalFileVO;
+        return finalUserFileVO;
 
     }
 
@@ -145,7 +143,7 @@ public class MyPageServiceImpl implements  MyPageService{
 
 
     @Override
-    public FileVO getProfileBackFile(Long fileId) {   // 프사 / 배사 셀렉
+    public UserFileVO getProfileBackFile(Long fileId) {   // 프사 / 배사 셀렉
         return null;
     }
 
