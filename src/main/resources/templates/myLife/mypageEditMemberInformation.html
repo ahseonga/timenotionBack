@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./../../css/notion.css" />
+<!--    <link rel="stylesheet" href="./../../css/notion.css" />-->
     <link rel="stylesheet" href="./../../css/reset.css" />
-
     <link rel="stylesheet" href="./../../css/myLife/mypageEditMemberInformation.css">
     <script defer src="./../../js/myLife/mypageEditMemberInformation.js"></script>
-    <script defer src="./../../js/fragment/headerFetch.js"></script>
-    <script defer src="./../../js/fragment/footerFetch.js"></script>
+
   </head>
   <body>
   <div th:replace="~{/fragment/header::header}"></div>
-    <div id="wrapper">
 
+    <div id="wrapper">
       <main>
         <div class="container">
-          
-          <form action="" class="edit-form">
+<!--          <form class="edit-form" method="">-->
+          <form th:action="@{/myLife/mypageEditMemberInformation}" method="post" class="edit-form" >
           <div class="edit-banner">
             <div class="edit-member-paragraph">
               <p>회원 정보 수정</p>
@@ -30,14 +28,14 @@
             
             <!-- 이미지 변경 div -->
             <div class="edit-img-change">
-              <p class="edit-img-p1">이미지 변경</p>
+<!--              <p class="edit-img-p1">이미지 변경</p>-->
               <p class="edit-img-p2">프로필 이미지 변경</p>
               <div class="edit-img-box">
-                
+
                   <img id="mypage-profile-img" src="./../../img/myLife/mdj-whiteBackground.jpg" alt="프로필 이미지">
-                  <button class="edit-img-button-change" >이미지 변경</button>
+                  <button type="button" class="edit-img-button-change" >이미지 변경</button>
                   <input type="file" id="file-input-img-change" accept="image/*" style="display: none;">
-                  <button class="edit-img-button-delete">삭제</button>
+                  <button type="button" class="edit-img-button-delete">삭제</button>
                 
               </div>
             </div>
@@ -49,10 +47,10 @@
               <p>배경 이미지 변경</p>
               <div class="edit-back-img-box">
                 
-                  <img src="./../../img/myLife/mdj-whiteBackground.jpg" alt="프로필 이미지">
-                  <button class="edit-back-img-button-change">이미지 변경</button>
+                  <img id="mypage-back-img" src="./../../img/myLife/mdj-whiteBackground.jpg" alt="프로필 이미지">
+                  <button type="button" class="edit-back-img-button-change">이미지 변경</button>
                   <input type="file" id="file-input-back-img-change" accept="image/*" style="display: none;">
-                  <button class="edit-back-img-button-delete">삭제</button>
+                  <button type="button" class="edit-back-img-button-delete">삭제</button>
                 
               </div>
             </div>
@@ -137,12 +135,12 @@
 
             <hr class="edit-hr-email">
 
-            <div class="edit-phone-box">
-              <p>연락처(수정불가)</p>
-              <p class="edit-phone-paragraph">010-3399-9876</p>
-            </div>
+<!--            <div class="edit-phone-box">-->
+<!--              <p>연락처(수정불가)</p>-->
+<!--              <p class="edit-phone-paragraph">010-3399-9876</p>-->
+<!--            </div>-->
 
-            <hr class="edit-hr-phone">
+<!--            <hr class="edit-hr-phone">-->
 
             <!-- 생년월일 -->
             <div class="edit-birth-box">
@@ -216,9 +214,8 @@
           </form>
         </div>
       </main>
-      <footer>
-        
-      </footer>
+      <div th:replace="~{/fragment/footer::footer}"></div>
+
     </div>
   </body>
 </html>

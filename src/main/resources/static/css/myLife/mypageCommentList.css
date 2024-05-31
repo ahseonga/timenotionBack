@@ -245,7 +245,7 @@ hr{
 
 /* 댓글 목록 리스트  */
 
-.commet-list-article{
+.comment-list-article{
   /* background-color: lightcyan; */
   /* display: flex; */
   justify-content: space-between;
@@ -260,7 +260,7 @@ hr{
 .comment-lists {
   display: flex;
   /* background-color: aqua; */
-  height: 56px;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
 }
@@ -277,6 +277,7 @@ hr{
 }
 .comment-list-left p > a{
   color: black;
+  font-size: 14px;
 }
 .comment-list-left p , .comment-list-left img {
   margin-left: 10px;
@@ -289,6 +290,7 @@ hr{
 .comment-list-right{
   margin-left: 10px;
   margin-right: 10px;
+  font-size: 12px;
 }
 
 

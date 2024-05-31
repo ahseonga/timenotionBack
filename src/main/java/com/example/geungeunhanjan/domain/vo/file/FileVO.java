@@ -9,7 +9,9 @@ public class FileVO {
     private Long fileId;
     private String fileProfileName;
     private String fileProfileSource;
+    private String fileProfileUuid;
     private String fileBackName;
     private String fileBackSource;
+    private String fileBackUuid;
     private Long userId;
 }
