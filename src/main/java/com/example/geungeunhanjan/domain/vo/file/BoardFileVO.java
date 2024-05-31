@@ -9,5 +9,6 @@ public class BoardFileVO {
     private Long boardFileId;
     private String boardFileName;
     private String boardFileSourceName;
+    private String boardFileUuid;
     private Long boardId;
 }
