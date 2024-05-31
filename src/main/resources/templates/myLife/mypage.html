@@ -5,8 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>나의 일대기</title>
+<<<<<<< HEAD
   <link rel="stylesheet" href="./../../css/myLife/mypage.css">
   <link rel="stylesheet" href="./../../css/reset.css">
+=======
+  <link rel="stylesheet" th:href="@{/css/myLife/mypage.css}">
+  <link rel="stylesheet" th:href="@{/css/reset.css}">
+  <script defer th:src="@{/js/fragment/headerFetch.js}"></script>
+  <script defer th:src="@{/js/fragment/footerFetch.js}"></script>
+>>>>>>> main
 </head>
 
 <body>
@@ -90,14 +97,15 @@
     <div class="fourth-container">
       <div class="list">
         <div th:each="board : ${boards}" class="list-one">
-          <a href="/myLife/detail_my">
+          <a th:href="@{/myLife/detail-my(boardId=${board.boardId})}">
             <div class="list-one-detail">
               <div class="title">
                 <h3 th:text="${board.boardTitle}"></h3>
-                <p>조회수 10</p>
+                 <p th:text="|조회수 : ${board.boardViewCount}|"></p>
               </div>
               <div class="list-date">
-                <p th:text="${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 HH시 mm분')}"></p>
+<!--                <p th:text="${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 HH시 mm분')}"></p>-->
+               <p th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 ')}|"></p>
               </div>
               <div class="list-text">
                 <p th:text="${board.boardContent}">

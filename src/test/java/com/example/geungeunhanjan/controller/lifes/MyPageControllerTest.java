@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.controller.lifes;
 
+<<<<<<< HEAD
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.lifePage.Page;
@@ -63,5 +64,16 @@ class MyPageControllerTest {
         assertEquals(5, page.getPageCount()); // 수정된 값
         assertEquals(comments.size(), page.getTotal());
         assertEquals((int)Math.ceil(comments.size() / (double)criteria.getAmount()), page.getRealEnd());
+=======
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class MyPageControllerTest {
+
+
+    @Test
+    void detailWriting() {
+>>>>>>> main
     }
 }

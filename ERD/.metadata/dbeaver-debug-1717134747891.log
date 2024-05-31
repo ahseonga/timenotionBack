@@ -1,0 +1,163 @@
+2024-05-31 09:27:10.218 - DBeaver 23.2.5.202311191730 is starting
+2024-05-31 09:27:10.220 - OS: Windows 11 10.0 (amd64)
+2024-05-31 09:27:10.220 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
+2024-05-31 09:27:10.221 - Install path: 'C:\Program Files\DBeaver'
+2024-05-31 09:27:10.221 - Instance path: 'file:/D:/web_1300_jyg/geungeunhanjan/workspace/geungeunhanjan/ERD/'
+2024-05-31 09:27:10.222 - Memory available 64Mb/1024Mb
+2024-05-31 09:27:10.238 - Create display
+2024-05-31 09:27:10.378 - Initializing DBeaver 23.2.5
+2024-05-31 09:27:10.379 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 23.2.5.202311191730
+2024-05-31 09:27:10.379 - Initialize desktop platform...
+2024-05-31 09:27:10.596 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.10.100.v20230717-1727]
+> Start Core Resource Management [org.eclipse.core.resources 3.19.100.v20230814-1312]
+> Start Team Support Core [org.eclipse.team.core 3.10.100.v20230726-0617]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.119.202311191730]
+2024-05-31 09:27:10.958 - Initialize base platform...
+2024-05-31 09:27:10.979 - Platform initialized (600ms)
+2024-05-31 09:27:11.028 - Starting instance server at http://localhost:57746
+2024-05-31 09:27:11.047 - Run workbench
+> Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.134.202311191730]
+> Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.17.100.v20230727-0604]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.4.100.v20230708-0809]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.6.100.v20230630-1554]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.4.100.v20230727-0604]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.14.100.v20230630-1554]
+> Start Eclipse e4 core commands [org.eclipse.e4.core.commands 1.1.100.v20230630-1554]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.35.0.v20230801-1141]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.14.100.v20230727-0604]
+> Start Eclipse e4 Workbench Add-ons [org.eclipse.e4.ui.workbench.addons.swt 1.5.100.v20230727-0604]
+> Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.16.100.v20230801-1255]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.0.v20230429-1914]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.100.v20230727-0604]
+2024-05-31 09:27:21.216 - Configure workbench window
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.109.202311191730]
+2024-05-31 09:27:21.489 - Total database drivers: 107 (107)
+> Start Help System Core [org.eclipse.help 3.10.100.v20230726-0617]
+2024-05-31 09:27:21.824 - Create actions
+2024-05-31 09:27:21.832 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2024-05-31 09:27:21.833 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2024-05-31 09:27:21.834 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+> Start jna [com.sun.jna 5.13.0.v20230812-1000]
+2024-05-31 09:27:23.402 - Initialize workbench window
+2024-05-31 09:27:23.412 - Finish initialization
+> Start Default Text Editor [org.eclipse.ui.editors 3.17.0.v20230821-1342]
+> Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.17.100.v20230821-0745]
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.119.202311191730]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.119.202311191730]
+> Start DBeaver SQL Terminal [org.jkiss.dbeaver.ui.editors.sql.terminal 1.0.95.202311191730]
+> Start Core Compare Support [org.eclipse.compare.core 3.8.100.v20230726-0617]
+> Start Internet Connection Management UI [org.eclipse.ui.net 1.5.100.v20230726-0617]
+> Start Internet Connection Management [org.eclipse.core.net 1.5.100.v20230630-1232]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.156.202311191730]
+> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.125.202311191730]
+> Start GEF Classic Draw2d [org.eclipse.draw2d 3.14.0.202308311129]
+> Start GEF Classic GEF (MVC) [org.eclipse.gef 3.15.0.202308311129]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.79.202311191730]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.79.202311191730]
+> Start DBeaver JDBC Model [org.jkiss.dbeaver.model.jdbc 1.0.12.202311191730]
+> Start DBeaver Oracle Model [org.jkiss.dbeaver.ext.oracle 2.1.204.202311191730]
+> Start Console [org.eclipse.ui.console 3.13.0.v20230726-0617]
+> Start Debug Core [org.eclipse.debug.core 3.21.100.v20230731-1425]
+2024-05-31 09:27:28.311 - Connect with 'localhost' (oracle_thin-18fbfd981c5-159de9d4cbf20e0f)
+2024-05-31 09:27:28.344 - Execution context opened (localhost; Main; 0)
+2024-05-31 09:27:28.388 - Can't connect - connect/disconnect is in progress
+> Start DBeaver Tasks - Native Tools UI [org.jkiss.dbeaver.tasks.native.ui 1.0.97.202311191730]
+> Start DBeaver Oracle UI [org.jkiss.dbeaver.ext.oracle.ui 1.0.106.202311191730]
+> Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.97.202311191730]
+2024-05-31 09:27:28.875 - Execution context opened (localhost; Metadata; 1)
+2024-05-31 09:27:28.975 - Open [https://dbeaver.io/product/version.xml]
+2024-05-31 09:27:28.981 - Connected (oracle_thin-18fbfd981c5-159de9d4cbf20e0f, Oracle JDBC driver [11.2.0.2.0])
+2024-05-31 09:27:29.166 - Execution context opened (localhost; SQLEditor <insertData.sql>; 2)
+2024-05-31 09:27:29.169 - Execution context opened (localhost; SQLEditor <Script.sql>; 3)
+2024-05-31 09:27:44.552 - Execution context closed (localhost, 2)
+2024-05-31 09:27:44.603 - Execution context opened (localhost; SQLEditor <Create.sql>; 4)
+2024-05-31 09:27:46.541 - Execution context closed (localhost, 4)
+2024-05-31 09:28:00.097 - SQL Error [903] [42000]: ORA-00903: invalid table name
+
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [903] [42000]: ORA-00903: invalid table name
+
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:607)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:510)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:190)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:517)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:971)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4134)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:190)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5151)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00903: invalid table name
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:837)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:523)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:193)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:848)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1153)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1275)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1890)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1855)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:304)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+2024-05-31 09:28:00.306 - Error binding callable statement parameters from metadata: Unsupported feature
+2024-05-31 09:28:00.306 - Error obtaining output parameters from metadata: Unsupported feature
+2024-05-31 09:28:00.306 - Can't obtain procedure metadata nor jdbc metadata
+> Start DBeaver SQL Language Semantic Model [org.jkiss.dbeaver.model.lsm 1.0.14.202311191730]
+> Start DBeaver SQL Server Model [org.jkiss.dbeaver.ext.mssql 1.0.213.202311191730]
+> Start DBeaver SQLite Model [org.jkiss.dbeaver.ext.sqlite 1.0.168.202311191730]
+> Start DBeaver Generic Plug-in [org.jkiss.dbeaver.ext.generic 2.3.205.202311191730]
+2024-05-31 09:29:34.303 - Error binding callable statement parameters from metadata: Unsupported feature
+2024-05-31 09:29:34.304 - Error obtaining output parameters from metadata: Unsupported feature
+2024-05-31 09:29:34.304 - Can't obtain procedure metadata nor jdbc metadata
+2024-05-31 09:29:34.447 - SQL Error [904] [42000]: ORA-00904: "B"."USER_ID": invalid identifier
+
+
+Error position: line: 19 pos: 112
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [904] [42000]: ORA-00904: "B"."USER_ID": invalid identifier
+
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:607)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:510)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:190)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:517)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:971)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4134)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:190)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5151)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00904: "B"."USER_ID": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:837)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:523)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:193)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:848)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1153)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1275)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1890)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1855)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:304)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+2024-05-31 10:09:57.150 - Execution context opened (localhost; SQLEditor <Create.sql>; 5)
+2024-05-31 11:54:13.824 - Execution context closed (localhost, 3)
+2024-05-31 11:54:13.870 - Execution context closed (localhost, 5)
+2024-05-31 11:54:14.110 - DBeaver is stopping
+2024-05-31 11:54:14.110 - Stop instance server
+2024-05-31 11:54:15.111 - DBeaver shutdown completed
