@@ -147,7 +147,6 @@ header {
 .profile-text {
   display: flex;
   justify-content: space-between;
-  align-items: top;
   margin-left: 120px;
   margin-top: 10px;
 }
