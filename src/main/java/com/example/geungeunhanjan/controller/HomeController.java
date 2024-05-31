@@ -45,7 +45,7 @@ public class HomeController {
         Long userId = (Long) session.getAttribute("userId");
 //        if (userId == null) {
 //            return "/main";
-//        }
+
 
         List<BoardVO> boards = boardService.mainBoardbyViews();
         List<String> userNicknames = new ArrayList<>();

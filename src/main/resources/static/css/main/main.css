@@ -49,6 +49,10 @@ footer {
   background-color: #fcfaf7; /* 다 해보고 지저분해보이면 뺄 예정 */
   box-sizing: border-box;
   padding: 40px;
+  min-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bottom {
@@ -132,12 +136,15 @@ img {
 
 /* 오른쪽 메인배너  =------*/
 .main-right-wrapper {
-  width: 322px;
+  width: 318px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 /* 오른쪽 상단 */
 .main-top-box {
-  height: 167px;
+  height: 177px;
   width: 100%;
   border-radius: 6px;
   background-color: lightblue;
@@ -156,7 +163,7 @@ img {
 
 /* 오른쪽 하단  */
 .main-bottom-box {
-  height: 164px;
+  height: 150px;
   width: 100%;
   border-radius: 6px;
   background-color: lightblue;

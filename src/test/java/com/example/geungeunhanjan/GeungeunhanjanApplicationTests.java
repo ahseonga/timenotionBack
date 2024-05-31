@@ -1,11 +1,14 @@
 package com.example.geungeunhanjan;
 
 
+<<<<<<< HEAD
 
 
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.page.Criteria;
+=======
+>>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -35,6 +38,11 @@ class GeungeunhanjanApplicationTests {
     private UserVO userVO;
     LocalDateTime dateTime;
 
+<<<<<<< HEAD
+=======
+
+    @Autowired
+>>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
     private BoardMapper boardMapper;
 
     @Autowired
@@ -53,12 +61,26 @@ class GeungeunhanjanApplicationTests {
         System.out.println(boards);
     }
 
+
+/*    @Test
+
     @Test
+
 
     void mainBoardTest(){
         List<BoardVO> boards = boardService.mainBoardbyViews();
         System.out.println(boards);
     }
+
+
+    public void insertBoardTest(BoardVO boardVO) {
+        Long boardId = boardMapper.getSeq();
+        boardVO.setBoardId(boardId);
+        boardMapper.insertBoard(boardVO);
+        System.out.println(boardVO);
+    }*/
+
+
 
 //    public void insertBoardTest(BoardVO boardVO) {
 //        Long boardId = boardMapper.getSeq();
