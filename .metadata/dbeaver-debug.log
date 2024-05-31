@@ -13716,3 +13716,8 @@ Caused by: Error : 955, Position : 16, SQL = CREATE SEQUENCE SEQ_COMMENT, Origin
 
 	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
 	... 26 more
+2024-05-31 21:12:18.537 - Execution context closed (locallhost, 9)
+2024-05-31 21:12:21.552 - DBeaver is stopping
+2024-05-31 21:12:21.553 - Stop instance server
+2024-05-31 21:12:22.559 - Instance server has been stopped
+2024-05-31 21:12:22.560 - DBeaver shutdown completed

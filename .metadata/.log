@@ -1,0 +1,23 @@
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-05-31 21:12:21.505
+!MESSAGE 작업공간 저장 문제점
+
+!ENTRY org.eclipse.ui.ide 4 1 2024-05-31 21:12:21.512
+!MESSAGE Workbench의 상태를 저장하려는 중에 문제점이 발생했습니다.
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2024-05-31 21:12:21.512
+!MESSAGE Could not write workspace metadata 'C:/homework_sas/web/TimeNotionBack/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree'.
+!STACK 0
+java.io.FileNotFoundException: C:\homework_sas\web\TimeNotionBack\.metadata\.plugins\org.eclipse.core.resources\.root\1.tree (지정된 경로를 찾을 수 없습니다)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(Unknown Source)
+	at java.base/java.io.FileOutputStream.<init>(Unknown Source)
+	at java.base/java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:55)
+	at org.eclipse.core.internal.resources.SaveManager.saveTree(SaveManager.java:1424)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1230)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2494)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:553)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-05-31 21:12:24.195
+!MESSAGE The workspace will exit with unsaved changes in this session.
