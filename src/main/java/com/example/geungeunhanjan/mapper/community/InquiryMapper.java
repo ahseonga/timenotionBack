@@ -4,7 +4,7 @@ package com.example.geungeunhanjan.mapper.community;
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.community.InquiryPagingDTO;
 import com.example.geungeunhanjan.domain.dto.community.InquiryWriteDTO;
-import com.example.geungeunhanjan.domain.dto.page.Criteria;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -28,7 +28,7 @@ public interface InquiryMapper {
     // 문의 삭제
     void inquiryDelete(@Param("inquiryId") Long inquiryId,@Param("userId") Long userId);
 
-    List<InquiryPagingDTO> selectAllInquiryPage(Criteria criteria);
+    List<InquiryPagingDTO> selectAllInquiryPage(InquiryCriteria inquiryCriteria);
 
     int selectInquiryTotal();
     

@@ -2,13 +2,12 @@ package com.example.geungeunhanjan.controller.community;
 
 
 import com.example.geungeunhanjan.domain.dto.community.*;
-import com.example.geungeunhanjan.domain.dto.page.Criteria;
-import com.example.geungeunhanjan.domain.dto.page.Page;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryPage;
 import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import com.example.geungeunhanjan.service.community.InquiryService;
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-import com.example.geungeunhanjan.service.community.InquiryService;
 
 
 import com.example.geungeunhanjan.service.community.NoticeService;
@@ -24,12 +23,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 
@@ -52,16 +48,16 @@ public class CommunityController {
 
 
     @GetMapping("/inquiry")
-    public String community(Criteria criteria, Model model) {
-        List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(criteria);
+    public String community(InquiryCriteria inquiryCriteria, Model model) {
+        List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
         int total = inquiryService.selectInquiryTotal();
-        Page page = new Page(criteria, total);
+        InquiryPage inquiryPage = new InquiryPage(inquiryCriteria, total);
 
         model.addAttribute("inquiries", inquiries);
-        model.addAttribute("page", page);
+        model.addAttribute("page", inquiryPage);
 
         System.out.println(total);
-        System.out.println("page = " + page);
+        System.out.println("page = " + inquiryPage);
         
         return "/community/inquiry";
 //

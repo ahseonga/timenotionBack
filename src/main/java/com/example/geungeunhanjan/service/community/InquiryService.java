@@ -4,7 +4,7 @@ package com.example.geungeunhanjan.service.community;
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.community.InquiryPagingDTO;
 import com.example.geungeunhanjan.domain.dto.community.InquiryWriteDTO;
-import com.example.geungeunhanjan.domain.dto.page.Criteria;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +29,7 @@ public interface InquiryService {
     void inquiryWrite(InquiryWriteDTO inquiryWriteDTO);
 
     // 문의 페이징
-    List<InquiryPagingDTO> selectAllInquiryPage(Criteria criteria);
+    List<InquiryPagingDTO> selectAllInquiryPage(InquiryCriteria inquiryCriteria);
 
     // 문의 총 갯수
     int selectInquiryTotal();

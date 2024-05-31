@@ -72,9 +72,9 @@
                                    LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
                           ORDER BY I.INQUIRY_ID DESC
                       )
-                 WHERE ROWNUM <= #{page} * #{amount}
+                 WHERE ROWNUM <= #{inquiryPage} * #{amount}
              )
-        WHERE RNUM > (#{page} - 1) * #{amount}
+        WHERE RNUM > (#{inquiryPage} - 1) * #{amount}
         ]]>
     </select>
 

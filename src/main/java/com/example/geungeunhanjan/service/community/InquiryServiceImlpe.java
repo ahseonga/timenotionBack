@@ -3,11 +3,10 @@ package com.example.geungeunhanjan.service.community;
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.community.InquiryPagingDTO;
 import com.example.geungeunhanjan.domain.dto.community.InquiryWriteDTO;
-import com.example.geungeunhanjan.domain.dto.page.Criteria;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import lombok.AllArgsConstructor;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,8 +53,8 @@ public class InquiryServiceImlpe implements InquiryService {
 
     // 문의 페이징
     @Override
-    public List<InquiryPagingDTO> selectAllInquiryPage(Criteria criteria){
-        return inquiryMapper.selectAllInquiryPage(criteria);
+    public List<InquiryPagingDTO> selectAllInquiryPage(InquiryCriteria inquiryCriteria){
+        return inquiryMapper.selectAllInquiryPage(inquiryCriteria);
     }
 
     // 문의 총 갯수

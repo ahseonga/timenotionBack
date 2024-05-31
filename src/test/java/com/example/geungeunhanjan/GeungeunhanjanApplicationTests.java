@@ -6,7 +6,7 @@ package com.example.geungeunhanjan;
 
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-import com.example.geungeunhanjan.domain.dto.page.Criteria;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 =======
 >>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
@@ -136,7 +136,7 @@ class GeungeunhanjanApplicationTests {
     }
 
     @Test
-    void paging(Criteria criteria){
-        inquiryService.selectAllInquiryPage(criteria);
+    void paging(InquiryCriteria inquiryCriteria){
+        inquiryService.selectAllInquiryPage(inquiryCriteria);
     }
 }

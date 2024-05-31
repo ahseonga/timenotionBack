@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest
-public class MyPageTest {
+public class MyInquiryPageTest {
     @Autowired
     private MyPageService myPageService;
 

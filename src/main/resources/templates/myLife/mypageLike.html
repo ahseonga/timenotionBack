@@ -122,23 +122,23 @@
 
 
         <!-- 페이징 처리 -->
-        <div class="page-container">
-          <ul class="page-box">
-            <a th:href="@{/board/list(page=${page.startPage - 1})}" class="page-a" th:if="${page.prev}">
-              <li class="page-num prev">&lt</li>
+        <div class="inquiryPage-container">
+          <ul class="inquiryPage-box">
+            <a th:href="@{/board/list(inquiryPage=${inquiryPage.startPage - 1})}" class="inquiryPage-a" th:if="${inquiryPage.prev}">
+              <li class="inquiryPage-num prev">&lt</li>
             </a>
 
             <!--        th:block은 화면에 영향을 주지않는 가짜 태그
                         타임리프 문법을 사용하기 위해 만들어 쓴다.
             -->
-            <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">
-              <a th:href="@{/board/list(page=${i})}" class="page-a">
-                <li class="page-num" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></li>
+            <th:block th:each="i : ${#numbers.sequence(inquiryPage.startPage, inquiryPage.endPage)}">
+              <a th:href="@{/board/list(inquiryPage=${i})}" class="inquiryPage-a">
+                <li class="inquiryPage-num" th:classappend="${i == inquiryPage.inquiryCriteria.inquiryPage ? 'active' : ''}" th:text="${i}"></li>
               </a>
             </th:block>
 
-            <a th:href="@{/board/list(page=${page.endPage + 1})}" class="page-a" th:if="${page.next}">
-              <li class="page-num next">&gt</li>
+            <a th:href="@{/board/list(inquiryPage=${inquiryPage.endPage + 1})}" class="inquiryPage-a" th:if="${inquiryPage.next}">
+              <li class="inquiryPage-num next">&gt</li>
             </a>
           </ul>
         </div>

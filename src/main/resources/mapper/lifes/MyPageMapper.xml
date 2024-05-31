@@ -50,8 +50,8 @@
                          GGHJ_KAKAO K ON K.KAKAO_ID = UNI.KAKAO_ID
                     WHERE L.USER_ID = #{userId}
                     ORDER BY L.LIKE_CREATED_DATE DESC)
-              WHERE ROWNUM <= #{criteria.page} * #{criteria.amount})
-        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+              WHERE ROWNUM <= #{inquiryCriteria.inquiryPage} * #{inquiryCriteria.amount})
+        WHERE RNUM > (#{inquiryCriteria.inquiryPage} - 1) * #{inquiryCriteria.amount}
 ]]>-- 상위 10개를 제외한 나머지 10개의 결과를 가져오기 위해 필요
     </select>
     <select id="myLikeTotal" resultType="int">
@@ -121,8 +121,8 @@
                                    JOIN GGHJ_BOARD B ON C.BOARD_ID = B.BOARD_ID
                           WHERE R.USER_ID = #{userId})
                     ORDER BY CREATED_DATE DESC)
-              WHERE ROWNUM <= #{criteria.page} * #{criteria.amount})
-        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+              WHERE ROWNUM <= #{inquiryCriteria.inquiryPage} * #{inquiryCriteria.amount})
+        WHERE RNUM > (#{inquiryCriteria.inquiryPage} - 1) * #{inquiryCriteria.amount}
         ]]>
     </select>
     <select id="myCommentTotal" resultType="int">
