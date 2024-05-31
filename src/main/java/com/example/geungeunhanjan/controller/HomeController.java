@@ -1,13 +1,13 @@
 package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
-import com.example.geungeunhanjan.domain.vo.user.UniVO;
+
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.community.InquiryService;
 import com.example.geungeunhanjan.service.user.UserService;
-import jakarta.servlet.http.HttpServletRequest;
+
 import jakarta.servlet.http.HttpSession;
 
 import com.example.geungeunhanjan.service.lifes.FollowService;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +69,7 @@ public class HomeController {
         }
         return "main/about";
     }
+
 
 
 }

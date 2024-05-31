@@ -6,7 +6,7 @@ import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.lifePage.Page;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.service.MyPageService;
 import com.example.geungeunhanjan.service.board.BoardService;
 import jakarta.servlet.http.HttpSession;
@@ -15,15 +15,11 @@ import lombok.AllArgsConstructor;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.io.File;
-import java.io.IOException;
 
 import java.util.List;
 
@@ -175,7 +171,7 @@ public class MyPageController {
 
     // 회원정보 수정으로 Post
     @PostMapping("/mypageEditMemberInformation")
-    public String mypageEditMemberInformation(FileVO fileVO, RedirectAttributes redirectAttributes, HttpSession session,
+    public String mypageEditMemberInformation(UserFileVO userFileVO, RedirectAttributes redirectAttributes, HttpSession session,
                                               @RequestParam("File") List<MultipartFile> file){
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
@@ -183,14 +179,14 @@ public class MyPageController {
             return "redirect:/login";
         }
 
-        fileVO.setUserId(userId);
+        userFileVO.setUserId(userId);
 
         try {
-            myPageService.registProfileBackFile(fileVO, file);
+            myPageService.registProfileBackFile(userFileVO, file);
         }catch (IOException e){ e.printStackTrace();}
 
 
-       redirectAttributes.addFlashAttribute("userId", fileVO.getUserId());
+       redirectAttributes.addFlashAttribute("userId", userFileVO.getUserId());
 
         return "redirect:/myLife/myPageEditMemberInformation";
     }

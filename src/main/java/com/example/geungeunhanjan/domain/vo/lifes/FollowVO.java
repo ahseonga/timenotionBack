@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class FollowVO {
+//    followtouser, followFromUser -> int에서 Long으로 변경해야함
     private Long followId;
-    private int followToUser;
-    private int followFromUser;
+    private Long followToUser;
+    private Long followFromUser;
 }

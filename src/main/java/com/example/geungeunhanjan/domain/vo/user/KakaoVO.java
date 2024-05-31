@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class KakaoVO {
     private Long kakaoUserId;
     private String kakaoUserEmail;
+    private String kakaoPassword;
     private String kakaoUserNickname;
     private LocalDateTime kakaoUserBirth;
     private Long userId;
