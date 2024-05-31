@@ -1,7 +1,6 @@
 package com.example.geungeunhanjan;
 
 
-
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -9,6 +8,7 @@ import com.example.geungeunhanjan.mapper.board.BoardMapper;
 
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.user.UserService;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,13 +22,13 @@ class GeungeunhanjanApplicationTests {
     @Autowired
     private BoardService boardService;
     @Autowired
-
     private UserService userService;
     @Autowired
     private UserVO userVO;
     LocalDateTime dateTime;
 
 
+    @Autowired
     private BoardMapper boardMapper;
 
     @Test
@@ -40,12 +40,26 @@ class GeungeunhanjanApplicationTests {
         System.out.println(boards);
     }
 
+
+/*    @Test
+
     @Test
+
 
     void mainBoardTest(){
         List<BoardVO> boards = boardService.mainBoardbyViews();
         System.out.println(boards);
     }
+
+
+    public void insertBoardTest(BoardVO boardVO) {
+        Long boardId = boardMapper.getSeq();
+        boardVO.setBoardId(boardId);
+        boardMapper.insertBoard(boardVO);
+        System.out.println(boardVO);
+    }*/
+
+
 
 //    public void insertBoardTest(BoardVO boardVO) {
 //        Long boardId = boardMapper.getSeq();
