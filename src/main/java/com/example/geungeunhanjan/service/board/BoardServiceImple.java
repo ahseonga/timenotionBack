@@ -94,4 +94,14 @@ public class BoardServiceImple implements BoardService {
     public List<BoardVO> mainBoardbyViews() {
         return boardMapper.mainBoardbyViews();
     }
+
+    // 모두의 일대기 게시물
+    @Override
+    public List<BoardVO> everyLifeBoardbyViews() {
+        return boardMapper.everyLifeBoardbyViews();
+    }
+
+
+
+
 }

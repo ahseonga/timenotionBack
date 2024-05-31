@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.service;
 
+import com.example.geungeunhanjan.service.board.BoardService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,5 +15,9 @@ public class BoardTest {
     public void test() {
         System.out.println(boardService.selectBoard(1L));;
     }
+
+
+
+
 
 }

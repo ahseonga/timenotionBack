@@ -20,13 +20,6 @@
     </select>
 
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
-
-
-
-
-
-
-
     <insert id="insertBoard" parameterType="BoardVO">
             <selectKey keyProperty="boardId" resultType="Long" order="BEFORE" >
                 SELECT SEQ_BOARD.NEXTVAL FROM DUAL
@@ -77,5 +70,72 @@
            OR BOARD_CONTENT LIKE '%a%'
         ORDER BY BOARD_CREATED_DATE DESC
     </select>
+
+    <!-- 모두의 일대기 게시글 -->
+    <select id="everyLifeBoardbyViews" resultType="BoardVO">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+        FROM GGHJ_BOARD
+        WHERE rownum BETWEEN 1 AND 100
+        ORDER BY BOARD_VIEW_COUNT DESC
+    </select>
+
+    <select id="selectAllPage" parameterType="Criteria" resultType="BoardListDto">
+        <![CDATA[
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+        FROM (
+                 SELECT ROWNUM AS RNUM, BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+                 FROM (
+                          SELECT B.BOARD_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.BOARD_CREATED_DATE, B.BOARD_VIEW_COUNT, B.BOARD_LIKE_COUNT, B.BOARD_YEAR, U.LOGIN_ID AS USER_ID,
+                                 F.FILE_ID, F.NAME, F.UPLOAD_PATH, F.UUID
+                          FROM TBL_BOARD B
+                                   JOIN TBL_USER U ON B.USER_ID = U.USER_ID
+                                   LEFT JOIN (
+                              SELECT FILE_ID, NAME, UPLOAD_PATH, UUID, BOARD_ID
+                              FROM (
+                                       SELECT FILE_ID, NAME, UPLOAD_PATH, UUID, BOARD_ID,
+                                              RANK() OVER(PARTITION BY BOARD_ID ORDER BY FILE_ID) AS RK
+                                       FROM TBL_FILE
+                                   )
+                              WHERE RK = 1
+                          ) F ON B.BOARD_ID = F.BOARD_ID
+                          ORDER BY B.BOARD_ID DESC
+                      )
+                 WHERE ROWNUM <= #{page} * #{amount}
+             )
+        WHERE RNUM > (#{page} - 1) * #{amount}
+        ]]>
+    </select>
+
+
+
+
+
+
+
+
+
+
+<!--    <select id="selectView" resultType="ViewDTO">-->
+<!--        SELECT-->
+<!--        u.USER_NICKNAME, b.BOARD_TITLE, b.BOARD_CREATED_DATE, b.BOARD_LIKE_COUNT, b.BOARD_VIEW_COUNT-->
+<!--        FROM-->
+<!--        GGHJ_BOARD b JOIN GGHJ_USER u-->
+<!--        ON u.user_id = b.USER_ID-->
+<!--        <choose>-->
+<!--            <when test="sortType == 'latest'">-->
+<!--                ORDER BY b.BOARD_CREATED_DATE DESC-->
+<!--            </when>-->
+<!--            <when test="sortType == 'popularity'">-->
+<!--                ORDER BY b.BOARD_LIKE_COUNT DESC-->
+<!--            </when>-->
+<!--            <when test="sortType == 'views'">-->
+<!--                ORDER BY b.BOARD_VIEW_COUNT DESC-->
+<!--            </when>-->
+<!--            <otherwise>-->
+<!--                ORDER BY b.BOARD_CREATED_DATE DESC-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+
+<!--    </select>-->
 
 </mapper>

@@ -23,4 +23,9 @@ public interface BoardService {
 
     //나의 일대기 게시판 등록하기
 //    int createBoard(BoardVO boardVO);
+
+    // 모두의 일대기 게시물
+    List<BoardVO> everyLifeBoardbyViews();
+
+    
 }

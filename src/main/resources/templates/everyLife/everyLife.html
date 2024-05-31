@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의 일대기</title>
-    <link rel="stylesheet" href="./../../css/reset.css">
-    <link rel="stylesheet" href="./../../css/notion.css">
-    <link rel="stylesheet" href="./../../css/everyLife/everyLife.css">
-    <link rel="stylesheet" href="./../../css/fragment/header.css">
-    <link rel="stylesheet" href="./../../css/fragment/footer.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/notion.css}"/>>
+    <link rel="stylesheet" th:href="@{/css/everyLife/everyLife.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}"/>
+    <script defer th:src="@{/js/everyLife/everyLife.js}"></script>
 </head>
 <body>
      <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
@@ -50,14 +51,15 @@
                         </span>
                     </div>
                     <div class="everyLife-select-bar">
-                        <form th:action="@{/main/everyLife}" method="get">
-                            <input type="text" name="serachKeyword" placeholder="검색어를 입력해주세요">
+                        <form onsubmit="filterContent(); return false;">
+                            <input type="text" name="searchKeyword" placeholder="검색어를 입력해주세요">
                             <button type="submit" class="everyLife-magnifier">
                                 <img src="./../../img/main/돋보기.png">
-                            </button> 
+                            </button>
                         </form>
                     </div>
                 </div>
+            </div>
                 <!-- 최신순 / 인기순 정렬  -->
                 <div class="everyLife-select-sequence">
                     <form action="#">
@@ -68,11 +70,11 @@
                         </select>
                     </form>
                 </div>
-            </div>
             <!-- 메인 컨텐츠들 감싸는 div -->
-            <div class="everyLife-content-wrap" th:each="board, i : ${boards}">
-                <div class="everyLife-content-box1 everyLife-content-box">
-                    <a th:href="@{/everyLife/{id}(id=${board.id})}">
+            <div class="everyLife-content-wrap">
+                <div class="everyLife-content-box" th:each="board, i : ${boards}">
+<!--                    <a th:href="@{/everyLife/{id}(id=${board.id})}">-->
+                    <a href ="#">
                         <div class="everyLife-contents">
                             <div class="everyLife-content-title" th:text="${board.boardTitle}">제목</div>
                             <div class="everyLife-content-date" th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yyyy년 MM월 dd일')}|">작성일</div>

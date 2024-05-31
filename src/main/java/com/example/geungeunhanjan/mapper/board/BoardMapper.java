@@ -23,6 +23,9 @@ public interface BoardMapper {
 
     // 메인 4칸짜리 게시물
     List<BoardVO> mainBoardbyViews();
+
+    // 모두의 일대기 게시물
+    List<BoardVO> everyLifeBoardbyViews();
 }
 
 
