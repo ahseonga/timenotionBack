@@ -85,8 +85,7 @@
                 <div class="like-content-left-list">
                   <img src="./../../img/myLife/mdj-heart.png" alt="하트">
                   <p   class="like-content-left-nickname">
-                    <a th:if="${like.kakaoNickname != null}" th:text="${like.kakaoNickname}" href="./../../HTML/myLife/userpage.html"></a>
-                    <a th:if="${like.userNickname != null and like.kakaoNickname == null}" th:text="${like.userNickname}" href="./../../HTML/myLife/userpage.html"></a></p>
+                    <a th:text="${like.nickname}" href="./../../HTML/myLife/userpage.html"></a>
                   <p>님의</p>
                   <p  class="like-content-left-title"><a th:text="${like.boardTitle}" href="./../../HTML/myLife/detail-my.html"></a></p>
                   <p>을 좋아합니다.</p>
@@ -122,28 +121,28 @@
         </article>
 
 
-        <!-- 페이지네이션  -->
-        <div class="like-pagination-buttons">
+        <!-- 페이징 처리 -->
+        <div class="page-container">
+          <ul class="page-box">
+            <a th:href="@{/board/list(page=${page.startPage - 1})}" class="page-a" th:if="${page.prev}">
+              <li class="page-num prev">&lt</li>
+            </a>
 
-          <div class="like-pagination-buttons-left">
-            <button><img class="pagination-left-arrow" src="./../../img/myLife/mdj-arrowRight.png" alt="화살표"></button>
-            <span><a href="#">1</a></span>
-            <span><a href="#">2</a></span>
-            <span><a href="#">3</a></span>
-            <span><a href="#">4</a></span>
-            <span><a href="#">5</a></span>
-            <button><img src="./../../img/myLife/mdj-arrowRight.png" alt="화살표"></button>
-          </div>
-          <div class="like-pagination-buttons-right">
-            <button><img class="pagination-left-arrow" src="./../../img/myLife/mdj-arrowRight.png" alt="화살표"></button>
-            <span><a href="#">1</a></span>
-            <span><a href="#">2</a></span>
-            <span><a href="#">3</a></span>
-            <span><a href="#">4</a></span>
-            <span><a href="#">5</a></span>
-            <button><img src="./../../img/myLife/mdj-arrowRight.png" alt="화살표"></button>
-          </div>
+            <!--        th:block은 화면에 영향을 주지않는 가짜 태그
+                        타임리프 문법을 사용하기 위해 만들어 쓴다.
+            -->
+            <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">
+              <a th:href="@{/board/list(page=${i})}" class="page-a">
+                <li class="page-num" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></li>
+              </a>
+            </th:block>
+
+            <a th:href="@{/board/list(page=${page.endPage + 1})}" class="page-a" th:if="${page.next}">
+              <li class="page-num next">&gt</li>
+            </a>
+          </ul>
         </div>
+        <!-- /페이징 처리 -->
 
       </div>
     </div>

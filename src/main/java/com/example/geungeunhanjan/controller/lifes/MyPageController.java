@@ -68,7 +68,7 @@ public class MyPageController {
         return "myLife/detail-my";
     }
 
-    // 내가 쓴 댓글로 ㅎㅎㅎㅎ ☆★☆★☆★☆★☆★☆☆★ 작업중 ★☆★☆★☆★☆★☆★☆★☆★
+
 
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(Model model, HttpSession session, Criteria criteria){
@@ -90,20 +90,25 @@ public class MyPageController {
 
         return "myLife/myPageCommentList";
     }
-    // ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
+    // 내가 쓴 댓글로 ㅎㅎㅎㅎ ☆★☆★☆★☆★☆★☆☆★ 작업중 ★☆★☆★☆★☆★☆★☆★☆★
     // 좋아요 목록으로
     @GetMapping("/mypageLike")
-    public String mypageLike(Model model, HttpSession session){
+    public String mypageLike(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/login";
         }
-        List<LikeDTO> likes = myPageService.selectMyLike(userId);
+
+        List<LikeDTO> likes = myPageService.findPageMyLike(criteria, userId);
+        int total = myPageService.myLikeTotal(userId);
+        Page page = new Page(criteria, total);
         model.addAttribute("likes", likes);
+        model.addAttribute("page", page);
+
         return "/myLife/myPageLike";
     }
-
+    // ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
     // 회원정보 수정으로
     @GetMapping("/mypageEditMemberInformation")
     public String mypageEditMemberInformation(HttpSession session){
