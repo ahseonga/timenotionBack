@@ -42,7 +42,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19fb4ec5d3745354d6b194235c5c5c6eda8b4203
     <insert id="insertBoard" parameterType="BoardVO">
         <selectKey keyProperty="boardId" resultType="Long" order="BEFORE">
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL

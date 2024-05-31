@@ -3,7 +3,7 @@ package com.example.geungeunhanjan.mapper.lifes;
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -24,6 +24,6 @@ public interface MyPageMapper {
 
     // 4. 회원정보 수정
     // 4-1. 프사 / 배사 파일 !!
-    void insertFileById(FileVO fileVO);
-    FileVO selectFileById(Long fileId);
+    void insertFileById(UserFileVO userFileVO);
+    UserFileVO selectFileById(Long fileId);
 }
