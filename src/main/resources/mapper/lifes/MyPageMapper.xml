@@ -152,7 +152,7 @@
     </select>
     <!--4. 회원정보 수정-->
     <!--4-1. 회원정보 수정 프사 / 배사 파일 !!! -->
-    <insert id="insertFileById" parameterType="FileVO">
+    <insert id="insertFileById" parameterType="UserFileVO">
         <selectKey keyProperty="fileId" resultType="Long" order="BEFORE">
             SELECT SEQ_FILE.NEXTVAL FROM DUAL
         </selectKey>

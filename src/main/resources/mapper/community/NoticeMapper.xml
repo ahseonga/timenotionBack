@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+
+
 <mapper namespace="com.example.geungeunhanjan.mapper.community.NoticeMapper">
+
+    <!--☆★☆★☆★☆★☆★공지 다음 시퀀스☆★☆★☆★☆★☆★☆★-->
+    <select id="getNoticeSeqNext" resultType="Long">
+        SELECT SEQ_NOTICE.nextval from dual
+    </select>
+
+
     <!-- 공지 전체 리스트를 조회하는 쿼리문    -->
     <select id="selectNoticeAll" resultType="NoticeDTO">
         SELECT u.USER_NICKNAME AS nickname, n.NOTICE_ID, n.NOTICE_TITLE, n.NOTICE_CONTENT,n.NOTICE_CREATED_DATE
@@ -31,5 +41,51 @@
             GGHJ_USER U ON N.USER_ID = U.USER_ID
         WHERE
             N.NOTICE_ID = #{noticeId}
+    </select>
+
+    <!--  ☆★☆★☆★☆★☆★☆★☆★☆★  문의 디테일 페이지 ☆★☆★☆★☆★☆★☆★☆★☆★-->
+
+
+
+    <!-- 공지 작성하기  -->
+    <insert id="insertNotice" parameterType="NoticeVO">
+        INSERT INTO GGHJ_NOTICE (NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, USER_ID)
+        VALUES(#{noticeId},#{noticeTitle},#{noticeContent},#{userId})
+    </insert>
+    <!-- 공지 삭제하기     -->
+    <delete id="deleteNotice" parameterType="Long">
+        DELETE FROM GGHJ_NOTICE
+        WHERE NOTICE_ID = #{noticeId}
+    </delete>
+
+
+    <!-- § § § § § § § § § 페이징 처리 §  § § § § § § § § §   -->
+    <select id="selectAllPageNotice" parameterType="NoticeCriteria" resultType="NoticePageDTO">
+        <![CDATA[
+        SELECT NOTICE_ID, NOTICE_TITLE, USER_NICKNAME, NOTICE_CREATED_DATE, USER_ID
+        FROM (
+                 SELECT ROWNUM AS RNUM, NOTICE_ID, NOTICE_TITLE, USER_NICKNAME, NOTICE_CREATED_DATE, USER_ID
+                 FROM (
+                          SELECT N.NOTICE_ID, NOTICE_TITLE, U.USER_NICKNAME, NOTICE_CREATED_DATE, U.USER_ID
+                          FROM GGHJ_NOTICE N
+                                   JOIN GGHJ_UNI UNI ON N.USER_ID = UNI.USER_ID
+                                   JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                          ORDER BY NOTICE_ID DESC
+                      )
+                 WHERE ROWNUM <= #{page} * #{amount}
+             )
+        WHERE RNUM > (#{page} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="selectAllNotice" resultType="NoticeDTO">
+        SELECT NOTICE_ID, NOTICE_TITLE , USER_ID
+        FROM GGHJ_NOTICE N JOIN GGHJ_UNI U
+                            ON N.USER_ID = U.USER_ID
+        ORDER BY NOTICE_ID DESC
+    </select>
+
+    <select id="selectTotalNotice" resultType="int">
+        SELECT COUNT(NOTICE_ID) FROM GGHJ_NOTICE
     </select>
 </mapper>

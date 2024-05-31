@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class MainBannerVO {
+public class BannerVO {
     private Long bannerId;
     private String bannerName;
     private String bannerSource;

@@ -14,4 +14,5 @@ public class ReportVO {
     private Long userId;
     private Long replyId;
     private Long commentId;
+    private int reportCount;
 }

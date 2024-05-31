@@ -14,7 +14,5 @@ public class InquiryVO {
     private String inquiryResponse;
     private LocalDateTime inquiryCreatedDate;
     private boolean inquiryPublic;
-    private String inquiryBannerName;
-    private String inquiryBannerSource;
     private Long userId;
 }

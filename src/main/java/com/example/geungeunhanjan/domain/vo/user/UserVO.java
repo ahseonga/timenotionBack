@@ -14,6 +14,5 @@ public class UserVO {
     private String userEmail;
     private String userNickname;
     private LocalDateTime userBirth;
-    private String userStatus;
-    private boolean userIsadmin;
+
 }
