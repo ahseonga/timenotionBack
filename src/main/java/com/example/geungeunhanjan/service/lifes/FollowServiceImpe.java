@@ -2,7 +2,7 @@ package com.example.geungeunhanjan.service.lifes;
 
 
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import com.example.geungeunhanjan.mapper.lifes.FollowMapper;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class FollowServiceImpe implements FollowService {
 
     //팔로우 팔로워 의 이미지소스 파일 조회하기
     @Override
-    public List<FileVO> selectFile() {
+    public List<UserFileVO> selectFile() {
         return followMapper.selectFile();
     }
 

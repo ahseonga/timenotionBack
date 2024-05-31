@@ -3,8 +3,7 @@ package com.example.geungeunhanjan.service;
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
-import org.apache.ibatis.annotations.Param;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -24,6 +23,6 @@ public interface MyPageService {
 
     // 4. 회원정보 수정
     // 4-1. 프사 / 배사 파일 !!
-    void registProfileBackFile(FileVO fileVO, List<MultipartFile> files) throws IOException;
-    FileVO getProfileBackFile(Long fileId);
+    void registProfileBackFile(UserFileVO userFileVO, List<MultipartFile> files) throws IOException;
+    UserFileVO getProfileBackFile(Long fileId);
 }

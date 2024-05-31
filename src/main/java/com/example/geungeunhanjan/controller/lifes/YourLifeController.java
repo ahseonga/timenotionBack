@@ -2,8 +2,7 @@ package com.example.geungeunhanjan.controller.lifes;
 
 
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
-import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import com.example.geungeunhanjan.service.lifes.FollowService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -40,7 +39,7 @@ public class YourLifeController {
         List<FollowDTO> followings = followService.selectFollowing();
         model.addAttribute("followings", followings);
         //팔로워 , 팔로잉 이미지 조회
-        List<FileVO> files = followService.selectFile();
+        List<UserFileVO> files = followService.selectFile();
         model.addAttribute("files", files);
         //팔로우의 일기수 조회
         List<FollowDTO> boards = followService.selectBoardCount();

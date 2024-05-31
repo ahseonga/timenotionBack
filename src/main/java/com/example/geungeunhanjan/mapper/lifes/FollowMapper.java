@@ -2,7 +2,7 @@ package com.example.geungeunhanjan.mapper.lifes;
 
 
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
-import com.example.geungeunhanjan.domain.vo.file.FileVO;
+import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -21,7 +21,7 @@ public interface FollowMapper {
     List<FollowDTO> selectFollowing();
 
 //    팔로우 팔로워 의 이미지소스 파일 조회하기
-    List<FileVO> selectFile();
+    List<UserFileVO> selectFile();
 
     // 팔로우 팔로워의 일기 수 조회하기
     List<FollowDTO> selectBoardCount();
