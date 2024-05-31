@@ -5,6 +5,7 @@
 
     import java.time.LocalDateTime;
 
+<<<<<<< HEAD
     @Component
     @Data
     public class BoardVO {
@@ -20,3 +21,22 @@
         private int boardYear;
         private Long userId;
     }
+=======
+@Component
+@Data
+public class BoardVO {
+    private Long boardId;
+    private String boardTitle;
+    private String boardContent;
+    private String boardPublic;
+    private LocalDateTime boardCreatedDate;
+    private LocalDateTime boardUpdatedDate;
+    private int boardViewCount;
+    private String boardLifeCycle;
+    private int boardLikeCount;
+    private int boardYear;
+    private Long userId;
+
+
+}
+>>>>>>> main
