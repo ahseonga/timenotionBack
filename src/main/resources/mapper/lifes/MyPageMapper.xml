@@ -50,8 +50,8 @@
                          GGHJ_KAKAO K ON K.KAKAO_ID = UNI.KAKAO_ID
                     WHERE L.USER_ID = #{userId}
                     ORDER BY L.LIKE_CREATED_DATE DESC)
-              WHERE ROWNUM <= #{criteria.page} * #{criteria.amount})
-        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+              WHERE ROWNUM <= #{inquiryCriteria.inquiryPage} * #{inquiryCriteria.amount})
+        WHERE RNUM > (#{inquiryCriteria.inquiryPage} - 1) * #{inquiryCriteria.amount}
 ]]>-- 상위 10개를 제외한 나머지 10개의 결과를 가져오기 위해 필요
     </select>
     <select id="myLikeTotal" resultType="int">
@@ -150,11 +150,18 @@
     <!--4. 회원정보 수정-->
     <!--4-1. 회원정보 수정 프사 / 배사 파일 !!! -->
     <insert id="insertFileById" parameterType="UserFileVO">
+<<<<<<< HEAD
         <selectKey keyProperty="userFileId" resultType="Long" order="BEFORE">
             SELECT SEQ_USER_FILE.NEXTVAL FROM DUAL
         </selectKey>
         INSERT INTO GGHJ_USER_FILE (USER_FILE_ID, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE,
         USER_FILE_PROFILE_UUID,
+=======
+        <selectKey keyProperty="fileId" resultType="Long" order="BEFORE">
+            SELECT SEQ_USER_FILE.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO GGHJ_USER_FILE (USER_FILE_ID, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+>>>>>>> main
         USER_FILE_BACK_NAME, USER_FILE_BACK_SOURCE, USER_FILE_BACK_UUID, USER_ID)
         VALUES (#{userFileId}, #{userFileProfileName}, #{userFileProfileSource}, #{userFileProfileUuid},
         #{userFileBackName}, #{userFileBackSource}, #{userFileBackUuid}, #{userId})

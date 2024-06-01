@@ -42,7 +42,7 @@ main{
 /* 아이디 비밀번호 입력칸 */
 .textId > input{
   margin-top: 10px;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
   background-color: rgb(242, 242, 246);
   /* border: none; */
   border: 1px solid gray;
