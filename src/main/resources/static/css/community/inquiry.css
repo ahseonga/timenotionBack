@@ -109,6 +109,7 @@ button[type="button"]:hover{
     border: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: 600;
     width: 100%;
+    align-items: center;
 }
 .inquiry-modal-title select{
     height: 35px;

@@ -62,6 +62,7 @@ public class HomeController {
 
     @GetMapping("/about")
     public String about(HttpSession session) {
+
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {

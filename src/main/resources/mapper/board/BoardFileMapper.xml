@@ -4,7 +4,7 @@
 <mapper namespace="com.example.geungeunhanjan.mapper.board.BoardFileMapper">
     <insert id="insertFile" parameterType="BoardFileVO">
     <selectKey keyProperty="boardFileId" resultType="long" order="BEFORE">
-        SELECT SEQ_FILE.NEXTVAL FROM DUAL
+        SELECT SEQ_BOARD_FILE.NEXTVAL FROM DUAL
     </selectKey>
     INSERT INTO GGHJ_BOARD_FILE( BOARD_FILE_ID, BOARD_FILE_NAME, BOARD_FILE_SOURCE_NAME,BOARD_FILE_UUID,BOARD_ID)
     VALUES(#{boardFileId},#{boardFileName},#{boardFileSourceName},#{boardFileUuid},#{boardId})
