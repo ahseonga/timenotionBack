@@ -4,12 +4,22 @@ package com.example.geungeunhanjan;
 
 
 
+<<<<<<< HEAD
+
+
+
+import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+=======
+>>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.mapper.board.BoardMapper;
 
+import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
+import com.example.geungeunhanjan.service.community.InquiryService;
 import com.example.geungeunhanjan.service.user.UserService;
 <<<<<<< HEAD
 
@@ -22,6 +32,7 @@ import com.example.geungeunhanjan.service.user.UserService;
 >>>>>>> main
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
@@ -38,9 +49,19 @@ class GeungeunhanjanApplicationTests {
     private UserVO userVO;
     LocalDateTime dateTime;
 
+<<<<<<< HEAD
+=======
 
     @Autowired
+>>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
     private BoardMapper boardMapper;
+
+    @Autowired
+    private InquiryMapper inquiryMapper;
+    @Qualifier("inquiryService")
+    @Autowired
+    private InquiryService inquiryService;
+
 
     @Test
     void contextLoads() {
@@ -90,7 +111,6 @@ class GeungeunhanjanApplicationTests {
 //    }
 
 
-
     @Test
     void userNickTest(){
         String nickname = userService.mainBoardByViewsNickname(1L);
@@ -114,6 +134,30 @@ class GeungeunhanjanApplicationTests {
 
         userService.userJoin(userVO);
 
+    }
 
+    @Test
+    void userNickName(){
+        String nickname = userService.selectUserNickname(1L);
+        System.out.println(nickname);
+    }
+
+    @Test
+    void inquiryDetailTest(){
+        InquiryDTO inquiryDTO = new InquiryDTO();
+        String userNickname = userService.selectUserNickname(1L);
+
+        System.out.println(inquiryMapper.selectInquiryDetail(1L));
+
+    }
+
+    @Test
+    void inquiryDeleteTest(){
+        inquiryMapper.inquiryDelete(1L, 1L);
+    }
+
+    @Test
+    void paging(InquiryCriteria inquiryCriteria){
+        inquiryService.selectAllInquiryPage(inquiryCriteria);
     }
 }

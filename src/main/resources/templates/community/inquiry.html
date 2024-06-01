@@ -11,6 +11,7 @@
     <script defer src="./../../js/community/inquiry.js"></script>
     <script defer src="./../../js/fragment/headerFetch.js"></script>
     <script defer src="./../../js/fragment/footerFetch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
                     <button type="button">문의</button>
                 </span>
             <span class="inquiry-button">
-                    <button type="button">물어보세요</button>
+                    <button type="button" th:if="${session.userId != null}">물어보세요</button>
                 </span>
             <div class="inquiry-modal">
                 <div class="modal-main-img">
@@ -34,24 +35,25 @@
                 <div class="inquiry-modal-nickname">
                     작성자 : 닉네임
                 </div>
-                <form action="#">
+                <form action="/community/inquiry/insertInquiry" method="post">
                     <div class="inquiry-modal-title">
-                        <input type="text" name="inquiry-modal-title" placeholder="제목">
+                        <input type="text" name="inquiryTitle" placeholder="제목">
                         <span>
-                                <select name="inquiry-modal-select">
+                                <select name="inquiryPublic">
                                     <option value="visible">공개</option>
                                     <option value="invisible">비공개</option>
                                 </select>
-                            </span>
+                        </span>
                     </div>
                     <div class="inquiry-modal-content">
-                        <textarea name="inquiry-modal-content" cols="50" rows="10" placeholder="내용" style="resize: none;"></textarea>
+                        <textarea name="inquiryContent" cols="50" rows="10" placeholder="내용" style="resize: none;"></textarea>
                     </div>
                     <div class="inquiry-modal-btns">
                         <button type="submit">등록</button>
                         <button type="button">닫기</button>
                     </div>
                 </form>
+
             </div>
         </div>
         <div class="inquiry-title-hr">
@@ -73,12 +75,12 @@
             <div class="contents-prev-content">
                 <span class="contents-number" th:text="${inquiry.inquiryId}">7</span>
                 <span class="contents-title">
-                        <button type="button" class="inquiry-content-button"  th:text="${inquiry.inquiryTitle}">우리 모두 화이팅^^~</button>
-                    </span>
+            <button type="button" class="inquiry-content-button" th:data-inquiryid="${inquiry.inquiryId}" th:data-userid="${inquiry.userId}" th:text="${inquiry.inquiryTitle}"></button>
+        </span>
             </div>
             <div class="contents-next-content">
-                <span class="contents-writer"  th:text="${inquiry.userNickname}">닉네임</span>
-                <span class="contents-date"  th:text="${#temporals.format(inquiry.inquiryCreatedDate, 'yyyy.MM.dd')}">2024.05.09</span>
+                <span class="contents-writer" th:text="${inquiry.nickname}">닉네임</span>
+                <span class="contents-date" th:text="${#temporals.format(inquiry.inquiryCreatedDate, 'yyyy.MM.dd')}">2024.05.09</span>
             </div>
         </div>
 
@@ -167,35 +169,55 @@
         <!--                </div>-->
         <!--            </div>-->
     </div>
-    <div class="inquiry-paging">
-        <span class="paging-backward"><a href="#">&lt;</a></span>
-        <span class="inquiry-paging-number"><a href="#">1</a></span>
-        <span class="inquiry-paging-number"><a href="#">2</a></span>
-        <span class="inquiry-paging-number"><a href="#">3</a></span>
-        <span class="inquiry-paging-number"><a href="#">4</a></span>
-        <span class="inquiry-paging-number"><a href="#">5</a></span>
-        <span class="paging-forword"><a href="#">&gt;</a></span>
+<!--    <div class="inquiry-paging">-->
+<!--        <span class="paging-backward"><a href="#">&lt;</a></span>-->
+<!--        <span class="inquiry-paging-number"><a href="#">1</a></span>-->
+<!--        <span class="inquiry-paging-number"><a href="#">2</a></span>-->
+<!--        <span class="inquiry-paging-number"><a href="#">3</a></span>-->
+<!--        <span class="inquiry-paging-number"><a href="#">4</a></span>-->
+<!--        <span class="inquiry-paging-number"><a href="#">5</a></span>-->
+<!--        <span class="paging-forword"><a href="#">&gt;</a></span>-->
+<!--    </div>-->
+    <div class="inquiryPage-container">
+        <ul class="inquiryPage-box">
+            <a th:href="@{/community/inquiry(inquiryPage=${inquiryPage.startPage - 1})}" class="inquiryPage-a" th:if="${inquiryPage.prev}">
+                <li class="inquiryPage-num prev">&lt</li>
+            </a>
+
+            <!--        th:block은 화면에 영향을 주지않는 가짜 태그
+                        타임리프 문법을 사용하기 위해 만들어 쓴다.
+            -->
+            <th:block th:each="i : ${#numbers.sequence(inquiryPage.startPage, inquiryPage.endPage)}">
+                <a th:href="@{/community/inquiry(inquiryPage=${i})}" class="inquiryPage-a">
+                    <li class="inquiryPage-num" th:classappend="${i == inquiryPage.inquiryCriteria.inquiryPage ? 'active' : ''}" th:text="${i}"></li>
+                </a>
+            </th:block>
+
+            <a th:href="@{/community/inquiry(inquiryPage=${inquiryPage.endPage + 1})}" class="inquiryPage-a" th:if="${inquiryPage.next}">
+                <li class="inquiryPage-num next">&gt</li>
+            </a>
+        </ul>
     </div>
-    <div class="inquiry-banner banner">
-        <div class="inquriy-banner-img">
-            <a href="#"><img src="./../../img/community/community_banner2.png" alt="배너이미지"></a>
-        </div>
-        <div class="inquriy-banner-img">
-            <a href="#"><img src="./../../img/community/community_banner3.png" alt="배너이미지"></a>
-        </div>
-        <div class="inquriy-banner-img">
-            <a href="#"><img src="./../../img/community/community_banner4.png" alt="배너이미지"></a>
-        </div>
-        <div class="inquriy-banner-img">
-            <a href="#"><img src="./../../img/community/community_banner5.png" alt="배너이미지"></a>
-        </div>
-        <div class="inquriy-banner-img">
-            <a href="#"><img src="./../../img/community/community_banner6.png" alt="배너이미지"></a>
-        </div>
-    </div>
+<!--    <div class="inquiry-banner banner">-->
+<!--        <div class="inquriy-banner-img">-->
+<!--            <a href="#"><img src="./../../img/community/community_banner2.png" alt="배너이미지"></a>-->
+<!--        </div>-->
+<!--        <div class="inquriy-banner-img">-->
+<!--            <a href="#"><img src="./../../img/community/community_banner3.png" alt="배너이미지"></a>-->
+<!--        </div>-->
+<!--        <div class="inquriy-banner-img">-->
+<!--            <a href="#"><img src="./../../img/community/community_banner4.png" alt="배너이미지"></a>-->
+<!--        </div>-->
+<!--        <div class="inquriy-banner-img">-->
+<!--            <a href="#"><img src="./../../img/community/community_banner5.png" alt="배너이미지"></a>-->
+<!--        </div>-->
+<!--        <div class="inquriy-banner-img">-->
+<!--            <a href="#"><img src="./../../img/community/community_banner6.png" alt="배너이미지"></a>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="inquiry-prev prev">&lt;</div>
     <div class="inquiry-next next">&gt;</div>
-    <div id="inquiry-modal-answer">
+    <div id="inquiry-modal-answer" th:each="inquiriy : ${inquiries}">
         <div class="modal-main-img">
             <img src="./../../img/main/timenotion.png" alt="">
         </div>
@@ -203,17 +225,17 @@
             <span class="inquiry-modal-answer-title">문의 제목</span>
             <div class="inquiry-modal-answer-visibility">공개</div>
             <div class="inquiry-modal-answer-content">
-                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다.
+
             </div>
         </div>
         <div class="inquiry-modal-answer-answer">
-            <p>답변</p>
+            <p></p>
             <div class="inquiry-modal-answer-realAnswer">
-                답변 전
+
             </div>
         </div>
         <div class="inquiry-modal-answer-btns">
-            <button type="button" class="inquiry-modal-answer-delete">삭제</button>
+            <button type="button" class="inquiry-modal-answer-delete" th:if="session.userId == inquiriy.userId">삭제</button>
             <button type="button" class="inquiry-modal-answer-exit">닫기</button>
         </div>
     </div>
