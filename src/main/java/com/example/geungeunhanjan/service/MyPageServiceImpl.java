@@ -22,7 +22,7 @@ import java.util.UUID;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class MyPageServiceImpl implements  MyPageService{
+public class MyPageServiceImpl implements MyPageService{
     // 마이페이지
     private final MyPageMapper myPageMapper;
     private final UserFileVO userFileVO;
@@ -143,7 +143,7 @@ public class MyPageServiceImpl implements  MyPageService{
 
 
     @Override
-    public UserFileVO getProfileBackFile(Long fileId) {   // 프사 / 배사 셀렉
+    public UserFileVO getProfileBackFile(Long userFileId) {   // 프사 / 배사 셀렉
         return null;
     }
 

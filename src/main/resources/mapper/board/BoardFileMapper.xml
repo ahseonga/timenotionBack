@@ -20,4 +20,8 @@ FROM TBL_FILE
 WHERE BOARD_ID = #{boardId}
 </select>
 
+
+
+
+
 </mapper>

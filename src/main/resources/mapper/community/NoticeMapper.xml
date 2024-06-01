@@ -17,7 +17,8 @@
         SELECT u.USER_NICKNAME AS nickname, n.NOTICE_ID, n.NOTICE_TITLE, n.NOTICE_CONTENT,n.NOTICE_CREATED_DATE
         FROM GGHJ_USER u
                  JOIN GGHJ_UNI uni ON u.USER_ID = uni.USER_ID
-                 JOIN GGHJ_NOTICE n ON uni.UNI_ID = n.USER_ID
+                 JOIN GGHJ_NOTICE n ON uni.UserFileVO
+            UNI_ID = n.USER_ID
         UNION ALL
         SELECT k.kakao_nickname AS nickname, n.NOTICE_ID, n.NOTICE_TITLE, n.NOTICE_CONTENT,n.NOTICE_CREATED_DATE
         FROM GGHJ_KAKAO k

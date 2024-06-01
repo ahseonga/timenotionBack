@@ -25,5 +25,5 @@ public interface MyPageMapper {
     // 4. 회원정보 수정
     // 4-1. 프사 / 배사 파일 !!
     void insertFileById(UserFileVO userFileVO);
-    UserFileVO selectFileById(Long fileId);
+    UserFileVO selectFileById(Long userFileId);
 }

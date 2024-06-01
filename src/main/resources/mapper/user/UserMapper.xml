@@ -27,9 +27,9 @@
         WHERE UNI.UNI_ID = #{userId}
     </select>
     <!--2. 회원 프사 / 배사 가져옴 -->
-    <select id="selectAllUserFile" resultType="FileVO">
+    <select id="selectAllUserFile" resultType="UserFileVO">
         SELECT *
-        FROM GGHJ_FILE F
+        FROM GGHJ_USER_FILE F
                  JOIN GGHJ_UNI UNI ON F.USER_ID = UNI.UNI_ID
         WHERE uni.UNI_ID = #{userId}
     </select>
