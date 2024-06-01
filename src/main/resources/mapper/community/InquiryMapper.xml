@@ -4,12 +4,12 @@
 <mapper namespace="com.example.geungeunhanjan.mapper.community.InquiryMapper">
 <!--문의 전체 쫙 뿌려주는거-->
     <select id="selectInquiryAll" resultType="InquiryDTO">
-        SELECT inq.INQUIRY_ID , inq.INQUIRY_TITLE, u.USER_NICKNAME AS userNickname, inq.INQUIRY_CREATED_DATE
+        SELECT inq.INQUIRY_ID , inq.INQUIRY_TITLE, u.USER_NICKNAME AS userNickname, inq.INQUIRY_CREATED_DATE, inq.user_id
         FROM GGHJ_USER u
                  JOIN GGHJ_UNI uni ON u.USER_ID = uni.USER_ID
                  JOIN GGHJ_INQUIRY inq ON uni.UNI_ID = inq.USER_ID
         UNION ALL
-        SELECT inq.INQUIRY_ID, inq.INQUIRY_TITLE, k.kakao_nickname AS nickname, inq.INQUIRY_CREATED_DATE
+        SELECT inq.INQUIRY_ID, inq.INQUIRY_TITLE, k.kakao_nickname AS nickname, inq.INQUIRY_CREATED_DATE, inq.user_id
         FROM GGHJ_KAKAO k
                  JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
                  JOIN GGHJ_INQUIRY inq ON uni.UNI_ID = inq.USER_ID
@@ -20,7 +20,7 @@
         SELECT
             I.INQUIRY_TITLE,
             I.INQUIRY_CONTENT,
-            I.INQUIRY_RESPONSE ,
+            I.INQUIRY_RESPONSE,
             I.INQUIRY_PUBLIC
         FROM
             GGHJ_INQUIRY I
@@ -30,13 +30,57 @@
             I.INQUIRY_ID = #{inquiryId}
     </select>
 <!--문의 작성-->
-    <insert id="inquiryWrite" parameterType="InquiryDTO">
+    <insert id="inquiryWrite" parameterType="InquiryWriteDTO">
+        <selectKey keyProperty="inquiryId" resultType="Long" order="BEFORE">
+            select seq_inquiry.nextval from dual
+        </selectKey>
         INSERT INTO GGHJ_INQUIRY (INQUIRY_ID, INQUIRY_TITLE, INQUIRY_CONTENT, INQUIRY_RESPONSE, INQUIRY_CREATED_DATE, INQUIRY_PUBLIC, USER_ID)
-        VALUES (SEQ_INQUIRY_ID.NEXTVAL, #{inquiryTitle}, #{inquiryContent}, NULL, SYSDATE, #{inquiryPublic}, #{userId})
+        VALUES (#{inquiryId}, #{inquiryTitle}, #{inquiryContent}, NULL, #{inquiryCreatedDate}, #{inquiryPublic}, #{userId})
     </insert>
 <!--문의 삭제-->
     <delete id="inquiryDelete">
         DELETE FROM GGHJ_INQUIRY
-        WHERE INQUIRY_ID = #{inquiryId} and USER_ID = #{userID}
+        WHERE INQUIRY_ID = #{inquiryId} and USER_ID = #{userId}
     </delete>
+
+<!--    문의글 id에서 usernickname 받아오기-->
+    <select id="userNickNamebyInquiryId" resultType="string">
+        SELECT COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS USERNICKNAME
+        FROM GGHJ_UNI UNI
+                 LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                 LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                 LEFT JOIN GGHJ_INQUIRY inq ON inq.USER_ID = uni.UNI_ID
+        WHERE INQ.INQUIRY_ID = #{inquiryId}
+    </select>
+
+    <select id="selectAllInquiryPage" parameterType="Criteria" resultType="InquiryPagingDTO">
+    <![CDATA[
+        SELECT INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id
+        FROM (
+                 SELECT ROWNUM AS RNUM, INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id
+                 FROM (
+                          SELECT I.INQUIRY_ID, I.INQUIRY_TITLE,
+                                 CASE
+                                     WHEN U.USER_ID IS NOT NULL THEN U.USER_NICKNAME
+                                     ELSE K.KAKAO_NICKNAME
+                                     END AS NICKNAME,
+                                 I.INQUIRY_CREATED_DATE,
+                                 i.user_id
+                          FROM GGHJ_INQUIRY I
+                                   LEFT JOIN GGHJ_UNI UNI ON I.USER_ID = UNI.UNI_ID
+                                   LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                                   LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                          ORDER BY I.INQUIRY_ID DESC
+                      )
+                 WHERE ROWNUM <= #{inquiryPage} * #{amount}
+             )
+        WHERE RNUM > (#{inquiryPage} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="selectInquiryTotal" resultType="int">
+        select count(inquiry_id) from gghj_inquiry
+    </select>
+
+
 </mapper>
