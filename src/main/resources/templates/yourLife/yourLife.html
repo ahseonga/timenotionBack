@@ -41,7 +41,7 @@
 
                   <a th:href="@{/yourLife/userpage}">
                     <div class="flwers-img-box"  th:each=" file : ${files}" >
-                      <img  th:src="${file.fileProfileSource}" alt="" />
+                      <img  th:src="${file.userFileProfileSource}" alt="" />
 
 
                     </div>
@@ -74,7 +74,7 @@
 
                   <a href="./../../HTML/myLife/userpage.html" >
                     <div class="flwers-img-box">
-                      <img  th:src="@{${following.fileProfileSource}}" alt="" />
+                      <img  th:src="@{${following.userFileProfileSource}}" alt="" />
 
                     </div>
                     <div class="flwers-nick-count-box">
