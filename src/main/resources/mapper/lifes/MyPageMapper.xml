@@ -55,46 +55,43 @@
 ]]>-- 상위 10개를 제외한 나머지 10개의 결과를 가져오기 위해 필요
     </select>
     <select id="myLikeTotal" resultType="int">
-        SELECT
-            COUNT(LIKE_ID)
-        FROM
-            GGHJ_LIKE L
-                JOIN
-            GGHJ_BOARD B ON L.BOARD_ID = B.BOARD_ID
-                JOIN
-            GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
-                FULL OUTER JOIN
-            GGHJ_USER U ON U.USER_ID = UNI.USER_ID
-                FULL OUTER JOIN
-            GGHJ_KAKAO K ON K.KAKAO_ID = UNI.KAKAO_ID
-        WHERE
-            L.USER_ID = #{userId}
+        SELECT COUNT(LIKE_ID)
+        FROM GGHJ_LIKE L
+                 JOIN
+             GGHJ_BOARD B ON L.BOARD_ID = B.BOARD_ID
+                 JOIN
+             GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                 FULL OUTER JOIN
+             GGHJ_USER U ON U.USER_ID = UNI.USER_ID
+                 FULL OUTER JOIN
+             GGHJ_KAKAO K ON K.KAKAO_ID = UNI.KAKAO_ID
+        WHERE L.USER_ID = #{userId}
     </select>
 
     <!--2. 내가 쓴 댓글 목록-->
     <!--댓글 내용 / 댓글 쓴 날 / 게시글 제목 / 댓글 작성자 id-->
-   <!-- <select id="selectMyComment" resultType="CommentDTO">
-        SELECT C.COMMENT_CONTENT      AS COMMENTS_CONTENT,
-               C.COMMENT_CREATED_DATE AS CREATED_DATE,
-               B.BOARD_TITLE          AS BOARD_TITLE,
-               C.USER_ID              AS USER_ID
-        FROM GGHJ_COMMENT C
-                 JOIN GGHJ_BOARD B
-                      ON C.BOARD_ID = B.BOARD_ID
-        WHERE C.USER_ID = #{userId}
-        UNION ALL
-        SELECT R.REPLY_CONTENT      AS COMMENTS_CONTENT,
-               R.REPLY_CREATED_DATE AS CREATED_DATE,
-               B.BOARD_TITLE        AS BOARD_TITLE,
-               R.USER_ID            AS USER_ID
-        FROM GGHJ_REPLY R
-                 JOIN GGHJ_COMMENT C
-                      ON R.COMMENT_ID = C.COMMENT_ID
-                 JOIN GGHJ_BOARD B
-                      ON C.BOARD_ID = B.BOARD_ID
-        WHERE R.USER_ID = #{userId}
-        ORDER BY CREATED_DATE DESC
-    </select>-->
+    <!-- <select id="selectMyComment" resultType="CommentDTO">
+         SELECT C.COMMENT_CONTENT      AS COMMENTS_CONTENT,
+                C.COMMENT_CREATED_DATE AS CREATED_DATE,
+                B.BOARD_TITLE          AS BOARD_TITLE,
+                C.USER_ID              AS USER_ID
+         FROM GGHJ_COMMENT C
+                  JOIN GGHJ_BOARD B
+                       ON C.BOARD_ID = B.BOARD_ID
+         WHERE C.USER_ID = #{userId}
+         UNION ALL
+         SELECT R.REPLY_CONTENT      AS COMMENTS_CONTENT,
+                R.REPLY_CREATED_DATE AS CREATED_DATE,
+                B.BOARD_TITLE        AS BOARD_TITLE,
+                R.USER_ID            AS USER_ID
+         FROM GGHJ_REPLY R
+                  JOIN GGHJ_COMMENT C
+                       ON R.COMMENT_ID = C.COMMENT_ID
+                  JOIN GGHJ_BOARD B
+                       ON C.BOARD_ID = B.BOARD_ID
+         WHERE R.USER_ID = #{userId}
+         ORDER BY CREATED_DATE DESC
+     </select>-->
 
     <!--내가 쓴 댓글 목록 페이징 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
     <select id="selectPageMyComment" resultType="CommentDTO">
@@ -115,11 +112,11 @@
                                  R.REPLY_CREATED_DATE AS CREATED_DATE,
                                  B.BOARD_TITLE        AS BOARD_TITLE,
                                  B.BOARD_ID           AS BOARD_ID,
-                                 R.USER_ID            AS USER_ID
+                                 C.USER_ID            AS USER_ID
                           FROM GGHJ_REPLY R
                                    JOIN GGHJ_COMMENT C ON R.COMMENT_ID = C.COMMENT_ID
                                    JOIN GGHJ_BOARD B ON C.BOARD_ID = B.BOARD_ID
-                          WHERE R.USER_ID = #{userId})
+                          WHERE C.USER_ID = #{userId})
                     ORDER BY CREATED_DATE DESC)
               WHERE ROWNUM <= #{criteria.page} * #{criteria.amount})
         WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
@@ -153,24 +150,25 @@
     <!--4. 회원정보 수정-->
     <!--4-1. 회원정보 수정 프사 / 배사 파일 !!! -->
     <insert id="insertFileById" parameterType="UserFileVO">
-        <selectKey keyProperty="fileId" resultType="Long" order="BEFORE">
-            SELECT SEQ_FILE.NEXTVAL FROM DUAL
+        <selectKey keyProperty="userFileId" resultType="Long" order="BEFORE">
+            SELECT SEQ_USER_FILE.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO GGHJ_FILE (FILE_ID, FILE_PROFILE_NAME, FILE_PROFILE_SOURCE, FILE_PROFILE_UUID,
-        FILE_BACK_NAME, FILE_BACK_SOURCE, FILE_BACK_UUID, USER_ID)
-        VALUES (#{fileId}, #{fileProfileName}, #{fileProfileSource}, #{fileProfileUuid},
-        #{fileBackName}, #{fileBackSource}, #{fileBackUuid}, #{userId})
+        INSERT INTO GGHJ_USER_FILE (USER_FILE_ID, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE,
+        USER_FILE_PROFILE_UUID,
+        USER_FILE_BACK_NAME, USER_FILE_BACK_SOURCE, USER_FILE_BACK_UUID, USER_ID)
+        VALUES (#{userFileId}, #{userFileProfileName}, #{userFileProfileSource}, #{userFileProfileUuid},
+        #{userFileBackName}, #{userFileBackSource}, #{userFileBackUuid}, #{userId})
     </insert>
-    <select id="selectFileById" resultType="FileVO">
-        SELECT FILE_ID,
-               FILE_PROFILE_NAME,
-               FILE_PROFILE_SOURCE,
-               FILE_PROFILE_UUID,
-               FILE_BACK_NAME,
-               FILE_BACK_SOURCE,
-               FILE_BACK_UUID,
+    <select id="selectFileById" resultType="UserFileVO">
+        SELECT USER_FILE_ID,
+               USER_FILE_PROFILE_NAME,
+               USER_FILE_PROFILE_SOURCE,
+               USER_FILE_PROFILE_UUID,
+               USER_FILE_BACK_NAME,
+               USER_FILE_BACK_SOURCE,
+               USER_FILE_BACK_UUID,
                USER_ID
-        FROM GGHJ_FILE
+        FROM GGHJ_USER_FILE
         WHERE USER_ID = #{userId}
     </select>
 </mapper>

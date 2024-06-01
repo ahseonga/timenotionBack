@@ -17,11 +17,11 @@
             u.USER_NICKNAME AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
-            f.FILE_PROFILE_SOURCE
+            f.USER_FILE_PROFILE_SOURCE
         FROM
             GGHJ_USER u
                 JOIN GGHJ_FOLLOW fo ON u.USER_ID = fo.FOLLOW_FROM_USER
-                LEFT JOIN GGHJ_FILE f ON u.USER_ID = f.USER_ID
+                LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
         WHERE
             fo.FOLLOW_TO_USER = 1
         UNION ALL
@@ -30,12 +30,12 @@
             k.kakao_nickname AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
-            ff.FILE_PROFILE_SOURCE
+            ff.USER_FILE_PROFILE_SOURCE
         FROM
             GGHJ_KAKAO k
                 JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
                 JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_FROM_USER
-                LEFT JOIN GGHJ_FILE ff ON k.KAKAO_ID = ff.USER_ID
+                LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
         WHERE
             fo.FOLLOW_TO_USER = 1
     </select>
@@ -48,11 +48,11 @@
             u.USER_NICKNAME AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
-            f.FILE_PROFILE_SOURCE
+            f.USER_FILE_PROFILE_SOURCE
         FROM
             GGHJ_USER u
                 JOIN GGHJ_FOLLOW fo ON u.USER_ID = fo.FOLLOW_TO_USER
-                LEFT JOIN GGHJ_FILE f ON u.USER_ID = f.USER_ID
+                LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
         WHERE
             fo.FOLLOW_FROM_USER = 1
         UNION ALL
@@ -61,20 +61,20 @@
             k.kakao_nickname AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
-            ff.FILE_PROFILE_SOURCE
+            ff.USER_FILE_PROFILE_SOURCE
         FROM
             GGHJ_KAKAO k
                 JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
                 JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER
-                LEFT JOIN GGHJ_FILE ff ON k.KAKAO_ID = ff.USER_ID
+                LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
         WHERE
             fo.FOLLOW_FROM_USER = 1
     </select>
     <!-- 이미지 불러오는 쿼리문    -->
     <!-- 임의로 id를 2로 설정해두었다 ★ ★ ★ ★ ★    -->
     <select id="selectFile" resultType="UserFileVO">
-        SELECT f.FILE_PROFILE_SOURCE
-        FROM GGHJ_FILE f
+        SELECT f.USER_FILE_PROFILE_SOURCE
+        FROM GGHJ_USER_FILE f
                  JOIN GGHJ_UNI u ON f.USER_ID = u.UNI_ID
     </select>
     <!-- 팔로워, 팔로잉 리스트에 들어온 회원들의 보드 수를 체크하는 쿼리문     -->
@@ -91,9 +91,7 @@
     <!-- 팔로우 목록 리스트중 하나 클릭시 들어가는 남의 페이지 상세 팔로우 쿼리문     -->
     <insert id="insertFollow" parameterType="FollowVO">
         INSERT INTO GGHJ_FOLLOW (FOLLOW_ID , FOLLOW_TO_USER, FOLLOW_FROM_USER)
-        VALUES(#{followId},#{follwToUser},#{followFromUser})
+        VALUES(#{followId},#{followToUser},#{followFromUser})
     </insert>
-
-
 
 </mapper>
