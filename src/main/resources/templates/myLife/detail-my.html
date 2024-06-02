@@ -10,16 +10,16 @@
     <title>내가보는 디테일</title>
     <link rel="stylesheet" th:href="@{/css/myLife/detail-my3.css}">
     <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main/report-modal.css}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer th:src="@{/js/myLife/detail.my3.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/main/report-modal.css}">
-    <script defer th:src="@{/js/fragment/headerFetch.js}"></script>
-    <script defer th:src="@{/js/fragment/footerFetch.js}"></script>
-
-
+    <script defer type="module" th:src="@{/js/myLife/dam.js}" ></script>
+    <script defer type="module" th:src="@{/js/myLife/module.js}" ></script>
+</head>
 <body>
     <div th:replace="~{/fragment/header::header}"></div>
-        <div id="wrapper">
+    <input type="hidden" id="boardId" th:value="${boards.boardId}">
+    <div id="wrapper">
             <main>
                 <div class="container">
                     <!--1. 상단 날짜 / 수정 삭제 버튼 ----------------->
@@ -55,7 +55,7 @@
                     <div class="wrapper-reply-write">
                         <div class="box-count-reply"><span>댓글</span><span id="count-reply">(00)</span></div>
                         <div class="box-reply-write">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="댓글을 입력하세요"></textarea>
+                            <textarea name="" id="comment-content" cols="30" rows="10" placeholder="댓글을 입력하세요"></textarea>
                             <div class="box-btn-reply-btn"><button class="btn-reply-btn">입력</button></div>
                         </div>
 
@@ -233,14 +233,8 @@
                                     </div>
                         </div>
                         <hr>
-                        <!-- ------------------------ -->
-                        <!-- 6. 페이징, 페이지네이션 -->
-            <div class="wrapper-pagination">
-                <div class="chevron-left"><img src="./../../img/main/쉐브론.png" alt=""></div>
-                1 2 3 4 5
-                <div class="chevron-right"><img src="./../../img/main/쉐브론.png" alt=""></div>
-            </div>
-                    </div>
+
+                    </div> <!--댓글영역 닫는 태그 -->
 
                     <!-- 메인 신고 모달 -->
                     <article class="wrapper-report">

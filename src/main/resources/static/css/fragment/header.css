@@ -1,7 +1,7 @@
 header {
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 80px;
   width: 100%;
 /*  background-color: #e5f2f7;*/
   background-color: #fcfaf7;
@@ -24,7 +24,7 @@ header {
 }
 .logo-box {
   width: 130px;
-  height: 80px;
+  height: 55px;
   margin-top: 35px;
 }
 .logo-box img {
@@ -35,7 +35,7 @@ header {
 /* 카테고리 ---------------------------------------- */
 .category-box {
   display: flex;
-  margin-left: 18px;
+  margin-left: 40px;
 }
 .category-box ul {
   display: flex;

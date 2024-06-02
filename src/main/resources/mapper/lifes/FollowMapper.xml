@@ -42,65 +42,65 @@
     <!-- 팔로우 리스트중 한개 클릭시 남의 상세페이지 조회하는 쿼리문     -->
     <select id="selectFollowDetail" resultType="FollowDTO">
         SELECT
-            u.USER_ID AS followerId,
-            u.USER_NICKNAME AS userNickname,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
-            f.USER_FILE_PROFILE_SOURCE
+        u.USER_ID AS followerId,
+        u.USER_NICKNAME AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+        f.USER_FILE_PROFILE_SOURCE
         FROM
-            GGHJ_USER u
-                LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
+        GGHJ_USER u
+        LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
         WHERE
-            u.USER_ID = #{userId}
+        u.USER_ID = #{userId}
         UNION ALL
         SELECT
-            k.KAKAO_ID AS followingId,
-            k.name AS userNickname,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
-            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
-            ff.USER_FILE_PROFILE_SOURCE
+        k.KAKAO_ID AS followingId,
+        k.name AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+        ff.USER_FILE_PROFILE_SOURCE
         FROM
-            GGHJ_KAKAO k
-<!--<<<<<<< HEAD-->
-<!--=======-->
-<!--                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID-->
-<!--                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER-->
-<!--&gt;>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3-->
-                LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
+        GGHJ_KAKAO k
+        <!--<<<<<<< HEAD-->
+        <!--=======-->
+        <!--                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID-->
+        <!--                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER-->
+        <!--&gt;>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3-->
+        LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
         WHERE
-            k.KAKAO_ID = #{userId}
+        k.KAKAO_ID = #{userId}
     </select>
 
     <!-- 내가 팔로우한 사람의 정보 조회 ; 팔로잉 -->
     <!-- ★★★  임의로 follow from user = 1로 넣어뒀음 수정해야함 ★★★★★ -->
-<!--    <select id="selectFollowing" resultType="FollowDTO">-->
-<!--        SELECT-->
-<!--            u.USER_ID AS followingId,-->
-<!--            u.USER_NICKNAME AS userNickname,-->
-<!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,-->
-<!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,-->
-<!--            f.USER_FILE_PROFILE_SOURCE-->
-<!--        FROM-->
-<!--            GGHJ_USER u-->
-<!--                JOIN GGHJ_FOLLOW fo ON u.USER_ID = fo.FOLLOW_TO_USER-->
-<!--                LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID-->
-<!--        WHERE-->
-<!--            fo.FOLLOW_FROM_USER = 2-->
-<!--        UNION ALL-->
-<!--        SELECT-->
-<!--            k.KAKAO_ID AS followingId,-->
-<!--            k.kakao_nickname AS userNickname,-->
-<!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,-->
-<!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,-->
-<!--            ff.USER_FILE_PROFILE_SOURCE-->
-<!--        FROM-->
-<!--            GGHJ_KAKAO k-->
-<!--                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID-->
-<!--                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER-->
-<!--                LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID-->
-<!--        WHERE-->
-<!--            fo.FOLLOW_FROM_USER = 2-->
-<!--    </select>-->
+    <!--    <select id="selectFollowing" resultType="FollowDTO">-->
+    <!--        SELECT-->
+    <!--            u.USER_ID AS followingId,-->
+    <!--            u.USER_NICKNAME AS userNickname,-->
+    <!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,-->
+    <!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,-->
+    <!--            f.USER_FILE_PROFILE_SOURCE-->
+    <!--        FROM-->
+    <!--            GGHJ_USER u-->
+    <!--                JOIN GGHJ_FOLLOW fo ON u.USER_ID = fo.FOLLOW_TO_USER-->
+    <!--                LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID-->
+    <!--        WHERE-->
+    <!--            fo.FOLLOW_FROM_USER = 2-->
+    <!--        UNION ALL-->
+    <!--        SELECT-->
+    <!--            k.KAKAO_ID AS followingId,-->
+    <!--            k.kakao_nickname AS userNickname,-->
+    <!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,-->
+    <!--            (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,-->
+    <!--            ff.USER_FILE_PROFILE_SOURCE-->
+    <!--        FROM-->
+    <!--            GGHJ_KAKAO k-->
+    <!--                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID-->
+    <!--                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER-->
+    <!--                LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID-->
+    <!--        WHERE-->
+    <!--            fo.FOLLOW_FROM_USER = 2-->
+    <!--    </select>-->
 
 
 
@@ -120,6 +120,14 @@
     <insert id="insertFollow" parameterType="FollowVO">
         INSERT INTO GGHJ_FOLLOW (FOLLOW_ID , FOLLOW_TO_USER, FOLLOW_FROM_USER)
         VALUES(#{followId},#{followToUser},#{followFromUser})
+<<<<<<< HEAD
+=======
+
+            INSERT INTO GGHJ_FOLLOW (FOLLOW_ID, FOLLOW_TO_USER, FOLLOW_FROM_USER)
+        VALUES(#{followId},#{follwoToUser},#{followFromUser})
+
+
+>>>>>>> 2a2f67616cae600df9a5951fb6f173d32b00cf28
     </insert>
     <!--    남의 페이지 해당 유저 언팔로우 하기 -->
     <delete id="deleteFollow" parameterType="Long">
