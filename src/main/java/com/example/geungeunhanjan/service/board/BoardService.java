@@ -17,10 +17,17 @@ import java.util.List;
 @Service
 public interface BoardService {
 
-    // Board 리스트
-
     //게시글 등록하기
     void registerBoard(BoardVO boardVO);
+
+    //게시글 업데이트
+    void modifyBoard(BoardVO boardVO, List<MultipartFile> files)  throws IOException;
+
+    //게시글 삭제하기
+    void removeBoard(Long boardId);
+
+    //일대기별 게시글 조회
+    List<BoardVO> selectLifeCycleBoard(String boardLifeCycle);
 
     //게시글 파일 같이 등록하기
     void registerBoardwithFile(BoardVO boardVO, List<MultipartFile> files)  throws IOException;
