@@ -1,8 +1,7 @@
 package com.example.geungeunhanjan.controller;
 
-import com.example.geungeunhanjan.domain.vo.board.BoardVO;
+import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 
-import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.community.InquiryService;
@@ -34,28 +33,36 @@ public class HomeController {
     private final UserService userService;
     private final UserMapper userMapper;
     private final InquiryService inquiryService;
-    //    private final HttpSession session;
-    private final UserVO userVO;
+
+
     private final FollowService followService;
 
 
     @GetMapping
     public String index(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-//        if (userId == null) {
-//            return "/main";
 
 
-        List<BoardVO> boards = boardService.mainBoardbyViews();
+        BoardMainDTO mainLeft = boardService.mainLeftBannerSelect();
+
+        List<BoardMainDTO> boards = boardService.mainBoardbyViews();
+        List<BoardMainDTO> rightBoards = boardService.mainRightBannerSelect();
         List<String> userNicknames = new ArrayList<>();
-        for (BoardVO boardList : boards) {
+        if(mainLeft == null) {
+            mainLeft = new BoardMainDTO();
+            mainLeft.setUserId(2L);
+        }
+        for (BoardMainDTO boardList : boards) {
             Long boardId = boardList.getBoardId();
             userNicknames.add(userService.mainBoardByViewsNickname(boardId));
         }
 
+        model.addAttribute("mainLeft", mainLeft);
         model.addAttribute("boards", boards);
         model.addAttribute("userNicknames", userNicknames);
+        model.addAttribute("rightBoards", rightBoards);
+
+        System.out.println(boards);
 
         return "main/index";
     }
@@ -66,11 +73,9 @@ public class HomeController {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
-            return "redirect:/main/login";
+            return "redirect:/user/login";
         }
         return "main/about";
     }
-
-
 
 }

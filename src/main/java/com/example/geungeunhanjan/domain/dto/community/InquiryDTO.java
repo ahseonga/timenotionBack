@@ -16,4 +16,5 @@ public class InquiryDTO {
     private String inquiryResponse;
     private String inquiryPublic;
     private Long userId;
+    private Long loginUserId;
 }

@@ -27,7 +27,7 @@
         UNION ALL
         SELECT
             k.KAKAO_ID AS followerId,
-            k.kakao_nickname AS userNickname,
+            k.name AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
             ff.USER_FILE_PROFILE_SOURCE
@@ -58,7 +58,7 @@
         UNION ALL
         SELECT
             k.KAKAO_ID AS followingId,
-            k.kakao_nickname AS userNickname,
+            k.name AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
             ff.USER_FILE_PROFILE_SOURCE
@@ -91,7 +91,7 @@
     <!-- 팔로우 목록 리스트중 하나 클릭시 들어가는 남의 페이지 상세 팔로우 쿼리문     -->
     <insert id="insertFollow" parameterType="FollowVO">
         INSERT INTO GGHJ_FOLLOW (FOLLOW_ID, FOLLOW_TO_USER, FOLLOW_FROM_USER)
-        VALUES(#{followId},#{follwoToUser},#{followFromUser})
+        VALUES(#{followId},#{followToUser},#{followFromUser})
     </insert>
 
 
