@@ -16,15 +16,9 @@ public class BoardTest {
         System.out.println(boardService.selectBoard(1L));;
     }
 
-<<<<<<< HEAD:src/test/java/com/example/geungeunhanjan/service/BoardTest.java
-
-
-
-=======
     @Test
     public void writerUserBirthTest(){
         System.out.println(boardService.writerUserBirth(1L));
     }
->>>>>>> main:src/test/java/com/example/geungeunhanjan/service/board/BoardTest.java
 
 }

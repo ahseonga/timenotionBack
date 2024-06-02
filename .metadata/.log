@@ -1,0 +1,1086 @@
+!SESSION 2024-06-01 14:21:32.498 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -eclipse.keyring C:\Users\임숙경\AppData\Roaming\DBeaverData\secure\secure_storage
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 2 2 2024-06-01 14:21:40.460
+!MESSAGE Invalid preference category path: org.eclipse.debug.ui.ConsolePreferencePage (bundle: org.eclipse.ui.console, page: org.eclipse.ui.internal.console.ansi.preferences.AnsiConsolePreferencePage)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2024-06-01 15:28:35.947
+!MESSAGE Error parsing query
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2024-06-01 15:28:35.947
+!MESSAGE BadLocationException
+!STACK 0
+org.eclipse.jface.text.BadLocationException
+	at org.eclipse.jface.text.AbstractDocument.get(AbstractDocument.java:958)
+	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.get(SynchronizableDocument.java:130)
+	at org.jkiss.dbeaver.model.sql.parser.SQLScriptParser.parseQuery(SQLScriptParser.java:118)
+	at org.jkiss.dbeaver.model.sql.parser.SQLScriptParser.extractScriptQueries(SQLScriptParser.java:903)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.extractScriptQueries(SQLEditorBase.java:900)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.extractQueries(SQLReconcilingStrategy.java:284)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.reconcile(SQLReconcilingStrategy.java:218)
+	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.reconcile(SQLReconcilingStrategy.java:100)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:74)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 15:57:44.770
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+
+Error position: line: 240 pos: 79
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 15:57:44.770
+!MESSAGE SQL Error [933] [42000]: ORA-00933: SQL command not properly ended
+
+!SUBENTRY 2 org.jkiss.dbeaver.model 4 0 2024-06-01 15:57:44.770
+!MESSAGE Error : 933, Position : 79, SQL = SELECT COUNT(*) AS TOTAL
+FROM GGHJ_BOARD
+WHERE BOARD_LIFE_CYCLE = '노년기'), Original SQL = SELECT COUNT(*) AS TOTAL
+FROM GGHJ_BOARD
+WHERE BOARD_LIFE_CYCLE = '노년기'), Error Message = ORA-00933: SQL command not properly ended
+
+!STACK 0
+Error : 933, Position : 79, SQL = SELECT COUNT(*) AS TOTAL
+FROM GGHJ_BOARD
+WHERE BOARD_LIFE_CYCLE = '노년기'), Original SQL = SELECT COUNT(*) AS TOTAL
+FROM GGHJ_BOARD
+WHERE BOARD_LIFE_CYCLE = '노년기'), Error Message = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 15:58:47.801
+!MESSAGE SQL Error [900] [42000]: ORA-00900: invalid SQL statement
+
+
+Error position: line: 236
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 15:58:47.801
+!MESSAGE SQL Error [900] [42000]: ORA-00900: invalid SQL statement
+
+!SUBENTRY 2 org.jkiss.dbeaver.model 4 0 2024-06-01 15:58:47.801
+!MESSAGE Error : 900, Position : 0, SQL = COUNT, Original SQL = COUNT, Error Message = ORA-00900: invalid SQL statement
+
+!STACK 0
+Error : 900, Position : 0, SQL = COUNT, Original SQL = COUNT, Error Message = ORA-00900: invalid SQL statement
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:1305)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1877)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1520)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 17:07:19.390
+!MESSAGE SQL Error [911] [22019]: ORA-00911: invalid character
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 17:07:19.390
+!MESSAGE Error : 911, Position : 1128, SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+FROM (
+    SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+    FROM (
+        SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+        FROM (
+            SELECT B.BOARD_CREATED_DATE,
+                   B.BOARD_LIFE_CYCLE,
+                   B.USER_ID,
+                   B.BOARD_ID,
+                   B.BOARD_TITLE,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_CONTENT,
+                   B.BOARD_VIEW_COUNT
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+            ORDER BY B.BOARD_CREATED_DATE DESC
+        )
+    )
+    WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+)
+WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+]]>, Original SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+FROM (
+    SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+    FROM (
+        SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+        FROM (
+            SELECT B.BOARD_CREATED_DATE,
+                   B.BOARD_LIFE_CYCLE,
+                   B.USER_ID,
+                   B.BOARD_ID,
+                   B.BOARD_TITLE,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_CONTENT,
+                   B.BOARD_VIEW_COUNT
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+            ORDER BY B.BOARD_CREATED_DATE DESC
+        )
+    )
+    WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+)
+WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+]]>, Error Message = ORA-00911: invalid character
+
+!STACK 0
+Error : 911, Position : 1128, SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+FROM (
+    SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+    FROM (
+        SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+        FROM (
+            SELECT B.BOARD_CREATED_DATE,
+                   B.BOARD_LIFE_CYCLE,
+                   B.USER_ID,
+                   B.BOARD_ID,
+                   B.BOARD_TITLE,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_CONTENT,
+                   B.BOARD_VIEW_COUNT
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+            ORDER BY B.BOARD_CREATED_DATE DESC
+        )
+    )
+    WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+)
+WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+]]>, Original SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+FROM (
+    SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_ID, USER_ID
+    FROM (
+        SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+        FROM (
+            SELECT B.BOARD_CREATED_DATE,
+                   B.BOARD_LIFE_CYCLE,
+                   B.USER_ID,
+                   B.BOARD_ID,
+                   B.BOARD_TITLE,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_CONTENT,
+                   B.BOARD_VIEW_COUNT
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+            ORDER BY B.BOARD_CREATED_DATE DESC
+        )
+    )
+    WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+)
+WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+]]>, Error Message = ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 17:20:42.265
+!MESSAGE SQL Error [900] [42000]: ORA-00900: invalid SQL statement
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 17:20:42.265
+!MESSAGE Error : 900, Position : 58, SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+    )
+    WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    ]]>
+</select>, Original SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+    )
+    WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    ]]>
+</select>, Error Message = ORA-00900: invalid SQL statement
+
+!STACK 0
+Error : 900, Position : 58, SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+    )
+    WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    ]]>
+</select>, Original SQL = -- 모두의 일대기 게시판 페이징 처리 --
+    <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_CONTENT, BOARD_CONTENT, USER_NICKNAME, KAKAO_NICKNAME, BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+    )
+    WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    ]]>
+</select>, Error Message = ORA-00900: invalid SQL statement
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 17:32:19.970
+!MESSAGE SQL Error [911] [22019]: ORA-00911: invalid character
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 17:32:19.970
+!MESSAGE Error : 911, Position : 1650, SQL = -- 모두의 일대기 게시판 페이징 처리 --
+ /*   <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[*/
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10, Original SQL = -- 모두의 일대기 게시판 페이징 처리 --
+ /*   <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[*/
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10, Error Message = ORA-00911: invalid character
+
+!STACK 0
+Error : 911, Position : 1650, SQL = -- 모두의 일대기 게시판 페이징 처리 --
+ /*   <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[*/
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10, Original SQL = -- 모두의 일대기 게시판 페이징 처리 --
+ /*   <select id="everyLifeagepaging" resultType="BoardVO">
+    <![CDATA[*/
+    SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT ,
+    		NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+    		BOARD_ID, USER_ID
+            FROM (
+                SELECT B.BOARD_CREATED_DATE,
+                       B.BOARD_LIFE_CYCLE,
+                       B.USER_ID,
+                       B.BOARD_ID,
+                       B.BOARD_TITLE,
+                       COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) NICKNAME,
+                       F.USER_FILE_PROFILE_NAME,
+                       F.USER_FILE_PROFILE_SOURCE,
+                       F.USER_FILE_PROFILE_UUID,
+                       B.BOARD_CONTENT,
+                       B.BOARD_VIEW_COUNT
+                FROM GGHJ_BOARD B
+                JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+                LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+                LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+                LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+                WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}  -- 필터링 조건 추가
+                ORDER BY B.BOARD_CREATED_DATE DESC
+            )
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10, Error Message = ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 17:33:43.084
+!MESSAGE SQL Error [911] [22019]: ORA-00911: invalid character
+
+
+Error position: line: 270 pos: 1354
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 17:33:43.084
+!MESSAGE SQL Error [911] [22019]: ORA-00911: invalid character
+
+!SUBENTRY 2 org.jkiss.dbeaver.model 4 0 2024-06-01 17:33:43.084
+!MESSAGE Error : 911, Position : 1354, SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Original SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Error Message = ORA-00911: invalid character
+
+!STACK 0
+Error : 911, Position : 1354, SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Original SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Error Message = ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-01 17:34:18.602
+!MESSAGE SQL Error [911] [22019]: ORA-00911: invalid character
+
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-01 17:34:18.602
+!MESSAGE Error : 911, Position : 1435, SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = '청소년기'
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Original SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = '청소년기'
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Error Message = ORA-00911: invalid character
+
+!STACK 0
+Error : 911, Position : 1435, SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = '청소년기'
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Original SQL = SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+       BOARD_ID, USER_ID
+FROM (
+    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+           BOARD_ID, USER_ID
+    FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+               BOARD_ID, USER_ID
+        FROM (
+            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                   F.USER_FILE_PROFILE_NAME,
+                   F.USER_FILE_PROFILE_SOURCE,
+                   F.USER_FILE_PROFILE_UUID,
+                   B.BOARD_ID,
+                   B.USER_ID
+            FROM GGHJ_BOARD B
+            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+            WHERE B.BOARD_LIFE_CYCLE = '청소년기'
+        )
+        WHERE ROWNUM <= 20
+    )
+    WHERE RNUM > 10;
+), Error Message = ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jkiss.dbeaver.model 2 0 2024-06-01 17:34:18.809
+!MESSAGE Error positioning on query error
+!SUBENTRY 1 org.jkiss.dbeaver.model 2 0 2024-06-01 17:34:18.809
+!MESSAGE assertion failed: 
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:119)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:104)
+	at org.eclipse.jface.text.Position.<init>(Position.java:66)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.visualizeQueryErrors(SQLEditorBase.java:990)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.processQueryResult(SQLEditor.java:4794)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$SQLEditorQueryListener.lambda$4(SQLEditor.java:4768)
+	at org.jkiss.dbeaver.ui.UIUtils$9.runInUIThread(UIUtils.java:1828)
+	at org.jkiss.dbeaver.ui.AbstractUIJob.runInUIThread(AbstractUIJob.java:41)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4046)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.jkiss.dbeaver.ui.app.standalone.DBeaverApplication.start(DBeaverApplication.java:296)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.jkiss.dbeaver.launcher.DBeaverLauncher.invokeFramework(DBeaverLauncher.java:641)
+	at org.jkiss.dbeaver.launcher.DBeaverLauncher.basicRun(DBeaverLauncher.java:601)
+	at org.jkiss.dbeaver.launcher.DBeaverLauncher.run(DBeaverLauncher.java:1458)
+!SESSION 2024-06-02 11:01:59.741 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -eclipse.keyring C:\Users\임숙경\AppData\Roaming\DBeaverData\secure\secure_storage
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 2 2 2024-06-02 11:02:09.238
+!MESSAGE Invalid preference category path: org.eclipse.debug.ui.ConsolePreferencePage (bundle: org.eclipse.ui.console, page: org.eclipse.ui.internal.console.ansi.preferences.AnsiConsolePreferencePage)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2024-06-02 13:36:04.656
+!MESSAGE SQL Error [955] [42000]: ORA-00955: name is already used by an existing object
+
+
+Error position: line: 355 pos: 13
+!SUBENTRY 1 org.jkiss.dbeaver.model 4 0 2024-06-02 13:36:04.657
+!MESSAGE SQL Error [955] [42000]: ORA-00955: name is already used by an existing object
+
+!SUBENTRY 2 org.jkiss.dbeaver.model 4 0 2024-06-02 13:36:04.657
+!MESSAGE Error : 955, Position : 13, SQL = CREATE TABLE GGHJ_KAKAO
+(
+    KAKAO_ID          NUMBER,--PK
+    NAME          VARCHAR2(255) NOT NULL,
+    PROFILE_PIC       VARCHAR2(255),
+    PROVIDER       VARCHAR2(20),
+    PROVIDER_ID     VARCHAR2(20) UNIQUE NOT NULL,
+    CREATE_AT       DATE,
+    UPDATE_AT       DATE,
+    CONSTRAINT PK_KAKAO_USER PRIMARY KEY (KAKAO_ID)
+), Original SQL = CREATE TABLE GGHJ_KAKAO
+(
+    KAKAO_ID          NUMBER,--PK
+    NAME          VARCHAR2(255) NOT NULL,
+    PROFILE_PIC       VARCHAR2(255),
+    PROVIDER       VARCHAR2(20),
+    PROVIDER_ID     VARCHAR2(20) UNIQUE NOT NULL,
+    CREATE_AT       DATE,
+    UPDATE_AT       DATE,
+    CONSTRAINT PK_KAKAO_USER PRIMARY KEY (KAKAO_ID)
+), Error Message = ORA-00955: name is already used by an existing object
+
+!STACK 0
+Error : 955, Position : 13, SQL = CREATE TABLE GGHJ_KAKAO
+(
+    KAKAO_ID          NUMBER,--PK
+    NAME          VARCHAR2(255) NOT NULL,
+    PROFILE_PIC       VARCHAR2(255),
+    PROVIDER       VARCHAR2(20),
+    PROVIDER_ID     VARCHAR2(20) UNIQUE NOT NULL,
+    CREATE_AT       DATE,
+    UPDATE_AT       DATE,
+    CONSTRAINT PK_KAKAO_USER PRIMARY KEY (KAKAO_ID)
+), Original SQL = CREATE TABLE GGHJ_KAKAO
+(
+    KAKAO_ID          NUMBER,--PK
+    NAME          VARCHAR2(255) NOT NULL,
+    PROFILE_PIC       VARCHAR2(255),
+    PROVIDER       VARCHAR2(20),
+    PROVIDER_ID     VARCHAR2(20) UNIQUE NOT NULL,
+    CREATE_AT       DATE,
+    UPDATE_AT       DATE,
+    CONSTRAINT PK_KAKAO_USER PRIMARY KEY (KAKAO_ID)
+), Error Message = ORA-00955: name is already used by an existing object
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:1305)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1877)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1520)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

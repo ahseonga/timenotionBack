@@ -9,7 +9,22 @@ FULL OUTER JOIN GGHJ_USER_FILE F ON UNI.USER_ID = UNI.UNI_ID
 
 ------------------
 
+SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_UPDATED_DATE, BOARD_VIEW_COUNT, BOARD_LIFE_CYCLE, BOARD_YEAR, USER_ID
+	FROM ( SELECT ROWNUM AS RNUM, BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+	FROM ( SELECT B.BOARD_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.BOARD_CREATED_DATE, B.BOARD_UPDATED_DATE, B.BOARD_VIEW_COUNT, B.BOARD_LIFE_CYCLE, B.BOARD_YEAR, U.USER_ID
+			FROM GGHJ_BOARD B JOIN GGHJ_USER U ON B.USER_ID = U.USER_ID
+		LEFT JOIN ()	
 	
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -191,91 +206,6 @@ ORDER BY
   FULL OUTER JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID 
   FULL OUTER JOIN GGHJ_USER_FILE F ON F.USER_ID = UNI.UNI_ID
   WHERE UNI.UNI_ID = 7;
- 
- 
- 
-<SELECT
-SELECT COUNT(*) AS "COUNT"
-FROM GGHJ_BOARD
-WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
-
-
-
-
-
-
- -- 모두의 일대기 게시판 페이징 처리 --
- /*   <select id="everyLifeagepaging" resultType="BoardVO">
-    <![CDATA[*/
-
-   
-   
-SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
-       NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
-       BOARD_ID, USER_ID
-FROM (
-    SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
-           NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
-           BOARD_ID, USER_ID
-    FROM (
-        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
-               NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
-               BOARD_ID, USER_ID
-        FROM (
-            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
-                   COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
-                   F.USER_FILE_PROFILE_NAME,
-                   F.USER_FILE_PROFILE_SOURCE,
-                   F.USER_FILE_PROFILE_UUID,
-                   B.BOARD_ID,
-                   B.USER_ID
-            FROM GGHJ_BOARD B
-            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
-            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
-            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
-            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
-            WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}
-        )
-        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
-    )
-    WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
-);
-
-
-/*        )
-        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
-    )
-    WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}*/
-/*    ]]>
-</select>*/
-           
-           
- -- 유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭 시 게시판 정렬 --
-    <select id="everyLifeagepaging" resultType="BoardVO">
-           	SELECT COUNT(*) AS "COUNT"
-			FROM GGHJ_BOARD
-			WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
-			
-			
-			
-			
-           
- 
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 	
 

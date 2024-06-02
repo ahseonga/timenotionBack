@@ -99,4 +99,89 @@
         ORDER BY BOARD_CREATED_DATE DESC
     </select>
 
+    <!-- 모두의 일대기 게시판 글 -->
+    <select id="everyLifeBoardbyViews" resultType="BoardVO">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_LIKE_COUNT, BOARD_YEAR, USER_ID
+        FROM GGHJ_BOARD
+        WHERE rownum BETWEEN 1 AND 100
+        ORDER BY BOARD_VIEW_COUNT DESC
+    </select>
+
+
+    <!--모두의 일대기 리스트 + 페이징 -->
+    <select id="everyLifeagepaging" resultType="BoardDTO">
+        <![CDATA[
+        SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+        NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+        BOARD_ID, USER_ID
+        FROM (
+        SELECT RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+        NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+        BOARD_ID, USER_ID
+        FROM (
+        SELECT ROWNUM AS RNUM, BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+        NICKNAME, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID,
+        BOARD_ID, USER_ID
+        FROM (
+        SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
+        COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+        F.USER_FILE_PROFILE_NAME,
+        F.USER_FILE_PROFILE_SOURCE,
+        F.USER_FILE_PROFILE_UUID,
+        B.BOARD_ID,
+        B.USER_ID
+        FROM GGHJ_BOARD B
+        JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
+        LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
+        LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
+        LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID
+        WHERE B.BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        )
+        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+        )
+        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+        )
+        ]]>
+    </select>
+
+<!--    유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭시 페이지 이동-->
+    <select id="agePageMove" resultType="int">
+        SELECT COUNT(*) AS TOTAL_COUNT
+        FROM GGHJ_BOARD
+        WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
+    </select>
+
+<!--    조회수 게시판 정렬 -->
+    <select id="postarrayviews" resultType="BoardVO">
+        SELECT
+            u.USER_NICKNAME, b.BOARD_TITLE
+        FROM
+            GGHJ_BOARD b JOIN GGHJ_USER u
+                              ON u.user_id = b.USER_ID
+        ORDER BY
+            b.BOARD_VIEW_COUNT DESC;
+    </select>
+
+<!--     최신 게시판 정렬 -->
+    <select id="postarrayLatest" resultType="BoardVO">
+        SELECT
+            u.USER_NICKNAME, b.BOARD_TITLE
+        FROM
+            GGHJ_BOARD b JOIN GGHJ_USER u
+                              ON u.user_id = b.USER_ID
+        ORDER BY
+            b.BOARD_CREATED_DATE DESC;
+    </select>
+
+<!--     인기 게시판 정렬 -->
+    <select id="postarrayPopularity" resultType="BoardVO">
+        SELECT
+            u.USER_NICKNAME, b.BOARD_TITLE
+        FROM
+            GGHJ_BOARD b JOIN GGHJ_USER u
+                              ON u.user_id = b.USER_ID
+        ORDER BY
+            b.BOARD_LIKE_COUNT DESC;
+    </select>
+
 </mapper>

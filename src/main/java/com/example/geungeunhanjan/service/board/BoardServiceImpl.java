@@ -1,5 +1,7 @@
 package com.example.geungeunhanjan.service.board;
 
+import com.example.geungeunhanjan.domain.dto.board.BoardDTO;
+import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import com.example.geungeunhanjan.mapper.board.BoardFileMapper;
@@ -121,4 +123,34 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.everyLifeBoardbyViews();
     }
 
-}
+
+    // 모두의 일대기 리스트 + 페이징
+    @Override
+    public List<BoardDTO> everyLifeFindPage(Criteria criteria, String boardLifeCycle) {
+        return boardMapper.everyLifeagepaging(criteria, boardLifeCycle);
+   }
+
+    @Override
+    public int agePageMove(String boardLifeCycle) {
+        return 0;
+    }
+
+    @Override
+    public int everyLifeFindTotal(String boardLifeCycle) {
+        return boardMapper.agePageMove(boardLifeCycle);
+   }
+
+/*   @Override
+    public List<BoardVO> getBoards(String orderBy) {
+        switch (orderBy) {
+            case "views":
+                return boardMapper.postarrayviews();
+            case "popularity":
+                return boardMapper.postarrayPopularity();
+            case "latest":
+            default:
+                return boardMapper.postarrayLatest();
+        }
+ */
+    }
+

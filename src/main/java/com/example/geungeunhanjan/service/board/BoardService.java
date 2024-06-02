@@ -1,5 +1,7 @@
 package com.example.geungeunhanjan.service.board;
 
+import com.example.geungeunhanjan.domain.dto.board.BoardDTO;
+import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import org.springframework.stereotype.Service;
@@ -40,6 +42,20 @@ public interface BoardService {
     // 모두의 일대기 게시물
     List<BoardVO> everyLifeBoardbyViews();
 
-    
+    //모두의 일대기 게시물 + 페이징 처리 //
+    List<BoardDTO> everyLifeFindPage(Criteria criteria, String boardLifeCycle);
+
+    int agePageMove(String boardLifeCycle);
+
+
+    int everyLifeFindTotal(String boardLifeCycle);
+
+    //조회수, 인기수 , 최신순 게시판 정렬
+    // List<BoardVO> getBoards(String orderBy);
 
 }
+
+
+
+
+
