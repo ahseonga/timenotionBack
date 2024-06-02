@@ -1,21 +1,21 @@
-2024-06-02 11:02:01.918 - DBeaver 24.0.1.202403241413 is starting
-2024-06-02 11:02:01.920 - OS: Windows 11 10.0 (amd64)
-2024-06-02 11:02:01.921 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
-2024-06-02 11:02:01.922 - Install path: 'C:\homework_sas\web_dbms\dbeaver'
-2024-06-02 11:02:01.922 - Instance path: 'file:/C:/homework_sas/web/TimeNotionBack/'
-2024-06-02 11:02:01.925 - Memory available 64Mb/1024Mb
-2024-06-02 11:02:01.936 - Create display
-2024-06-02 11:02:02.173 - Initialize desktop platform...
-2024-06-02 11:02:02.377 - BounceCastle bundle found. Use JCE provider BC
+2024-06-02 15:31:42.654 - DBeaver 24.0.1.202403241413 is starting
+2024-06-02 15:31:42.656 - OS: Windows 11 10.0 (amd64)
+2024-06-02 15:31:42.657 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
+2024-06-02 15:31:42.657 - Install path: 'C:\homework_sas\web_dbms\dbeaver'
+2024-06-02 15:31:42.657 - Instance path: 'file:/C:/homework_sas/web/TimeNotionBack/'
+2024-06-02 15:31:42.660 - Memory available 64Mb/1024Mb
+2024-06-02 15:31:42.673 - Create display
+2024-06-02 15:31:42.884 - Initialize desktop platform...
+2024-06-02 15:31:43.095 - BounceCastle bundle found. Use JCE provider BC
 > Start Core File Systems [org.eclipse.core.filesystem 1.10.200.v20231102-0934]
 > Start Core Resource Management [org.eclipse.core.resources 3.20.0.v20231102-0934]
 > Start 팀 지원 핵심 [org.eclipse.team.core 3.10.200.v20231106-1240]
 > Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.127.202403241413]
-2024-06-02 11:02:02.700 - Initialize base platform...
-2024-06-02 11:02:02.725 - Platform initialized (552ms)
+2024-06-02 15:31:43.367 - Initialize base platform...
+2024-06-02 15:31:43.399 - Platform initialized (514ms)
 > Start DBeaver UI Editors - Base [org.jkiss.dbeaver.ui.editors.base 1.0.127.202403241413]
-2024-06-02 11:02:02.785 - Starting instance server at http://localhost:56929
-2024-06-02 11:02:02.797 - Run workbench
+2024-06-02 15:31:43.475 - Starting instance server at http://localhost:60826
+2024-06-02 15:31:43.486 - Run workbench
 > Start Eclipse e4 작업영역 SWT [org.eclipse.e4.ui.workbench.swt 0.17.200.v20231030-2045]
 > Start Eclipse Application Services [org.eclipse.e4.core.services 2.4.200.v20231103-2012]
 > Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.6.200.v20231030-2045]
@@ -28,17 +28,17 @@
 > Start Eclipse e4 작업영역 SWT 렌더러 [org.eclipse.e4.ui.workbench.renderers.swt 0.16.200.v20231030-2045]
 > Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.100.v20231103-2012]
 > Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.200.v20231025-0632]
-2024-06-02 11:02:05.185 - Configure workbench window
+2024-06-02 15:31:45.856 - Configure workbench window
 > Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.117.202403241413]
-2024-06-02 11:02:05.385 - Total database drivers: 112 (112)
+2024-06-02 15:31:46.092 - Total database drivers: 112 (112)
 > Start 도움말 시스템 코어 [org.eclipse.help 3.10.200.v20231106-1240]
-2024-06-02 11:02:05.499 - Create actions
-2024-06-02 11:02:05.507 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
-2024-06-02 11:02:05.508 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
-2024-06-02 11:02:05.509 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+2024-06-02 15:31:46.221 - Create actions
+2024-06-02 15:31:46.232 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2024-06-02 15:31:46.233 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2024-06-02 15:31:46.234 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
 > Start jna [com.sun.jna 5.13.0.v20230812-1000]
-2024-06-02 11:02:06.705 - Initialize workbench window
-2024-06-02 11:02:06.712 - Finish initialization
+2024-06-02 15:31:47.316 - Initialize workbench window
+2024-06-02 15:31:47.323 - Finish initialization
 > Start 기본 문서 편집기 [org.eclipse.ui.editors 3.17.100.v20231106-1600]
 > Start 텍스트 편집기 프레임워크 [org.eclipse.ui.workbench.texteditor 3.17.200.v20231106-1600]
 > Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.127.202403241413]
@@ -59,88 +59,18 @@ Warning: NLS unused message: actions_navigator__objects in: org.jkiss.dbeaver.ui
 > Start DBeaver UI Editors - Connections [org.jkiss.dbeaver.ui.editors.connection 1.0.118.202403241413]
 > Start 콘솔 [org.eclipse.ui.console 3.13.100.v20230914-0751]
 > Start 디버그 핵심 [org.eclipse.debug.core 3.21.200.v20231021-1513]
-2024-06-02 11:02:11.339 - Connect with 'locallhost' (oracle_thin-18fa469b47d-54c7474df90315f4)
+2024-06-02 15:31:51.836 - Connect with 'locallhost' (oracle_thin-18fa469b47d-54c7474df90315f4)
+2024-06-02 15:31:51.876 - Execution context opened (locallhost; Main; 0)
 > Start DBeaver SQL Language Semantic Model [org.jkiss.dbeaver.model.lsm 1.0.22.202403241413]
-2024-06-02 11:02:11.385 - Execution context opened (locallhost; Main; 0)
-2024-06-02 11:02:12.255 - Open [https://dbeaver.io/product/version.xml]
-2024-06-02 11:02:12.647 - Execution context opened (locallhost; Metadata; 1)
-2024-06-02 11:02:12.792 - Connected (oracle_thin-18fa469b47d-54c7474df90315f4, Oracle JDBC driver [23.2.0.0.0])
-2024-06-02 11:02:12.923 - Execution context opened (locallhost; SQLEditor <Script.sql>; 2)
+2024-06-02 15:31:53.042 - Execution context opened (locallhost; Metadata; 1)
+2024-06-02 15:31:53.203 - Connected (oracle_thin-18fa469b47d-54c7474df90315f4, Oracle JDBC driver [23.2.0.0.0])
+2024-06-02 15:31:53.207 - Execution context opened (locallhost; SQLEditor <Script.sql>; 2)
 > Start DBeaver Tasks - Native Tools UI [org.jkiss.dbeaver.tasks.native.ui 1.0.105.202403241413]
 > Start DBeaver Oracle UI [org.jkiss.dbeaver.ext.oracle.ui 1.0.114.202403241413]
 > Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.105.202403241413]
-2024-06-02 11:02:17.829 - Resource 'meta.org.jkiss.dbeaver.model.navigator.DBNResource.nodeDisplayName.name' not found in bundle org.jkiss.dbeaver.model
-2024-06-02 11:02:20.642 - Resource 'meta.org.jkiss.dbeaver.model.navigator.DBNResource.nodeDisplayName.name' not found in bundle org.jkiss.dbeaver.model
-2024-06-02 11:02:29.609 - Resource 'meta.org.jkiss.dbeaver.model.navigator.DBNResource.nodeDisplayName.name' not found in bundle org.jkiss.dbeaver.model
-2024-06-02 11:02:31.166 - Resource 'meta.org.jkiss.dbeaver.model.navigator.DBNResource.nodeDisplayName.name' not found in bundle org.jkiss.dbeaver.model
-2024-06-02 11:02:31.390 - Execution context opened (locallhost; SQLEditor <Script-1.sql>; 3)
-2024-06-02 11:02:36.919 - Resource 'meta.org.jkiss.dbeaver.model.navigator.DBNResource.nodeDisplayName.name' not found in bundle org.jkiss.dbeaver.model
-2024-06-02 11:02:56.699 - Resource 'meta.org.jkiss.dbeaver.model.navigator.DBNResource.nodeDisplayName.name' not found in bundle org.jkiss.dbeaver.model
 > Start DBeaver Data Transfer [org.jkiss.dbeaver.data.transfer 2.0.111.202403241413]
-2024-06-02 13:36:04.634 - SQL Error [955] [42000]: ORA-00955: name is already used by an existing object
-
-
-Error position: line: 355 pos: 13
-org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [955] [42000]: ORA-00955: name is already used by an existing object
-
-	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
-	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
-	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
-	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
-	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
-	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
-	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
-	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
-Caused by: java.sql.SQLSyntaxErrorException: ORA-00955: name is already used by an existing object
-
-	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
-	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
-	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
-	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
-	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
-	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
-	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
-	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:1305)
-	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1877)
-	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1520)
-	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
-	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
-	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
-	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
-	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
-	... 12 more
-Caused by: Error : 955, Position : 13, SQL = CREATE TABLE GGHJ_KAKAO
-(
-    KAKAO_ID          NUMBER,--PK
-    NAME          VARCHAR2(255) NOT NULL,
-    PROFILE_PIC       VARCHAR2(255),
-    PROVIDER       VARCHAR2(20),
-    PROVIDER_ID     VARCHAR2(20) UNIQUE NOT NULL,
-    CREATE_AT       DATE,
-    UPDATE_AT       DATE,
-    CONSTRAINT PK_KAKAO_USER PRIMARY KEY (KAKAO_ID)
-), Original SQL = CREATE TABLE GGHJ_KAKAO
-(
-    KAKAO_ID          NUMBER,--PK
-    NAME          VARCHAR2(255) NOT NULL,
-    PROFILE_PIC       VARCHAR2(255),
-    PROVIDER       VARCHAR2(20),
-    PROVIDER_ID     VARCHAR2(20) UNIQUE NOT NULL,
-    CREATE_AT       DATE,
-    UPDATE_AT       DATE,
-    CONSTRAINT PK_KAKAO_USER PRIMARY KEY (KAKAO_ID)
-), Error Message = ORA-00955: name is already used by an existing object
-
-	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
-	... 26 more
-2024-06-02 13:57:34.463 - Execution context closed (locallhost, 3)
-2024-06-02 13:57:34.524 - Execution context closed (locallhost, 2)
-2024-06-02 13:57:35.238 - DBeaver is stopping
-2024-06-02 13:57:35.240 - Stop instance server
-2024-06-02 13:57:36.248 - Instance server has been stopped
-2024-06-02 13:57:36.248 - DBeaver shutdown completed
+2024-06-02 15:33:27.951 - Execution context closed (locallhost, 2)
+2024-06-02 15:33:28.736 - DBeaver is stopping
+2024-06-02 15:33:28.738 - Stop instance server
+2024-06-02 15:33:29.745 - Instance server has been stopped
+2024-06-02 15:33:29.746 - DBeaver shutdown completed
