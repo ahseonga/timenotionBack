@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.mapper.board;
 
+import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -24,7 +25,13 @@ public interface BoardMapper {
     Optional<BoardVO> selectById(Long boardId);
 
     // 메인 4칸짜리 게시물
-    List<BoardVO> mainBoardbyViews();
+    List<BoardMainDTO> mainBoardbyViews();
+
+    // 메인 배너 왼쪽거
+    BoardMainDTO mainLeftBannerSelect();
+
+    // 메인 배너 오른쪽거 2개
+    List<BoardMainDTO> mainRightBannerSelect();
 }
 
 
