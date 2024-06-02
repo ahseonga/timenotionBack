@@ -49,12 +49,10 @@ public interface BoardService {
 
     int agePageMove(String boardLifeCycle);
 
-
     int everyLifeFindTotal(String boardLifeCycle);
 
-    //조회수, 인기수 , 최신순 게시판 정렬
-    // List<BoardVO> getBoards(String orderBy);
-
+//    조회수, 인기수 , 최신순 게시판 정렬
+    List<BoardVO> getBoards(String orderBy);
 
     // 메인 배너 왼쪽
     BoardMainDTO mainLeftBannerSelect();

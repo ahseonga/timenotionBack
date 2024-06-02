@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class EveryLifeController {
     private final BoardDTO boardDTO;
 
     @GetMapping()
-    public String everyLife (Model model, HttpSession session, Criteria criteria) {
+    public String everyLife (Model model, HttpSession session, Criteria criteria, @RequestParam(defaultValue = "latest") String sortOption) {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
@@ -48,8 +49,11 @@ public class EveryLifeController {
         model.addAttribute("boards", boards);
         model.addAttribute("userNicknames", userNicknames);
 
+
         //인기순, 게시판 , 조회순 클릭 시 게시판 정렬
-//        List<BoardVO> getboards =
+
+
+
 
 
         /*페이징 */
@@ -62,10 +66,6 @@ public class EveryLifeController {
 //
 //        model.addAttribute("everyLifeList", everyLifeList);
 //        model.addAttribute("page", page);
-
-
-
-
         return "everyLife/everyLife";
     }
 

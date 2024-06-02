@@ -155,7 +155,8 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.mainRightBannerSelect();
     }
 
-/*   @Override
+    //조회수, 최신수, 좋아요 정렬
+    @Override
     public List<BoardVO> getBoards(String orderBy) {
         switch (orderBy) {
             case "views":
@@ -166,7 +167,7 @@ public class BoardServiceImpl implements BoardService {
             default:
                 return boardMapper.postarrayLatest();
         }
- */
+    }
 }
 
 

@@ -40,15 +40,15 @@ public interface BoardMapper {
     // 유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭시 페이지 이동
     int agePageMove(String boardLifeCycle);
 
-    // 최신순, 인기순 , 좋아요 순 게시판 정렬
-//    // 1) 조회수 게시판 정렬
-//    List<BoardVO> postarrayviews();
-//
-//    // 2) 최신순 게시판 정렬
-//    List<BoardVO> postarrayLatest();
-//
-//    // 3) 인기순 게시판 정렬
-//    List<BoardVO> postarrayPopularity();
+//     최신순, 인기순 , 좋아요 순 게시판 정렬
+    // 1) 조회수 게시판 정렬
+    List<BoardVO> postarrayviews();
+
+    // 2) 최신순 게시판 정렬
+    List<BoardVO> postarrayLatest();
+
+    // 3) 인기순 게시판 정렬
+    List<BoardVO> postarrayPopularity();
 
 
     List<BoardMainDTO> mainBoardbyViews();
