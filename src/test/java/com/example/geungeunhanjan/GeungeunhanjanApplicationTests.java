@@ -1,6 +1,8 @@
 package com.example.geungeunhanjan;
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 
@@ -8,11 +10,15 @@ import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 
 
 
+>>>>>>> main
 
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+<<<<<<< HEAD
+=======
 >>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3
+>>>>>>> main
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -45,10 +51,15 @@ class GeungeunhanjanApplicationTests {
     @Autowired
 
 =======
+<<<<<<< HEAD
+    @Autowired
+
+=======
 
 
     @Autowired
 >>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3
+>>>>>>> main
     private BoardMapper boardMapper;
 
     @Autowired

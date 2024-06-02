@@ -56,6 +56,7 @@ public class MyPageController {
         return "myLife/detail_writingMode";
     }
 
+
     //나의 일대기 게시판 작성하기
     @PostMapping("/detail_writingMode")
     public String detailWriting(BoardVO boardVO, @SessionAttribute("userId") Long userId,

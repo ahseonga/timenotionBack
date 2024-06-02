@@ -118,28 +118,28 @@
 
 
           </div>
-          <!-- 페이징 처리 -->
-<!--          <div class="inquiryPage-container">-->
-<!--            <ul class="inquiryPage-box">-->
-<!--              <a th:href="@{/board/list(inquiryPage=${inquiryPage.startPage - 1})}" class="inquiryPage-a" th:if="${inquiryPage.prev}">-->
-<!--                <li class="inquiryPage-num prev">&lt</li>-->
-<!--              </a>-->
+<!--           페이징 처리
+          <div class="inquiryPage-container">
+            <ul class="inquiryPage-box">
+              <a th:href="@{/board/list(Page=${iPage.startPage - 1})}" class="inquiryPage-a" th:if="${inquiryPage.prev}">
+                <li class="inquiryPage-num prev">&lt</li>
+              </a>
 
-<!--              &lt;!&ndash;        th:block은 화면에 영향을 주지않는 가짜 태그-->
-<!--                          타임리프 문법을 사용하기 위해 만들어 쓴다.-->
-<!--              &ndash;&gt;-->
-<!--              <th:block th:each="i : ${#numbers.sequence(inquiryPage.startPage, inquiryPage.endPage)}">-->
-<!--                <a th:href="@{/board/list(inquiryPage=${i})}" class="inquiryPage-a">-->
-<!--                  <li class="inquiryPage-num" th:classappend="${i == inquiryPage.inquiryCriteria.inquiryPage ? 'active' : ''}" th:text="${i}"></li>-->
-<!--                </a>-->
-<!--              </th:block>-->
+              &lt;!&ndash;        th:block은 화면에 영향을 주지않는 가짜 태그
+                          타임리프 문법을 사용하기 위해 만들어 쓴다.
+              &ndash;&gt;
+              <th:block th:each="i : ${#numbers.sequence(inquiryPage.startPage, inquiryPage.endPage)}">
+                <a th:href="@{/board/list(inquiryPage=${i})}" class="inquiryPage-a">
+                  <li class="inquiryPage-num" th:classappend="${i == inquiryPage.inquiryCriteria.inquiryPage ? 'active' : ''}" th:text="${i}"></li>
+                </a>
+              </th:block>
 
-<!--              <a th:href="@{/board/list(inquiryPage=${inquiryPage.endPage + 1})}" class="inquiryPage-a" th:if="${inquiryPage.next}">-->
-<!--                <li class="inquiryPage-num next">&gt</li>-->
-<!--              </a>-->
-<!--            </ul>-->
-<!--          </div>-->
-          <!-- /페이징 처리 -->
+              <a th:href="@{/board/list(inquiryPage=${inquiryPage.endPage + 1})}" class="inquiryPage-a" th:if="${inquiryPage.next}">
+                <li class="inquiryPage-num next">&gt</li>
+              </a>
+            </ul>
+          </div>
+           /페이징 처리 -->
 
 
         </div> <!--container 닫는 -->
