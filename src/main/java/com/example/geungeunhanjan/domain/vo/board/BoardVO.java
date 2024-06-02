@@ -1,9 +1,10 @@
-package com.example.geungeunhanjan.domain.vo.board;
+    package com.example.geungeunhanjan.domain.vo.board;
 
-import lombok.Data;
-import org.springframework.stereotype.Component;
+    import lombok.Data;
+    import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+    import java.time.LocalDateTime;
+
 
 @Component
 @Data
@@ -22,3 +23,4 @@ public class BoardVO {
 
 
 }
+

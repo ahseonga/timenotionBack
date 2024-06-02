@@ -107,11 +107,11 @@
     /* 수정 */
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 .everyLife-content-box{
     /* 수정 */
-    width: 100%;
+    width: 230px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;

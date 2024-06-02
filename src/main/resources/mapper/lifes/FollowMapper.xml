@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.example.geungeunhanjan.mapper.lifes.FollowMapper">
 
 
@@ -62,6 +61,11 @@
             ff.USER_FILE_PROFILE_SOURCE
         FROM
             GGHJ_KAKAO k
+<<<<<<< HEAD
+=======
+                JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
+                JOIN GGHJ_FOLLOW fo ON uni.UNI_ID = fo.FOLLOW_TO_USER
+>>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3
                 LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
         WHERE
             k.KAKAO_ID = #{userId}
@@ -114,8 +118,14 @@
 
     <!-- 남의 페이지 해당 유저 팔로우 하기      -->
     <insert id="insertFollow" parameterType="FollowVO">
-        INSERT INTO GGHJ_FOLLOW (FOLLOW_ID, FOLLOW_TO_USER, FOLLOW_FROM_USER)
+
+        INSERT INTO GGHJ_FOLLOW (FOLLOW_ID , FOLLOW_TO_USER, FOLLOW_FROM_USER)
         VALUES(#{followId},#{followToUser},#{followFromUser})
+
+        INSERT INTO GGHJ_FOLLOW (FOLLOW_ID, FOLLOW_TO_USER, FOLLOW_FROM_USER)
+        VALUES(#{followId},#{follwoToUser},#{followFromUser})
+
+
     </insert>
     <!--    남의 페이지 해당 유저 언팔로우 하기 -->
     <delete id="deleteFollow" parameterType="Long">
@@ -123,9 +133,12 @@
         WHERE FOLLOW_TO_USER = #{userId}
     </delete>
 
+<<<<<<< HEAD
     <!--  페이징 처리   미완성  -->
     <select id="selectAllPageFollow" parameterType="FollowCriteria">
 
     </select>
 
+=======
+>>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3
 </mapper>

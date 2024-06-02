@@ -36,6 +36,8 @@ class BoardMapperTest {
         System.out.println(boardVO);
         System.out.println(boardVO.getBoardLifeCycle());
         boardMapper.insertBoard(boardVO);
+        System.out.println(boardVO);
+
     }
 
 //    게시판 작성자의 생일 가져오기 테스트

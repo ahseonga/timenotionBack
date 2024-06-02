@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의 일대기</title>
-    <link rel="stylesheet" href="./../../css/reset.css">
-    <link rel="stylesheet" href="./../../css/notion.css">
-    <link rel="stylesheet" href="./../../css/everyLife/everyLife.css">
-    <link rel="stylesheet" href="./../../css/fragment/header.css">
-    <link rel="stylesheet" href="./../../css/fragment/footer.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/notion.css}"/>>
+    <link rel="stylesheet" th:href="@{/css/everyLife/everyLife.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}"/>
+    <script defer th:src="@{/js/everyLife/everyLife.js}"></script>
 </head>
 <body>
      <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
@@ -28,36 +29,37 @@
                 <div class="everyLife-select-box">
                     <div class="everyLife-select-btn">
                         <span class="everyLife-btn-span">
-                            <button type="button">유아기</button>
+                            <button type="button" value="유아기">유아기</button>
                         </span>
                         <span class="everyLife-btn-span">
-                            <button type="button">유년기</button>
+                            <button type="button" value="유년기">유년기</button>
                         </span>
                         <span class="everyLife-btn-span">
-                            <button type="button">아동기</button>
+                            <button type="button" value="아동기">아동기</button>
                         </span>
                         <span class="everyLife-btn-span">
-                            <button type="button">청소년기</button>
+                            <button type="button" value="청소년기">청소년기</button>
                         </span>
                         <span class="everyLife-btn-span">
-                            <button type="button">성인</button>
+                            <button type="button" value="청년기">성인</button>
                         </span>
                         <span class="everyLife-btn-span">
-                            <button type="button">중년</button>
+                            <button type="button" value="중년기">중년</button>
                         </span>
                         <span class="everyLife-btn-span">
-                            <button type="button">노년</button>
+                            <button type="button" value="노년기">노년</button>
                         </span>
                     </div>
                     <div class="everyLife-select-bar">
-                        <form th:action="@{/main/everyLife}" method="get">
-                            <input type="text" name="serachKeyword" placeholder="검색어를 입력해주세요">
+                        <form onsubmit="filterContent(); return false;">
+                            <input type="text" name="searchKeyword" placeholder="검색어를 입력해주세요">
                             <button type="submit" class="everyLife-magnifier">
                                 <img src="./../../img/main/돋보기.png">
-                            </button> 
+                            </button>
                         </form>
                     </div>
                 </div>
+            </div>
                 <!-- 최신순 / 인기순 정렬  -->
                 <div class="everyLife-select-sequence">
                     <form action="#">
@@ -68,295 +70,61 @@
                         </select>
                     </form>
                 </div>
-            </div>
             <!-- 메인 컨텐츠들 감싸는 div -->
             <div class="everyLife-content-wrap">
-                <div class="everyLife-content-box1 everyLife-content-box">
-                    <!-- (1) -->
-                    <a href="/everyLife/detail-others">
+                <div class="everyLife-content-box" th:each="board, i : ${boards}">
+<!--                    <a th:href="@{/everyLife/{id}(id=${board.id})}">-->
+                    <a href ="#">
                         <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
+                            <div class="everyLife-content-title" th:text="${board.boardTitle}">제목</div>
+                            <div class="everyLife-content-date" th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yyyy년 MM월 dd일')}|">작성일</div>
+                            <div class="everyLife-content-views" th:text="|조회수 : ${board.boardViewCount}|">조회수</div>
                             <div class="everyLife-content-writer">
                                 <span class="everyLife-writer-profile">
                                     <img src="./../../img/everyLife/everyLife_profile.png" alt="">
                                 </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
+                                <span class="everyLife-writer-nickname" th:text="${userNicknames[i.index]}">닉네임</span>
                             </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                     <!-- (2) -->
-                     <a href="./../../HTML/myLife/detail_others.html">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="./../../HTML/myLife/detail_others.html">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="./../../HTML/myLife/detail_others.html">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="everyLife-content-box2 everyLife-content-box">
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="everyLife-content-box3 everyLife-content-box">
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="everyLife-contents">
-                            <div class="everyLife-content-title">
-                                먼 해안의 순간
-                            </div>
-                            <div class="everyLife-content-date">
-                                작성일 : 2024년 5월 11일
-                            </div>
-                            <div class="everyLife-content-views">
-                                조회수 10
-                            </div>
-                            <div class="everyLife-content-writer">
-                                <span class="everyLife-writer-profile">
-                                    <img src="./../../img/everyLife/everyLife_profile.png" alt="">
-                                </span>
-                                <span class="everyLife-writer-nickname">닉네임</span>
-                            </div>
-                            <div class="everyLife-content-detail">
-                                물결이 부서지는 바다 위에 서서, 나는 먼 해안을 바라보고 있었다. 바람이 내 머리칼을 쓸고 지나가면서 자유로움의 느낌이 내 몸 전체를 감싸안았다. 그 순간, 시간은 멈추고 세계는 나와 하나가 되었다.
-                            </div>
+                            <div class="everyLife-content-detail" th:text="${board.boardContent}">내용</div>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
         <!-- 페이징 처리하는 페이지  -->
-        <div class="everyLife-paging">
-            <span class="paging-backward"><a href="#">&lt;</a></span>
-            <span><a href="#">1</a></span>
-            <span><a href="#">2</a></span>
-            <span><a href="#">3</a></span>
-            <span><a href="#">4</a></span>
-            <span><a href="#">5</a></span>
-            <span class="paging-forword"><a href="#">&gt;</a></span>
-        </div>
+<!--        <div class="everyLife-paging">-->
+<!--            <ul class="paging-backward">-->
+<!--                <a th:href="@{/everyLife/everyLife(page=${page.startPage - 1})}" class="page-a" th:if="${page.prev}">&lt;</a></ul>-->
+<!--            <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">-->
+<!--                <a th:href="@{/everyLife/everyLife(page=${i})}" class="page-a">-->
+<!--                    <li class="page-num" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></li>-->
+<!--                </a>-->
+<!--            </th:block>-->
+<!--            <a th:href="@{/everyLife/everyLife(page=${page.endPage + 1})}" class="page-a" th:if="${page.next}">-->
+<!--                <li class="page-num next">&gt</li>-->
+<!--            </a>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="everyLife-paging">-->
+<!--            <ul class="paging-backward">-->
+<!--                <li th:if="${page.prev}">-->
+<!--&lt;!&ndash;                    <a th:href="@{/everyLife/everyLife(page=${page.startPage - 1})}" class="page-a">&lt;</a>&ndash;&gt;-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul class="paging-numbers">-->
+<!--                <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{/everyLife/everyLife(page=${i})}" class="page-a" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></a>-->
+<!--                    </li>-->
+<!--                </th:block>-->
+<!--            </ul>-->
+<!--            <ul class="paging-forward">-->
+<!--                <li th:if="${page.next}">-->
+<!--                    <a th:href="@{/everyLife/everyLife(page=${page.endPage + 1})}" class="page-a">&gt;</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
     </div>
-
     <footer>
         <div class="footer-wrapper">
           <!-- 상단 링크박스 --------------- -->

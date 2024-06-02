@@ -1,6 +1,11 @@
 package com.example.geungeunhanjan.service.board;
 
+
+import com.example.geungeunhanjan.domain.dto.board.BoardDTO;
+import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
+
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
+
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import com.example.geungeunhanjan.mapper.board.BoardFileMapper;
@@ -36,7 +41,7 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void registerBoard(BoardVO boardVO) {
 //        boardVO.setBoardId(boardVO.getBoardId());
-          boardMapper.insertBoard(boardVO);
+        boardMapper.insertBoard(boardVO);
     }
 
     @Override
@@ -44,12 +49,12 @@ public class BoardServiceImpl implements BoardService {
         boardMapper.insertBoard(boardVO);
         Long boardId = boardVO.getBoardId();
 
-        for(MultipartFile file: files){
-            if(file.isEmpty()){
+        for (MultipartFile file : files) {
+            if (file.isEmpty()) {
                 break;
             }
 
-           BoardFileVO boardFileVO = saveFile(file);
+            BoardFileVO boardFileVO = saveFile(file);
             boardFileVO.setBoardId(boardId);
             boardFileMapper.insertFile(boardFileVO);
         }
@@ -68,7 +73,7 @@ public class BoardServiceImpl implements BoardService {
         File uploadPath = new File(fileDir, getUploadPath());
 
         //경로가 존재하지 않는다면(폴더가 만들어지지 않닸다면)
-        if(!uploadPath.exists()){
+        if (!uploadPath.exists()) {
             //경로에 필요한 모든 폴더를 생성한다
             uploadPath.mkdirs();
         }
@@ -116,6 +121,30 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.mainBoardbyViews();
     }
 
+
+    // 모두의 일대기 게시물
+    @Override
+    public List<BoardVO> everyLifeBoardbyViews() {
+        return boardMapper.everyLifeBoardbyViews();
+    }
+
+
+    // 모두의 일대기 리스트 + 페이징
+    @Override
+    public List<BoardDTO> everyLifeFindPage(Criteria criteria, String boardLifeCycle) {
+        return boardMapper.everyLifeagepaging(criteria, boardLifeCycle);
+    }
+
+    @Override
+    public int agePageMove(String boardLifeCycle) {
+        return 0;
+    }
+
+    @Override
+    public int everyLifeFindTotal(String boardLifeCycle) {
+        return boardMapper.agePageMove(boardLifeCycle);
+    }
+
     @Override
     public BoardMainDTO mainLeftBannerSelect() {
         return boardMapper.mainLeftBannerSelect();
@@ -125,4 +154,20 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardMainDTO> mainRightBannerSelect() {
         return boardMapper.mainRightBannerSelect();
     }
+
+/*   @Override
+    public List<BoardVO> getBoards(String orderBy) {
+        switch (orderBy) {
+            case "views":
+                return boardMapper.postarrayviews();
+            case "popularity":
+                return boardMapper.postarrayPopularity();
+            case "latest":
+            default:
+                return boardMapper.postarrayLatest();
+        }
+ */
 }
+
+
+
