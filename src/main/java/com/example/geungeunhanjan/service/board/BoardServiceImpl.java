@@ -40,10 +40,10 @@ public class BoardServiceImpl implements BoardService {
     //나의 일대기 게시글 등록하기
     @Override
     public void registerBoard(BoardVO boardVO) {
-//        boardVO.setBoardId(boardVO.getBoardId());
         boardMapper.insertBoard(boardVO);
     }
 
+    // 나의 일대기( 파일과 함께) 게시글 생성하기
     @Override
     public void registerBoardwithFile(BoardVO boardVO, List<MultipartFile> files) throws IOException {
         boardMapper.insertBoard(boardVO);
@@ -71,16 +71,13 @@ public class BoardServiceImpl implements BoardService {
         String systemName = uuid.toString() + "_" + originalFilename;
         //상위 경로와 하위 경로를 합쳐준다
         File uploadPath = new File(fileDir, getUploadPath());
-
         //경로가 존재하지 않는다면(폴더가 만들어지지 않닸다면)
         if (!uploadPath.exists()) {
             //경로에 필요한 모든 폴더를 생성한다
             uploadPath.mkdirs();
         }
-
         //전체경로와 파일이름을 연결한다
         File uploadFile = new File(uploadPath, systemName);
-
         //매개변수로 받은 Multipart 객체가 가진 파일을 우리가 만든 경로와 이름으로 저장한다
         files.transferTo(uploadFile);
 
@@ -92,9 +89,50 @@ public class BoardServiceImpl implements BoardService {
         return boardFileVO;
     }
 
+    //게시판 업데이트하기
+    @Override
+    public void modifyBoard(BoardVO boardVO, List<MultipartFile> files) throws IOException {
+        boardMapper.updateBoard(boardVO);
+        Long boardId = boardVO.getBoardId();
+        boardFileMapper.deleteFile(boardId);
+
+        for (MultipartFile file : files) {
+            if (file.isEmpty()) {
+                break;
+            }
+
+            BoardFileVO boardFileVO = saveFile(file);
+            boardFileVO.setBoardId(boardId);
+            boardFileMapper.insertFile(boardFileVO);
+        }
+    }
+
+    //게시판 삭제하기
+    @Override
+    public void removeBoard(Long boardId) {
+        List<BoardFileVO> fileList = boardFileMapper.selectFileList(boardId);
+        boardFileMapper.deleteFile(boardId);
+        boardMapper.deleteBoard(boardId);
+        //불필요한 파일이 남지 않도록함
+        for(BoardFileVO file : fileList){
+            File target = new File(fileDir, file.getBoardFileSourceName() +  "/" + file.getBoardFileUuid()+ "-" + file.getBoardFileName());
+            if(target.exists()){
+                target.delete();
+            }
+        }
+    }
+
+    @Override
+    public List<BoardVO> selectLifeCycleBoard(String boardLifeCycle) {
+        return boardMapper.selectbyLifeCycle(boardLifeCycle);
+    }
+
+
+    //파일에 저장할 날짜 반환
     private String getUploadPath() {
         return new SimpleDateFormat("yyyy/MM/dd").format(new Date());
     }
+
 
     //게시판을 작성한 사람의 생일 불러오기
     @Override
