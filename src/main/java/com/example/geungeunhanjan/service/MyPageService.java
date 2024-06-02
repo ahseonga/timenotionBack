@@ -24,5 +24,5 @@ public interface MyPageService {
     // 4. 회원정보 수정
     // 4-1. 프사 / 배사 파일 !!
     void registProfileBackFile(UserFileVO userFileVO, List<MultipartFile> files) throws IOException;
-    UserFileVO getProfileBackFile(Long fileId);
+    UserFileVO getProfileBackFile(Long userFileId);
 }

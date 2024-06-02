@@ -1,14 +1,12 @@
 package com.example.geungeunhanjan;
 
 
-<<<<<<< HEAD
+
 
 
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
-=======
->>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -18,7 +16,6 @@ import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.community.InquiryService;
 import com.example.geungeunhanjan.service.user.UserService;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -38,11 +35,9 @@ class GeungeunhanjanApplicationTests {
     private UserVO userVO;
     LocalDateTime dateTime;
 
-<<<<<<< HEAD
-=======
+
 
     @Autowired
->>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
     private BoardMapper boardMapper;
 
     @Autowired
@@ -71,6 +66,16 @@ class GeungeunhanjanApplicationTests {
         List<BoardVO> boards = boardService.mainBoardbyViews();
         System.out.println(boards);
     }
+
+
+    public void insertBoardTest(BoardVO boardVO) {
+        Long boardId = boardMapper.getSeq();
+        boardVO.setBoardId(boardId);
+        boardMapper.insertBoard(boardVO);
+        System.out.println(boardVO);
+    }
+
+
 
 
     public void insertBoardTest(BoardVO boardVO) {

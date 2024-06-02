@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.example.geungeunhanjan.mapper.community.InquiryMapper">
 <!--문의 전체 쫙 뿌려주는거-->
     <select id="selectInquiryAll" resultType="InquiryDTO">
@@ -53,7 +52,7 @@
         WHERE INQ.INQUIRY_ID = #{inquiryId}
     </select>
 
-    <select id="selectAllInquiryPage" parameterType="Criteria" resultType="InquiryPagingDTO">
+    <select id="selectAllInquiryPage" parameterType="InquiryCriteria" resultType="InquiryPagingDTO">
     <![CDATA[
         SELECT INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id
         FROM (
