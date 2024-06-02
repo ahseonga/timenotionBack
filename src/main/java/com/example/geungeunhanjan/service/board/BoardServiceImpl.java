@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.service.board;
 
+import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import com.example.geungeunhanjan.mapper.board.BoardFileMapper;
@@ -111,7 +112,17 @@ public class BoardServiceImpl implements BoardService {
 
     // 그 main 4칸 짜리 게시물
     @Override
-    public List<BoardVO> mainBoardbyViews() {
+    public List<BoardMainDTO> mainBoardbyViews() {
         return boardMapper.mainBoardbyViews();
+    }
+
+    @Override
+    public BoardMainDTO mainLeftBannerSelect() {
+        return boardMapper.mainLeftBannerSelect();
+    }
+
+    @Override
+    public List<BoardMainDTO> mainRightBannerSelect() {
+        return boardMapper.mainRightBannerSelect();
     }
 }

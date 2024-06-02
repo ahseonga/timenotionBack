@@ -9,7 +9,7 @@
                  JOIN GGHJ_UNI uni ON u.USER_ID = uni.USER_ID
                  JOIN GGHJ_INQUIRY inq ON uni.UNI_ID = inq.USER_ID
         UNION ALL
-        SELECT inq.INQUIRY_ID, inq.INQUIRY_TITLE, k.kakao_nickname AS nickname, inq.INQUIRY_CREATED_DATE, inq.user_id
+        SELECT inq.INQUIRY_ID, inq.INQUIRY_TITLE, k.name AS nickname, inq.INQUIRY_CREATED_DATE, inq.user_id
         FROM GGHJ_KAKAO k
                  JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
                  JOIN GGHJ_INQUIRY inq ON uni.UNI_ID = inq.USER_ID
@@ -45,7 +45,7 @@
 
 <!--    문의글 id에서 usernickname 받아오기-->
     <select id="userNickNamebyInquiryId" resultType="string">
-        SELECT COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS USERNICKNAME
+        SELECT COALESCE(U.USER_NICKNAME, K.NAME) AS USERNICKNAME
         FROM GGHJ_UNI UNI
                  LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
                  LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
@@ -62,7 +62,7 @@
                           SELECT I.INQUIRY_ID, I.INQUIRY_TITLE,
                                  CASE
                                      WHEN U.USER_ID IS NOT NULL THEN U.USER_NICKNAME
-                                     ELSE K.KAKAO_NICKNAME
+                                     ELSE K.NAME
                                      END AS NICKNAME,
                                  I.INQUIRY_CREATED_DATE,
                                  i.user_id
@@ -72,9 +72,9 @@
                                    LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
                           ORDER BY I.INQUIRY_ID DESC
                       )
-                 WHERE ROWNUM <= #{inquiryPage} * #{amount}
+                 WHERE ROWNUM <= #{inquiryPage} * #{inquiryAmount}
              )
-        WHERE RNUM > (#{inquiryPage} - 1) * #{amount}
+        WHERE RNUM > (#{inquiryPage} - 1) * #{inquiryAmount}
         ]]>
     </select>
 
@@ -82,5 +82,8 @@
         select count(inquiry_id) from gghj_inquiry
     </select>
 
+    <select id="selectUserIdByInquiryId" resultType="Long" parameterType="Long">
+        select user_id from gghj_inquiry where inquiry_id = #{inquiryId}
+    </select>
 
 </mapper>

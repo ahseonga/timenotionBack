@@ -27,7 +27,7 @@
         UNION ALL
         SELECT
             k.KAKAO_ID AS followerId,
-            k.kakao_nickname AS userNickname,
+            k.name AS userNickname,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
             ff.USER_FILE_PROFILE_SOURCE
@@ -55,8 +55,13 @@
             u.USER_ID = #{userId}
         UNION ALL
         SELECT
+<<<<<<< HEAD
             k.KAKAO_ID AS followerId,
             k.kakao_nickname AS userNickname,
+=======
+            k.KAKAO_ID AS followingId,
+            k.name AS userNickname,
+>>>>>>> 0fa0791c994cde6401f0283d99c0eab32ba6ebb2
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
             (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
             ff.USER_FILE_PROFILE_SOURCE
@@ -114,7 +119,11 @@
 
     <!-- 남의 페이지 해당 유저 팔로우 하기      -->
     <insert id="insertFollow" parameterType="FollowVO">
+<<<<<<< HEAD
         INSERT INTO GGHJ_FOLLOW (FOLLOW_ID , FOLLOW_TO_USER, FOLLOW_FROM_USER)
+=======
+        INSERT INTO GGHJ_FOLLOW (FOLLOW_ID, FOLLOW_TO_USER, FOLLOW_FROM_USER)
+>>>>>>> 0fa0791c994cde6401f0283d99c0eab32ba6ebb2
         VALUES(#{followId},#{followToUser},#{followFromUser})
     </insert>
     <!--    남의 페이지 해당 유저 언팔로우 하기 -->

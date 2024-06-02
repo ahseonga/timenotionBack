@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="./../../css/notion.css">
     <link rel="stylesheet" href="./../../css/community/inquiry.css">
     <script defer src="./../../js/community/inquiry.js"></script>
-    <script defer src="./../../js/fragment/headerFetch.js"></script>
-    <script defer src="./../../js/fragment/footerFetch.js"></script>
+<!--    <script defer src="./../../js/fragment/headerFetch.js"></script>-->
+<!--    <script defer src="./../../js/fragment/footerFetch.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -40,8 +40,8 @@
                         <input type="text" name="inquiryTitle" placeholder="제목">
                         <span>
                                 <select name="inquiryPublic">
-                                    <option value="visible">공개</option>
-                                    <option value="invisible">비공개</option>
+                                    <option value="O">공개</option>
+                                    <option value="X">비공개</option>
                                 </select>
                         </span>
                     </div>
@@ -215,8 +215,8 @@
 <!--            <a href="#"><img src="./../../img/community/community_banner6.png" alt="배너이미지"></a>-->
 <!--        </div>-->
 <!--    </div>-->
-    <div class="inquiry-prev prev">&lt;</div>
-    <div class="inquiry-next next">&gt;</div>
+<!--    <div class="inquiry-prev prev">&lt;</div>-->
+<!--    <div class="inquiry-next next">&gt;</div>-->
     <div id="inquiry-modal-answer" th:each="inquiriy : ${inquiries}">
         <div class="modal-main-img">
             <img src="./../../img/main/timenotion.png" alt="">
@@ -235,7 +235,7 @@
             </div>
         </div>
         <div class="inquiry-modal-answer-btns">
-            <button type="button" class="inquiry-modal-answer-delete" th:if="session.userId == inquiriy.userId">삭제</button>
+            <button type="button" class="inquiry-modal-answer-delete">삭제</button>
             <button type="button" class="inquiry-modal-answer-exit">닫기</button>
         </div>
     </div>
