@@ -19,6 +19,17 @@ public interface BoardMapper {
     //게시글 등록하기
     void insertBoard(BoardVO boardVO);
 
+    //게시글 업데이트
+    void updateBoard(BoardVO boardVO);
+
+    //게시글 삭제하기
+    void deleteBoard(Long boardId);
+
+    //일대기 별 게시판 조회하기
+    List<BoardVO> selectbyLifeCycle(String boardLifeCycle);
+
+
+
     //특정 회원의 생일 불러오기
     LocalDateTime selectUserBirth(Long userId);
 

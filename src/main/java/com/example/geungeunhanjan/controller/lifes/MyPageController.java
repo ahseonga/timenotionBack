@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class MyPageController {
         model.addAttribute("boards", boards);
         return "myLife/mypage";
     }
+
     //나의 일대기 글쓰기 페이지로 이동
     @GetMapping("/detail_writingMode")
     public String detailWritingMode(Model model, HttpSession session) {
@@ -62,7 +64,7 @@ public class MyPageController {
     public String detailWriting(BoardVO boardVO, @SessionAttribute("userId") Long userId,
                                 @RequestParam("boardFile") List<MultipartFile> files,
                                 RedirectAttributes redirectAttributes) {
-
+        //현재 사용자가 누군지 정보 선언
         boardVO.setUserId(userId);
 
         // 데이터베이스에서 사용자의 생일을 가져옴
@@ -70,17 +72,14 @@ public class MyPageController {
 
         // 사용자의 생일에서 연도를 추출
         int userBirthYear = userBirthDateTime.getYear();
-
         System.out.println(userBirthYear);
 
         // 게시물을 작성한 년도
         int boardYear = boardVO.getBoardYear();
-
         System.out.println(boardYear);
 
         // 사용자의 나이 계산
         int age = boardYear - userBirthYear;
-
         System.out.println(age);
 
         // 사용자의 생년 이전을 입력하면 다시 입력하도록 처리
@@ -88,12 +87,13 @@ public class MyPageController {
             redirectAttributes.addFlashAttribute("errorMessage", "게시물 작성 년도는 생년보다 이전일 수 없습니다.");
             return "redirect:/myLife/detail_writingMode"; // 사용자가 입력 폼으로 돌아가도록 리다이렉트
         }
+
         // 사용자의 생애 주기 계산
         String lifeCycle = calculateLifeCycle(age);
+
         // 게시물의 생애 주기 설정
         boardVO.setBoardLifeCycle(lifeCycle);
-        // 게시물 등록
-//        boardService.registerBoard(boardVO);
+
         try {
             boardService.registerBoardwithFile(boardVO, files);
         }catch (IOException e){
@@ -104,7 +104,8 @@ public class MyPageController {
         return "redirect:/myLife";
     }
 
-    //글쓰기 상세페이지로 이동
+
+    //글쓰기(나의 일대기) 상세페이지로 이동
     @GetMapping("/detail-my")
     public String detailMy(Model model, Long boardId){
         BoardVO boards = boardService.selectById(boardId);
@@ -112,6 +113,36 @@ public class MyPageController {
         return "myLife/detail-my";
     }
 
+    //글쓰기(나의 일대기) 업데이트
+    @GetMapping("/update_writingMode")
+    public String updateWritingMode(Long boardId, Model model) {
+        BoardVO boards = boardService.selectById(boardId);
+        model.addAttribute("boards",boards);
+
+        return "myLife/update_writingMode";
+    }
+
+    //글쓰기(나의 일대기) 업데이트
+    @PostMapping("/update_writingMode")
+    public String updateWritingMode(BoardVO boardVO,
+                                    @RequestParam("boardFile") List<MultipartFile> files,
+                                    RedirectAttributes redirectAttributes){
+        try{
+            boardService.modifyBoard(boardVO, files);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+
+        redirectAttributes.addAttribute("boardId", boardVO.getBoardId());
+        return "redirect:/myLife";
+    }
+
+    //게시판(나의 일대기) 삭제하기
+    @GetMapping("/remove")
+    public RedirectView removeBoard(Long boardId){
+        boardService.removeBoard(boardId);
+        return new RedirectView("/myLife");
+    }
 
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(Model model, HttpSession session, Criteria criteria){
@@ -185,9 +216,6 @@ public class MyPageController {
 
         return "redirect:/myLife/mypageEditMemberInformation";
     }
-
-
-
 
 
 
