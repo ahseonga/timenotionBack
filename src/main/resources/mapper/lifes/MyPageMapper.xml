@@ -36,7 +36,7 @@
               FROM (SELECT LIKE_ID,
                            B.BOARD_TITLE,
                            B.BOARD_ID,
-                           COALESCE(U.USER_NICKNAME, K.KAKAO_NICKNAME) AS NICKNAME,
+                           COALESCE(U.USER_NICKNAME, K.NAME) AS NICKNAME,
                            UNI.UNI_ID                                  AS USER_ID,
                            L.LIKE_CREATED_DATE
                     FROM GGHJ_LIKE L
