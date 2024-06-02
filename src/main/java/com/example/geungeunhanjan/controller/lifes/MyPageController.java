@@ -104,7 +104,6 @@ public class MyPageController {
         return "redirect:/myLife";
     }
 
-
     //글쓰기 상세페이지로 이동
     @GetMapping("/detail-my")
     public String detailMy(Model model, Long boardId){
