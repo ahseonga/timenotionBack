@@ -43,12 +43,13 @@ public class InquiryPage {
 
         // 현재 페이지 기준으로 세트의 마지막 번호, 시작 번호 구하기
         // ceil() 통해 올림
-        this.endPage = (int)(Math.ceil(inquiryCriteria.getPage() / (double)pageCount)) * pageCount;
-        this.startPage = endPage - pageCount + 1;
+        this.endPage = (int)(Math.ceil(inquiryCriteria.getInquiryPage() / (double)pageCount)) * pageCount;
+        this.startPage = Math.max(1, endPage - pageCount + 1);
+
 
         // 게시글 전체 수로 실제 마지막 페이지 구하기
 //        this.realEnd = (int)(Math.ceil(double)total) / criteria.getAmount());
-        this.realEnd = (int) Math.ceil(total / (double) inquiryCriteria.getAmount());
+        this.realEnd = (int) Math.ceil(total / (double) inquiryCriteria.getInquiryAmount());
 
 
         // 세트의 마지막 번호보다 실제 마지막 페이지 작을 시

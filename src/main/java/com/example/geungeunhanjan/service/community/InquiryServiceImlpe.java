@@ -63,5 +63,8 @@ public class InquiryServiceImlpe implements InquiryService {
         return inquiryMapper.selectInquiryTotal();
     }
 
-
+    @Override
+    public Long selectUserIdByInquiryId(Long inquiryId) {
+        return inquiryMapper.selectUserIdByInquiryId(inquiryId);
+    }
 }

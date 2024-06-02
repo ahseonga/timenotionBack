@@ -31,5 +31,7 @@ public interface InquiryMapper {
     List<InquiryPagingDTO> selectAllInquiryPage(InquiryCriteria inquiryCriteria);
 
     int selectInquiryTotal();
+
+    Long selectUserIdByInquiryId(Long inquiryId);
     
 }
