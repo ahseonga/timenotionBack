@@ -32,7 +32,6 @@ let $replyListWrap = document.querySelector('.wrapper-reply');
             - 파싱된 데이터를 콜백함수에 전달  */
         reply.register(replyInfo, () => {
             document.querySelector('#comment-content').value = '';
-            console.log("ㅎㅎ 여기까진 오냐?");
             page = 1;
             reply.getList2(boardId, page, function (data){
                 hasNext = data.hasNext;
@@ -41,20 +40,24 @@ let $replyListWrap = document.querySelector('.wrapper-reply');
         });
     });
 
-    /*2-2. */
+    /*2-2. 댓글 목록을 페이지 단위로 가져와서 화면에 출력
+            서버에 get 요청을 보내고, 응답 페이지를 콜백 함수로 처리하여 댓글 표시 */
     reply.getList2(boardId, page, function (data){
         hasNext = data.hasNext;
+        console.log("뿅!★");
+        console.log(data.contentList);
         displayComment(data.contentList);
     });
 
-    /*2-3.*/
+    /*2-3. 스크롤 이벤트를 감지하여 페이지 끝에 도달하면 다음 페이지 댓글 가져옴
+    *       새로운 댓글 목록을 기존 목록에 추가 */
     window.addEventListener('scroll', function (){
         if(!hasNext)return;
         // ♡♡  documentElement 객체에서 3개의 프로퍼티를 동시에 가져온다.
-        let {scrollTop, scrollHeight, clientHeight} = document.documentElement;
+        let {scrollTop, scrollHeight, clientHeight} = document.documentElement;/*
         console.log("scrollTop(스크롤 상단의 현재 위치) : ", scrollTop);
         console.log("scrollHeight(전체 문서의 높이) : ", scrollHeight);
-        console.log("clientHeight(클라이언트[웹브라우저]의 화면 높이) : ", clientHeight);
+        console.log("clientHeight(클라이언트[웹브라우저]의 화면 높이) : ", clientHeight);*/
         if(clientHeight + scrollTop >= scrollHeight - 5){
             console.log("바닥~~!!");
             page++;

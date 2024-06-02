@@ -1,7 +1,9 @@
 package com.example.geungeunhanjan.api;
 
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
+import com.example.geungeunhanjan.domain.dto.comment.CommentListDTO;
 import com.example.geungeunhanjan.domain.dto.comment.CommentWriteDTO;
+import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.lifePage.Slice;
 import com.example.geungeunhanjan.service.comment.CommentService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,14 +36,16 @@ public class CommentApi {
     }
     // 2. 댓글 목록 뿌리기
     @GetMapping("/v1/boards/{boardId}/replies")
-    public List<CommentDTO> commentList(){
-        List<CommentDTO> commentDTOList = new ArrayList<>();
-        return commentDTOList;
+    public List<CommentListDTO> commentList(@PathVariable("boardId") Long boardId){
+        return commentService.findCommentList(boardId);
     }
     // 3. Slice
     @GetMapping("/v2/boards/{boardId}/replies")
-    public Slice<CommentDTO> commentListSlice(@PathVariable("boardId") int boardId){
-        Slice<CommentDTO> slice = new Slice<>();
+    public Slice<CommentListDTO> commentListSlice(@PathVariable("boardId") Long boardId,
+                                                  int page){
+        Criteria criteria = new Criteria(page, 10);
+        Slice<CommentListDTO> slice =
+                commentService.findCommentSlice(criteria, boardId);
         return slice;
     }
     // 4. 댓글 수정

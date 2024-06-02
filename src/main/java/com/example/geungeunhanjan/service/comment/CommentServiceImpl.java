@@ -31,13 +31,12 @@ public class CommentServiceImpl implements CommentService{
     // 3. 댓글 페이징 !
     @Override
     public Slice<CommentListDTO> findCommentSlice(Criteria criteria, Long boardId) {
-      List<CommentListDTO> commentList = (List<CommentListDTO>) commentMapper.selectCommentSlice(criteria, boardId);
+        List<CommentListDTO> commentList =
+                commentMapper.selectCommentSlice(criteria, boardId);
         boolean hasNext = commentList.size() > criteria.getAmount();
-
-        if (hasNext){ commentList.remove(criteria.getAmount());}
-        System.out.println(boardId);
-        System.out.println("==========");
-
-        return new Slice<CommentListDTO>(hasNext, commentList);
+        if (hasNext) {
+            commentList.remove(criteria.getAmount());
+        }
+        return new Slice<>(hasNext, commentList);
     }
 }

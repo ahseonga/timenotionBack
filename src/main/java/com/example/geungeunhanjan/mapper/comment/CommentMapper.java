@@ -18,7 +18,8 @@ public interface CommentMapper {
     List<CommentListDTO> selectCommentList(Long boardId);
 
     // 3. 댓글 페이징 !
-    Slice<CommentListDTO> selectCommentSlice (@Param("criteria") Criteria criteria, @Param("boardId")Long boardId);
+//    Slice<CommentListDTO> selectCommentSlice (@Param("criteria") Criteria criteria, @Param("boardId")Long boardId);
+    List<CommentListDTO> selectCommentSlice (@Param("criteria") Criteria criteria, @Param("boardId")Long boardId);
 
 
 

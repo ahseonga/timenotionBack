@@ -1,14 +1,9 @@
 package com.example.geungeunhanjan;
 
 
-<<<<<<< HEAD
-
-
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
-=======
->>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -38,11 +33,8 @@ class GeungeunhanjanApplicationTests {
     private UserVO userVO;
     LocalDateTime dateTime;
 
-<<<<<<< HEAD
-=======
-
     @Autowired
->>>>>>> 08755799ecd909021d4ac61e9c6f958b0394f608
+
     private BoardMapper boardMapper;
 
     @Autowired

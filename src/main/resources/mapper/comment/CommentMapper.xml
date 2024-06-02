@@ -11,7 +11,7 @@
 
     <select id="selectCommentList" parameterType="Long" resultType="CommentListDTO">
         SELECT B.BOARD_ID, F.USER_FILE_ID, UN.UNI_ID AS USER_ID, C.COMMENT_ID,
-               COALESCE(K.KAKAO_NICKNAME, U.USER_NICKNAME) AS NICKNAME,
+               COALESCE(K.NAME, U.USER_NICKNAME) AS NICKNAME,
                C.COMMENT_CONTENT,
                C.COMMENT_CREATED_DATE,
                F.USER_FILE_PROFILE_NAME, F.USER_FILE_PROFILE_SOURCE, F.USER_FILE_PROFILE_UUID
@@ -33,7 +33,7 @@
                         USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID
                  FROM (
                           SELECT B.BOARD_ID, F.USER_FILE_ID, UN.UNI_ID AS USER_ID, C.COMMENT_ID,
-                                 COALESCE(K.KAKAO_NICKNAME, U.USER_NICKNAME) AS NICKNAME,
+                                 COALESCE(K.NAME, U.USER_NICKNAME) AS NICKNAME,
                                  C.COMMENT_CONTENT, C.COMMENT_CREATED_DATE,
                                  F.USER_FILE_PROFILE_NAME, F.USER_FILE_PROFILE_SOURCE, F.USER_FILE_PROFILE_UUID
                           FROM GGHJ_COMMENT C
