@@ -6,4 +6,6 @@ public interface BoardFileService {
 
     //게시글에 파일 넣기
     void registerFile(BoardFileVO boardFileVO);
+
+
 }

@@ -22,7 +22,7 @@ import java.util.UUID;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class MyPageServiceImpl implements  MyPageService{
+public class MyPageServiceImpl implements MyPageService{
     // 마이페이지
     private final MyPageMapper myPageMapper;
     private final UserFileVO userFileVO;

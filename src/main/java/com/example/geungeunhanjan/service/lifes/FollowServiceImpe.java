@@ -30,18 +30,16 @@ public class FollowServiceImpe implements FollowService {
         return followMapper.selectFollower();
     }
 
+    @Override
+    public FollowDTO selectFollowDetail(Long userId) {
+        return followMapper.selectFollowDetail(userId);
+    }
     //팔로잉 리스트 조회하기
-    @Override
-    public List<FollowDTO> selectFollowing() {
-        return followMapper.selectFollowing();
-    }
+//    @Override
+//    public List<FollowDTO> selectFollowing() {
+//        return followMapper.selectFollowing();
+//    }
 
-
-    //팔로우 팔로워 의 이미지소스 파일 조회하기
-    @Override
-    public List<UserFileVO> selectFile() {
-        return followMapper.selectFile();
-    }
 
     @Override
     public List<FollowDTO> selectBoardCount() {
@@ -52,5 +50,10 @@ public class FollowServiceImpe implements FollowService {
     @Override
     public void insertFollow(FollowVO followVO) {
         followMapper.insertFollow(followVO);
+    }
+    //팔로우 리스트 유저 클릭시 ; 언팔로우 하기
+    @Override
+    public void deleteFollow(Long userId) {
+        followMapper.deleteFollow(userId);
     }
 }

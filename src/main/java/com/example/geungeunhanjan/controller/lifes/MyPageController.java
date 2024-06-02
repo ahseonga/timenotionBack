@@ -140,7 +140,7 @@ public class MyPageController {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
-            return "redirect:/login";
+            return "redirect:/user/login";
         }
 
         List<LikeDTO> likes = myPageService.findPageMyLike(criteria, userId);

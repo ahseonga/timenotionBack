@@ -10,7 +10,7 @@ import java.util.List;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Slice<T> {
+public class   Slice<T> {
     boolean hasNext;
     List<T> contentList;
 }
