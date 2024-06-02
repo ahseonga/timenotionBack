@@ -28,7 +28,7 @@
                         <a href="#">
                             <img src="./../../img/main/봉준호 (4).jpg" alt="" />
                             <div class="wrap-main-left-text">
-                                <span>제 영화 시나리오의 원천이 어디인가</span>
+                                <span th:text="${mainLeft.boardTitle}">제 영화 시나리오의 원천이 어디인가</span>
                             </div>
                             <!-- 랭킹 -->
                             <div class="rank-wrap rank-1st"><span>1</span></div>
@@ -38,47 +38,47 @@
                                     <div class="banner-profile-img">
                                         <img src="./../../img/main/봉준호 (8).jpg" alt="" />
                                     </div>
-                                    <div class="banner-profile-text"><span>nickname</span></div>
+                                    <div class="banner-profile-text"><span th:text="${mainLeft.userNickname}">nickname</span></div>
                                 </a>
                             </div>
                         </a>
                     </div>
                     <!-- 1-1. 오른쪽 메인배너 -->
                     <div class="main-right-wrapper">
-                        <div class="main-top-box">
+                        <div class="main-top-box"  th:each="rightboard : ${rightBoards}">
                             <a href="#">
                                 <img src="./../../img/main/봉준호 (3).jpg" alt="" />
                                 <div class="wrap-main-top-text">
-                                    <span>크기가 애매한건지 위치가 애매한건지</span>
+                                    <span th:text="${rightboard.boardTitle}">크기가 애매한건지 위치가 애매한건지</span>
                                 </div>
-                                <div class="rank-wrap rank-2st"><span>2</span></div>
+                                <div class="rank-wrap" th:classappend="'rank-' + ${rightboard.boardRank} + 'st'"><span style="font-weight: bold" th:text="${rightboard.boardRank}">2</span></div>
                                 <!-- 프로필 -->
                                 <div class="wrap-main-right-profile">
                                     <a href="#" class="link-main-profile wrap--profile">
                                         <div class="banner-profile-img">
                                             <img src="./../../img/main/봉준호 (8).jpg" alt="" />
                                         </div>
-                                        <div class="banner-profile-text"><span>nickname</span></div>
+                                        <div class="banner-profile-text"><span th:text="${rightboard.userNickname}">nickname</span></div>
                                     </a>
                                 </div>
                             </a>
                         </div>
-                        <div class="main-bottom-box">
-                            <a href="#">
-                                <img class="transform" src="./../../img/main/봉준호 (5).jpg" alt="" />
-                                <div class="wrap-main-bottom-text"><span># 좀 더 작고 짧게</span></div>
-                                <div class="rank-wrap rank-3st"><span>3</span></div>
-                                <!-- 프로필 -->
-                                <div class="wrap-main-right-profile">
-                                    <a href="#" class="link-main-profile wrap--profile">
-                                        <div class="banner-profile-img">
-                                            <img src="./../../img/main/봉준호 (8).jpg" alt="" />
-                                        </div>
-                                        <div class="banner-profile-text"><span>nickname</span></div>
-                                    </a>
-                                </div>
-                            </a>
-                        </div>
+<!--                        <div class="main-bottom-box">-->
+<!--                            <a href="#">-->
+<!--                                <img class="transform" src="./../../img/main/봉준호 (5).jpg" alt="" />-->
+<!--                                <div class="wrap-main-bottom-text"><span># 좀 더 작고 짧게</span></div>-->
+<!--                                <div class="rank-wrap rank-3st"><span>3</span></div>-->
+<!--                                &lt;!&ndash; 프로필 &ndash;&gt;-->
+<!--                                <div class="wrap-main-right-profile">-->
+<!--                                    <a href="#" class="link-main-profile wrap&#45;&#45;profile">-->
+<!--                                        <div class="banner-profile-img">-->
+<!--                                            <img src="./../../img/main/봉준호 (8).jpg" alt="" />-->
+<!--                                        </div>-->
+<!--                                        <div class="banner-profile-text"><span>nickname</span></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
                     </div>
                 </div>
                 <!-- 2. 인기 컨텐츠 -->
@@ -96,11 +96,11 @@
                                 <div class="pop-title"><span th:text="${board.boardTitle}"></span></div>
                             </a>
                             <div class="pop-views" th:text="|조회수 : ${board.boardViewCount}|"></div>
-                            <div class="pop-date" th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yyyy년 mm월 dd일')}|"></div>
+                            <div class="pop-date" th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yyyy년 MM월 dd일')}|"></div>
                             <a href="/everyLife/detail-others" class="link-pop-profile">
                                 <div  class="pop-profile-wrap">
                                     <div class="box-profile-img">
-                                        <img src="./../../img/main/봉준호 (8).jpg" alt="" />
+                                        <img th:src="${board.userFileProfileSource}" alt="" />
                                     </div>
                                     <div class="box-profile-nickname"><span th:text="${userNicknames[i.index]}"></span></div>
                                 </div>
@@ -129,7 +129,7 @@
               </div>
             </div>
             <!-- 3-1. 오른쪽 -->
-            <div class="keyword-right">
+            <div class="keyword-right" th:href="@{/user/login}">
               <div class="keyword-first-line">
                 <!-- 7개까지만 -->
                 <div class="keyword">#키워드</div>
@@ -164,6 +164,7 @@
                 <li><a href="#"><img src="./../../img/main/banner1.png" alt="" class="sub-banner-img"></a></li>
               </ul>
             </div>
+          </div>
         </div>
       </main>
     </div>

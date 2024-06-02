@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.service.board;
 
+import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,10 @@ public interface BoardService {
     BoardVO selectById(Long boardId);
 
     // 메인 4칸짜리 게시물
-    List<BoardVO> mainBoardbyViews();
+    List<BoardMainDTO> mainBoardbyViews();
 
-    //
+    // 메인 배너 왼쪽
+    BoardMainDTO mainLeftBannerSelect();
+
+    List<BoardMainDTO> mainRightBannerSelect();
 }
