@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="./../../css/myLife/userpage.css">
   <link rel="stylesheet" href="./../../css/reset.css">
   <script defer src="./../../js/myLife/userpage.js"></script>
-  <script defer src="./../../js/fragment/headerFetch.js"></script>
-    <script defer src="./../../js/fragment/footerFetch.js"></script>
+
 </head>
 
 <body>
@@ -29,18 +28,20 @@
           <div class="profile-detail">
               <!-- 추가 : 해당 p태그는 display none으로 설정하고 user_id를 저장하여 백단에서 값을 가져오기위함
                       이 p태그에 userId를 넣어주시면 됩니다 . -->
-            <p style="display: none" id="get-user-id"></p>
+            <p style="display: none" id="get-user-id"  th:text="${follow.followerId}"></p>
 
-            <p id="profile-nickname">장윤근</p>
+            <p id="profile-nickname"  th:text="${follow.userNickname}">장윤근</p>
             <p>
-              <span class="follower-number">36</span>
-              <span class="follower">팔로워</span>
+              <span class="follower-number"  th:text="${follow.followerCount}">36</span>
+              <span class="follower" >팔로워</span>
             </p>
             <p>
-              <span class="follower-number">128</span>
-              <span class="follower">팔로잉</span>
+              <span class="follower-number"  th:text="${follow.followingCount}">128</span>
+              <span class="follower" >팔로잉</span>
             </p>
-            <p class="profile-heart"><img src="./../../img/myLife/mdj-heart_negative.png" alt="하투" class="detail_page_heart" id="heart-image"></p>
+            <p class="profile-heart">
+                <img src="./../../img/myLife/mdj-heart_negative.png" alt="하투" class="detail_page_heart" id="heart-image">
+            </p>
           </div>
         </div>
       </div>

@@ -87,17 +87,12 @@ public class MyPageController {
             redirectAttributes.addFlashAttribute("errorMessage", "게시물 작성 년도는 생년보다 이전일 수 없습니다.");
             return "redirect:/myLife/detail_writingMode"; // 사용자가 입력 폼으로 돌아가도록 리다이렉트
         }
-
         // 사용자의 생애 주기 계산
         String lifeCycle = calculateLifeCycle(age);
-
         // 게시물의 생애 주기 설정
         boardVO.setBoardLifeCycle(lifeCycle);
-
-
         // 게시물 등록
 //        boardService.registerBoard(boardVO);
-
         try {
             boardService.registerBoardwithFile(boardVO, files);
         }catch (IOException e){
@@ -107,7 +102,6 @@ public class MyPageController {
         redirectAttributes.addFlashAttribute("boardId", boardVO.getBoardId());
         return "redirect:/myLife";
     }
-
 
     //글쓰기 상세페이지로 이동
     @GetMapping("/detail-my")
@@ -136,7 +130,7 @@ public class MyPageController {
         model.addAttribute("comments", comments);
         model.addAttribute("page", page);
 
-        return "myLife/myPageCommentList";
+        return "myLife/mypageCommentList";
     }
     // 내가 쓴 댓글로 ㅎㅎㅎㅎ ☆★☆★☆★☆★☆★☆☆★ 작업중 ★☆★☆★☆★☆★☆★☆★☆★
     // 좋아요 목록으로
@@ -145,7 +139,7 @@ public class MyPageController {
         // 로그인 여부 확인
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
-            return "redirect:/login";
+            return "redirect:/user/login";
         }
 
         List<LikeDTO> likes = myPageService.findPageMyLike(criteria, userId);
@@ -154,7 +148,7 @@ public class MyPageController {
         model.addAttribute("likes", likes);
         model.addAttribute("page", page);
 
-        return "/myLife/myPageLike";
+        return "/myLife/mypageLike";
     }
     // ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
     // 회원정보 수정으로
@@ -166,7 +160,7 @@ public class MyPageController {
             return "redirect:/login";
         }
 
-        return "/myLife/myPageEditMemberInformation";
+        return "/myLife/mypageEditMemberInformation";
     }
 
     // 회원정보 수정으로 Post
@@ -188,7 +182,7 @@ public class MyPageController {
 
        redirectAttributes.addFlashAttribute("userId", userFileVO.getUserId());
 
-        return "redirect:/myLife/myPageEditMemberInformation";
+        return "redirect:/myLife/mypageEditMemberInformation";
     }
 
 
