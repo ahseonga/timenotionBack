@@ -1,7 +1,9 @@
 package com.example.geungeunhanjan.mapper.board;
 
+
 import com.example.geungeunhanjan.domain.dto.board.BoardDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
+import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -27,7 +29,7 @@ public interface BoardMapper {
     Optional<BoardVO> selectById(Long boardId);
 
     // 메인 4칸짜리 게시물
-    List<BoardVO> mainBoardbyViews();
+//    List<BoardVO> mainBoardbyViews();
 
     // 모두의 일대기 게시물
     List<BoardVO> everyLifeBoardbyViews();
@@ -49,13 +51,13 @@ public interface BoardMapper {
 //    List<BoardVO> postarrayPopularity();
 
 
+    List<BoardMainDTO> mainBoardbyViews();
 
+    // 메인 배너 왼쪽거
+    BoardMainDTO mainLeftBannerSelect();
 
-
-
-
-
-
+    // 메인 배너 오른쪽거 2개
+    List<BoardMainDTO> mainRightBannerSelect();
 
 }
 

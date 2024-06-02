@@ -20,7 +20,7 @@
                  JOIN GGHJ_NOTICE n ON uni.UserFileVO
             UNI_ID = n.USER_ID
         UNION ALL
-        SELECT k.kakao_nickname AS nickname, n.NOTICE_ID, n.NOTICE_TITLE, n.NOTICE_CONTENT,n.NOTICE_CREATED_DATE
+        SELECT k.name AS nickname, n.NOTICE_ID, n.NOTICE_TITLE, n.NOTICE_CONTENT,n.NOTICE_CREATED_DATE
         FROM GGHJ_KAKAO k
                  JOIN GGHJ_UNI uni ON k.kakao_id = uni.KAKAO_ID
                  JOIN GGHJ_NOTICE n ON uni.UNI_ID = n.USER_ID

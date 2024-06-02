@@ -14,6 +14,7 @@ import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.service.community.NoticeService;
 
 import com.example.geungeunhanjan.service.user.UserService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -66,30 +67,35 @@ public class CommunityController {
 
 
     @GetMapping("/inquiry")
-    public String community (InquiryCriteria inquiryCriteria, Model model){
+    public String community (InquiryCriteria inquiryCriteria, Model model, HttpSession session){
+
         List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
+        Long loginUserId = (Long) session.getAttribute("userId");
+
         int total = inquiryService.selectInquiryTotal();
+
         InquiryPage inquiryPage = new InquiryPage(inquiryCriteria, total);
 
         model.addAttribute("inquiries", inquiries);
-        model.addAttribute("page", inquiryPage);
+        model.addAttribute("inquiryPage", inquiryPage);
+        model.addAttribute("loginUserId", loginUserId);
 
-        System.out.println(total);
-        System.out.println("page = " + inquiryPage);
+
+
 
         return "/community/inquiry";
-//
-//        List<InquiryDTO> inquiries = inquiryService.selectInquiryAll();
-//
-//
-//        model.addAttribute("inquiries", inquiries);
-//        return "community/inquiry";
     }
 
 
     @GetMapping("/inquiry/{inquiryId}")
     @ResponseBody
-    public InquiryDTO inquiryDetail (@PathVariable("inquiryId") Long inquiryId){
+    public InquiryDTO inquiryDetail (@PathVariable("inquiryId") Long inquiryId, Model model){
+
+        Long inquiryUserId = inquiryService.selectUserIdByInquiryId(inquiryId);
+
+        model.addAttribute("inquiryUserId", inquiryUserId);
+        System.out.println("inquiryUserId = " + inquiryUserId);
+
         return inquiryService.selectInquiryDetail(inquiryId);
     }
 

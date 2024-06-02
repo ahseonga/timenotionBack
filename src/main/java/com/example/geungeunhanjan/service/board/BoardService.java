@@ -1,7 +1,11 @@
 package com.example.geungeunhanjan.service.board;
 
+
 import com.example.geungeunhanjan.domain.dto.board.BoardDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
+
+import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
+
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import org.springframework.stereotype.Service;
@@ -34,10 +38,8 @@ public interface BoardService {
     BoardVO selectById(Long boardId);
 
     // 메인 4칸짜리 게시물
-    List<BoardVO> mainBoardbyViews();
+    List<BoardMainDTO> mainBoardbyViews();
 
-    //나의 일대기 게시판 등록하기
-//    int createBoard(BoardVO boardVO);
 
     // 모두의 일대기 게시물
     List<BoardVO> everyLifeBoardbyViews();
@@ -52,6 +54,12 @@ public interface BoardService {
 
     //조회수, 인기수 , 최신순 게시판 정렬
     // List<BoardVO> getBoards(String orderBy);
+
+
+    // 메인 배너 왼쪽
+    BoardMainDTO mainLeftBannerSelect();
+
+    List<BoardMainDTO> mainRightBannerSelect();
 
 }
 
