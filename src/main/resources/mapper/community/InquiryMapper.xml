@@ -53,7 +53,7 @@
         WHERE INQ.INQUIRY_ID = #{inquiryId}
     </select>
 
-    <select id="selectAllInquiryPage" parameterType="Criteria" resultType="InquiryPagingDTO">
+    <select id="selectAllInquiryPage" parameterType="InquiryCriteria" resultType="InquiryPagingDTO">
     <![CDATA[
         SELECT INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id
         FROM (

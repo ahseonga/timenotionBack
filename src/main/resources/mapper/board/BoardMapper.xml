@@ -10,7 +10,7 @@
         WHERE USER_ID = #{userId}
     </select>
 
-<!--    내가 쓴 게시물의 상세페이지로 들어가기-->
+    <!--    내가 쓴 게시물의 상세페이지로 들어가기-->
     <select id="selectById" resultType="BoardVO">
         SELECT *
         FROM GGHJ_BOARD G
@@ -36,12 +36,6 @@
     </select>
 
     <!-- 나의 일대기 게시판 데이터 입력하기 -->
-
-
-
-
-
-
     <insert id="insertBoard" parameterType="BoardVO">
         <selectKey keyProperty="boardId" resultType="Long" order="BEFORE">
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL
