@@ -18,7 +18,7 @@ public class BoardTest {
 
     @Test
     public void writerUserBirthTest(){
-        System.out.println(boardService.writerUserBirth(1L));
+        System.out.println(boardService.writerUserBirth(21L));
     }
 
 }

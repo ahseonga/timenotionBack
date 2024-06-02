@@ -1,5 +1,10 @@
 package com.example.geungeunhanjan;
 
+<<<<<<< HEAD
+import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+
+=======
 
 
 
@@ -7,6 +12,7 @@ package com.example.geungeunhanjan;
 
 import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+>>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -35,9 +41,14 @@ class GeungeunhanjanApplicationTests {
     private UserVO userVO;
     LocalDateTime dateTime;
 
+<<<<<<< HEAD
+    @Autowired
+
+=======
 
 
     @Autowired
+>>>>>>> 570035f0919f02e4415e8c38e2d37db8e66308a3
     private BoardMapper boardMapper;
 
     @Autowired

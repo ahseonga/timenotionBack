@@ -2,7 +2,6 @@ package com.example.geungeunhanjan.controller.lifes;
 
 
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
-import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import com.example.geungeunhanjan.service.lifes.FollowService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,12 +9,10 @@ import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/yourLife")
@@ -35,12 +32,12 @@ public class YourLifeController {
         //팔로워 리스트 조회
         List<FollowDTO> followers = followService.selectFollower();
         model.addAttribute("followers", followers);
+        System.out.println(followers);
         //팔로잉 리스트 조회
-        List<FollowDTO> followings = followService.selectFollowing();
-        model.addAttribute("followings", followings);
-        //팔로워 , 팔로잉 이미지 조회
-        List<UserFileVO> files = followService.selectFile();
-        model.addAttribute("files", files);
+//        List<FollowDTO> followings = followService.selectFollowing();
+//        model.addAttribute("followings", followings);
+//        System.out.println(followings);
+//        System.out.println(model);
         //팔로우의 일기수 조회
         List<FollowDTO> boards = followService.selectBoardCount();
         model.addAttribute("boards", boards);
@@ -54,38 +51,62 @@ public class YourLifeController {
 
 
     //★☆★☆★☆★☆★☆★☆★☆★☆★☆ myLife의 userpage ★☆★☆★☆★☆★☆★☆★☆★☆
-    @GetMapping("/userpage")
-    public String userPage() {
+    @GetMapping("/userpage/{userId}")
+    public String userPage(Model model, @PathVariable("userId") long userId) {
 
-        return "/yourLife/userpage";
+        FollowDTO follow = followService.selectFollowDetail(userId);
+        model.addAttribute("follow", follow);
+        System.out.println("dddddddddd");
+
+        return "yourLife/userpage";
     }
 
-    // 유저 페이지 팔로우 기능 구현 컨트롤러
-    @PostMapping("/userpage")
-    public String userPage(@ModelAttribute("followVO") FollowVO followVO, HttpServletRequest request){
-        //현재 사용자의 userId를 세션에서 가져오기
-        Long userId = (Long) request.getSession().getAttribute("uniId");
+    // 유저 페이지 팔로우 기능 구현 컨트롤러 -하트클릭시
+    @PostMapping("/userpage/{userId}")
+    public String userPage(
+            HttpServletRequest request,
+            @RequestBody Map<String, Object> requestBody,
+            @PathVariable("userId") long userId) {
 
-        if (userId == null) {
-            // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
-            return "redirect:/login";
+        // 현재 사용자의 userId를 세션에서 가져오기
+        Long loginUserId = (Long) request.getSession().getAttribute("userId");
+        System.out.println(loginUserId);
+//        if (loginUserId == null) {
+//            // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
+//            return "redirect:/user/login";
+//        }
+
+        FollowVO followVO = new FollowVO();
+
+        // followVO에 userId(followToUser) 설정
+        followVO.setFollowToUser(loginUserId);
+        System.out.println("followToUser 확인용 : " + followVO);
+
+        // followId 설정
+        followVO.setFollowId(followService.getFollowSeqNext());
+        System.out.println("followToUser 확인용 : " + followVO);
+
+        // followFromUser 설정
+        followVO.setFollowFromUser(userId);
+        System.out.println("followToUser 확인용 : " + followVO);
+        // checkFollow 상태 가져오기
+        Boolean checkFollow = (Boolean) requestBody.get("checkFollow");
+        System.out.println("checkFollow 상태: " + checkFollow);
+
+        // checkFollow 상태에 따라 필요한 로직을 추가합니다
+        if (checkFollow) {
+            // 팔로우 로직
+            followService.insertFollow(followVO);
+        } else {
+            // 언팔로우 로직
+            followService.deleteFollow(loginUserId);
         }
 
-        //followVO 에 userId(followToUser) 설정
-        followVO.setFollowToUser(userId);
-        System.out.println("followToUser 확인용 : "+followVO);
+        System.out.println("followVO 하트클릭테스트: " + followVO);
 
-        //followId 설정
-        followVO.setFollowId(followService.getFollowSeqNext());
-
-       //followFromUser 설정 + 컨트롤러로 해당 유저 뿌린후 코드 작성
-
-
-
-
-
-        return "redirect:/yourLife/userpage";
+        return "redirect:/yourLife/userpage/{userId}";
     }
+
 
 
 
