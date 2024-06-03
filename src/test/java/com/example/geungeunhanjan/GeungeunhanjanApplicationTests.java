@@ -4,8 +4,13 @@ import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 
 
+<<<<<<< HEAD
 
 
+=======
+import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
+import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+>>>>>>> main
 
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 
@@ -39,6 +44,10 @@ class GeungeunhanjanApplicationTests {
 
 
     @Autowired
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     private BoardMapper boardMapper;
 
     @Autowired

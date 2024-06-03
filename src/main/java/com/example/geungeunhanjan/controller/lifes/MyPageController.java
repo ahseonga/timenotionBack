@@ -96,7 +96,7 @@ public class MyPageController {
 
     //나의 일대기 게시판 작성하기
     @PostMapping("/detail_writingMode")
-    public String detailWriting(BoardVO boardVO, @SessionAttribute("userId") Long userId,
+    public String detailWriting(BoardVO boardVO, @SessionAttribute("uniId") Long userId,
                                 @RequestParam("boardFile") List<MultipartFile> files,
                                 RedirectAttributes redirectAttributes) {
         //현재 사용자가 누군지 정보 선언
