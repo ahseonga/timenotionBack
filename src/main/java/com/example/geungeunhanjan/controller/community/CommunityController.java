@@ -70,7 +70,7 @@ public class CommunityController {
     public String community (InquiryCriteria inquiryCriteria, Model model, HttpSession session){
 
         List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
-        Long loginUserId = (Long) session.getAttribute("userId");
+        Long loginUserId = (Long) session.getAttribute("uniId");
 
         int total = inquiryService.selectInquiryTotal();
 

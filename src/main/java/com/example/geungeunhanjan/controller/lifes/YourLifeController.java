@@ -27,8 +27,13 @@ public class YourLifeController {
     @GetMapping()
     public String yourLife(Model model, HttpSession session) {
         // 로그인 여부 확인
+<<<<<<< HEAD
         Long loginUserId = (Long) session.getAttribute("userId");
         if (loginUserId == null) {
+=======
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
+>>>>>>> ed68d907c87f44a6a059d6049554f4832ab596df
             return "redirect:/user/login";
         }
         System.out.println(loginUserId);
