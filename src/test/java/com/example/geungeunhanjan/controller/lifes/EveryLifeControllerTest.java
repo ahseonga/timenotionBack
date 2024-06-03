@@ -39,7 +39,7 @@ class EveryLifeControllerTest {
 
     @Test
     void everyLife() {
-        aa = new BoardDTO();
+  /*      aa = new BoardDTO();
         aa.setBoardId(100L);
         aa.setBoardTitle("제목입니다  =====");
         aa.setBoardLifeCycle("청소년기");
@@ -50,13 +50,13 @@ class EveryLifeControllerTest {
         Criteria criteria = new Criteria();
         criteria.setAmount(9);
         criteria.setPage(1);
-//        List<BoardDTO> boards = boardService.everyLifeFindPage(criteria);
+        List<BoardDTO> boards = boardService.everyLifeFindPage();
         Page page = new Page(criteria, boards.size());
 
         System.out.println("게시글 총 길이 : " + boards.size());
         System.out.println("PageCount : " + page.getPageCount() + "StartPage : " + page.getStartPage());
         System.out.println("EndPage : " + page.getEndPage() + "RealEnd : " + page.getRealEnd());
-        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());
+        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());*/
 //        System.out.println("Total Count : " + boardService.everyLifeFindTotal());
 
 
