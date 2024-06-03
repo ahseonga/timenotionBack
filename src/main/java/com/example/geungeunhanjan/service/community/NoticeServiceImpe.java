@@ -53,7 +53,7 @@ public class NoticeServiceImpe implements NoticeService {
     public void deleteNotice(Long noticeId) {
         noticeMapper.deleteNotice(noticeId);
     }
-
+    //페이징 처리
     @Override
     public List<NoticePageDTO> selectAllPageNotice(NoticeCriteria noticeCriteria) {
         return noticeMapper.selectAllPageNotice(noticeCriteria);

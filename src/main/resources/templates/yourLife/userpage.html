@@ -21,10 +21,12 @@
     <div class="first-container">
       <div class="profile-background">
         <div class="profile-background-dark"></div>
-        <div class="profile-bg-img-box"><img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt="">
+<!--       배경 이미지 -->
+        <div class="profile-bg-img-box"><img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt=""  th:src="${follow.userFileProfileSource}">
         </div>
         <div class="profile">
-          <div class="profile-img-box"><img src="./../../img/myLife/jyg-baby_20240514_104047744.jpg" alt=""></div>
+<!--          프로필 이미지 -->
+          <div class="profile-img-box"><img src="./../../img/myLife/jyg-baby_20240514_104047744.jpg" alt=""  th:src="${follow.userFileBackSource}"></div>
           <div class="profile-detail">
               <!-- 추가 : 해당 p태그는 display none으로 설정하고 user_id를 저장하여 백단에서 값을 가져오기위함
                       이 p태그에 userId를 넣어주시면 됩니다 . -->
@@ -47,9 +49,8 @@
       </div>
       <div class="profile-text">
         <div class="profile-introduce">
-          <p>여기 자기소개란 너비는 그대로 뒀습니다 일단?? 넓히니 너무 넓어서, 그리고 글자사이즈 줄였구요.<br>
-            프로필사진 영역 사진 구겨들어가게 되어있길래 수정했고 글자 안보여서 profile-img 위에 <mark>dark div</mark>넣어서
-            배경이미지 자체를 좀 어두워져 보이게 만들었습니다.
+<!--          자기소개란 -->
+          <p th:text="${about != null ? about.uniAbout : '-'}">
           </p>
         </div>
         <!--       <div class="write-button">
