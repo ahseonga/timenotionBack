@@ -40,13 +40,17 @@ public class MyPageController {
     @GetMapping
     public String mypage(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
             return "redirect:/user/login";
         }
+<<<<<<< HEAD
 
         // 사용자 게시판 목록 및 생애 주기별 게시판 목록 가져오기
         List<BoardVO> boards = boardService.selectBoard(userId);
+=======
+        List<BoardVO> boards = boardService.selectBoard(uniId);
+>>>>>>> main
         model.addAttribute("boards", boards);
         System.out.println(boards);
 
@@ -85,8 +89,8 @@ public class MyPageController {
     @GetMapping("/detail_writingMode")
     public String detailWritingMode(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
             return "redirect:/login";
         }
 //        model.addAttribute("boardVO", new BoardVO());
@@ -182,15 +186,15 @@ public class MyPageController {
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
             return "redirect:/login";
         }
         /* 페이징 된 댓글 목록 가져옴 */
-        List<CommentDTO> comments = myPageService.findPageMyComment(criteria, userId);
+        List<CommentDTO> comments = myPageService.findPageMyComment(criteria, uniId);
 
         /* 1 ) 전체 댓글 수 가져옴 */
-        int total = myPageService.myCommentTotal(userId);
+        int total = myPageService.myCommentTotal(uniId);
         /* 2 ) page에 criteria랑 전체 댓글 수 전달 */
         Page page = new Page(criteria, total);
 
@@ -204,13 +208,13 @@ public class MyPageController {
     @GetMapping("/mypageLike")
     public String mypageLike(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
             return "redirect:/user/login";
         }
 
-        List<LikeDTO> likes = myPageService.findPageMyLike(criteria, userId);
-        int total = myPageService.myLikeTotal(userId);
+        List<LikeDTO> likes = myPageService.findPageMyLike(criteria, uniId);
+        int total = myPageService.myLikeTotal(uniId);
         Page page = new Page(criteria, total);
         model.addAttribute("likes", likes);
         model.addAttribute("page", page);
@@ -222,8 +226,8 @@ public class MyPageController {
     @GetMapping("/mypageEditMemberInformation")
     public String mypageEditMemberInformation(HttpSession session){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
             return "redirect:/login";
         }
 
@@ -235,12 +239,12 @@ public class MyPageController {
     public String mypageEditMemberInformation(UserFileVO userFileVO, RedirectAttributes redirectAttributes, HttpSession session,
                                               @RequestParam("File") List<MultipartFile> file){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
             return "redirect:/login";
         }
 
-        userFileVO.setUserId(userId);
+        userFileVO.setUserId(uniId);
 
         try {
             myPageService.registProfileBackFile(userFileVO, file);

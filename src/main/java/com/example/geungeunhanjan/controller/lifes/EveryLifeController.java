@@ -32,7 +32,7 @@ public class EveryLifeController {
     @GetMapping()
     public String everyLife (Model model, HttpSession session, Criteria criteria) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/user/login";
         }
