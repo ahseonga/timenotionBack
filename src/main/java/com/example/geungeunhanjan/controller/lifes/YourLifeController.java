@@ -69,7 +69,7 @@ public class YourLifeController {
             @PathVariable("userId") long userId) {
 
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long loginUserId = (Long) request.getSession().getAttribute("userId");
+        Long loginUserId = (Long) request.getSession().getAttribute("uniId");
         System.out.println(loginUserId);
 //        if (loginUserId == null) {
 //            // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트

@@ -37,7 +37,7 @@
             </div>
                 <input type="hidden" id="boardId" th:value="${boards.boardId}">
                 <div class="box-date-right">
-                    <th:block  th:if="${boards.userId == session.userId}">
+                    <th:block  th:if="${boards.userId == session.uniId}">
                         <button class="btn-modify" th:data-id="${boards.boardId}">수정</button>
                         <button type="button" class="btn-remove" th:data-id="${boards.boardId}">삭제</button>
                     </th:block>
