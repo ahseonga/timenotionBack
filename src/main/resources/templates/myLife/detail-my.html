@@ -42,8 +42,90 @@
                         <button type="button" class="btn-remove" th:data-id="${boards.boardId}">삭제</button>
                     </th:block>
 
+<<<<<<< HEAD
+=======
+                    </div>
+                    <!--5. 댓글영역   ----------------->
+                    <div class="wrapper-reply">
+                     <!--   &lt;!&ndash; [ 댓글 1 ] &ndash;&gt;
+                        <div class="wrapper-main-reply">
+                            &lt;!&ndash; 프로필사진 이름 태그 &#45;&#45; 삭제 날짜 ... &ndash;&gt;
+                            <div class="box-main-reply-top">
+
+                                <a href="#" class="reply-top-left">
+                                    <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
+                                    <div><span class="nickname">송아성</span></div>
+                                    <div class="tag">일기주인</div>
+                                </a>
+                                <div class="reply-top-right">
+                                    <div class="delete-btn"><button onclick="del();">삭제</button></div>
+                                    <div class="date">2024.11.19</div>
+                                    <div class="dotdotdot">...</div>
+                                    <div class="box-mini-report">
+                                        <button class="mini-button">신고하기</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-main-reply-bottom">
+                                <div class="reply-content">
+                                    <p>댓글 내용</p>
+                                </div>
+                            </div>
+                            &lt;!&ndash; [대댓글 입력 '답글쓰기' 버튼 ] -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;
+                            <div class="wrapper-re-comment">
+                                &lt;!&ndash; 기존 댓글 내용 &ndash;&gt;
+                                <div class="box-re-comment">
+                                    &lt;!&ndash; 대댓글 버튼 &ndash;&gt;
+                                    <button class="reply-btn" onclick="toggleReplyInput(this)">답글쓰기</button>
+                                    &lt;!&ndash; 대댓글 입력 필드 (초기에는 숨겨짐) &ndash;&gt;
+                                    <div class="box-re-comment-btn" style="display: none;">
+                                        <textarea class="re-textarea" placeholder="댓글을 남겨보세요"></textarea>
+                                        <button class="re-submit-btn" onclick="submitReply(this)">완료</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+-->
+                    </div> <!--댓글영역 닫는 태그 -->
+
+                    <!-- 메인 신고 모달 -->
+                    <article class="wrapper-report">
+                        <form class="report">
+                            <div class="box-report-input">
+                                <div class="report-title-r">신고하기</div>
+                                <label for="a"><input type="radio" name="report-reason" value="" id="a" />욕설 및 비방</label
+                      >
+                      <label for="b"><input type="radio" name="report-reason" value="" id="b" />스팸</label>
+                                <label for="c"><input type="radio" name="report-reason" value="" id="c" />음란물</label>
+                                <label for="d"><input type="radio" name="report-reason" value="" id="d" />중복 게시물 도배</label
+                      >
+                      <label for="e"
+                        ><input type="radio" name="report-reason" value="" id="e" />부정확한 정보</label
+                      >
+                      <label for="f"><input type="radio" name="report-reason" value="" id="f" />도용</label>
+                                <label for="g"><input type="radio" name="report-reason" value="" id="g" />기타
+                        <input
+                          type="text"
+                          name="report-input"
+                          class="report-input"
+                          maxlength="100"
+                          placeholder="기타 사유를 적어주세요."
+                        />
+                      </label>
+                                <div class="report-btn-box">
+                                    <button class="report-btn-report">신고하기</button>
+                                    <button class="report-btn-close">닫기</button>
+                                </div>
+                            </div>
+                        </form>
+                    </article>
+                    <!-- 신고모달 닫기  -->
+>>>>>>> dam
                 </div>
 
+<<<<<<< HEAD
             </div>
             <!--2. 타이틀 ----------------->
             <div class="wrapper-title" th:text="${boards.boardTitle}"
@@ -298,6 +380,12 @@
 
 <footer></footer>
 </div>
+=======
+        </main>
+
+    <div th:replace="~{/fragment/footer::footer}"></div>
+        </div>
+>>>>>>> dam
 
 
 

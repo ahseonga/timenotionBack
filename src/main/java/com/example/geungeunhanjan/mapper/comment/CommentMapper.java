@@ -21,7 +21,8 @@ public interface CommentMapper {
 //    Slice<CommentListDTO> selectCommentSlice (@Param("criteria") Criteria criteria, @Param("boardId")Long boardId);
     List<CommentListDTO> selectCommentSlice (@Param("criteria") Criteria criteria, @Param("boardId")Long boardId);
 
-
+    // 4. 댓글 삭제
+    void deleteComment(Long commentId);
 
 
 

@@ -48,10 +48,15 @@ public class CommentApi {
                 commentService.findCommentSlice(criteria, boardId);
         return slice;
     }
-    // 4. 댓글 수정
+    // 4. 댓글 삭제
+     @DeleteMapping("/v1/replies/{commentId}")
+    public void removeComment(@PathVariable("commentId") Long commentId){
+        commentService.removeComment(commentId);
+     }
+
+
+    // 5. 댓글 수정
     /* @PatchMapping()*/
-    // 5. 댓글 삭제
-    /* @DeleteMapping()*/
 
 
 }
