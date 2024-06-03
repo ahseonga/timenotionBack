@@ -106,7 +106,7 @@ public class CommunityController {
 
         //로그인 한 유저의 userId 를 같이 보냄
         //userId = 1인 회원만 작성 삭제 가능
-        Long loggedInUserId = (Long) request.getSession().getAttribute("userId");
+        Long loggedInUserId = (Long) request.getSession().getAttribute("uniId");
         model.addAttribute("loggedInUserId", loggedInUserId);
 
         //공지 리스트 정보 가져오기
@@ -161,13 +161,17 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
+<<<<<<< HEAD
                                          inquiryWriteDTO, @SessionAttribute("uniId") Long userId){
+=======
+                                         inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
+>>>>>>> 4fade964814e941722e86e1990d15f09de4f9f23
 
-        String userNickname = userService.selectUserNickname(userId);
+        String userNickname = userService.selectUserNickname(uniId);
         ;
 
-        inquiryWriteDTO.setUserId(userId);
-        System.out.println(userId);
+        inquiryWriteDTO.setUserId(uniId);
+        System.out.println(uniId);
         inquiryWriteDTO.setUserNickname(userNickname);
 //        inquiryDTO.setInquiryCreatedDate();
         LocalDateTime currentDateTime = LocalDateTime.now();
