@@ -1,22 +1,24 @@
-2024-06-03 21:43:46.418 - DBeaver 23.2.5.202311191730 is starting
-2024-06-03 21:43:46.419 - OS: Windows 11 10.0 (amd64)
-2024-06-03 21:43:46.419 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
-2024-06-03 21:43:46.419 - Install path: 'C:\Program Files\DBeaver'
-2024-06-03 21:43:46.419 - Instance path: 'file:/D:/web_1300_jyg/geungeunhanjan/workspace/geungeunhanjan/ERD/General/'
-2024-06-03 21:43:46.420 - Memory available 64Mb/1024Mb
-2024-06-03 21:43:46.431 - Create display
-2024-06-03 21:43:46.562 - Initializing DBeaver 23.2.5
-2024-06-03 21:43:46.562 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 23.2.5.202311191730
-2024-06-03 21:43:46.563 - Initialize desktop platform...
-2024-06-03 21:43:46.771 - BounceCastle bundle found. Use JCE provider BC
+2024-06-03 22:02:09.587 - DBeaver 23.2.5.202311191730 is starting
+2024-06-03 22:02:09.588 - OS: Windows 11 10.0 (amd64)
+2024-06-03 22:02:09.588 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
+2024-06-03 22:02:09.588 - Install path: 'C:\Program Files\DBeaver'
+2024-06-03 22:02:09.589 - Instance path: 'file:/D:/web_1300_jyg/geungeunhanjan/workspace/geungeunhanjan/ERD/General/'
+2024-06-03 22:02:09.589 - Memory available 64Mb/1024Mb
+2024-06-03 22:02:09.600 - Create display
+2024-06-03 22:02:09.732 - Initializing DBeaver 23.2.5
+2024-06-03 22:02:09.733 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 23.2.5.202311191730
+2024-06-03 22:02:09.734 - Initialize desktop platform...
+2024-06-03 22:02:09.918 - BounceCastle bundle found. Use JCE provider BC
 > Start Core File Systems [org.eclipse.core.filesystem 1.10.100.v20230717-1727]
 > Start Core Resource Management [org.eclipse.core.resources 3.19.100.v20230814-1312]
 > Start Team Support Core [org.eclipse.team.core 3.10.100.v20230726-0617]
 > Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.119.202311191730]
-2024-06-03 21:43:47.092 - Initialize base platform...
-2024-06-03 21:43:47.112 - Platform initialized (549ms)
-2024-06-03 21:43:47.168 - Starting instance server at http://localhost:61925
-2024-06-03 21:43:47.189 - Run workbench
+2024-06-03 22:02:10.168 - Recovering project 'General' metadata D:\web_1300_jyg\geungeunhanjan\workspace\geungeunhanjan\ERD\General\General\.project
+2024-06-03 22:02:10.224 - Initialize base platform...
+2024-06-03 22:02:10.246 - Platform initialized (512ms)
+2024-06-03 22:02:10.504 - Error accessing instance server: java.net.ConnectException
+2024-06-03 22:02:10.522 - Starting instance server at http://localhost:62228
+2024-06-03 22:02:10.531 - Run workbench
 > Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.134.202311191730]
 > Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.17.100.v20230727-0604]
 > Start Eclipse Application Services [org.eclipse.e4.core.services 2.4.100.v20230708-0809]
@@ -30,59 +32,48 @@
 > Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.16.100.v20230801-1255]
 > Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.0.v20230429-1914]
 > Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.100.v20230727-0604]
-2024-06-03 21:43:56.361 - Configure workbench window
-> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.109.202311191730]
-2024-06-03 21:43:56.531 - Total database drivers: 107 (107)
-> Start Help System Core [org.eclipse.help 3.10.100.v20230726-0617]
-2024-06-03 21:43:56.681 - Create actions
-2024-06-03 21:43:56.686 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
-2024-06-03 21:43:56.686 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
-2024-06-03 21:43:56.687 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
 > Start jna [com.sun.jna 5.13.0.v20230812-1000]
-2024-06-03 21:43:58.169 - Initialize workbench window
-2024-06-03 21:43:58.177 - Finish initialization
+2024-06-03 22:02:12.407 - Configure workbench window
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.109.202311191730]
+2024-06-03 22:02:12.596 - Total database drivers: 107 (107)
+> Start Help System Core [org.eclipse.help 3.10.100.v20230726-0617]
+2024-06-03 22:02:12.708 - Create actions
+2024-06-03 22:02:12.713 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2024-06-03 22:02:12.714 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2024-06-03 22:02:12.714 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+2024-06-03 22:02:13.236 - Initialize workbench window
+2024-06-03 22:02:13.243 - Finish initialization
 > Start Default Text Editor [org.eclipse.ui.editors 3.17.0.v20230821-1342]
 > Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.17.100.v20230821-0745]
-> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.119.202311191730]
 > Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.119.202311191730]
-> Start DBeaver SQL Terminal [org.jkiss.dbeaver.ui.editors.sql.terminal 1.0.95.202311191730]
-> Start Core Compare Support [org.eclipse.compare.core 3.8.100.v20230726-0617]
-> Start Internet Connection Management UI [org.eclipse.ui.net 1.5.100.v20230726-0617]
-> Start Internet Connection Management [org.eclipse.core.net 1.5.100.v20230630-1232]
-> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.156.202311191730]
-> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.125.202311191730]
 > Start GEF Classic Draw2d [org.eclipse.draw2d 3.14.0.202308311129]
 > Start GEF Classic GEF (MVC) [org.eclipse.gef 3.15.0.202308311129]
 > Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.79.202311191730]
 > Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.79.202311191730]
-> Start Console [org.eclipse.ui.console 3.13.0.v20230726-0617]
-> Start Debug Core [org.eclipse.debug.core 3.21.100.v20230731-1425]
-2024-06-03 21:44:01.309 - Connect with 'localhost' (oracle_thin-18fd7e5558d-74144b29be7fd06c)
-> Start DBeaver JDBC Model [org.jkiss.dbeaver.model.jdbc 1.0.12.202311191730]
-> Start DBeaver Oracle Model [org.jkiss.dbeaver.ext.oracle 2.1.204.202311191730]
-2024-06-03 21:44:01.363 - Execution context opened (localhost; Main; 0)
-2024-06-03 21:44:01.876 - Execution context opened (localhost; Metadata; 1)
-2024-06-03 21:44:01.950 - Connected (oracle_thin-18fd7e5558d-74144b29be7fd06c, Oracle JDBC driver [11.2.0.2.0])
-2024-06-03 21:44:01.954 - Execution context opened (localhost; SQLEditor <Script.sql>; 2)
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.119.202311191730]
+> Start Internet Connection Management UI [org.eclipse.ui.net 1.5.100.v20230726-0617]
+> Start Internet Connection Management [org.eclipse.core.net 1.5.100.v20230630-1232]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.156.202311191730]
+> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.125.202311191730]
+2024-06-03 22:02:17.244 - Open [https://dbeaver.io/product/version.xml]
+> Start DBeaver UI Editors - Connections [org.jkiss.dbeaver.ui.editors.connection 1.0.110.202311191730]
 > Start DBeaver Tasks - Native Tools UI [org.jkiss.dbeaver.tasks.native.ui 1.0.97.202311191730]
 > Start DBeaver Oracle UI [org.jkiss.dbeaver.ext.oracle.ui 1.0.106.202311191730]
 > Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.97.202311191730]
-2024-06-03 21:49:22.203 - Can't get column 'EXTERNAL_NAME': Invalid column name
-2024-06-03 21:49:22.204 - Can't get column 'ACCOUNT_STATUS': Invalid column name
-2024-06-03 21:49:22.204 - Can't get column 'LOCK_DATE': Invalid column name
-2024-06-03 21:49:22.204 - Can't get column 'EXPIRY_DATE': Invalid column name
-2024-06-03 21:49:22.204 - Can't get column 'DEFAULT_TABLESPACE': Invalid column name
-2024-06-03 21:49:22.205 - Can't get column 'TEMPORARY_TABLESPACE': Invalid column name
-2024-06-03 21:49:22.205 - Can't get column 'PROFILE': Invalid column name
-2024-06-03 21:49:22.205 - Can't get column 'INITIAL_RSRC_CONSUMER_GROUP': Invalid column name
-2024-06-03 21:49:36.583 - Execution context opened (localhost; SQLEditor <Script-1.sql>; 3)
-> Start DBeaver SQL Language Semantic Model [org.jkiss.dbeaver.model.lsm 1.0.14.202311191730]
-> Start DBeaver SQL Server Model [org.jkiss.dbeaver.ext.mssql 1.0.213.202311191730]
-> Start DBeaver SQLite Model [org.jkiss.dbeaver.ext.sqlite 1.0.168.202311191730]
-> Start DBeaver Generic Plug-in [org.jkiss.dbeaver.ext.generic 2.3.205.202311191730]
-2024-06-03 21:50:41.437 - SQL Error [2449] [72000]: ORA-02449: unique/primary keys in table referenced by foreign keys
+> Start DBeaver SQL Terminal [org.jkiss.dbeaver.ui.editors.sql.terminal 1.0.95.202311191730]
+> Start Core Compare Support [org.eclipse.compare.core 3.8.100.v20230726-0617]
+> Start Console [org.eclipse.ui.console 3.13.0.v20230726-0617]
+> Start Debug Core [org.eclipse.debug.core 3.21.100.v20230731-1425]
+2024-06-03 22:02:35.776 - Connect with 'localhost' (oracle_thin-18fd7e5558d-74144b29be7fd06c)
+> Start DBeaver JDBC Model [org.jkiss.dbeaver.model.jdbc 1.0.12.202311191730]
+> Start DBeaver Oracle Model [org.jkiss.dbeaver.ext.oracle 2.1.204.202311191730]
+2024-06-03 22:02:35.827 - Execution context opened (localhost; Main; 0)
+2024-06-03 22:02:36.285 - Execution context opened (localhost; Metadata; 1)
+2024-06-03 22:02:36.364 - Connected (oracle_thin-18fd7e5558d-74144b29be7fd06c, Oracle JDBC driver [11.2.0.2.0])
+2024-06-03 22:02:36.404 - Execution context opened (localhost; SQLEditor <Script.sql>; 2)
+2024-06-03 22:02:41.817 - SQL Error [955] [42000]: ORA-00955: name is already used by an existing object
 
-org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [2449] [72000]: ORA-02449: unique/primary keys in table referenced by foreign keys
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [955] [42000]: ORA-00955: name is already used by an existing object
 
 	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
 	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:607)
@@ -97,7 +88,7 @@ org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [2449] [72000]: ORA-02449:
 	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5151)
 	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
-Caused by: java.sql.SQLException: ORA-02449: unique/primary keys in table referenced by foreign keys
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00955: name is already used by an existing object
 
 	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
 	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
@@ -114,42 +105,6 @@ Caused by: java.sql.SQLException: ORA-02449: unique/primary keys in table refere
 	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
 	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
 	... 12 more
-2024-06-03 21:51:23.590 - Error binding callable statement parameters from metadata: Unsupported feature
-2024-06-03 21:51:23.590 - Error obtaining output parameters from metadata: Unsupported feature
-2024-06-03 21:51:23.590 - Can't obtain procedure metadata nor jdbc metadata
-2024-06-03 21:51:23.666 - SQL Error [942] [42000]: ORA-00942: table or view does not exist
-
-
-Error position: line: 14 pos: 11
-org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [942] [42000]: ORA-00942: table or view does not exist
-
-	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:607)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:510)
-	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:190)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:517)
-	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:971)
-	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4134)
-	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
-	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:190)
-	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
-	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5151)
-	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
-Caused by: java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
-
-	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
-	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
-	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:837)
-	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
-	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
-	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:523)
-	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:193)
-	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:999)
-	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1315)
-	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:1890)
-	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:1855)
-	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:304)
-	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
-	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
-	... 12 more
+2024-06-03 22:02:42.025 - Error binding callable statement parameters from metadata: Unsupported feature
+2024-06-03 22:02:42.025 - Error obtaining output parameters from metadata: Unsupported feature
+2024-06-03 22:02:42.025 - Can't obtain procedure metadata nor jdbc metadata

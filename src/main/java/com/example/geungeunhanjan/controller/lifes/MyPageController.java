@@ -44,13 +44,9 @@ public class MyPageController {
         if (uniId == null) {
             return "redirect:/user/login";
         }
-<<<<<<< HEAD
-
         // 사용자 게시판 목록 및 생애 주기별 게시판 목록 가져오기
-        List<BoardVO> boards = boardService.selectBoard(userId);
-=======
         List<BoardVO> boards = boardService.selectBoard(uniId);
->>>>>>> main
+
         model.addAttribute("boards", boards);
         System.out.println(boards);
 

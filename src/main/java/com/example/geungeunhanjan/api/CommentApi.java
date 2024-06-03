@@ -27,11 +27,11 @@ public class CommentApi {
                              HttpServletRequest request){
         /* 요청 본문에서 ReplyWriteDTO 받아오고, url 경로에서 boardId를 추출하여 boardId 파라미터에 바인딩
         *  세션에서 userId 받아줌 */
-        Long userId = (Long) request.getSession().getAttribute("userId");
-        System.out.println(userId);
+        Long uniId = (Long) request.getSession().getAttribute("uniId");
+        System.out.println(uniId);
         commentWriteDTO.setBoardId(boardId);
-        commentWriteDTO.setUserId(userId);
-        System.out.println("boardID : " + boardId + " userId : " + userId);
+        commentWriteDTO.setUserId(uniId);
+        System.out.println("boardID : " + boardId + " uniId : " + uniId);
         commentService.registComment(commentWriteDTO);
     }
     // 2. 댓글 목록 뿌리기
