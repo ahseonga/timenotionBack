@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.mapper.board;
 
+import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,17 @@ class BoardMapperTest {
     @Test
     public void writerUserBirthTest() {
         System.out.println(boardMapper.selectUserBirth(1L));
+    }
+
+    @Test
+    void test(){
+        Criteria criteria = new Criteria();
+
+
+        System.out.println(criteria);
+
+        System.out.println(boardMapper.everyLifeagepaging(criteria));
+
     }
 
 }

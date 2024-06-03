@@ -16,14 +16,6 @@ function filterContent() {
     });
 }
 
-// 최신순, 인기순 , 조회순 페이징 변경 //
-document.addEventListener('DOMContentLoaded', (event) => {
-    const sortSelect = document.getElementById('sortOption');
-    sortSelect.addEventListener('change', function() {
-        document.getElementById('sortForm').submit();
-    });
-});
-
 
 
 

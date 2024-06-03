@@ -60,7 +60,6 @@ import java.util.stream.Collectors;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
-
     private final InquiryMapper inquiryMapper;
     private final UserService userService;
 

@@ -342,16 +342,6 @@ FROM
 ORDER BY 
     b.BOARD_LIKE_COUNT DESC;
    
-   
-SELECT *
-FROM 
-    GGHJ_BOARD b JOIN GGHJ_USER u
-    ON u.user_id = b.USER_ID 
-ORDER BY 
-    b.BOARD_LIKE_COUNT DESC;
-   
-   
-   
    CREATE TABLE GGHJ_FOLLOW
 (
     FOLLOW_ID        NUMBER PRIMARY KEY,
@@ -425,16 +415,10 @@ INSERT INTO GGHJ_FOLLOW (
     4
 );
 
- SELECT *
- FROM GGHJ_BOARD G
-    JOIN GGHJ_UNI U
-       ON G.USER_ID = U.UNI_ID
- WHERE G.BOARD_ID = #{userId};
-
+   
    
 
 
-SELECT * FROM gghj_kakao;
 
 
 
@@ -442,20 +426,11 @@ SELECT * FROM gghj_kakao;
 
 
 
-            SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
-                   COALESCE(U.USER_NICKNAME, K.NAME) AS NICKNAME,
-                   F.USER_FILE_PROFILE_NAME,
-                   F.USER_FILE_PROFILE_SOURCE,
-                   F.USER_FILE_PROFILE_UUID,
-                   B.BOARD_ID,
-                   B.USER_ID
-            FROM GGHJ_BOARD B
-            JOIN GGHJ_UNI UNI ON B.USER_ID = UNI.UNI_ID
-            LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
-            LEFT JOIN GGHJ_KAKAO K ON UNI.KAKAO_ID = K.KAKAO_ID
-            LEFT JOIN GGHJ_USER_FILE F ON U.USER_ID = F.USER_ID;
 
-           
-           SELECT COUNT(*)FROM GGHJ_BOARD; 
+
+
+
+
+
 
 

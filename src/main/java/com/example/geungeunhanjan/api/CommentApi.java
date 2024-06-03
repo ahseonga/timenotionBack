@@ -44,8 +44,8 @@ public class CommentApi {
     public Slice<CommentListDTO> commentListSlice(@PathVariable("boardId") Long boardId,
                                                   int page){
         Criteria criteria = new Criteria(page, 10);
-        Slice<CommentListDTO> slice =
-                commentService.findCommentSlice(criteria, boardId);
+        Slice<CommentListDTO> slice =  commentService.findCommentSlice(criteria, boardId);
+        System.out.println(boardId);
         return slice;
     }
     // 4. 댓글 수정

@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>남이보는 디테일</title>
-    <link rel="stylesheet" href="./../../css/myLife/detail-my3.css">
-    <link rel="stylesheet" href="./../../css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/myLife/detail-my3.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./../../js/myLife/detail.my3.js"></script>
-    <link rel="stylesheet" href="./../../css/main/report-modal.css">
-    <script defer src="./../../js/fragment/headerFetch.js"></script>
-    <script defer src="./../../js/fragment/footerFetch.js"></script>
+    <script defer th:src="@{/js/myLife/detail.my3.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/main/report-modal.css}">
+    <script defer th:src="@{/js/fragment/headerFetch.js}"></script>
+    <script defer th:src="@{/js/fragment/footerFetch.js}"></script>
 
     <body>
 <div th:replace="~{/fragment/header::header}"></div>
@@ -21,26 +21,23 @@
             <main>
                 <div class="container">
                     <!--1. 상단 날짜 / 수정 삭제 버튼 ----------------->
-                    <div class="wrapper-date-etc">
-                        <div class="box-date-left">
-                            2024.11.11
-                        </div>
-                     
+                    <div class="wrapper-date-etc" >
+                        작성일<div class="box-date-left" th:text="${board.getBoardCreatedDate}"></div>
                     </div>
                     <!--2. 타이틀 ----------------->
-                    <div class="wrapper-title">
-                        <h3>제목 입니다</h3>
+                    <div class="wrapper-title" th:text="${board.boardTitle}">
+                        <h3></h3>
                     </div>
                     <!--3. 프로필 영역 / 하트 / 공개  ----------------->
                     <div class="wrapper-profile">
-                        <div class="box-profile-img"><a href="./../../HTML/myLife/userpage.html"><img src="./../../img/myLife/sas detail_comment1.jpg" alt=""></a></div>
-                        <div class="box-profile-nickname"><a href="./../../HTML/myLife/userpage.html">닉네임</div></a>
-                        <div><img src="./../../img/myLife/sas detail_heart.png" alt="하트" class="box-profile-heart" id="heartImage"></div>
+                        <div class="box-profile-img"><a th:href="@{/myLife/userpage.html}"><img th:src="@{/img/myLife/sas detail_comment1.jpg}" alt=""></a></div>
+                        <div class="box-profile-nickname"><a href="./../../HTML/myLife/userpage.html" th:text="${board.userId}"></a></div>
+                        <div><img th:src="@{/img/myLife/sas detail_heart.png}" alt="하트" class="box-profile-heart" id="heartImage"></div>
                     </div>
                     <div class="bold-underline"></div>
                     <!--4. 컨텐츠 영역  ----------------->
                     <div class="wrapper-content">
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div name="" id="boardContent" cols="30" rows="10" th:text="${board.boardContent}"></div>
                     </div>
                     <div class="bold-underline"></div>
                     <!-- 00. 댓글영역 (까먹고 나중에 추가함;;) -->
@@ -163,7 +160,6 @@
                                 <div class="wrapper--re-reply"> <!-- 대댓글 -->
                                     <!-- 프로필사진 이름 태그 -- 삭제 날짜 ... -->
                                     <div class="box-main-reply-top">
-        
                                         <a href="#" class="reply-top-left">
                                             <div class="box-profile"><img src="./../../img/main/어린시절 (6).jpg" alt=""></div>
                                             <div><span class="nickname">김길우</span></div>
@@ -271,7 +267,7 @@
 
 
 
-        </div>
+<!--        </div>-->
         </main>
 
         <footer></footer>

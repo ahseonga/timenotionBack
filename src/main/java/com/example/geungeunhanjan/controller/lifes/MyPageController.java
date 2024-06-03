@@ -57,8 +57,6 @@ public class MyPageController {
 //        model.addAttribute("boardVO", new BoardVO());
         return "myLife/detail_writingMode";
     }
-
-
     //나의 일대기 게시판 작성하기
     @PostMapping("/detail_writingMode")
     public String detailWriting(BoardVO boardVO, @SessionAttribute("userId") Long userId,
@@ -103,7 +101,6 @@ public class MyPageController {
         redirectAttributes.addFlashAttribute("boardId", boardVO.getBoardId());
         return "redirect:/myLife";
     }
-
 
     //글쓰기(나의 일대기) 상세페이지로 이동
     @GetMapping("/detail-my")
@@ -216,9 +213,6 @@ public class MyPageController {
 
         return "redirect:/myLife/mypageEditMemberInformation";
     }
-
-
-
     // 알림으로
     @GetMapping("/mypageNotification")
     public String mypageNotification(){

@@ -6,7 +6,6 @@ import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 
 import java.time.LocalDateTime;
@@ -46,22 +45,24 @@ public interface BoardMapper {
     List<BoardVO> everyLifeBoardbyViews();
 
     // 모두의 일대기 리스트 + 페이징
-    List<BoardDTO> everyLifeagepaging(@Param("criteria") Criteria criteria, @Param("boardLifeCycle")String boardLifeCycle);
+    List<BoardDTO> everyLifeagepaging(Criteria criteria);
+
+    int everyLifeFindTotal(); //selectTotal
 
     // 유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭시 페이지 이동
-    int agePageMove(String boardLifeCycle);
+//    int agePageMove(String boardLifeCycle);
 
 //     최신순, 인기순 , 좋아요 순 게시판 정렬
     // 1) 조회수 게시판 정렬
-    List<BoardVO> postarrayviews();
+    List<BoardDTO> postarrayviews();
 
     // 2) 최신순 게시판 정렬
-    List<BoardVO> postarrayLatest();
+    List<BoardDTO> postarrayLatest();
 
     // 3) 인기순 게시판 정렬
-    List<BoardVO> postarrayPopularity();
+    List<BoardDTO> postarrayPopularity();
 
-
+    // 그 main 4칸 짜리 게시물
     List<BoardMainDTO> mainBoardbyViews();
 
     // 메인 배너 왼쪽거
@@ -69,6 +70,9 @@ public interface BoardMapper {
 
     // 메인 배너 오른쪽거 2개
     List<BoardMainDTO> mainRightBannerSelect();
+
+    // 모두의 일대기 -> 상세페이지 넘어가기
+    Optional<BoardVO> everyLifeDetail(Long UserId);
 
 }
 
