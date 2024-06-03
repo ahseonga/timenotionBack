@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 @Component
 public class KakaoDTO {
-    private Long kakaoUserId;
+    private Long kakaoId;
     //    private String kakaoUserEmail;
 //    private String kakaoPassword;
 //    private String kakaoUserNickname;
@@ -20,5 +20,5 @@ public class KakaoDTO {
     private String providerId; // 제공자의 사용자 고유id
     private LocalDateTime createAt; //생성 시간
     private LocalDateTime updateAt; //수정 시간
-    private LocalDateTime birthdate;
+    private LocalDateTime kakaoBirth;
 }

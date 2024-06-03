@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 @Component
 @Data
 public class KakaoVO {
-    private Long kakaoUserId;
 //    private String kakaoUserEmail;
 //    private String kakaoPassword;
 //    private String kakaoUserNickname;
 //    private LocalDateTime kakaoUserBirth;
 //    private Long userId;
+    private Long kakaoId;
     private String name; //사용자이름
     private String profilePic; //프로필사진 url
     private String provider; //인증 제공자
