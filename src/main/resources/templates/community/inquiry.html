@@ -32,7 +32,7 @@
                 <div class="modal-main-img">
                     <img src="./../../img/main/timenotion.png" alt="">
                 </div>
-                <div class="inquiry-modal-nickname">
+                <div class="inquiry-modal-nickname" th:text="${session.userNickname}">
                     작성자 : 닉네임
                 </div>
                 <form action="/community/inquiry/insertInquiry" method="post">
