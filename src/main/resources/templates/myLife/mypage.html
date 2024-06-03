@@ -12,14 +12,14 @@
 </head>
 
 <body>
-   <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
-   <div th:replace="~{/fragment/header::header}"></div>
-  <!-- 헤더 끝-========================================================================== -->
+<!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
+<div th:replace="~{/fragment/header::header}"></div>
+<!-- 헤더 끝-========================================================================== -->
 
-  <main>
-    <div class="container">
+<main>
+  <div class="container">
 
-    <div class="first-container">   
+    <div class="first-container">
       <div class="profile-background">
         <div class="profile-background-dark"></div>
         <div class="profile-bg-img-box"> <img src="./../../img/myLife/jyg-background.png" alt=""></div>
@@ -96,11 +96,11 @@
             <div class="list-one-detail">
               <div class="title">
                 <h3 th:text="${board.boardTitle}"></h3>
-                 <p th:text="|조회수 : ${board.boardViewCount}|"></p>
+                <p th:text="|조회수 : ${board.boardViewCount}|"></p>
               </div>
               <div class="list-date">
-<!--                <p th:text="${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 HH시 mm분')}"></p>-->
-               <p th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 ')}|"></p>
+                <!--                <p th:text="${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 HH시 mm분')}"></p>-->
+                <p th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 ')}|"></p>
               </div>
               <div class="list-text">
                 <p th:text="${board.boardContent}">
@@ -114,36 +114,36 @@
       </div>
     </div>
     <div class="fifth-container">
-      
-        <ul class="pagination">
-          <li>
-            <a href=""><</a>
-          </li>
-          <li>
-            <a href="">1</a>
-          </li>
-          <li>
-            <a href="">2</a>
-          </li>
-          <li>
-            <a href="">3</a>
-          </li>
-          <li>
-            <a href="">4</a>
-          </li>
-          <li>
-            <a href="">5</a>
-          </li>
-          <li>
-            <a href="">></a>
-          </li>
-        </ul>
-      
+
+      <ul class="pagination">
+        <li>
+          <a href=""><</a>
+        </li>
+        <li>
+          <a href="">1</a>
+        </li>
+        <li>
+          <a href="">2</a>
+        </li>
+        <li>
+          <a href="">3</a>
+        </li>
+        <li>
+          <a href="">4</a>
+        </li>
+        <li>
+          <a href="">5</a>
+        </li>
+        <li>
+          <a href="">></a>
+        </li>
+      </ul>
+
     </div>
-      <div class="six-container"><a class="another--btn" th:href="@{/myLife/detail_writingMode}"><img th:src="@{/img/main/write-white.png}" alt=""></a></div>
+    <div class="six-container"><a class="another--btn" th:href="@{/myLife/detail_writingMode}"><img th:src="@{/img/main/write-white.png}" alt=""></a></div>
   </div>
-  </main>
-     <div th:replace="~{/fragment/footer::footer}"></div>
+</main>
+<div th:replace="~{/fragment/footer::footer}"></div>
 
 
 </body>

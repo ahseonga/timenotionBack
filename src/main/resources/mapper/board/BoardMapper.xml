@@ -217,11 +217,12 @@
         WHERE BOARD_ID = #{boardId}
     </delete>
 
-    <!-- 마이 페이지 게시판 라이프 사이클 별 조회 -->
-    <select id="selectBoardLifeCycle" resultType="BoardVO">
-        SELECT BOARD_TITLE, BOARD_VIEW_COUNT, BOARD_CREATED_DATE, BOARD_CONTENT
+    <!-- 마이 페이지 내가 쓴 게시판 라이프 사이클 별 조회 -->
+    <select id="selectBoardLifeCycle" parameterType="BoardVO" resultType="BoardVO">
+        SELECT *
         FROM GGHJ_BOARD
         WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        AND USER_ID = #{userId}
     </select>
 
     <!--키워드 검색(안에 'a'는 임시값)-->
@@ -243,9 +244,9 @@
         ORDER BY BOARD_CREATED_DATE DESC
     </select>
 
-    <select id="selectbyLifeCycle" resultType="BoardVO">
-        SELECT * FROM GGHJ_BOARD WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
-    </select>
+<!--    <select id="selectbyLifeCycle" resultType="BoardVO">-->
+<!--        SELECT BOARD_TITLE, BOARD_VIEW_COUNT, BOARD_CREATED_DATE, BOARD_CONTENT FROM GGHJ_BOARD WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}-->
+<!--    </select>-->
 
         <!-- 모두의 일대기 게시판 글 -->
     <select id="everyLifeBoardbyViews" resultType="BoardVO">

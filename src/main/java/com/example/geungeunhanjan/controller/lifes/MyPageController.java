@@ -9,6 +9,7 @@ import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.service.MyPageService;
 import com.example.geungeunhanjan.service.board.BoardService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 
@@ -24,6 +25,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
+
 // myLife로 가는 컨트롤러
 @Controller
 @RequestMapping("/myLife")
@@ -32,6 +34,7 @@ public class MyPageController {
 
     private final BoardService boardService;
     private final MyPageService myPageService;
+    BoardVO boardVO;
 
     // 마이페이지에서 내가 쓴 게시글 리스트 뽑기
     @GetMapping
@@ -41,10 +44,42 @@ public class MyPageController {
         if (userId == null) {
             return "redirect:/user/login";
         }
+
+        // 사용자 게시판 목록 및 생애 주기별 게시판 목록 가져오기
         List<BoardVO> boards = boardService.selectBoard(userId);
         model.addAttribute("boards", boards);
+        System.out.println(boards);
+
+//        // 초기 생애 주기 데이터 로드 (예: 전체 목록)
+//        List<BoardVO> lifeCycle = boardService.selectLifeCycle(boardVO.getBoardLifeCycle(), boardVO.getUserId());
+//        model.addAttribute("lifeCycle", lifeCycle);
+//        System.out.println("GetMapping ");
         return "myLife/mypage";
     }
+
+//    @PostMapping()
+//    @ResponseBody
+//    public Map<String, Object> mypage(HttpSession session, @RequestBody Map<String, Object> requestBody) {
+//        Long userId = (Long) session.getAttribute("userId");
+//
+//        // 라이프사이클 상태 가져오기
+//        String cycle = (String) requestBody.get("cycle");
+//        System.out.println("cycle : " + cycle);
+//        List<BoardVO> lifeCycles = boardService.selectLifeCycle(cycle, userId);
+//        System.out.println("lifeCycles : " + lifeCycles);
+//
+//        // 응답 데이터를 담을 맵 생성
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("lifeCycles", lifeCycles);
+//        response.put("cycle", cycle);
+//
+//        System.out.println(cycle);
+//        System.out.println(lifeCycles);
+//
+//        return response;
+//    }
+
+
 
     //나의 일대기 글쓰기 페이지로 이동
     @GetMapping("/detail_writingMode")
