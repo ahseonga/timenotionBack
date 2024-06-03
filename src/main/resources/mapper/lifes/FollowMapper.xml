@@ -128,11 +128,6 @@
     <insert id="insertFollow" parameterType="FollowVO">
         INSERT INTO GGHJ_FOLLOW (FOLLOW_ID , FOLLOW_TO_USER, FOLLOW_FROM_USER)
         VALUES(#{followId},#{followToUser},#{followFromUser})
-<<<<<<< HEAD
-=======
-
-
->>>>>>> ed68d907c87f44a6a059d6049554f4832ab596df
     </insert>
     <!--    남의 페이지 해당 유저 언팔로우 하기 -->
     <delete id="deleteFollow" parameterType="Long">
