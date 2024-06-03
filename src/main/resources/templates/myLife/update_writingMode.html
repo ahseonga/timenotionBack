@@ -21,17 +21,17 @@
 
     <!-- 헤더 끝-========================================================================== -->
     <main>
-        <form th:action="@{/myLife/detail_writingMode}" method="post" enctype="multipart/form-data">
+        <form th:action="@{/myLife/update_writingMode(boardId=${boards.boardId})}" method="post" enctype="multipart/form-data">
             <!-- 메인 컨텐츠 영역 -->
             <div class="container">
                 <!-- 1. 타이틀 -->
                 <div class="wrapper-title">
-                    제목 : <input class="title" type="text" name="boardTitle"/>
+                    제목 : <input class="title" type="text" name="boardTitle" th:value="${boards.boardTitle}"/>
                 </div>
                 <!-- 2. 년도 / 공개여부 셀렉트박스 -->
                 <div class="wrapper-select-box">
 
-                    <input id="select-year-detail" name="boardYear" type="text" placeholder="ex)1999"
+                    <input id="select-year-detail"  th:value="${boards.boardYear}" type="text" placeholder="ex)1999" readonly
                            oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="4">년
 
 
@@ -55,7 +55,7 @@
 
                 <!-- 3-2. 텍스트 영역 -->
                 <div class="wrapper-add-file">
-                    <textarea id="content-textarea" name="boardContent" placeholder="텍스트입력"></textarea>
+                    <textarea id="content-textarea" name="boardContent" placeholder="텍스트입력" th:text="${boards.boardContent}"></textarea>
                 </div>
                 <hr>
                 <!-- 4. 저장 / 취소 버튼 -->

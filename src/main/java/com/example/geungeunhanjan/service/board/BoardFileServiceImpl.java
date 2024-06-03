@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -20,4 +22,17 @@ public class BoardFileServiceImpl implements  BoardFileService{
 
 
     }
+
+    //게시글에 있는 파일 삭제하기
+    @Override
+    public void removeFile(Long boardId) {
+        boardFileMapper.deleteFile(boardId);
+    }
+
+    //게시판에 있는 파일 리스트 뽑기
+    @Override
+    public List<BoardFileVO> findFileList(Long boardId) {
+        return boardFileMapper.selectFileList(boardId);
+    }
 }
+
