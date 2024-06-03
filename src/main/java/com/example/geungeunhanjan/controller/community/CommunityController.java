@@ -160,13 +160,17 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
+<<<<<<< HEAD
                                          inquiryWriteDTO, @SessionAttribute("uniId") Long userId){
+=======
+                                         inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
+>>>>>>> main
 
-        String userNickname = userService.selectUserNickname(userId);
+        String userNickname = userService.selectUserNickname(uniId);
         ;
 
-        inquiryWriteDTO.setUserId(userId);
-        System.out.println(userId);
+        inquiryWriteDTO.setUserId(uniId);
+        System.out.println(uniId);
         inquiryWriteDTO.setUserNickname(userNickname);
 //        inquiryDTO.setInquiryCreatedDate();
         LocalDateTime currentDateTime = LocalDateTime.now();

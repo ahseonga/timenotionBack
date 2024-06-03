@@ -28,7 +28,6 @@ public interface BoardMapper {
     List<BoardVO> selectbyLifeCycle(String boardLifeCycle);
 
 
-
     //특정 회원의 생일 불러오기
     LocalDateTime selectUserBirth(Long userId);
 
