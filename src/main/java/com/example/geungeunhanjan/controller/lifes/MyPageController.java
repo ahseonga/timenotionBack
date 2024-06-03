@@ -37,7 +37,7 @@ public class MyPageController {
     @GetMapping
     public String mypage(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/user/login";
         }
@@ -61,7 +61,7 @@ public class MyPageController {
 
     //나의 일대기 게시판 작성하기
     @PostMapping("/detail_writingMode")
-    public String detailWriting(BoardVO boardVO, @SessionAttribute("userId") Long userId,
+    public String detailWriting(BoardVO boardVO, @SessionAttribute("uniId") Long userId,
                                 @RequestParam("boardFile") List<MultipartFile> files,
                                 RedirectAttributes redirectAttributes) {
         //현재 사용자가 누군지 정보 선언
@@ -169,7 +169,7 @@ public class MyPageController {
     @GetMapping("/mypageLike")
     public String mypageLike(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/user/login";
         }
@@ -187,7 +187,7 @@ public class MyPageController {
     @GetMapping("/mypageEditMemberInformation")
     public String mypageEditMemberInformation(HttpSession session){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/login";
         }
@@ -200,7 +200,7 @@ public class MyPageController {
     public String mypageEditMemberInformation(UserFileVO userFileVO, RedirectAttributes redirectAttributes, HttpSession session,
                                               @RequestParam("File") List<MultipartFile> file){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/login";
         }
