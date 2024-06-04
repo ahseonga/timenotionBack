@@ -165,15 +165,15 @@
         SELECT
             CASE
                 WHEN u.USER_ID IS NOT NULL THEN u.USER_BIRTH
---                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
---                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
+                WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
+                ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
                 END AS BIRTHDAY
         FROM
             GGHJ_UNI uni
                 LEFT JOIN
             GGHJ_USER u ON uni.USER_ID = u.USER_ID
---                 LEFT JOIN
---             GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
+                LEFT JOIN
+            GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
         WHERE
             uni.UNI_ID = #{uniId}
     </select>
@@ -213,11 +213,12 @@
         WHERE BOARD_ID = #{boardId}
     </delete>
 
-    <!-- 마이 페이지 게시판 라이프 사이클 별 조회 -->
-    <select id="selectBoardLifeCycle" resultType="BoardVO">
-        SELECT BOARD_TITLE, BOARD_VIEW_COUNT, BOARD_CREATED_DATE, BOARD_CONTENT
+    <!-- 마이 페이지 내가 쓴 게시판 라이프 사이클 별 조회 -->
+    <select id="selectBoardLifeCycle" parameterType="BoardVO" resultType="BoardVO">
+        SELECT *
         FROM GGHJ_BOARD
         WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
+        AND USER_ID = #{userId}
     </select>
 
     <!--키워드 검색(안에 'a'는 임시값)-->
@@ -239,9 +240,9 @@
         ORDER BY BOARD_CREATED_DATE DESC
     </select>
 
-    <select id="selectbyLifeCycle" resultType="BoardVO">
-        SELECT * FROM GGHJ_BOARD WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
-    </select>
+<!--    <select id="selectbyLifeCycle" resultType="BoardVO">-->
+<!--        SELECT BOARD_TITLE, BOARD_VIEW_COUNT, BOARD_CREATED_DATE, BOARD_CONTENT FROM GGHJ_BOARD WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}-->
+<!--    </select>-->
 
         <!-- 모두의 일대기 게시판 글 -->
     <select id="everyLifeBoardbyViews" resultType="BoardVO">
@@ -327,5 +328,20 @@
         ORDER BY
             b.BOARD_LIKE_COUNT DESC;
     </select>
+
+    <!-- 특정 글 조회수 -->
+    <update id="incViewCnt" flushCache="true" >
+        UPDATE GGHJ_BOARD
+        SET BOARD_VIEW_COUNT = BOARD_VIEW_COUNT + 1
+        WHERE BOARD_ID = #{boardId}
+    </update>
+
+<!--    게시글 작성자의 닉네임-->
+        <select id="boardUserName" >
+            SELECT USER_NICKNAME
+            FROM GGHJ_
+
+        </select>
+
 
 </mapper>

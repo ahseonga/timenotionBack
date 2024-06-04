@@ -4,8 +4,10 @@ package com.example.geungeunhanjan.controller.lifes;
 import com.example.geungeunhanjan.domain.dto.FollowPage.FollowCriteria;
 import com.example.geungeunhanjan.domain.dto.FollowPage.FollowPage;
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
+import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
+import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.lifes.FollowService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -23,6 +25,7 @@ import java.util.Map;
 public class YourLifeController {
 
     private final FollowService followService;
+    private final BoardService boardService;
     //너의 일대기 클릭시
     @GetMapping()
     public String yourLife(Model model, HttpSession session) {
@@ -71,10 +74,13 @@ public class YourLifeController {
 
         FollowDTO follow = followService.selectFollowDetail(userId);
         UniVO about = followService.selectFollowAbout(userId);
+        List<BoardVO> boards = boardService.selectBoard(userId);
         if(about != null) {
             model.addAttribute("about",about);
         }
 
+
+        model.addAttribute("boards", boards);
         model.addAttribute("follow", follow);
         System.out.println("dddddddddd");
 
@@ -89,7 +95,7 @@ public class YourLifeController {
             @PathVariable("userId") long userId) {
 
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long loginUserId = (Long) request.getSession().getAttribute("userId");
+        Long loginUserId = (Long) request.getSession().getAttribute("uniId");
         System.out.println(loginUserId);
 //        if (loginUserId == null) {
 //            // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
