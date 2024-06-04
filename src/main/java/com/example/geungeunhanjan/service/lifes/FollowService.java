@@ -13,18 +13,7 @@
     @Service
     public interface FollowService {
 
-<<<<<<< HEAD
-        //팔로우의 다음 시퀀스
-        Long getFollowSeqNext();
-        //    팔로워 리스트 조회하기
-        List<FollowDTO> selectFollower(Long uniId);
-        // 팔로우 리스트 클릭시 상세 남의 페이지 조회하기
-        FollowDTO selectFollowDetail(Long userId);
-    //    //    팔로잉 리스트 조회하기
-    //    List<FollowDTO> selectFollowing();
-        //상세페이지 about 글 불러오기
-        UniVO selectFollowAbout(Long userId);
-=======
+
     //팔로우의 다음 시퀀스
     Long getFollowSeqNext();
     //    팔로워 리스트 조회하기
@@ -35,7 +24,7 @@
 //    List<FollowDTO> selectFollowing();
     //상세페이지 about 글 불러오기
     UniVO selectFollowAbout(Long userId);
->>>>>>> main
+
 
         // 팔로우 팔로워의 일기 수 조회하기
         List<FollowDTO> selectBoardCount(Long userId);
