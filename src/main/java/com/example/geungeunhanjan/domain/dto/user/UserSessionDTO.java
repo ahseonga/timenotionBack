@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@RequiredArgsConstructor
 public class UserSessionDTO {
+    private Long userId;
+    private Long kakaoUserId;
     private Long uniId;
     private String userNickname;
 }

@@ -17,5 +17,4 @@ public class InquiryDTO {
     private String inquiryPublic;
     private Long userId;
     private Long loginUserId;
-    private Long uniId;
 }

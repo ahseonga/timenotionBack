@@ -15,5 +15,4 @@ public class InquiryVO {
     private LocalDateTime inquiryCreatedDate;
     private boolean inquiryPublic;
     private Long userId;
-    private Long uniId;
 }

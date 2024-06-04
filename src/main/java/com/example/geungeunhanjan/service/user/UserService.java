@@ -1,14 +1,11 @@
 package com.example.geungeunhanjan.service.user;
 
-import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 @Service
 public interface UserService {
 
@@ -37,8 +34,4 @@ public interface UserService {
 
     // 모든 유저의 uni_id 반환
     Long findUniIdByUserIdOrKakaoId(@Param("userId") long userId, @Param("kakaoId") long kakaoId);
-
-    UserSessionDTO uniUserIdNickname(Long uniId);
-
-    UserSessionDTO uniKakaoIdNickName(String providerId);
 }

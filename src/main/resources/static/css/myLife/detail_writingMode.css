@@ -95,7 +95,6 @@ input::placeholder {
     padding-left: 5px;
     margin-bottom: 10px;
     width: 180%;
-    border-radius: 0px 3px 3px 0px;
 }
 
 .period_1_color1 {
@@ -154,6 +153,7 @@ textarea {
 }
 
 .file-input-label{
+    padding-left: 15px;
     width: 80px;
     cursor: pointer;
     display: block;
@@ -187,7 +187,7 @@ textarea {
 
 .wrapper-title {
     height: 50px;
-    background-color: #e4ebd9;
+    background-color: rgb(230, 227, 227);
     border-radius: 6px;
     font-size: 25px;
     font-weight: bolder;
@@ -198,14 +198,12 @@ textarea {
 
 .title{
     width: 600px;
-    background-color: #e4ebd9;
+    background-color: rgb(230, 227, 227);
     border-radius: 6px;
     font-size: 25px;
     font-weight: bolder;
     line-height: 50px;
     padding-left: 30px;
-    outline: none;
-    border: none;
 }
 
 .wrapper-select-box {
@@ -230,7 +228,6 @@ textarea {
     border-radius: 6px;
     border: 1px solid #a7a7a7;
     padding: 5px 10px;
-    margin-right: 6px;
 }
 
 #select-visibility-detail {
@@ -287,11 +284,10 @@ textarea {
     height: 30px;
     width: 60px;
     border: none;
-    background-color: #95b95c;
+    background-color: #ac8d71;
     border-radius: 6px;
     font-size: 15px;
     cursor: pointer;
-    color: white;
 }
 
 .btn-cancel {
