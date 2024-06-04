@@ -63,18 +63,18 @@ public class MyPageController {
         return "myLife/mypage";
     }
 
-    @GetMapping("/filter")
-    @ResponseBody
-    public List<BoardVO> filterBoardsByCycle(HttpSession session, @RequestParam String boardLifecycle) {
-        // 로그인 여부 확인
-        Long uniId = (Long) session.getAttribute("uniId");
-        if (uniId == null) {
-            return Collections.emptyList(); // 로그인이 안 되어 있으면 빈 리스트 반환
-        }
-        // 생애 주기에 해당하는 게시글 목록 가져오기
-        List<BoardVO> filteredBoards = boardService.selectLifeCycle(boardLifecycle, uniId);
-        return filteredBoards;
-    }
+//    @GetMapping("/filter")
+//    @ResponseBody
+//    public List<BoardVO> filterBoardsByCycle(HttpSession session, @RequestParam String boardLifecycle) {
+//        // 로그인 여부 확인
+//        Long uniId = (Long) session.getAttribute("uniId");
+//        if (uniId == null) {
+//            return Collections.emptyList(); // 로그인이 안 되어 있으면 빈 리스트 반환
+//        }
+//        // 생애 주기에 해당하는 게시글 목록 가져오기
+//        List<BoardVO> filteredBoards = boardService.selectLifeCycle(boardLifecycle, uniId);
+//        return filteredBoards;
+//    }
 
 //    @PostMapping()
 //    @ResponseBody
@@ -115,14 +115,14 @@ public class MyPageController {
 
     //나의 일대기 게시판 작성하기
     @PostMapping("/detail_writingMode")
-    public String detailWriting(BoardVO boardVO, @SessionAttribute("uniId") Long userId,
+    public String detailWriting(BoardVO boardVO, @SessionAttribute("uniId") Long uniId,
                                 @RequestParam("boardFile") List<MultipartFile> files,
                                 RedirectAttributes redirectAttributes) {
         //현재 사용자가 누군지 정보 선언
-        boardVO.setUserId(userId);
+        boardVO.setUserId(uniId);
 
         // 데이터베이스에서 사용자의 생일을 가져옴
-        LocalDateTime userBirthDateTime = boardService.writerUserBirth(userId);
+        LocalDateTime userBirthDateTime = boardService.writerUserBirth(uniId);
 
         // 사용자의 생일에서 연도를 추출
         int userBirthYear = userBirthDateTime.getYear();
