@@ -1,4 +1,0 @@
-{
-  "driver": "oracle:oracle_thin",
-  "variables": {}
-}

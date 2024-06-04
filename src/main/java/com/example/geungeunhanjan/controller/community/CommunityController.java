@@ -161,7 +161,9 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
+
                                          inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
+
 
         String userNickname = userService.selectUserNickname(uniId);
         ;
