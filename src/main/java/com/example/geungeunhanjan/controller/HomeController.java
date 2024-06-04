@@ -2,6 +2,7 @@ package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 
+import com.example.geungeunhanjan.domain.dto.user.UserFileNicknameDTO;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.community.InquiryService;
@@ -31,8 +32,6 @@ public class HomeController {
 
     private final BoardService boardService;
     private final UserService userService;
-    private final UserMapper userMapper;
-    private final InquiryService inquiryService;
 
 
     private final FollowService followService;
@@ -44,9 +43,9 @@ public class HomeController {
 
 
         BoardMainDTO mainLeft = boardService.mainLeftBannerSelect();
-
         List<BoardMainDTO> boards = boardService.mainBoardbyViews();
         List<BoardMainDTO> rightBoards = boardService.mainRightBannerSelect();
+<<<<<<< HEAD
         List<String> userNicknames = new ArrayList<>();
         if(mainLeft == null) {
             mainLeft = new BoardMainDTO();
@@ -56,10 +55,14 @@ public class HomeController {
             Long boardId = boardList.getBoardId();
             userNicknames.add(userService.mainBoardByViewsNickname(boardId));
         }
+=======
+
+        System.out.println("mainLeft = " + mainLeft);
+
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 
         model.addAttribute("mainLeft", mainLeft);
         model.addAttribute("boards", boards);
-        model.addAttribute("userNicknames", userNicknames);
         model.addAttribute("rightBoards", rightBoards);
 
         System.out.println(boards);
@@ -71,8 +74,15 @@ public class HomeController {
     public String about(HttpSession session) {
 
         // 로그인 여부 확인
+<<<<<<< HEAD
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
+=======
+
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
+
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
             return "redirect:/user/login";
         }
         return "main/about";

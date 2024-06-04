@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.service.user;
 
+import com.example.geungeunhanjan.domain.dto.user.UserFileNicknameDTO;
 import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
@@ -8,6 +9,8 @@ import com.example.geungeunhanjan.mapper.user.UserMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Transactional
 @Service
@@ -85,6 +88,7 @@ public class UserServiceImple implements UserService{
     public UserSessionDTO uniKakaoIdNickName(String providerId) {
         return userMapper.uniKakaoIdNickName(providerId);
     }
+
 }
 
 

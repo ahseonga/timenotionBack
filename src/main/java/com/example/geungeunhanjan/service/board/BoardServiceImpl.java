@@ -6,6 +6,7 @@ import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 
+import com.example.geungeunhanjan.domain.dto.user.UserFileNicknameDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import com.example.geungeunhanjan.mapper.board.BoardFileMapper;
@@ -244,6 +245,14 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.mainRightBannerSelect();
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public UserFileNicknameDTO mainBoardByViewsUserInfo(Long boardId) {
+        return boardMapper.mainBoardByViewsUserInfo(boardId);
+    }
+
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 }
 
 
