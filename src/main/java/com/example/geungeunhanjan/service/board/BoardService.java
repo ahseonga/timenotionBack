@@ -42,7 +42,7 @@ public interface BoardService {
     void registerBoardwithFile(BoardVO boardVO, List<MultipartFile> files)  throws IOException;
 
     //파일 저장하기
-    BoardFileVO saveFile(MultipartFile files)throws IOException;
+    BoardFileVO saveFile(MultipartFile files) throws IOException;
 
     //특정 회원의 생일 불러오기
     LocalDateTime writerUserBirth(Long userId);

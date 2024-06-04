@@ -33,14 +33,14 @@
               <div class="profile-detail">
 <!--                <p style="display: none" id="get-user-id"  th:text="${follow.followerId}" ></p>-->
                 <p id="profile-nickname" th:text="${userInfo.nickname}" >장윤근</p>
-                <p>
-                  <span class="follower-number" >36</span>
-                  <span class="follower">팔로워</span>
-                </p>
-                <p>
-                  <span class="follower-number">128</span>
-                  <span class="follower">팔로잉</span>
-                </p>
+                  <p>
+                      <span class="follower-number" th:text="${followerCnt}">36</span>
+                      <span class="follower">팔로워</span>
+                  </p>
+                  <p>
+                      <span class="follower-number" th:text="${followingCnt}">128</span>
+                      <span class="follower">팔로잉</span>
+                  </p>
                 <!-- <p class="profile-heart"><img src="./../../img/myLife/mdj-heart_negative.png" alt="하투"></p> -->
               </div>
             </div>
@@ -126,28 +126,28 @@
         </article>
 
 
-<!--        &lt;!&ndash; 페이징 처리 &ndash;&gt;-->
-<!--        <div class="inquiryPage-container">-->
-<!--          <ul class="inquiryPage-box">-->
-<!--            <a th:href="@{/board/list(inquiryPage=${inquiryPage.startPage - 1})}" class="inquiryPage-a" th:if="${inquiryPage.prev}">-->
-<!--              <li class="inquiryPage-num prev">&lt</li>-->
-<!--            </a>-->
+   <!-- 페이징 처리 -->
+          <div class="page-container">
+              <ul class="page-box">
+                  <a th:href="@{/myLife/mypageCommentList(page=${page.startPage - 1})}" class="page-a" th:if="${page.prev}">
+                      <li class="page-num prev">&lt</li>
+                  </a>
 
-<!--            &lt;!&ndash;        th:block은 화면에 영향을 주지않는 가짜 태그-->
-<!--                        타임리프 문법을 사용하기 위해 만들어 쓴다.-->
-<!--            &ndash;&gt;-->
-<!--            <th:block th:each="i : ${#numbers.sequence(inquiryPage.startPage, inquiryPage.endPage)}">-->
-<!--              <a th:href="@{/board/list(inquiryPage=${i})}" class="inquiryPage-a">-->
-<!--                <li class="inquiryPage-num" th:classappend="${i == inquiryPage.inquiryCriteria.inquiryPage ? 'active' : ''}" th:text="${i}"></li>-->
-<!--              </a>-->
-<!--            </th:block>-->
+                  <!--        th:block은 화면에 영향을 주지않는 가짜 태그
+                              타임리프 문법을 사용하기 위해 만들어 쓴다.
+                  -->
+                  <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">
+                      <a th:href="@{/myLife/mypageCommentList(page=${i})}" class="page-a">
+                          <li class="page-num" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></li>
+                      </a>
+                  </th:block>
 
-<!--            <a th:href="@{/board/list(inquiryPage=${inquiryPage.endPage + 1})}" class="inquiryPage-a" th:if="${inquiryPage.next}">-->
-<!--              <li class="inquiryPage-num next">&gt</li>-->
-<!--            </a>-->
-<!--          </ul>-->
-<!--        </div>-->
-        <!-- /페이징 처리 -->
+                  <a th:href="@{/myLife/mypageCommentList(page=${page.endPage + 1})}" class="page-a" th:if="${page.next}">
+                      <li class="page-num next">&gt</li>
+                  </a>
+              </ul>
+          </div>
+          <!-- /페이징 처리 -->
 
       </div>
       <div class="six-container"><a class="another--btn" th:href="@{/myLife/detail_writingMode}"><img th:src="@{/img/main/write-white.png}" alt=""></a></div>

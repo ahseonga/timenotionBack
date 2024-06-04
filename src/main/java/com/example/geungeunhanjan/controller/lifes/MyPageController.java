@@ -42,7 +42,7 @@ public class MyPageController {
 
     // 마이페이지에서 내가 쓴 게시글 리스트 뽑기
     @GetMapping
-    public String mypage(Model model, HttpSession session) {
+    public String mypage(Model model, HttpSession session, Criteria criteria) {
         // 로그인 여부 확인
         Long uniId = (Long) session.getAttribute("uniId");
         if (uniId == null) {
@@ -63,6 +63,19 @@ public class MyPageController {
 //        List<BoardVO> lifeCycle = boardService.selectLifeCycle(boardVO.getBoardLifeCycle(), boardVO.getUserId());
 //        model.addAttribute("lifeCycle", lifeCycle);
 //        System.out.println("GetMapping ");
+
+        /* 페이징 윤근님꺼  */
+        List<BoardVO> boardPaging = myPageService.selectMypagePaging(criteria, uniId);
+        int total = myPageService.myPageTotal(uniId);
+        Page page = new Page(criteria, total);
+        model.addAttribute("boardPage", boardPaging);
+        model.addAttribute("page", page);
+        /* 팔로워 팔로잉 수*/
+        int followerCnt = myPageService.countFollower(uniId);
+        int followingCnt = myPageService.countFollowing(uniId);
+        model.addAttribute("followerCnt", followerCnt);
+        model.addAttribute("followingCnt", followingCnt);
+
         return "myLife/mypage";
     }
 
@@ -117,7 +130,7 @@ public class MyPageController {
 
 
 
-    //나의 일대기 게시판 작성하기
+    //나의 일대기 게시판 작성하기 ★★★★★
     @PostMapping("/detail_writingMode")
     public String detailWriting(BoardVO boardVO, @SessionAttribute("uniId") Long uniId,
                                 @RequestParam("boardFile") List<MultipartFile> files,
@@ -229,6 +242,12 @@ public class MyPageController {
         model.addAttribute("comments", comments);
         model.addAttribute("page", page);
 
+        /* 팔로워 팔로잉 수*/
+        int followerCnt = myPageService.countFollower(uniId);
+        int followingCnt = myPageService.countFollowing(uniId);
+        model.addAttribute("followerCnt", followerCnt);
+        model.addAttribute("followingCnt", followingCnt);
+
         return "myLife/mypageCommentList";
     }
     // 내가 쓴 댓글로
@@ -253,6 +272,12 @@ public class MyPageController {
         // 좋아요 / 페이지
         model.addAttribute("likes", likes);
         model.addAttribute("page", page);
+
+        /* 팔로워 팔로잉 수*/
+        int followerCnt = myPageService.countFollower(uniId);
+        int followingCnt = myPageService.countFollowing(uniId);
+        model.addAttribute("followerCnt", followerCnt);
+        model.addAttribute("followingCnt", followingCnt);
 
         return "/myLife/mypageLike";
     }
@@ -317,7 +342,17 @@ public class MyPageController {
 
     // 알림으로
     @GetMapping("/mypageNotification")
-    public String mypageNotification(){
+    public String mypageNotification(Model model, HttpSession session, Criteria criteria,   @SessionAttribute("uniId") Long uniId){
+        // 로그인 여부 확인
+        if (uniId == null) {
+            return "redirect:/login";
+        }
+
+        /* 팔로워 팔로잉 수*/
+        int followerCnt = myPageService.countFollower(uniId);
+        int followingCnt = myPageService.countFollowing(uniId);
+        model.addAttribute("followerCnt", followerCnt);
+        model.addAttribute("followingCnt", followingCnt);
         return "/myLife/myPageNotification";
     }
 

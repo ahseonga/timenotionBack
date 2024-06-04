@@ -42,11 +42,11 @@
                   <div class="profile-detail">
                     <p id="profile-nickname" th:text="${userInfo.nickname}" >장윤근</p>
                     <p>
-                      <span class="follower-number">36</span>
+                      <span class="follower-number" th:text="${followerCnt}">36</span>
                       <span class="follower">팔로워</span>
                     </p>
                     <p>
-                      <span class="follower-number">128</span>
+                      <span class="follower-number" th:text="${followingCnt}">128</span>
                       <span class="follower">팔로잉</span>
                     </p>
                     <!-- <p class="profile-heart"><img src="./../../img/myLife/mdj-heart_negative.png" alt="하투"></p> -->
@@ -92,15 +92,15 @@
               <ul class="comment-contents">
 
                 <li class="comment-lists" th:each="comment : ${comments}">
-                  <div class="for-hr">      <div class="comment-list-left">
+                  <div class="box-lists">
+                    <div class="comment-list-left">
                     <!--14px-->
                     <img src="./../../img/myLife/mdj-malpugsun.png" alt="말풍선">
                     <!--                    <a th:href="@{/myLife/detail-my(boardId=${board.boardId})}">-->
-                    <p><a th:text="${comment.commentsContent}" href="./../../HTML/myLife/detail_user.html"></a></p>
+                    <p><a th:text="${comment.commentsContent}" th:href="@{/myLife/detail-my(boardId=${comment.boardId})}"></a></p>
                     <p class="comment-list-left-title">
-                      <a th:text="${comment.boardTitle}" href="./../../HTML/myLife/detail-my.html"></a>
+                      <a th:text="${comment.boardTitle}" th:href="@{/myLife/detail-my(boardId=${comment.boardId})}"></a>
                     </p>
-                    <p th:text="${comment.boardId}"></p>
                     <!--                    th:href="@{/myLife/detail-my.html/boardId (boardId = ${comment.boardId})}"-->
                   </div>
                     <!--12px-->

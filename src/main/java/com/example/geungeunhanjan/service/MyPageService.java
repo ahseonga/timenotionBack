@@ -5,9 +5,11 @@ import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
 import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
+import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.swing.plaf.multi.MultiListUI;
 import java.io.IOException;
 import java.util.List;
 
@@ -29,8 +31,17 @@ public interface MyPageService {
     UserFileVO getProfileBackFile(Long userFileId);
     /* 4-2. 회원 텍스트 정보 수정*/
     void updateUserInfo(LifeUserInfoDTO lifeUserInfoDTO);
+    /* 업데이트 3번째 06-04 */
+    void totalUpdateInfo(LifeUserUpdateDTO lifeUserUpdateDTO, List<MultipartFile> files) throws IOException;
 
-    /* 4-3. 회원 정보 셀렉트 */
+    /* 5. 회원 정보 셀렉트 */
     LifeUserInfoDTO selectAllInfo (Long userId);
 
+    // 6. 마이페이지 페이징 - 윤근님꺼
+    List<BoardVO> selectMypagePaging(Criteria criteria, Long userId);
+    int myPageTotal(Long userId);
+
+    // 7. 팔로워 / 팔로잉 수
+    int countFollower(Long userId);
+    int countFollowing(Long userId);
 }
