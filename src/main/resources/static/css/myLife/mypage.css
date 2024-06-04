@@ -189,6 +189,38 @@ header {
   /* 한 줄 높이 설정 */
 }
 
+/* 페이징 */
+.page-box{
+  display: flex;
+  justify-content: center;
+}
+.page-a:link {
+  color: pink;
+}
+
+.page-a:visited {
+  color: black;
+}
+
+.page-a:hover {
+  color: #343434;
+}
+
+.page-a:active {
+  color: green;
+}
+
+
+.for-hr{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+}
+
+
+/* ===========================================================  */
+
 
 .second-container {
   display: flex;

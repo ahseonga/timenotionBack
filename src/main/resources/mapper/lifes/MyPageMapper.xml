@@ -138,7 +138,7 @@
     <!--4. 회원정보 수정-->
     <!--4-1. 회원정보 수정 프사 / 배사 파일 !!! -->
     <insert id="insertFileById" parameterType="UserFileVO">
-        <selectKey keyProperty="userFileId" resultType="Long" order="BEFORE">
+        <selectKey keyProperty="userFileId" resultType="long" order="BEFORE">
             SELECT SEQ_USER_FILE.NEXTVAL FROM DUAL
         </selectKey>
         INSERT INTO GGHJ_USER_FILE (USER_FILE_ID, USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE,
@@ -210,5 +210,31 @@
                  LEFT JOIN GGHJ_USER_FILE F ON F.USER_ID = UN.UNI_ID
         WHERE UN.UNI_ID = #{userId}
         ORDER BY UNI_ID
+    </select>
+
+    <!--마이 페이지 페이징 (윤근님꺼) -->
+    <select id="selectMypagePaging" resultType="BoardVO">
+        <![CDATA[
+        SELECT *
+        FROM (SELECT ROWNUM AS RNUM, a.*
+              FROM (SELECT *
+                    FROM GGHJ_BOARD
+                    WHERE USER_ID = #{userId}
+                    ORDER BY BOARD_CREATED_DATE DESC) a
+              WHERE ROWNUM <= #{criteria.page} * #{criteria.amount})
+        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+        ]]>
+    </select>
+    <select id="selectMypageTotalCount" resultType="int">
+        SELECT COUNT(*) FROM GGHJ_BOARD WHERE USER_ID = #{userId}
+    </select>
+
+    <!-- 순서대로 팔로워 팔로잉 인원 수 -->
+    <select id="countFollower" resultType="int">
+    SELECT COUNT(*) FROM GGHJ_FOLLOW WHERE FOLLOW_TO_USER = #{userId}
+
+    </select>
+    <select id="countFollowing" resultType="int">
+    SELECT COUNT(*) FROM GGHJ_FOLLOW WHERE FOLLOW_FROM_USER = #{userId}
     </select>
 </mapper>

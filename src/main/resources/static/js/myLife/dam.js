@@ -106,6 +106,7 @@ function displayComment(commentList){
             <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
             <div><span class="nickname">${r.nickname}</span></div>
             <div class="tag">일기주인</div>
+            <div ${r.commentId}>나오냐</div>
         </a>
         <div class="reply-top-right">
             <div class="delete-btn"><button id="delete" class="real-delete-btn">삭제</button></div>
@@ -151,6 +152,7 @@ function appendReply(commentList){
             <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
             <div><span class="nickname">${r.nickname}</span></div>
             <div class="tag">일기주인</div>
+            <div ${r.commentId}>나오냐</div>
         </a>
         <div class="reply-top-right">
             <div class="delete-btn"><button id="delete" class="real-delete-btn">삭제</button></div>

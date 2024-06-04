@@ -5,6 +5,7 @@ import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
 import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
+import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -28,13 +29,21 @@ public interface MyPageMapper {
     // 4. 회원정보 수정
     // 4-1. 프사 / 배사 파일 !!
     void insertFileById(UserFileVO userFileVO);
-    UserFileVO selectFileById(Long userFileId);
+    UserFileVO selectFileById(Long userId);
     // 4-2 정보 업데이트 !
-    void updateTwo(Long userId, String uniAbout, String nickname);
+    void updateTwo(LifeUserUpdateDTO lifeUserUpdateDTO);
     void mergeToUser(Long userId);
     void mergeToKakao(Long userId);
 
     // 5. 회원정보 전체 불러오기
     LifeUserInfoDTO selectAllInfo (Long userId);
+
+    // 6. 마이페이지 페이징 - 윤근님꺼
+    List<BoardVO> selectMypagePaging(@Param("criteria") Criteria criteria, @Param("userId") Long userId);
+    int selectMypageTotalCount(Long userId);
+
+    // 7. 순서대로 팔로워 / 팔로잉 수
+    int countFollower(Long userId);
+    int countFollowing(Long userId);
 
 }
