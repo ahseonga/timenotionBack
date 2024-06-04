@@ -73,7 +73,7 @@ public interface BoardService {
     // 메인 배너 왼쪽
     BoardMainDTO mainLeftBannerSelect();
 
-<<<<<<< HEAD
+
     List<BoardMainDTO> mainRightBannerSelect(String orderBy);
 
     // 모두의 일대기 -> 상세페이지 넘어가기
@@ -85,9 +85,9 @@ public interface BoardService {
     List<BoardDTO> getPostsSortedByLatest();
 
     List<BoardDTO> getPostsSortedByPopularity();
-=======
-    List<BoardMainDTO> mainRightBannerSelect();
->>>>>>> main
+
+
+
 }
 
 

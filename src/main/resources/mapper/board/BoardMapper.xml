@@ -74,7 +74,6 @@
         ]]>
     </select>
 
-    <!--    메인 배너 왼쪽 배너-->
     <select id="mainLeftBannerSelect" resultType="BoardMainDTO">
     <![CDATA[
         SELECT
@@ -180,6 +179,7 @@
         WHERE
             uni.UNI_ID = #{uniId}
     </select>
+
 
     <!-- 게시판 작성자의 생일 가져오기  -->
 <!--    <select id="selectUserBirth" resultType="java.time.LocalDateTime">-->
@@ -292,6 +292,7 @@
     <select id="everyLifeFindTotal">
         SELECT COUNT(*)FROM GGHJ_BOARD
     </select>
+
 <!--    유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭시 페이지 이동-->
     <select id="agePageMove" resultType="int">
         SELECT COUNT(*) AS TOTAL_COUNT
@@ -307,7 +308,7 @@
             GGHJ_BOARD b JOIN GGHJ_USER u
                               ON u.user_id = b.USER_ID
         ORDER BY
-            b.BOARD_VIEW_COUNT DESC;
+            b.BOARD_VIEW_COUNT DESC
     </select>
 
 <!--     최신 게시판 정렬 -->
@@ -318,7 +319,7 @@
             GGHJ_BOARD b JOIN GGHJ_USER u
                               ON u.user_id = b.USER_ID
         ORDER BY
-            b.BOARD_CREATED_DATE DESC;
+            b.BOARD_CREATED_DATE DESC
     </select>
 
 <!--     인기 게시판 정렬 -->
@@ -329,10 +330,9 @@
             GGHJ_BOARD b JOIN GGHJ_USER u
                               ON u.user_id = b.USER_ID
         ORDER BY
-            b.BOARD_LIKE_COUNT DESC;
+            b.BOARD_LIKE_COUNT DESC
     </select>
 
-<<<<<<< HEAD
     <!-- 모두의 일대기 -> 상세페이지 이동 -->
     <select id="everyLifeDetail" resultType="BoardVO">
         SELECT *
@@ -341,9 +341,8 @@
                       ON G.USER_ID = U.UNI_ID
         WHERE G.BOARD_ID = #{userId}
     </select>
-</mapper>
 
-=======
+
     <!-- 특정 글 조회수 -->
     <update id="incViewCnt" flushCache="true" >
         UPDATE GGHJ_BOARD
@@ -360,4 +359,3 @@
 
 
 </mapper>
->>>>>>> main

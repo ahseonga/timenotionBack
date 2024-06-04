@@ -44,20 +44,20 @@ public class EveryLifeController {
             return "redirect:/user/login";
         }
 
-        // 정렬 기준에 따라 게시물 목록 가져오기
-//        List<BoardDTO> boardLists;
-//        switch (sort) {
-//            case "view":
-//                boardLists = boardService.getPostsSortedByViews();
-//                break;
-//            case "popularity":
-//                boardLists = boardService.getPostsSortedByPopularity();
-//                break;
-//            case "latest":
-//            default:
-//                boardLists = boardService.getPostsSortedByLatest();
-//                break;
-//        }
+//         정렬 기준에 따라 게시물 목록 가져오기
+        List<BoardDTO> boardarray;
+        switch (sort) {
+            case "view":
+                boardarray = boardService.getPostsSortedByViews();
+                break;
+            case "popularity":
+                boardarray = boardService.getPostsSortedByPopularity();
+                break;
+            case "latest":
+            default:
+                boardarray = boardService.getPostsSortedByLatest();
+                break;
+        }
 
         // 일대기 게시물 확인
 //        List<BoardVO> boards = boardService.everyLifeBoardbyViews();

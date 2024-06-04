@@ -70,27 +70,23 @@
         <div class="container">
             <!--1. 상단 날짜 / 수정 삭제 버튼 ----------------->
             <div class="wrapper-date-etc">
-<<<<<<< HEAD
-                    작성일:<div class="box-date-left" th:text="${boards.boardCreatedDate}">
+                    작성일:<div class="box-date-left" th:text="${boards.boardCreatedDate}"></div>
             </div>
                 <input type="hidden" id="boardId" th:value="${boards.boardId}">
                 <div class="box-date-right">
                     <th:block  th:if="${boards.userId == session.uniId}">
-=======
                 작성일:
+                </div>
                 <div class="box-date-left" th:text="${boards.boardCreatedDate}">
                 </div>
                 <input type="hidden" id="boardId" th:value="${boards.boardId}">
                 <div class="box-date-right">
                     <th:block th:if="${boards.userId == session.uniId}">
->>>>>>> main
                         <button class="btn-modify" th:data-id="${boards.boardId}">수정</button>
                         <button type="button" class="btn-remove" th:data-id="${boards.boardId}">삭제</button>
                     </th:block>
-
                 </div>
 
-            </div>
             <!--2. 타이틀 ----------------->
             <div class="wrapper-title" th:text="${boards.boardTitle}"
             >
@@ -160,8 +156,8 @@
                     </div>
                 </form>
             </article>
-            <!-- 신고모달 닫기  -->
         </div>
+            <!-- 신고모달 닫기  -->
         <!-- //wrapper -->
 
 
