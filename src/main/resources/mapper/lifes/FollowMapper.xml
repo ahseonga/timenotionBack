@@ -132,10 +132,15 @@
         VALUES(#{followId},#{followToUser},#{followFromUser})
     </insert>
     <!--    남의 페이지 해당 유저 언팔로우 하기 -->
-    <delete id="deleteFollow" parameterType="Long">
+    <delete id="deleteFollow" parameterType="FollowHeartDTO">
         DELETE FROM GGHJ_FOLLOW
-        WHERE FOLLOW_TO_USER = #{userId}
+        WHERE FOLLOW_TO_USER = #{followToUser} AND FOLLOW_FROM_USER = #{followFromUser}
     </delete>
+
+    <select id="selectFollowStatus" parameterType="FollowHeartDTO" resultType="int">
+        SELECT COUNT(*) FROM GGHJ_FOLLOW
+        WHERE FOLLOW_TO_USER = #{followToUser} AND FOLLOW_FROM_USER = #{followFromUser}
+    </select>
 
 
     <!--  페이징 처리   미완성  -->

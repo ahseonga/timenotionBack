@@ -3,6 +3,10 @@
 
     import com.example.geungeunhanjan.domain.dto.FollowPage.FollowCriteria;
     import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
+<<<<<<< HEAD
+    import com.example.geungeunhanjan.domain.dto.file.FollowHeartDTO;
+=======
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
     import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
     import com.example.geungeunhanjan.domain.vo.user.UniVO;
     import org.springframework.stereotype.Service;
@@ -30,7 +34,14 @@
         //팔로우 리스트 유저 클릭시 ; 팔로우 추가하기
         void insertFollow(FollowVO followVO);
         //팔로우 리스트 유저 클릭시 ; 언팔로우 하기
+<<<<<<< HEAD
+        void deleteFollow(FollowHeartDTO followHeartDTO);
+
+        int selectFollowStatus(FollowHeartDTO followHeartDTO);
+
+=======
         void deleteFollow(Long userId);
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
         //페이징 처리
         List<FollowDTO> selectAllPageFollow(FollowCriteria followCriteria);
         //페이지 총 수 조회하기

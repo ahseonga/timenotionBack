@@ -75,7 +75,11 @@ public interface BoardMapper {
 
     // 모두의 일대기 -> 상세페이지 넘어가기
 //    Optional<BoardVO> everyLifeDetail(Long UserId);
+<<<<<<< HEAD
+
+=======
     UserFileNicknameDTO mainBoardByViewsUserInfo(Long boardId);
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 }
 
 

@@ -3,6 +3,7 @@ package com.example.geungeunhanjan.mapper.lifes;
 
 import com.example.geungeunhanjan.domain.dto.FollowPage.FollowCriteria;
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
+import com.example.geungeunhanjan.domain.dto.file.FollowHeartDTO;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
@@ -35,7 +36,9 @@ public interface FollowMapper {
     void insertFollow(FollowVO followVO);
 
     //팔로우 리스트 유저 클릭시 ; 언팔로우 하기
-    void deleteFollow(Long userId);
+    void deleteFollow(FollowHeartDTO followHeartDTO);
+
+    int selectFollowStatus(FollowHeartDTO followHeartDTO);
 
     //페이징 처리
     List<FollowDTO> selectAllPageFollow(FollowCriteria followCriteria);

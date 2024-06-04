@@ -24,6 +24,29 @@
     <select id="mainBoardbyViews" resultType="BoardMainDTO">
         <![CDATA[
         SELECT
+<<<<<<< HEAD
+            BOARD_ID,
+            BOARD_TITLE,
+            BOARD_CONTENT,
+            BOARD_VIEW_COUNT,
+            BOARD_FILE_SOURCE_NAME,
+            board_created_date
+        FROM (
+                 SELECT
+                     b.BOARD_ID,
+                     b.BOARD_TITLE,
+                     b.BOARD_CONTENT,
+                     b.BOARD_VIEW_COUNT,
+                     b.board_created_date,
+                     bf.BOARD_FILE_SOURCE_NAME
+                 FROM
+                     GGHJ_BOARD b
+                         LEFT JOIN GGHJ_BOARD_FILE bf ON b.BOARD_ID = bf.BOARD_ID
+                 ORDER BY
+                     b.BOARD_VIEW_COUNT DESC
+             )
+        WHERE ROWNUM <= 4
+=======
             board_id,
             board_title,
             board_content,
@@ -56,6 +79,7 @@
             board_rank <= 4
         ORDER BY
             board_rank
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
         ]]>
     </select>
 
@@ -183,10 +207,13 @@
         SELECT
             CASE
                 WHEN u.USER_ID IS NOT NULL THEN u.USER_BIRTH
+<<<<<<< HEAD
+=======
 
                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
 
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
                 --                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
 --                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
 
@@ -195,7 +222,10 @@
             GGHJ_UNI uni
                 LEFT JOIN
             GGHJ_USER u ON uni.USER_ID = u.USER_ID
+<<<<<<< HEAD
+=======
 
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
         --                 LEFT JOIN
 --             GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
 

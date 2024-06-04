@@ -245,11 +245,14 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.mainRightBannerSelect();
     }
 
+<<<<<<< HEAD
+=======
     @Override
     public UserFileNicknameDTO mainBoardByViewsUserInfo(Long boardId) {
         return boardMapper.mainBoardByViewsUserInfo(boardId);
     }
 
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 }
 
 
