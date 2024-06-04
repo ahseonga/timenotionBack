@@ -67,13 +67,14 @@ public class MyPageController {
     @GetMapping("/detail_writingMode")
     public String detailWritingMode(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/login";
         }
 //        model.addAttribute("boardVO", new BoardVO());
         return "myLife/detail_writingMode";
     }
+
 
 
     //나의 일대기 게시판 작성하기
@@ -164,7 +165,7 @@ public class MyPageController {
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/login";
         }
@@ -213,13 +214,10 @@ public class MyPageController {
     // 회원정보 수정으로
     @GetMapping("/mypageEditMemberInformation")
     public String mypageEditMemberInformation(HttpSession session, Model model,
-                                              @SessionAttribute("userId") Long userId){
+                                              @SessionAttribute("uniId") Long userId){
         // 로그인 여부 확인
-<<<<<<< HEAD
-        Long userId = (Long) session.getAttribute("uniId");
-=======
-//        Long userId = (Long) session.getAttribute("userId");
->>>>>>> dam
+
+        userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/login";
         }
@@ -236,14 +234,10 @@ public class MyPageController {
     @PostMapping("/mypageEditMemberInformation")
     public String mypageEditMemberInformation(UserFileVO userFileVO, RedirectAttributes redirectAttributes,
                                               @RequestParam(value = "boardFile", required = false) List<MultipartFile> file,
-                                              @SessionAttribute("userId") Long userId,
+                                              @SessionAttribute("uniId") Long userId,
                                               LifeUserInfoDTO lifeUserInfoDTO){
         // 로그인 여부 확인
-<<<<<<< HEAD
-        Long userId = (Long) session.getAttribute("uniId");
-=======
-//        Long userId = (Long) session.getAttribute("userId");
->>>>>>> dam
+
         if (userId == null) {
             return "redirect:/login";
         }
@@ -276,11 +270,6 @@ public class MyPageController {
 
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> dam
     // 알림으로
     @GetMapping("/mypageNotification")
     public String mypageNotification(){

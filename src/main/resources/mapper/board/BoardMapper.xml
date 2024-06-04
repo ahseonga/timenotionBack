@@ -106,7 +106,7 @@
                  LEFT JOIN
              GGHJ_USER_FILE uf ON uf.USER_ID = user_id
         WHERE
-            board_rank = 1
+            board_rank = 1 AND ROWNUM = 1
         GROUP BY
             board_id, board_title, board_file_source_name, user_nickname, board_rank
         ORDER BY

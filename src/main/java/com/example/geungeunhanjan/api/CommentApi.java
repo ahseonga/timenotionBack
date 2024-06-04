@@ -27,7 +27,7 @@ public class CommentApi {
                              HttpServletRequest request){
         /* 요청 본문에서 ReplyWriteDTO 받아오고, url 경로에서 boardId를 추출하여 boardId 파라미터에 바인딩
         *  세션에서 userId 받아줌 */
-        Long userId = (Long) request.getSession().getAttribute("userId");
+        Long userId = (Long) request.getSession().getAttribute("uniId");
         System.out.println(userId);
         commentWriteDTO.setBoardId(boardId);
         commentWriteDTO.setUserId(userId);

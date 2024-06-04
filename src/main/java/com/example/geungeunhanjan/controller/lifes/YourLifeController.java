@@ -24,7 +24,7 @@ public class YourLifeController {
     @GetMapping()
     public String yourLife(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/user/login";
         }
@@ -51,8 +51,8 @@ public class YourLifeController {
 
 
     //★☆★☆★☆★☆★☆★☆★☆★☆★☆ myLife의 userpage ★☆★☆★☆★☆★☆★☆★☆★☆
-    @GetMapping("/userpage/{userId}")
-    public String userPage(Model model, @PathVariable("userId") long userId) {
+    @GetMapping("/userpage/{uniId}")
+    public String userPage(Model model, @PathVariable("uniId") long userId) {
 
         FollowDTO follow = followService.selectFollowDetail(userId);
         model.addAttribute("follow", follow);
@@ -62,14 +62,14 @@ public class YourLifeController {
     }
 
     // 유저 페이지 팔로우 기능 구현 컨트롤러 -하트클릭시
-    @PostMapping("/userpage/{userId}")
+    @PostMapping("/userpage/{uniId}")
     public String userPage(
             HttpServletRequest request,
             @RequestBody Map<String, Object> requestBody,
-            @PathVariable("userId") long userId) {
+            @PathVariable("uniId") long userId) {
 
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long loginUserId = (Long) request.getSession().getAttribute("userId");
+        Long loginUserId = (Long) request.getSession().getAttribute("uniId");
         System.out.println(loginUserId);
 //        if (loginUserId == null) {
 //            // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
@@ -104,7 +104,7 @@ public class YourLifeController {
 
         System.out.println("followVO 하트클릭테스트: " + followVO);
 
-        return "redirect:/yourLife/userpage/{userId}";
+        return "redirect:/yourLife/userpage/{uniId}";
     }
 
 
