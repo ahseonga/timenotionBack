@@ -67,18 +67,18 @@ public class MyPageController {
         return "myLife/mypage";
     }
 
-    @GetMapping("/filter")
-    @ResponseBody
-    public List<BoardVO> filterBoardsByCycle(HttpSession session, @RequestParam String boardLifecycle) {
-        // 로그인 여부 확인
-        Long uniId = (Long) session.getAttribute("uniId");
-        if (uniId == null) {
-            return Collections.emptyList(); // 로그인이 안 되어 있으면 빈 리스트 반환
-        }
-        // 생애 주기에 해당하는 게시글 목록 가져오기
-        List<BoardVO> filteredBoards = boardService.selectLifeCycle(boardLifecycle, uniId);
-        return filteredBoards;
-    }
+//    @GetMapping("/filter")
+//    @ResponseBody
+//    public List<BoardVO> filterBoardsByCycle(HttpSession session, @RequestParam String boardLifecycle) {
+//        // 로그인 여부 확인
+//        Long uniId = (Long) session.getAttribute("uniId");
+//        if (uniId == null) {
+//            return Collections.emptyList(); // 로그인이 안 되어 있으면 빈 리스트 반환
+//        }
+//        // 생애 주기에 해당하는 게시글 목록 가져오기
+//        List<BoardVO> filteredBoards = boardService.selectLifeCycle(boardLifecycle, uniId);
+//        return filteredBoards;
+//    }
 
 //    @PostMapping()
 //    @ResponseBody

@@ -205,7 +205,8 @@ public class CommunityController {
 
         if (uniId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
-            return "redirect:/login";
+//            return "redirect:/login";
+            System.out.println(uniId);
         }
 
         // noticeVO에 userId 설정
