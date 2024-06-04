@@ -32,9 +32,7 @@
                 <div class="modal-main-img">
                     <img src="./../../img/main/timenotion.png" alt="">
                 </div>
-                <div class="inquiry-modal-nickname" th:text="${session.userNickname}">
-                    작성자 : 닉네임
-                </div>
+                <div class="inquiry-modal-nickname" th:text="'닉네임 : ' + ${session.userNickname}"></div>
                 <form action="/community/inquiry/insertInquiry" method="post">
                     <div class="inquiry-modal-title">
                         <input type="text" name="inquiryTitle" placeholder="제목">
@@ -75,7 +73,9 @@
             <div class="contents-prev-content">
                 <span class="contents-number" th:text="${inquiry.inquiryId}">7</span>
                 <span class="contents-title">
-            <button type="button" class="inquiry-content-button" th:data-inquiryid="${inquiry.inquiryId}" th:data-userid="${inquiry.userId}" th:text="${inquiry.inquiryTitle}"></button>
+            <button type="button" class="inquiry-content-button" th:data-inquiryid="${inquiry.inquiryId}" th:data-userid="${inquiry.userId}" th:data-public="${inquiry.inquiryPublic}"   th:text="${inquiry.inquiryTitle}">
+
+            </button>
         </span>
             </div>
             <div class="contents-next-content">
