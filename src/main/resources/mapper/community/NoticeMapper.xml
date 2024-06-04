@@ -5,7 +5,7 @@
 
 
 <mapper namespace="com.example.geungeunhanjan.mapper.community.NoticeMapper">
-
+    <!--    공지는 userId가 1인 관리자만 작성가능하다 -->
     <!--☆★☆★☆★☆★☆★공지 다음 시퀀스☆★☆★☆★☆★☆★☆★-->
     <select id="getNoticeSeqNext" resultType="Long">
         SELECT SEQ_NOTICE.nextval from dual
@@ -78,14 +78,14 @@
         WHERE RNUM > (#{page} - 1) * #{amount}
         ]]>
     </select>
-
+    <!-- 공지 정보만  모두 조회     -->
     <select id="selectAllNotice" resultType="NoticeDTO">
         SELECT NOTICE_ID, NOTICE_TITLE , USER_ID
         FROM GGHJ_NOTICE N JOIN GGHJ_UNI U
                             ON N.USER_ID = U.USER_ID
         ORDER BY NOTICE_ID DESC
     </select>
-
+    <!-- 공지글 수 조회하기    -->
     <select id="selectTotalNotice" resultType="int">
         SELECT COUNT(NOTICE_ID) FROM GGHJ_NOTICE
     </select>

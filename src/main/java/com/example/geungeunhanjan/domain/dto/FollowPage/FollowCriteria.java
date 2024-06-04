@@ -12,6 +12,7 @@ public class FollowCriteria {
     //페이징 파라미터 저장
     private int page;//현재 페이지가 담길 필드
     private int amount ;//한 페이지당 게시물 수
+    private long uniId;
 
     //기본 생성자를 통해 기본 값 설정
     //사용자가 별도의 값을 지정하지 않았을때 사용할

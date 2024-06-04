@@ -37,15 +37,16 @@ public class EveryLifeController {
     private final InquiryCriteria inquiryCriteria;
 
     @GetMapping()
-    public String everyLife(Model model, HttpSession session, Criteria criteria, @RequestParam(required = false, defaultValue = "latest") String sort) {
+    public String everyLife(Model model, HttpSession session, Criteria criteria,
+                            @RequestParam(required = false, defaultValue = "latest") String sort) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("uniId");
         if (userId == null) {
             return "redirect:/user/login";
         }
 
-<<<<<<< HEAD
-//         정렬 기준에 따라 게시물 목록 가져오기
+
+//       정렬 기준에 따라 게시물 목록 가져오기
         List<BoardDTO> boardarray;
         switch (sort) {
             case "view":
@@ -59,40 +60,10 @@ public class EveryLifeController {
                 boardarray = boardService.getPostsSortedByLatest();
                 break;
         }
-=======
-        // 정렬 기준에 따라 게시물 목록 가져오기
-//        List<BoardDTO> boardLists;
-//        switch (sort) {
-//            case "view":
-//                boardLists = boardService.getPostsSortedByViews();
-//                break;
-//            case "popularity":
-//                boardLists = boardService.getPostsSortedByPopularity();
-//                break;
-//            case "latest":
-//            default:
-//                boardLists = boardService.getPostsSortedByLatest();
-//                break;
-//        }
->>>>>>> main
 
-        // 일대기 게시물 확인
-//        List<BoardVO> boards = boardService.everyLifeBoardbyViews();
-//        List<String> userNicknames = new ArrayList<>();
-//        for (BoardVO boardList : boards) {
-//            Long boardId = boardList.getBoardId();
-//            userNicknames.add(userService.mainBoardByViewsNickname(boardId));
-//        }
-//
-//        model.addAttribute("boards", boards);
-//        model.addAttribute("userNicknames", userNicknames);
-//
         // 페이징 처리를 위한 코드
         List<BoardDTO> boardLists = boardService.everyLifeFindPage(criteria);
 
-//        System.out.println(boardList +"===============");
-
-//        int total = boardMapper.everyLifeFindTotal(criteria.); // Criteria에서 boardLifeCycle 속성을 가져와서 사용
         int total = boardService.everyLifeFindTotal();
         Page page = new Page(criteria, total);
         model.addAttribute("boardLists", boardLists); // 실제로 가져온 게시물 리스트를 모델에 추가
@@ -101,6 +72,8 @@ public class EveryLifeController {
 
         return "everyLife/everyLife"; // 페이지 이름 반환
     }
+
+
 
     //모두의 일대기 -> 상세페이지 이동
     @GetMapping("/detail-others/{id}")

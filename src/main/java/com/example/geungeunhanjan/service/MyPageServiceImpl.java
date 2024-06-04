@@ -1,6 +1,8 @@
 package com.example.geungeunhanjan.service;
 
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
+import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
+import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
@@ -33,36 +35,31 @@ public class MyPageServiceImpl implements MyPageService{
     public List<LikeDTO> selectMyLike(Long userId) {
         return myPageMapper.selectMyLike(userId);
     }
-        //페이징
-        @Override
-        public List<LikeDTO> findPageMyLike(Criteria criteria, Long userId) {
-            return myPageMapper.selectPageMyLike(criteria, userId);
-        }
+    //페이징
+    @Override
+    public List<LikeDTO> findPageMyLike(Criteria criteria, Long userId) {
+        return myPageMapper.selectPageMyLike(criteria, userId);
+    }
 
-        @Override
-        public int myLikeTotal(Long userId) {
-            return myPageMapper.myLikeTotal(userId);
-        }
+    @Override
+    public int myLikeTotal(Long userId) {
+        return myPageMapper.myLikeTotal(userId);
+    }
 
     //2. 내가 쓴 댓글 select
     @Override
     public List<CommentDTO> selectMyComment(Long userId) {
         return myPageMapper.selectMyComment(userId);
     }
-        //페이징
-        @Override
-        public List<CommentDTO> findPageMyComment(Criteria criteria, Long userId) {
-            return myPageMapper.selectPageMyComment(criteria, userId);
-        }
-        @Override
-        public int myCommentTotal(Long userId) {
-            return myPageMapper.myCommentTotal(userId);
-        }
-
-///*    @Override
-//    public void registProfileBackFile(FileVO fileVO) {
-//        myPageMapper.insertFileById(fileVO);
-//    }*/
+    //페이징
+    @Override
+    public List<CommentDTO> findPageMyComment(Criteria criteria, Long userId) {
+        return myPageMapper.selectPageMyComment(criteria, userId);
+    }
+    @Override
+    public int myCommentTotal(Long userId) {
+        return myPageMapper.myCommentTotal(userId);
+    }
 
     // 4. 회원정보 수정 ----------------------------------------------------------------------------------------------------
     // 4-1. 프사 / 배사 파일 !!
@@ -72,8 +69,8 @@ public class MyPageServiceImpl implements MyPageService{
     @Override
     public void registProfileBackFile(UserFileVO userFileVO, List<MultipartFile> files) throws IOException {  // 프사 / 배사 등록
         /* 파일 이름 경로 재설정한 객체를 받아서 저장함
-        *  유저 아이디 넣어줌
-        *  파일 정보를 DB에 저장 */
+         *  유저 아이디 넣어줌
+         *  파일 정보를 DB에 저장 */
 
         for(MultipartFile file : files) {
             if(file.isEmpty()){
@@ -83,8 +80,6 @@ public class MyPageServiceImpl implements MyPageService{
             UserFileVO renameUserFileVO = renameResourceFile(file);
             myPageMapper.insertFileById(renameUserFileVO);
         }
-
-
     }
 
     private String getUploadPath(){
@@ -94,8 +89,8 @@ public class MyPageServiceImpl implements MyPageService{
 
     public UserFileVO renameResourceFile (MultipartFile files) throws IOException {
         /* 1. 사용자가 올린 파일 이름을 가져와 UUID 붙여주고 경로를 합침
-        *  2. 경로가 없다면 경로가 필요한 곳에 경로 생성해줌
-        *  3. 파일이름 + 전체경로 연결, 객체가 가진 파일을 우리가 만든 이름으로 저장해서 FileVO의 객체를 반환*/
+         *  2. 경로가 없다면 경로가 필요한 곳에 경로 생성해줌
+         *  3. 파일이름 + 전체경로 연결, 객체가 가진 파일을 우리가 만든 이름으로 저장해서 FileVO의 객체를 반환*/
 
         // files : 업로드된 파일 객체
 
@@ -109,7 +104,7 @@ public class MyPageServiceImpl implements MyPageService{
         // 경로지정
         File uploadPath = new File(fileDir, getUploadPath());
         /*fileDir, getUploadPath 합쳐서 File객체를 생성함, 기본디렉터리 / 추가경로 <--- 이 구성임
-        * 결합된 경로 = C:/upload/yyyy/MM/dd 이런식임 !*/
+         * 결합된 경로 = C:/upload/yyyy/MM/dd 이런식임 !*/
 
         if(!uploadPath.exists()){ uploadPath.mkdirs();} // 경로 없으면 갖다 만들어라~
 
@@ -137,14 +132,25 @@ public class MyPageServiceImpl implements MyPageService{
 
 
 
-
-
-
-
-
     @Override
     public UserFileVO getProfileBackFile(Long userFileId) {   // 프사 / 배사 셀렉
         return null;
+    }
+
+    @Override    /* 유저 정보 업데이트 */
+    public void updateUserInfo(LifeUserInfoDTO lifeUserInfoDTO) {
+        Long userId = lifeUserInfoDTO.getUserId();
+        String uniAbout = lifeUserInfoDTO.getUniAbout();
+        String nickname = lifeUserInfoDTO.getNickname();
+        myPageMapper.updateTwo(userId, uniAbout, nickname );
+        myPageMapper.mergeToKakao(userId);
+        myPageMapper.mergeToUser(userId);
+    }
+
+
+    @Override
+    public LifeUserInfoDTO selectAllInfo(Long userId) {
+        return myPageMapper.selectAllInfo(userId);
     }
 
 

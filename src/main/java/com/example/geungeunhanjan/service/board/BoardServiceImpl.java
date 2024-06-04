@@ -120,12 +120,18 @@ public class BoardServiceImpl implements BoardService {
             }
         }
     }
+    /* ---------------------------------------- */
 
+    //일대기별 생활 주기 설정
     @Override
-    public List<BoardVO> selectLifeCycleBoard(String boardLifeCycle) {
-        return boardMapper.selectbyLifeCycle(boardLifeCycle);
+    public List<BoardVO> selectLifeCycle(String boardLifeCycle, Long userId) {
+        return boardMapper.selectBoardLifeCycle(boardLifeCycle, userId);
     }
 
+    @Override
+    public void boardIntViewCnt(Long boardId) {
+        boardMapper.incViewCnt(boardId);
+    }
 
     //파일에 저장할 날짜 반환
     private String getUploadPath() {
@@ -178,30 +184,19 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.everyLifeagepaging(criteria);
     }
 
+
     @Override
     public int everyLifeFindTotal() {
         return boardMapper.everyLifeFindTotal();
     }
 
-    @Override
-    public BoardMainDTO mainLeftBannerSelect() {
-        return boardMapper.mainLeftBannerSelect();
-    }
-
-    @Override
-    public List<BoardMainDTO> mainRightBannerSelect(String orderBy) {
-        return List.of();
-    }
-
-    @Override
-    public List<BoardMainDTO> mainRightBannerSelect() {
-        return boardMapper.mainRightBannerSelect();
-    }
 
     @Override
     public List<BoardDTO> getBoards(String orderBy) {
         return List.of();
     }
+
+
 
 //    @Override
 //    public List<BoardDTO> getBoards(String orderBy) {
@@ -236,6 +231,17 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<BoardDTO> getPostsSortedByPopularity() {
         return boardMapper.postarrayPopularity();
+    }
+
+
+    @Override
+    public BoardMainDTO mainLeftBannerSelect() {
+        return boardMapper.mainLeftBannerSelect();
+    }
+
+    @Override
+    public List<BoardMainDTO> mainRightBannerSelect() {
+        return boardMapper.mainRightBannerSelect();
     }
 
 }
