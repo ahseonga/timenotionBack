@@ -20,6 +20,7 @@ public class BoardVO {
     private int boardLikeCount;
     private int boardYear;
     private Long userId;
+    private Long uniId;
 
 
 }

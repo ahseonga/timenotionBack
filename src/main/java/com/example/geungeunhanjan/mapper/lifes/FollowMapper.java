@@ -13,13 +13,13 @@ import java.util.List;
 @Mapper
 public interface FollowMapper {
 
-//팔로우의 다음 시퀀스
+    //팔로우의 다음 시퀀스
     Long getFollowSeqNext();
 
-//    팔로워 리스트 조회하기
+    //    팔로워 리스트 조회하기
     List<FollowDTO> selectFollower(Long uniId);
 
-// 팔로우 리스트 클릭시 상세 남의 페이지 조회하기
+    // 팔로우 리스트 클릭시 상세 남의 페이지 조회하기
     FollowDTO selectFollowDetail(Long userId);
 
 ////    팔로잉 리스트 조회하기

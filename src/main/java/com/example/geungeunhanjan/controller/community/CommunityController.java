@@ -72,6 +72,14 @@ public class CommunityController {
         List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
         Long loginUserId = (Long) session.getAttribute("uniId");
 
+        for (InquiryPagingDTO inquiry : inquiries) {
+            System.out.println("Before: " + inquiry);
+            if ("X".equals(inquiry.getInquiryPublic())) {
+                inquiry.setInquiryTitle("비공개");
+            }
+            System.out.println("After: " + inquiry);
+        }
+
         int total = inquiryService.selectInquiryTotal();
 
         InquiryPage inquiryPage = new InquiryPage(inquiryCriteria, total);
@@ -91,7 +99,13 @@ public class CommunityController {
     @ResponseBody
     public InquiryDTO inquiryDetail (@PathVariable("inquiryId") Long inquiryId, Model model){
 
-        Long inquiryUserId = inquiryService.selectUserIdByInquiryId(inquiryId);
+        InquiryDTO inquiryDTO = inquiryService.selectUserIdByInquiryId(inquiryId);
+        Long inquiryUserId = inquiryDTO.getUserId();
+
+        if(inquiryDTO.getInquiryPublic().equals("X")){
+            inquiryDTO.setInquiryTitle("비공개");
+            inquiryDTO.setInquiryContent("비공개");
+        }
 
         model.addAttribute("inquiryUserId", inquiryUserId);
         System.out.println("inquiryUserId = " + inquiryUserId);
@@ -161,12 +175,11 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
-
-                                         inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
+    inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
 
 
         String userNickname = userService.selectUserNickname(uniId);
-        ;
+
 
         inquiryWriteDTO.setUserId(uniId);
         System.out.println(uniId);
@@ -200,11 +213,14 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
+
         Long uniId = (Long) request.getSession().getAttribute("uniId");
+
 
         if (uniId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
-            return "redirect:/login";
+//            return "redirect:/login";
+            System.out.println(uniId);
         }
 
         // noticeVO에 userId 설정

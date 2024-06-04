@@ -17,4 +17,5 @@ public class InquiryWriteDTO {
     private String inquiryPublic;
     private Long userId;
     private String userNickname;
+    private Long uniId;
 }

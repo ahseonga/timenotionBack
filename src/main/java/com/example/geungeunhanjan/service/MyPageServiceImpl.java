@@ -1,6 +1,8 @@
 package com.example.geungeunhanjan.service;
 
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
+import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
+import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
@@ -59,11 +61,6 @@ public class MyPageServiceImpl implements MyPageService{
             return myPageMapper.myCommentTotal(userId);
         }
 
-///*    @Override
-//    public void registProfileBackFile(FileVO fileVO) {
-//        myPageMapper.insertFileById(fileVO);
-//    }*/
-
     // 4. 회원정보 수정 ----------------------------------------------------------------------------------------------------
     // 4-1. 프사 / 배사 파일 !!
     @Value("C:/upload/")//  프로퍼티에 저장된 파일 프로퍼티값을 필드에 넣어줌
@@ -83,8 +80,6 @@ public class MyPageServiceImpl implements MyPageService{
             UserFileVO renameUserFileVO = renameResourceFile(file);
             myPageMapper.insertFileById(renameUserFileVO);
         }
-
-
     }
 
     private String getUploadPath(){
@@ -137,14 +132,25 @@ public class MyPageServiceImpl implements MyPageService{
 
 
 
-
-
-
-
-
     @Override
     public UserFileVO getProfileBackFile(Long userFileId) {   // 프사 / 배사 셀렉
         return null;
+    }
+
+    @Override    /* 유저 정보 업데이트 */
+    public void updateUserInfo(LifeUserInfoDTO lifeUserInfoDTO) {
+        Long userId = lifeUserInfoDTO.getUserId();
+        String uniAbout = lifeUserInfoDTO.getUniAbout();
+        String nickname = lifeUserInfoDTO.getNickname();
+        myPageMapper.updateTwo(userId, uniAbout, nickname );
+        myPageMapper.mergeToKakao(userId);
+        myPageMapper.mergeToUser(userId);
+    }
+
+
+    @Override
+    public LifeUserInfoDTO selectAllInfo(Long userId) {
+        return myPageMapper.selectAllInfo(userId);
     }
 
 
