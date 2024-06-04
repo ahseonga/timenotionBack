@@ -6,6 +6,7 @@ import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 
+import com.example.geungeunhanjan.domain.dto.user.UserFileNicknameDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.BoardFileVO;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 
 @Service
 public interface BoardService {
@@ -83,6 +87,11 @@ public interface BoardService {
 
     List<BoardMainDTO> mainRightBannerSelect();
 
+<<<<<<< HEAD
+=======
+    UserFileNicknameDTO mainBoardByViewsUserInfo(Long boardId);
+
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 }
 
 

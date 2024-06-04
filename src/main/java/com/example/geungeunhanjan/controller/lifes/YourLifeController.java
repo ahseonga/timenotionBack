@@ -70,7 +70,11 @@ public class YourLifeController {
 
     //★☆★☆★☆★☆★☆★☆★☆★☆★☆ myLife의 userpage ★☆★☆★☆★☆★☆★☆★☆★☆
     @GetMapping("/userpage/{uniId}")
+<<<<<<< HEAD
     public String userPage(Model model, @PathVariable("uniId") long userId, HttpServletRequest request) {
+=======
+    public String userPage(Model model, @PathVariable("uniId") long userId) {
+>>>>>>> ba7783b6573a0df4537eea9c4fe0af6ba8e183d7
 
         FollowDTO follow = followService.selectFollowDetail(userId);
         UniVO about = followService.selectFollowAbout(userId);
