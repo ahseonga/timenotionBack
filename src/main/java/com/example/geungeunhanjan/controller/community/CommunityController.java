@@ -161,13 +161,14 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
-                                         inquiryWriteDTO, @SessionAttribute("uniId") Long userId){
+    inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
 
-        String userNickname = userService.selectUserNickname(userId);
+
+        String userNickname = userService.selectUserNickname(uniId);
         ;
 
-        inquiryWriteDTO.setUserId(userId);
-        System.out.println(userId);
+        inquiryWriteDTO.setUserId(uniId);
+        System.out.println(uniId);
         inquiryWriteDTO.setUserNickname(userNickname);
 //        inquiryDTO.setInquiryCreatedDate();
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -198,15 +199,17 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long userId = (Long) request.getSession().getAttribute("uniId");
 
-        if (userId == null) {
+        Long uniId = (Long) request.getSession().getAttribute("uniId");
+
+
+        if (uniId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
             return "redirect:/login";
         }
 
         // noticeVO에 userId 설정
-        noticeVO.setUserId(userId);
+        noticeVO.setUserId(uniId);
         System.out.println(noticeVO);
         // noticeId 설정 및 공지사항 등록
         noticeVO.setNoticeId(noticeService.getNoticeSeqNext());

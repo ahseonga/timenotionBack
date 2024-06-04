@@ -21,11 +21,19 @@
     <div class="first-container">
       <div class="profile-background">
         <div class="profile-background-dark"></div>
+<<<<<<< HEAD
         <!--       배경 이미지 -->
         <div class="profile-bg-img-box"><img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt=""  th:src="${follow.userFileProfileSource}">
         </div>
         <div class="profile">
           <!--          프로필 이미지 -->
+=======
+<!--       배경 이미지 -->
+        <div class="profile-bg-img-box"><img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt=""  th:src="${follow.userFileProfileSource}">
+        </div>
+        <div class="profile">
+<!--          프로필 이미지 -->
+>>>>>>> b9a2b3f642b041bb609be2d12999cb23037f4199
           <div class="profile-img-box"><img src="./../../img/myLife/jyg-baby_20240514_104047744.jpg" alt=""  th:src="${follow.userFileBackSource}"></div>
           <div class="profile-detail">
             <!-- 추가 : 해당 p태그는 display none으로 설정하고 user_id를 저장하여 백단에서 값을 가져오기위함
@@ -49,7 +57,11 @@
       </div>
       <div class="profile-text">
         <div class="profile-introduce">
+<<<<<<< HEAD
           <!--          자기소개란 -->
+=======
+<!--          자기소개란 -->
+>>>>>>> b9a2b3f642b041bb609be2d12999cb23037f4199
           <p th:text="${about != null ? about.uniAbout : '-'}">
           </p>
         </div>
@@ -85,6 +97,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="fourth-container">
       <div class="list">
         <div th:each="board : ${boards}" class="list-one">
@@ -107,8 +120,32 @@
         </div>
 
 
+=======
+      <div class="fourth-container">
+        <div class="list">
+          <div th:each="board : ${boards}" class="list-one">
+            <a th:href="@{/myLife/detail-my(boardId=${board.boardId})}">
+              <div class="list-one-detail">
+                <div class="title">
+                  <h3 th:text="${board.boardTitle}"></h3>
+                  <p th:text="|조회수 : ${board.boardViewCount}|"></p>
+                </div>
+                <div class="list-date">
+                  <!--                <p th:text="${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 HH시 mm분')}"></p>-->
+                  <p th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yy년 M월 d일 ')}|"></p>
+                </div>
+                <div class="list-text">
+                  <p th:text="${board.boardContent}">
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+
+        </div>
+>>>>>>> b9a2b3f642b041bb609be2d12999cb23037f4199
       </div>
-    </div>
     <div class="fifth-container">
 
       <ul class="pagination">
