@@ -23,51 +23,29 @@
 
     <!--    메인 화면 4개 게시글-->
     <select id="mainBoardbyViews" resultType="BoardMainDTO">
-        --         SELECT BOARD_ID,
---                BOARD_TITLE,
---                BOARD_CONTENT,
---                BOARD_CREATED_DATE,
---                BOARD_VIEW_COUNT,
---                BOARD_LIKE_COUNT,
---                BOARD_YEAR,
---                USER_ID
---         FROM GGHJ_BOARD
---         WHERE rownum BETWEEN 1 AND 4
---         ORDER BY BOARD_VIEW_COUNT DESC
-            <![CDATA[
+        <![CDATA[
         SELECT
-            board_id,
-            board_title,
-            board_content,
-            board_file_source_name,
-            user_nickname,
-            board_rank,
-            USER_FILE_PROFILE_SOURCE,
-            board_created_date,
-            board_view_count
+            BOARD_ID,
+            BOARD_TITLE,
+            BOARD_CONTENT,
+            BOARD_VIEW_COUNT,
+            BOARD_FILE_SOURCE_NAME,
+            board_created_date
         FROM (
-                 SELECT
-                     b.board_id,
-                     b.board_title,
-                     b.board_content,
-                     bf.board_file_source_name,
-                     COALESCE(u.user_nickname, k.name) AS user_nickname,
-                     RANK() OVER (ORDER BY b.board_view_count DESC) AS board_rank,
-                         FIRST_VALUE(COALESCE(k.PROFILE_PIC, uf.USER_FILE_PROFILE_SOURCE)) OVER (PARTITION BY b.board_id ORDER BY b.board_id) AS USER_FILE_PROFILE_SOURCE,
-                         b.board_created_date,
-                     b.board_view_count
-                 FROM
-                     gghj_board b
-                         LEFT JOIN gghj_board_file bf ON b.board_id = bf.board_id
-                         LEFT JOIN gghj_uni gu ON b.user_id = gu.user_id OR b.user_id = gu.kakao_id
-                         LEFT JOIN gghj_user u ON gu.user_id = u.user_id
-                         LEFT JOIN gghj_kakao k ON gu.kakao_id = k.kakao_id
-                         LEFT JOIN GGHJ_USER_FILE uf ON gu.uni_id = uf.USER_ID
-             ) ranked_boards
-        WHERE
-            board_rank <= 4
+        SELECT
+        b.BOARD_ID,
+        b.BOARD_TITLE,
+        b.BOARD_CONTENT,
+        b.BOARD_VIEW_COUNT,
+        b.board_created_date,
+        bf.BOARD_FILE_SOURCE_NAME
+        FROM
+        GGHJ_BOARD b
+        LEFT JOIN GGHJ_BOARD_FILE bf ON b.BOARD_ID = bf.BOARD_ID
         ORDER BY
-            board_rank
+        b.BOARD_VIEW_COUNT DESC
+        )
+        WHERE ROWNUM <= 4
         ]]>
     </select>
 
@@ -160,7 +138,7 @@
         #{boardViewCount}, #{boardLifeCycle}, #{boardLikeCount}, #{userId}, #{boardYear})
     </insert>
 
-    <!-- 게시판 작성자의 생일 가져오기  -->
+        <!-- 게시판 작성자의 생일 가져오기  -->
     <select id="selectUserBirth" resultType="java.time.LocalDateTime">
         SELECT
             CASE
