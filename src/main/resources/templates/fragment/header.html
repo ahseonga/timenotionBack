@@ -41,7 +41,7 @@
                     <span>로그인</span>
                 </a>
             </div>
-            <div class="regist-box">
+            <div class="regist-box" th:if="${session.uniId == null}">
                 <a th:href="@{/user/join}" class="regist-wrap">
 <!--                    <div class="header-img-box"><img src="./../../img/main/회원가입.png" alt=""/></div>-->
 <!--                    <div class="header-img-box"><img th:src="@{/img/main/회원가입.png}" alt=""/></div>-->
@@ -56,6 +56,13 @@
 
                     <span>로그아웃</span>
                 </a>
+            </div>
+            <div th:if="${session.uniId != null}" class="logout-box">
+
+                    <!--                    <div class="logout-img-box"><img src="./../../img/main/로그아웃.png" alt=""/></div>-->
+                    <!--                    <div class="logout-img-box"><img th:src="@{/img/main/로그아웃.png}" alt=""/></div>-->
+
+                    <span th:text="${session.userNickname} + '님'">로그아웃</span>
             </div>
         </div>
     </div>

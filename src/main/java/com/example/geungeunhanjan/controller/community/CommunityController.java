@@ -72,6 +72,14 @@ public class CommunityController {
         List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
         Long loginUserId = (Long) session.getAttribute("uniId");
 
+        for (InquiryPagingDTO inquiry : inquiries) {
+            System.out.println("Before: " + inquiry);
+            if ("X".equals(inquiry.getInquiryPublic())) {
+                inquiry.setInquiryTitle("비공개");
+            }
+            System.out.println("After: " + inquiry);
+        }
+
         int total = inquiryService.selectInquiryTotal();
 
         InquiryPage inquiryPage = new InquiryPage(inquiryCriteria, total);
@@ -91,7 +99,13 @@ public class CommunityController {
     @ResponseBody
     public InquiryDTO inquiryDetail (@PathVariable("inquiryId") Long inquiryId, Model model){
 
-        Long inquiryUserId = inquiryService.selectUserIdByInquiryId(inquiryId);
+        InquiryDTO inquiryDTO = inquiryService.selectUserIdByInquiryId(inquiryId);
+        Long inquiryUserId = inquiryDTO.getUserId();
+
+        if(inquiryDTO.getInquiryPublic().equals("X")){
+            inquiryDTO.setInquiryTitle("비공개");
+            inquiryDTO.setInquiryContent("비공개");
+        }
 
         model.addAttribute("inquiryUserId", inquiryUserId);
         System.out.println("inquiryUserId = " + inquiryUserId);
@@ -166,7 +180,7 @@ public class CommunityController {
 
 
         String userNickname = userService.selectUserNickname(uniId);
-        ;
+
 
         inquiryWriteDTO.setUserId(uniId);
         System.out.println(uniId);
