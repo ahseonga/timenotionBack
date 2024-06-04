@@ -18,6 +18,8 @@ public interface CommentService {
     // 3. 댓글 페이징 !
     Slice<CommentListDTO> findCommentSlice (Criteria criteria, Long boardId);
 
+    // 4. 댓글 삭제
+    void removeComment(Long commentId);
 
 
 }

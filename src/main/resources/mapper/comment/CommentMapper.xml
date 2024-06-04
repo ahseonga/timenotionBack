@@ -25,7 +25,7 @@
     </select>
 
     <select id="selectCommentSlice" resultType="CommentListDTO">
-        <![CDATA[
+    <![CDATA[
         SELECT BOARD_ID, USER_FILE_ID, USER_ID, COMMENT_ID, NICKNAME, COMMENT_CONTENT, COMMENT_CREATED_DATE,
                USER_FILE_PROFILE_NAME, USER_FILE_PROFILE_SOURCE, USER_FILE_PROFILE_UUID
         FROM (
@@ -42,11 +42,15 @@
                                    LEFT JOIN GGHJ_USER U ON UN.USER_ID = U.USER_ID
                                    LEFT JOIN GGHJ_KAKAO K ON UN.KAKAO_ID = K.KAKAO_ID
                                    LEFT JOIN GGHJ_USER_FILE F ON F.USER_ID = UN.UNI_ID
-                          ORDER BY C.COMMENT_ID
-                      ) WHERE ROWNUM <=  #{criteria.page} * #{criteria.amount} + 1
+                          ORDER BY C.COMMENT_ID DESC
+                      ) WHERE ROWNUM <= #{criteria.page} * #{criteria.amount} + 1
              ) WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
         ]]>
-    </select>
-
+</select>
+<!--댓글 삭제 -->
+    <delete id="deleteComment" parameterType="Long">
+        DELETE FROM GGHJ_COMMENT
+               WHERE COMMENT_ID = #{commentId}
+    </delete>
 
 </mapper>
