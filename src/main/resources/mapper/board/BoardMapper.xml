@@ -24,29 +24,60 @@
     <select id="mainBoardbyViews" resultType="BoardMainDTO">
         <![CDATA[
         SELECT
-            BOARD_ID,
-            BOARD_TITLE,
-            BOARD_CONTENT,
-            BOARD_VIEW_COUNT,
-            BOARD_FILE_SOURCE_NAME,
-            board_created_date
+            board_id,
+            board_title,
+            board_content,
+            board_file_source_name,
+            user_nickname,
+            board_rank,
+            USER_FILE_PROFILE_SOURCE,
+            board_created_date,
+            board_view_count
         FROM (
                  SELECT
-                     b.BOARD_ID,
-                     b.BOARD_TITLE,
-                     b.BOARD_CONTENT,
-                     b.BOARD_VIEW_COUNT,
-                     b.board_created_date,
-                     bf.BOARD_FILE_SOURCE_NAME
+                     b.board_id,
+                     b.board_title,
+                     b.board_content,
+                     bf.board_file_source_name,
+                     COALESCE(u.user_nickname, k.name) AS user_nickname,
+                     DENSE_RANK() OVER (ORDER BY b.board_view_count DESC) AS board_rank,
+                         FIRST_VALUE(COALESCE(k.PROFILE_PIC, uf.USER_FILE_PROFILE_SOURCE)) OVER (PARTITION BY b.board_id ORDER BY b.board_id) AS USER_FILE_PROFILE_SOURCE,
+                         b.board_created_date,
+                     b.board_view_count
                  FROM
-                     GGHJ_BOARD b
-                         LEFT JOIN GGHJ_BOARD_FILE bf ON b.BOARD_ID = bf.BOARD_ID
-                 ORDER BY
-                     b.BOARD_VIEW_COUNT DESC
-             )
-        WHERE ROWNUM <= 4
+                     gghj_board b
+                         FULL outer JOIN gghj_board_file bf ON b.board_id = bf.board_id
+                         FULL OUTER JOIN gghj_uni gu ON b.user_id = gu.user_id OR b.user_id = gu.kakao_id
+                         FULL outer JOIN gghj_user u ON gu.user_id = u.user_id
+                         left JOIN gghj_kakao k ON gu.kakao_id = k.kakao_id
+                         FULL OUTER JOIN GGHJ_USER_FILE uf ON gu.uni_id = uf.USER_ID
+             ) ranked_boards
+        WHERE
+            board_rank <= 4
+        ORDER BY
+            board_rank
         ]]>
     </select>
+
+    <select id="mainBoardByViewsUserInfo" resultType="UserFileNicknameDTO" parameterType="Long">
+        <![CDATA[
+        SELECT
+            COALESCE(u.USER_NICKNAME, ku.NAME) AS nick_name,
+            COALESCE(uf.USER_FILE_PROFILE_SOURCE, ku.PROFILE_PIC) AS profile_source,
+            b.BOARD_ID
+        FROM
+                (SELECT USER_ID, KAKAO_ID FROM GGHJ_UNI) uu
+                    LEFT JOIN
+                (SELECT KAKAO_ID, NAME, PROFILE_PIC FROM GGHJ_KAKAO) ku ON uu.KAKAO_ID = ku.KAKAO_ID
+                    LEFT JOIN
+                (SELECT USER_ID, USER_NICKNAME FROM GGHJ_USER) u ON uu.USER_ID = u.USER_ID
+                    LEFT JOIN
+                (SELECT USER_ID, USER_FILE_PROFILE_SOURCE FROM GGHJ_USER_FILE) uf ON uu.USER_ID = uf.USER_ID
+                    JOIN
+            (SELECT USER_ID, BOARD_ID, BOARD_VIEW_COUNT FROM GGHJ_BOARD WHERE board_id = #{boardId}) b ON uu.USER_ID = b.USER_ID
+        ]]>
+    </select>
+
 
     <!--    메인 배너 왼쪽 배너-->
     <select id="mainLeftBannerSelect" resultType="BoardMainDTO">
@@ -54,34 +85,34 @@
         SELECT
             board_id,
             board_title,
+            board_content,
             board_file_source_name,
             user_nickname,
             board_rank,
-            MAX(uf.USER_FILE_PROFILE_SOURCE) AS USER_FILE_PROFILE_SOURCE
+            USER_FILE_PROFILE_SOURCE,
+            board_created_date,
+            board_view_count
         FROM (
                  SELECT
                      b.board_id,
                      b.board_title,
+                     b.board_content,
                      bf.board_file_source_name,
                      COALESCE(u.user_nickname, k.name) AS user_nickname,
-                     DENSE_RANK() OVER (ORDER BY b.board_view_count DESC) AS board_rank
+                     DENSE_RANK() OVER (ORDER BY b.board_view_count DESC) AS board_rank,
+                         FIRST_VALUE(COALESCE(k.PROFILE_PIC, uf.USER_FILE_PROFILE_SOURCE)) OVER (PARTITION BY b.board_id ORDER BY b.board_id) AS USER_FILE_PROFILE_SOURCE,
+                         b.board_created_date,
+                     b.board_view_count
                  FROM
                      gghj_board b
-                         JOIN
-                     gghj_board_file bf ON b.board_id = bf.board_id
-                         LEFT JOIN
-                     gghj_uni gu ON b.user_id = gu.user_id OR b.user_id = gu.kakao_id
-                         LEFT JOIN
-                     gghj_user u ON gu.user_id = u.user_id
-                         JOIN
-                     gghj_kakao k ON gu.kakao_id = k.kakao_id
-             )
-                 LEFT JOIN
-             GGHJ_USER_FILE uf ON uf.USER_ID = user_id
+                         FULL outer JOIN gghj_board_file bf ON b.board_id = bf.board_id
+                         FULL OUTER JOIN gghj_uni gu ON b.user_id = gu.user_id OR b.user_id = gu.kakao_id
+                         FULL outer JOIN gghj_user u ON gu.user_id = u.user_id
+                         left JOIN gghj_kakao k ON gu.kakao_id = k.kakao_id
+                         FULL OUTER JOIN GGHJ_USER_FILE uf ON gu.uni_id = uf.USER_ID
+             ) ranked_boards
         WHERE
-            board_rank = 1 AND ROWNUM = 1
-        GROUP BY
-            board_id, board_title, board_file_source_name, user_nickname, board_rank
+            board_rank <= 1 and rownum = 1
         ORDER BY
             board_rank
         ]]>
@@ -93,36 +124,46 @@
         SELECT
             board_id,
             board_title,
+            board_content,
             board_file_source_name,
             user_nickname,
             board_rank,
-            MAX(uf.USER_FILE_PROFILE_SOURCE) AS USER_FILE_PROFILE_SOURCE
+            USER_FILE_PROFILE_SOURCE,
+            board_created_date,
+            board_view_count
         FROM (
                  SELECT
-                     b.board_id,
-                     b.board_title,
-                     bf.board_file_source_name,
-                     COALESCE(u.user_nickname, k.name) AS user_nickname,
-                     DENSE_RANK() OVER (ORDER BY b.board_view_count DESC) AS board_rank
-                 FROM
-                     gghj_board b
-                         JOIN
-                     gghj_board_file bf ON b.board_id = bf.board_id
-                         LEFT JOIN
-                     gghj_uni gu ON b.user_id = gu.user_id OR b.user_id = gu.kakao_id
-                         LEFT JOIN
-                     gghj_user u ON gu.user_id = u.user_id
-                         JOIN
-                     gghj_kakao k ON gu.kakao_id = k.kakao_id
+                     board_id,
+                     board_title,
+                     board_content,
+                     board_file_source_name,
+                     user_nickname,
+                     board_rank,
+                     USER_FILE_PROFILE_SOURCE,
+                     board_created_date,
+                     board_view_count
+                 FROM (
+                          SELECT
+                              b.board_id,
+                              b.board_title,
+                              b.board_content,
+                              bf.board_file_source_name,
+                              COALESCE(u.user_nickname, k.name) AS user_nickname,
+                              DENSE_RANK() OVER (ORDER BY b.board_view_count DESC) AS board_rank,
+                                  FIRST_VALUE(COALESCE(k.PROFILE_PIC, uf.USER_FILE_PROFILE_SOURCE)) OVER (PARTITION BY b.board_id ORDER BY b.board_id) AS USER_FILE_PROFILE_SOURCE,
+                                  b.board_created_date,
+                              b.board_view_count
+                          FROM
+                              gghj_board b
+                                  FULL OUTER JOIN gghj_board_file bf ON b.board_id = bf.board_id
+                                  FULL OUTER JOIN gghj_uni gu ON b.user_id = gu.user_id OR b.user_id = gu.kakao_id
+                                  FULL OUTER JOIN gghj_user u ON gu.user_id = u.user_id
+                                  LEFT JOIN gghj_kakao k ON gu.kakao_id = k.kakao_id
+                                  FULL OUTER JOIN GGHJ_USER_FILE uf ON gu.uni_id = uf.USER_ID
+                      ) ranked_boards
+                 WHERE board_rank BETWEEN 2 AND 3
              )
-                 LEFT JOIN
-             GGHJ_USER_FILE uf ON uf.USER_ID = user_id
-        WHERE
-            board_rank > 1 AND board_rank <= 3
-        GROUP BY
-            board_id, board_title, board_file_source_name, user_nickname, board_rank
-        ORDER BY
-            board_rank
+        ORDER BY board_rank
         ]]>
     </select>
 
@@ -142,25 +183,22 @@
         SELECT
             CASE
                 WHEN u.USER_ID IS NOT NULL THEN u.USER_BIRTH
-<<<<<<< HEAD
+
                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
-=======
+
                 --                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
 --                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
->>>>>>> 520c3ccd0b6d9e52c237f141cd8dd6058c0b5c13
+
                 END AS BIRTHDAY
         FROM
             GGHJ_UNI uni
                 LEFT JOIN
             GGHJ_USER u ON uni.USER_ID = u.USER_ID
-<<<<<<< HEAD
-                LEFT JOIN
-            GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
-=======
+
         --                 LEFT JOIN
 --             GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
->>>>>>> 520c3ccd0b6d9e52c237f141cd8dd6058c0b5c13
+
         WHERE
             uni.UNI_ID = #{uniId}
     </select>

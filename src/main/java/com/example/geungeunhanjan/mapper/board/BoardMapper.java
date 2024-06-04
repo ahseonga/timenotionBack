@@ -4,6 +4,7 @@ package com.example.geungeunhanjan.mapper.board;
 import com.example.geungeunhanjan.domain.dto.board.BoardDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
+import com.example.geungeunhanjan.domain.dto.user.UserFileNicknameDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -74,7 +75,7 @@ public interface BoardMapper {
 
     // 모두의 일대기 -> 상세페이지 넘어가기
 //    Optional<BoardVO> everyLifeDetail(Long UserId);
-
+    UserFileNicknameDTO mainBoardByViewsUserInfo(Long boardId);
 }
 
 
