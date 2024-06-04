@@ -175,8 +175,7 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
-
-                                         inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
+    inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
 
 
         String userNickname = userService.selectUserNickname(uniId);
@@ -214,7 +213,9 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
+
         Long uniId = (Long) request.getSession().getAttribute("uniId");
+
 
         if (uniId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트

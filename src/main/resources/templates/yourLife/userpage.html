@@ -12,24 +12,31 @@
 </head>
 
 <body>
-  <!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
-  <div th:replace="~{/fragment/header::header}"></div>
-  <!-- 헤더 끝-========================================================================== -->
+<!-- 헤더~~!!!!!!!!!!!!!!!!!!! -->
+<div th:replace="~{/fragment/header::header}"></div>
+<!-- 헤더 끝-========================================================================== -->
 
-  <main>
-    <div class="container">
+<main>
+  <div class="container">
     <div class="first-container">
       <div class="profile-background">
         <div class="profile-background-dark"></div>
 <!--       배경 이미지 -->
-        <div class="profile-bg-img-box"><img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt=""  th:src="${follow.userFileProfileSource}">
+        <div class="profile-bg-img-box">
+<!--          <img class="" src="./../../img/myLife/jyg-kids_20240514_104048343.jpg" alt=""  th:src="${follow.userFileProfileSource}">-->
+          <img th:if="${follow.userFileBackSource != null}" th:src="${follow.userFileBackSource}" alt="배경사진" class="img-back-img">
+          <img th:unless="${follow.userFileBackSource != null}" src="/img/main/basic-background3.png" alt="기본 배경사진" class="img-back-img">
         </div>
         <div class="profile">
 <!--          프로필 이미지 -->
-          <div class="profile-img-box"><img src="./../../img/myLife/jyg-baby_20240514_104047744.jpg" alt=""  th:src="${follow.userFileBackSource}"></div>
+          <div class="profile-img-box">
+<!--            <img src="./../../img/myLife/jyg-baby_20240514_104047744.jpg" alt=""  th:src="${follow.userFileBackSource}">-->
+            <img th:if="${follow.userFileProfileSource != null}" th:src="${follow.userFileProfileSource}" alt="프로필사진" class="img-profile-img">
+            <img th:unless="${follow.userFileProfileSource != null}" src="/img/main/basic-profile.png" alt="기본 프로필 사진" class="img-profile-img">
+          </div>
           <div class="profile-detail">
-              <!-- 추가 : 해당 p태그는 display none으로 설정하고 user_id를 저장하여 백단에서 값을 가져오기위함
-                      이 p태그에 userId를 넣어주시면 됩니다 . -->
+            <!-- 추가 : 해당 p태그는 display none으로 설정하고 user_id를 저장하여 백단에서 값을 가져오기위함
+                    이 p태그에 userId를 넣어주시면 됩니다 . -->
             <p style="display: none" id="get-user-id"  th:text="${follow.followerId}"></p>
 
             <p id="profile-nickname"  th:text="${follow.userNickname}">장윤근</p>
@@ -42,14 +49,13 @@
               <span class="follower" >팔로잉</span>
             </p>
             <p class="profile-heart">
-                <img src="./../../img/myLife/mdj-heart_negative.png" alt="하투" class="detail_page_heart" id="heart-image">
+              <img src="./../../img/myLife/mdj-heart_negative.png" alt="하투" class="detail_page_heart" id="heart-image">
             </p>
           </div>
         </div>
       </div>
       <div class="profile-text">
         <div class="profile-introduce">
-<!--          자기소개란 -->
           <p th:text="${about != null ? about.uniAbout : '-'}">
           </p>
         </div>
@@ -105,8 +111,6 @@
               </div>
             </a>
           </div>
-
-
         </div>
       </div>
     <div class="fifth-container">
@@ -138,10 +142,10 @@
 
     </div>
   </div>
-  </main>
-  <footer>
-   
-  </footer>
+</main>
+<footer>
+
+</footer>
 </body>
 
 </html>

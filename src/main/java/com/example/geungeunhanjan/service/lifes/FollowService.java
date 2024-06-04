@@ -19,7 +19,7 @@ public interface FollowService {
     List<FollowDTO> selectFollower(Long uniId);
     // 팔로우 리스트 클릭시 상세 남의 페이지 조회하기
     FollowDTO selectFollowDetail(Long userId);
-//    //    팔로잉 리스트 조회하기
+    //    //    팔로잉 리스트 조회하기
 //    List<FollowDTO> selectFollowing();
     //상세페이지 about 글 불러오기
     UniVO selectFollowAbout(Long userId);

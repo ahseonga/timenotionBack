@@ -2,23 +2,21 @@ package com.example.geungeunhanjan.controller.lifes;
 
 
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
+import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
+import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.lifePage.Page;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
-import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.service.MyPageService;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.lifes.FollowService;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +36,9 @@ public class MyPageController {
 
     private final BoardService boardService;
     private final MyPageService myPageService;
+    private final LifeUserUpdateDTO lifeUserUpdateDTO;
     private final FollowService followService;
+    private final LifeUserInfoDTO lifeUserInfoDTO;
     BoardVO boardVO;
 
     // 마이페이지에서 내가 쓴 게시글 리스트 뽑기
@@ -49,13 +49,17 @@ public class MyPageController {
         if (uniId == null) {
             return "redirect:/user/login";
         }
-        // 사용자 게시판 목록 및 생애 주기별 게시판 목록 가져오기
+        // 팔로우 : 이거 아직 html에 추가 안 함
+//        FollowDTO follow = followService.selectFollowDetail(userId);
+//        model.addAttribute("follow", follow);
+        // 유저 정보 모두
+        LifeUserInfoDTO userInfo = myPageService.selectAllInfo(uniId);
+        model.addAttribute("userInfo", userInfo);
+        // 게시판 정보
+        System.out.println(lifeUserUpdateDTO);
         List<BoardVO> boards = boardService.selectBoard(uniId);
         model.addAttribute("boards", boards);
-        FollowDTO follow = followService.selectFollowDetail(uniId);
-        model.addAttribute("follow", follow);
         System.out.println(boards);
-
 //        // 초기 생애 주기 데이터 로드 (예: 전체 목록)
 //        List<BoardVO> lifeCycle = boardService.selectLifeCycle(boardVO.getBoardLifeCycle(), boardVO.getUserId());
 //        model.addAttribute("lifeCycle", lifeCycle);
@@ -113,6 +117,7 @@ public class MyPageController {
     }
 
 
+
     //나의 일대기 게시판 작성하기
     @PostMapping("/detail_writingMode")
     public String detailWriting(BoardVO boardVO, @SessionAttribute("uniId") Long uniId,
@@ -164,9 +169,10 @@ public class MyPageController {
     public String detailMy(Model model, Long boardId,@SessionAttribute("uniId") Long uniId){
         BoardVO boards = boardService.selectById(boardId);
         boardService.boardIntViewCnt(boardId);
+        // 유저 정보 모두
+        LifeUserInfoDTO userInfo = myPageService.selectAllInfo(uniId);
+        model.addAttribute("userInfo", userInfo);
         model.addAttribute("boards",boards);
-        List<FollowDTO> followers = followService.selectFollower(uniId);
-        model.addAttribute("followers", followers);
         return "myLife/detail-my";
     }
 
@@ -204,10 +210,12 @@ public class MyPageController {
     @GetMapping("/mypageCommentList")
     public String mypageCommentList(Model model, HttpSession session, Criteria criteria){
         // 로그인 여부 확인
+
         Long uniId = (Long) session.getAttribute("uniId");
         if (uniId == null) {
             return "redirect:/login";
         }
+
         /* 페이징 된 댓글 목록 가져옴 */
         List<CommentDTO> comments = myPageService.findPageMyComment(criteria, uniId);
 
@@ -215,13 +223,16 @@ public class MyPageController {
         int total = myPageService.myCommentTotal(uniId);
         /* 2 ) page에 criteria랑 전체 댓글 수 전달 */
         Page page = new Page(criteria, total);
-
+        // 회원 정보 모두
+        LifeUserInfoDTO userInfo = myPageService.selectAllInfo(uniId);
+        model.addAttribute("userInfo", userInfo);
+        // 댓글 / 페이지
         model.addAttribute("comments", comments);
         model.addAttribute("page", page);
 
         return "myLife/mypageCommentList";
     }
-    // 내가 쓴 댓글로 ㅎㅎㅎㅎ ☆★☆★☆★☆★☆★☆☆★ 작업중 ★☆★☆★☆★☆★☆★☆★☆★
+    // 내가 쓴 댓글로
     // 좋아요 목록으로
     @GetMapping("/mypageLike")
     public String mypageLike(Model model, HttpSession session, Criteria criteria){
@@ -234,44 +245,73 @@ public class MyPageController {
         List<LikeDTO> likes = myPageService.findPageMyLike(criteria, uniId);
         int total = myPageService.myLikeTotal(uniId);
         Page page = new Page(criteria, total);
+        // 팔로우 : 이거 아직 html에 추가 안 함
+//        FollowDTO follow = followService.selectFollowDetail(userId);
+//        model.addAttribute("follow", follow);
+        // 회원 정보 모두
+        LifeUserInfoDTO userInfo = myPageService.selectAllInfo(uniId);
+        model.addAttribute("userInfo", userInfo);
+        // 좋아요 / 페이지
         model.addAttribute("likes", likes);
         model.addAttribute("page", page);
 
         return "/myLife/mypageLike";
     }
-    // ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
     // 회원정보 수정으로
     @GetMapping("/mypageEditMemberInformation")
-    public String mypageEditMemberInformation(HttpSession session){
+    public String mypageEditMemberInformation(HttpSession session, Model model,
+                                              @SessionAttribute("uniId") Long uniId){
         // 로그인 여부 확인
-        Long uniId = (Long) session.getAttribute("uniId");
         if (uniId == null) {
             return "redirect:/login";
         }
-
+        LifeUserInfoDTO userInfo = myPageService.selectAllInfo(uniId);
+        System.out.println(uniId);
+        model.addAttribute("userInfo", userInfo);
+        model.addAttribute("lifeUserUpdateDTO", lifeUserUpdateDTO);
+        System.out.println(lifeUserUpdateDTO);
         return "/myLife/mypageEditMemberInformation";
     }
 
-    // 회원정보 수정으로 Post
+
+    // 회원정보 수정으로 post
     @PostMapping("/mypageEditMemberInformation")
-    public String mypageEditMemberInformation(UserFileVO userFileVO, RedirectAttributes redirectAttributes, HttpSession session,
-                                              @RequestParam("File") List<MultipartFile> file){
+    public String mypageEditMemberInformation(UserFileVO userFileVO, RedirectAttributes redirectAttributes,
+                                              @RequestParam(value = "boardFile", required = false) List<MultipartFile> file,
+                                              @SessionAttribute("uniId") Long uniId,
+                                              LifeUserInfoDTO lifeUserInfoDTO){
         // 로그인 여부 확인
-        Long uniId = (Long) session.getAttribute("uniId");
         if (uniId == null) {
             return "redirect:/login";
         }
 
         userFileVO.setUserId(uniId);
+        // files가 null인 경우 빈 리스트로 초기화
+        if (file == null) {
+            file = Collections.emptyList();
+        }
+        userFileVO.setUserId(uniId);
+
 
         try {
             myPageService.registProfileBackFile(userFileVO, file);
-        }catch (IOException e){ e.printStackTrace();}
+        } catch (IOException e) {
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("errorMessage", "파일 업로드 실패");
+            return "redirect:/myLife/mypageEditMemberInformation"; // 파일 업로드 실패 시 리다이렉트
+        }
+        lifeUserUpdateDTO.setUserId(uniId);
+        try {
+            myPageService.updateUserInfo(lifeUserInfoDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("errorMessage", "회원 정보 업데이트 실패");
+            return "redirect:/myLife/mypageEditMemberInformation"; // 업데이트 실패 시 리다이렉트
+        }
+        redirectAttributes.addFlashAttribute("uniId", userFileVO.getUserId());
 
-
-       redirectAttributes.addFlashAttribute("userId", userFileVO.getUserId());
-
-        return "redirect:/myLife/mypageEditMemberInformation";
+        // 폼 제출 후 리다이렉트
+        return "redirect:/myLife";
     }
 
 

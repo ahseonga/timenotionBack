@@ -1,14 +1,36 @@
 import * as reply from "./module.js";
 let page = 1;
 let hasNext = true;
+
+
 /* boardId
  <input type="hidden" id="boardId" th:value="${boards.boardId}"> 이런식으로 아무데나 갖다놔야함 */
 let boardId = document.querySelector('#boardId').value;
-
-// ♡♡ 댓글 목록 감싸는 div
 let $replyListWrap = document.querySelector('.wrapper-reply');
-/* 1. 댓글 목록 클릭, 댓글 상태 바꾸기 -----------------
-*  추후 작성 -- -- --     */
+
+$replyListWrap.addEventListener('click', function (e) {
+    let $target = e.target;
+    if ($target.classList.contains('real-delete-btn')) {
+        /* 삭제 버튼이 클릭되었는지 확인하고, 해당 요소를 처리 */
+        $target.closest('.delete-btn').classList.add('none');
+        let commentId = $target.closest('.comment-id-tag').dataset.id; // 댓글 ID 가져오기
+
+        reply.remove(commentId, () => {
+            // 댓글 삭제 함수 호출
+            page = 1; // 페이지를 초기화
+            reply.getList2(boardId, page, function (data) {
+                // 댓글 목록을 다시 가져옴
+                hasNext = data.hasNext;
+                // 다음 페이지 여부를 갱신
+                displayComment(data.contentList); // displayComment 함수를 사용하여 댓글 목록을 화면에 표시
+            });
+        });
+    }
+});
+
+
+
+
 
 /* 2. 댓글 등록 ----------------------------------------*/
 {
@@ -44,7 +66,6 @@ let $replyListWrap = document.querySelector('.wrapper-reply');
             서버에 get 요청을 보내고, 응답 페이지를 콜백 함수로 처리하여 댓글 표시 */
     reply.getList2(boardId, page, function (data){
         hasNext = data.hasNext;
-        console.log("뿅!★");
         console.log(data.contentList);
         displayComment(data.contentList);
     });
@@ -72,49 +93,45 @@ let $replyListWrap = document.querySelector('.wrapper-reply');
 } // 2.close
 
 /* 3. 기존 댓글 지우고 새로운 댓글 목록 씌우는 함수
-   innserHTML : 기존 내용 유지 x, 새롭게 덮어 씌임 */
+   innserHTML : 기존 내용 유지 x, 새롭게 덮어 씌임
+    onclick="del();" <=- 삭제버튼에 잇던거 빼둠 */
 function displayComment(commentList){
     let $commentWrap = document.querySelector('.wrapper-reply');
     let tags = '';
     commentList.forEach(r => {
         tags +=  `
-    <div class="wrapper-main-reply">
-                            
-                            <div class="box-main-reply-top">
-                                <a href="#" class="reply-top-left">
-                                    <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
-                                    <div><span class="nickname">송아성</span></div>
-                                    <div class="tag">일기주인</div> 
-                                </a>
-                                <div class="reply-top-right">
-                                    <div class="delete-btn"><button onclick="del();">삭제</button></div>
-                                    <div class="date">2024.11.19</div>
-                                    <div class="dotdotdot">...</div>
-                                    <div class="box-mini-report">
-                                        <button class="mini-button">신고하기</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-main-reply-bottom">
-                                <div class="reply-content">
-                                    <p>${r.commentContent}</p>
-                                </div>
-                            </div>
-                            
-                            <div class="wrapper-re-comment">
-                         
-                                <div class="box-re-comment">
-                                 
-                                    <button class="reply-btn" onclick="toggleReplyInput(this)">답글쓰기</button>
-                                 
-                                    <div class="box-re-comment-btn" style="display: none;">
-                                        <textarea class="re-textarea" placeholder="댓글을 남겨보세요"></textarea>
-                                        <button class="re-submit-btn" onclick="submitReply(this)">완료</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+  <div class="wrapper-main-reply comment-id-tag" data-id="${r.commentId}">
+    <div class="box-main-reply-top">
+        <a href="#" class="reply-top-left">
+            <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
+            <div><span class="nickname">${r.nickname}</span></div>
+            <div class="tag">일기주인</div>
+        </a>
+        <div class="reply-top-right">
+            <div class="delete-btn"><button id="delete" class="real-delete-btn">삭제</button></div>
+            <div class="date">${reply.timeForToday(r.commentCreatedDate)}</div>
+            <div class="dotdotdot">...</div>
+            <div class="box-mini-report">
+                <button class="mini-button">신고하기</button>
+            </div>
+        </div>
+    </div>
+    <div class="box-main-reply-bottom">
+        <div class="reply-content">
+            <p>${r.commentContent}</p>
+        </div>
+    </div>
+    <div class="wrapper-re-comment">
+        <div class="box-re-comment">
+            <button class="reply-btn" onclick="toggleReplyInput(this)">답글쓰기</button>
+            <div class="box-re-comment-btn" style="display: none;">
+                <textarea class="re-textarea" placeholder="댓글을 남겨보세요"></textarea>
+                <button class="re-submit-btn" onclick="submitReply(this)">완료</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
         `;
     }); // 댓글목록 순회
     $commentWrap.innerHTML = tags;
@@ -125,64 +142,45 @@ function displayComment(commentList){
 function appendReply(commentList){
     let $commentWrap = document.querySelector('.wrapper-reply');
     let tags = '';
-
+    console.log("댓글 추가중?");
     commentList.forEach(r => {
         tags += `
-        <div class="wrapper-main-reply">
-                            <!-- 프로필사진 이름 태그 -- 삭제 날짜 ... -->
-                            <div class="box-main-reply-top">
-                                <a href="#" class="reply-top-left">
-                                    <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
-                                    <div><span class="nickname">송아성</span></div>
-                                    <div class="tag">일기주인</div> <-- th:if로 만약 게시글 작성자 id랑 댓 작성자 아이디랑 같으면 none해야함 
-                                </a>
-                                <div class="reply-top-right">
-                                    <div class="delete-btn"><button onclick="del();">삭제</button></div>
-                                    <div class="date">2024.11.19</div>
-                                    <div class="dotdotdot">...</div>
-                                    <div class="box-mini-report">
-                                        <button class="mini-button">신고하기</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-main-reply-bottom">
-                                <div class="reply-content">
-                                    <p>댓글 내용</p>
-                                </div>
-                            </div>
-                            <!-- [대댓글 입력 '답글쓰기' 버튼 ] ---------------> 
-                            <div class="wrapper-re-comment"> <-- th:if로 만약 게시글 작성자 id랑 댓 작성자 아이디랑 같으면 none해야함 
-                                <!-- 기존 댓글 내용 -->
-                                <div class="box-re-comment">
-                                    <!-- 대댓글 버튼 -->
-                                    <button class="reply-btn" onclick="toggleReplyInput(this)">답글쓰기</button>
-                                    <!-- 대댓글 입력 필드 (초기에는 숨겨짐) -->
-                                    <div class="box-re-comment-btn" style="display: none;">
-                                        <textarea class="re-textarea" placeholder="댓글을 남겨보세요"></textarea>
-                                        <button class="re-submit-btn" onclick="submitReply(this)">완료</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+      <div class="wrapper-main-reply comment-id-tag" data-id="${r.commentId}">
+    <div class="box-main-reply-top">
+        <a href="#" class="reply-top-left">
+            <div class="box-profile"><img src="./../../img/main/봉준호 (8).jpg" alt=""></div>
+            <div><span class="nickname">${r.nickname}</span></div>
+            <div class="tag">일기주인</div>
+        </a>
+        <div class="reply-top-right">
+            <div class="delete-btn"><button id="delete" class="real-delete-btn">삭제</button></div>
+            <div class="date">${reply.timeForToday(r.commentCreatedDate)}</div>
+            <div class="dotdotdot">...</div>
+            <div class="box-mini-report">
+                <button class="mini-button">신고하기</button>
+            </div>
+        </div>
+    </div>
+    <div class="box-main-reply-bottom">
+        <div class="reply-content">
+            <p>${r.commentContent}</p>
+        </div>
+    </div>
+    <div class="wrapper-re-comment">
+        <div class="box-re-comment">
+            <button class="reply-btn" onclick="toggleReplyInput(this)">답글쓰기</button>
+            <div class="box-re-comment-btn" style="display: none;">
+                <textarea class="re-textarea" placeholder="댓글을 남겨보세요"></textarea>
+                <button class="re-submit-btn" onclick="submitReply(this)">완료</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
         `;
     }); // 댓글 목록 순회
     $commentWrap.insertAdjacentHTML("beforeend", tags);
 } // 4.close
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
