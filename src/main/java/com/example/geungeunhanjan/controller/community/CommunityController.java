@@ -1,55 +1,26 @@
 package com.example.geungeunhanjan.controller.community;
 
 
-
+import com.example.geungeunhanjan.domain.dto.NoticePage.NoticeCriteria;
+import com.example.geungeunhanjan.domain.dto.NoticePage.NoticePage;
 import com.example.geungeunhanjan.domain.dto.community.*;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryPage;
+import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
 import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import com.example.geungeunhanjan.service.community.InquiryService;
-
-import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-
-
 import com.example.geungeunhanjan.service.community.NoticeService;
-
 import com.example.geungeunhanjan.service.user.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.geungeunhanjan.domain.dto.NoticePage.NoticeCriteria;
-import com.example.geungeunhanjan.domain.dto.NoticePage.NoticePage;
-import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-import com.example.geungeunhanjan.domain.dto.community.NoticePageDTO;
-import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
-import com.example.geungeunhanjan.mapper.community.NoticeMapper;
-import com.example.geungeunhanjan.service.community.InquiryService;
-
-
-import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
-import com.example.geungeunhanjan.service.community.NoticeService;
-
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-
-import org.springframework.web.bind.annotation.*;
-
-
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 // 커뮤티니
@@ -60,6 +31,7 @@ import java.util.stream.Collectors;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
+
     private final InquiryMapper inquiryMapper;
     private final UserService userService;
 
@@ -69,7 +41,15 @@ public class CommunityController {
     public String community (InquiryCriteria inquiryCriteria, Model model, HttpSession session){
 
         List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
-        Long loginUserId = (Long) session.getAttribute("userId");
+        Long loginUserId = (Long) session.getAttribute("uniId");
+
+        for (InquiryPagingDTO inquiry : inquiries) {
+            System.out.println("Before: " + inquiry);
+            if ("X".equals(inquiry.getInquiryPublic())) {
+                inquiry.setInquiryTitle("비공개");
+            }
+            System.out.println("After: " + inquiry);
+        }
 
         int total = inquiryService.selectInquiryTotal();
 
@@ -90,7 +70,13 @@ public class CommunityController {
     @ResponseBody
     public InquiryDTO inquiryDetail (@PathVariable("inquiryId") Long inquiryId, Model model){
 
-        Long inquiryUserId = inquiryService.selectUserIdByInquiryId(inquiryId);
+        InquiryDTO inquiryDTO = inquiryService.selectUserIdByInquiryId(inquiryId);
+        Long inquiryUserId = inquiryDTO.getUserId();
+
+        if(inquiryDTO.getInquiryPublic().equals("X")){
+            inquiryDTO.setInquiryTitle("비공개");
+            inquiryDTO.setInquiryContent("비공개");
+        }
 
         model.addAttribute("inquiryUserId", inquiryUserId);
         System.out.println("inquiryUserId = " + inquiryUserId);
@@ -105,7 +91,7 @@ public class CommunityController {
 
         //로그인 한 유저의 userId 를 같이 보냄
         //userId = 1인 회원만 작성 삭제 가능
-        Long loggedInUserId = (Long) request.getSession().getAttribute("userId");
+        Long loggedInUserId = (Long) request.getSession().getAttribute("uniId");
         model.addAttribute("loggedInUserId", loggedInUserId);
 
         //공지 리스트 정보 가져오기
@@ -160,21 +146,14 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
-                                         inquiryWriteDTO, @SessionAttribute("userId") Long userId){
-
-<<<<<<< HEAD
-                                         inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
+    inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
 
 
         String userNickname = userService.selectUserNickname(uniId);
 
-=======
-        String userNickname = userService.selectUserNickname(userId);
-        ;
->>>>>>> main
 
-        inquiryWriteDTO.setUserId(userId);
-        System.out.println(userId);
+        inquiryWriteDTO.setUserId(uniId);
+        System.out.println(uniId);
         inquiryWriteDTO.setUserNickname(userNickname);
 //        inquiryDTO.setInquiryCreatedDate();
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -205,15 +184,18 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long userId = (Long) request.getSession().getAttribute("userId");
 
-        if (userId == null) {
+        Long uniId = (Long) request.getSession().getAttribute("uniId");
+
+
+        if (uniId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
-            return "redirect:/login";
+//            return "redirect:/login";
+            System.out.println(uniId);
         }
 
         // noticeVO에 userId 설정
-        noticeVO.setUserId(userId);
+        noticeVO.setUserId(uniId);
         System.out.println(noticeVO);
         // noticeId 설정 및 공지사항 등록
         noticeVO.setNoticeId(noticeService.getNoticeSeqNext());

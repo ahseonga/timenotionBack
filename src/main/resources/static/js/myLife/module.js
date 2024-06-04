@@ -57,8 +57,8 @@ export function modify(updateInfo, callback){
 }
 
 //댓글 삭제하는 함수
-export function remove(replyId, callback){
-    fetch(`/v1/replies/${replyId}`, {
+export function remove(commentId, callback){
+    fetch(`/v1/replies/${commentId}`, {
         method: 'DELETE'
     }).then(resp => {
         if(resp.status === 200){

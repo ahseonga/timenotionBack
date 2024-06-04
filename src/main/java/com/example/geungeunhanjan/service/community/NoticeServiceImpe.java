@@ -6,8 +6,6 @@ import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
 import com.example.geungeunhanjan.domain.dto.community.NoticePageDTO;
 import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
 import com.example.geungeunhanjan.mapper.community.NoticeMapper;
-
-
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
@@ -53,7 +51,7 @@ public class NoticeServiceImpe implements NoticeService {
     public void deleteNotice(Long noticeId) {
         noticeMapper.deleteNotice(noticeId);
     }
-
+    //페이징 처리
     @Override
     public List<NoticePageDTO> selectAllPageNotice(NoticeCriteria noticeCriteria) {
         return noticeMapper.selectAllPageNotice(noticeCriteria);

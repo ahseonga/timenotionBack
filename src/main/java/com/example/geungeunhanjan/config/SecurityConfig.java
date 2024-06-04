@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.example.geungeunhanjan.config;
 
 import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
@@ -64,8 +63,7 @@ public class SecurityConfig {
         return (request, response, authentication) -> {
             // 로그인 성공 후 리다이렉션할 경로 지정
             HttpSession session = request.getSession();
-            UserSessionDTO userSessionDTO = new UserSessionDTO();
-            userSessionDTO = userService.uniKakaoIdNickName(((CustomOAuth2User)(authentication.getPrincipal())).getProviderId());
+            UserSessionDTO userSessionDTO = userService.uniKakaoIdNickName(((CustomOAuth2User)(authentication.getPrincipal())).getProviderId());
             session.setAttribute("uniId", userSessionDTO.getUniId());
             session.setAttribute("userNickname", userSessionDTO.getUserNickname());
             System.out.println("userSessionDTO = " + userSessionDTO);
@@ -75,5 +73,4 @@ public class SecurityConfig {
 
 
 }
-=======
->>>>>>> main
+

@@ -1,5 +1,6 @@
 package com.example.geungeunhanjan.mapper.user;
 
+import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -31,8 +32,11 @@ public interface UserMapper {
 
     // 모든 유저 닉네임
     String selectUserNickname(Long uniId);
-//
+    //
     // 통합 유저 id값
     Long findUniIdByUserIdOrKakaoId(@Param("userId") long userId, @Param("kakaoId") long kakaoId);
 
+    UserSessionDTO uniUserIdNickname(Long uniId);
+
+    UserSessionDTO uniKakaoIdNickName(String providerId);
 }

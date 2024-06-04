@@ -1,6 +1,6 @@
 package com.example.geungeunhanjan.service.user;
 
-import com.example.geungeunhanjan.domain.vo.board.BoardVO;
+import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import com.example.geungeunhanjan.mapper.board.BoardMapper;
@@ -74,6 +74,16 @@ public class UserServiceImple implements UserService{
     @Override
     public Long findUniIdByUserIdOrKakaoId(long userId, long kakaoId) {
         return userMapper.findUniIdByUserIdOrKakaoId(userId, kakaoId);
+    }
+
+    @Override
+    public UserSessionDTO uniUserIdNickname(Long uniId) {
+        return userMapper.uniUserIdNickname(uniId);
+    }
+
+    @Override
+    public UserSessionDTO uniKakaoIdNickName(String providerId) {
+        return userMapper.uniKakaoIdNickName(providerId);
     }
 }
 

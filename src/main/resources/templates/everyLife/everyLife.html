@@ -76,7 +76,7 @@
         <div class="everyLife-content-wrap">
             <div class="everyLife-content-box" th:each="board: ${boardLists}">
                 <a th:href="@{/everyLife/detail-others/{id}(id=${board.boardId})}">
-<!--                <a href ="#">-->
+                    <!--                <a href ="#">-->
                     <div class="everyLife-contents">
                         <div class="everyLife-content-title" th:text="${board.boardTitle}">제목</div>
                         <div class="everyLife-content-date" th:text="|작성일 : ${#temporals.format(board.boardCreatedDate, 'yyyy년 MM월 dd일')}|">작성일</div>
@@ -94,37 +94,37 @@
         </div>
     </div>
     <!-- 페이징 처리하는 페이지  -->
-            <div class="everyLife-paging">
-                <ul class="paging-backward">
-                    <a th:href="@{/everyLife(page=${page.startPage - 1})}" class="page-a" th:if="${page.prev}">&lt;</a></ul>
-                <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">
-                    <a th:href="@{/everyLife(page=${i})}" class="page-a">
-                        <li class="page-num" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></li>
-                    </a>
-                </th:block>
-                <a th:href="@{/everyLife(page=${page.endPage + 1})}" class="page-a" th:if="${page.next}">
-                    <li class="page-num next">&gt</li>
-                </a>
-            </div>
-<!--            <div class="everyLife-paging">-->
-<!--                <ul class="paging-backward">-->
-<!--                    <li th:if="${page.prev}">-->
-<!--                        <a th:href="@{/everyLife/everyLife(page=${page.startPage - 1})}" class="page-a">&lt;</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--                <ul class="paging-numbers">-->
-<!--                    <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">-->
-<!--                        <li>-->
-<!--                            <a th:href="@{/everyLife/everyLife(page=${i})}" class="page-a" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></a>-->
-<!--                        </li>-->
-<!--                    </th:block>-->
-<!--                </ul>-->
-<!--                <ul class="paging-forward">-->
-<!--                    <li th:if="${page.next}">-->
-<!--                        <a th:href="@{/everyLife/everyLife(page=${page.endPage + 1})}" class="page-a">&gt;</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
+    <div class="everyLife-paging">
+        <ul class="paging-backward">
+            <a th:href="@{/everyLife(page=${page.startPage - 1})}" class="page-a" th:if="${page.prev}">&lt;</a></ul>
+        <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">
+            <a th:href="@{/everyLife(page=${i})}" class="page-a">
+                <li class="page-num" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></li>
+            </a>
+        </th:block>
+        <a th:href="@{/everyLife(page=${page.endPage + 1})}" class="page-a" th:if="${page.next}">
+            <li class="page-num next">&gt</li>
+        </a>
+    </div>
+    <!--            <div class="everyLife-paging">-->
+    <!--                <ul class="paging-backward">-->
+    <!--                    <li th:if="${page.prev}">-->
+    <!--                        <a th:href="@{/everyLife/everyLife(page=${page.startPage - 1})}" class="page-a">&lt;</a>-->
+    <!--                    </li>-->
+    <!--                </ul>-->
+    <!--                <ul class="paging-numbers">-->
+    <!--                    <th:block th:each="i : ${#numbers.sequence(page.startPage, page.endPage)}">-->
+    <!--                        <li>-->
+    <!--                            <a th:href="@{/everyLife/everyLife(page=${i})}" class="page-a" th:classappend="${i == page.criteria.page ? 'active' : ''}" th:text="${i}"></a>-->
+    <!--                        </li>-->
+    <!--                    </th:block>-->
+    <!--                </ul>-->
+    <!--                <ul class="paging-forward">-->
+    <!--                    <li th:if="${page.next}">-->
+    <!--                        <a th:href="@{/everyLife/everyLife(page=${page.endPage + 1})}" class="page-a">&gt;</a>-->
+    <!--                    </li>-->
+    <!--                </ul>-->
+    <!--            </div>-->
 </div>
 <footer>
     <div class="footer-wrapper">
