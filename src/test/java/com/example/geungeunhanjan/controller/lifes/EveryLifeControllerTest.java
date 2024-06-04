@@ -47,17 +47,17 @@ class EveryLifeControllerTest {
         aa.setBoardCreatedDate(LocalDateTime.now());
 
 
-        Criteria criteria = new Criteria();
-        criteria.setAmount(9);
-        criteria.setPage(1);
-//        List<BoardDTO> boards = boardService.everyLifeFindPage(criteria);
-        Page page = new Page(criteria, boards.size());
-
-        System.out.println("게시글 총 길이 : " + boards.size());
-        System.out.println("PageCount : " + page.getPageCount() + "StartPage : " + page.getStartPage());
-        System.out.println("EndPage : " + page.getEndPage() + "RealEnd : " + page.getRealEnd());
-        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());
-//        System.out.println("Total Count : " + boardService.everyLifeFindTotal());
+//        Criteria criteria = new Criteria();
+//        criteria.setAmount(9);
+//        criteria.setPage(1);
+//        List<BoardDTO> boards = boardService.everyLifeFindPage(Criteria criteria, String boardLifeCycle);
+//        Page page = new Page(criteria, boards.size());
+//
+//        System.out.println("게시글 총 길이 : " + boards.size());
+//        System.out.println("PageCount : " + page.getPageCount() + "StartPage : " + page.getStartPage());
+//        System.out.println("EndPage : " + page.getEndPage() + "RealEnd : " + page.getRealEnd());
+//        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());
+////        System.out.println("Total Count : " + boardService.everyLifeFindTotal());
 
 
     }
