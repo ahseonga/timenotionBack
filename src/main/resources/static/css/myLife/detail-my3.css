@@ -164,10 +164,28 @@ hr {
 
 /*4. 컨텐츠 영역 ----------------------*/
 
+#boardContent {
+  width: 100%;
+  height: 300px;
+  resize: none;
+  background-color: rgb(224, 224, 224);
+  border-radius: 6px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  outline: none;
+  border: none;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+
+
 .post-content{
   width: 100%;
   height: 300px;
   resize: none;
+  background-color: rgb(224, 224, 224);
   border-radius: 6px;
   padding-bottom: 16px;
   padding-left: 20px;
@@ -204,7 +222,7 @@ hr {
 }
 .box-reply-write textarea {
   background-color: rgb(224, 224, 224);
-  width: 960px;
+  width: 920px;
   height: 98px;
   border-radius: 6px;
   box-sizing: border-box;

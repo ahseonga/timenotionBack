@@ -34,6 +34,6 @@ public interface InquiryService {
     // 문의 총 갯수
     int selectInquiryTotal();
 
-    InquiryDTO selectUserIdByInquiryId(Long inquiryId);
+    Long selectUserIdByInquiryId(Long inquiryId);
 
 }

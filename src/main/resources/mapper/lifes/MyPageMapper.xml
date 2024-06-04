@@ -39,7 +39,7 @@
                     ORDER BY L.LIKE_CREATED_DATE DESC)
               WHERE ROWNUM <= #{criteria.page} * #{criteria.amount})
         WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
-]]>
+]]>-- 상위 10개를 제외한 나머지 10개의 결과를 가져오기 위해 필요
     </select>
 
     <select id="myLikeTotal" resultType="int">
@@ -81,7 +81,7 @@
          ORDER BY CREATED_DATE DESC
      </select>-->
 
-    <!--2. 내가 쓴 댓글 목록 페이징 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
+    <!--내가 쓴 댓글 목록 페이징 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
     <select id="selectPageMyComment" resultType="CommentDTO">
         <![CDATA[
         SELECT COMMENTS_CONTENT, CREATED_DATE, BOARD_TITLE, BOARD_ID, USER_ID
@@ -158,57 +158,5 @@
                USER_ID
         FROM GGHJ_USER_FILE
         WHERE USER_ID = #{userId}
-    </select>
-    <!--4-2. 회원정보 수정 -->
-    <!--회원정보 수정 2트 -->
-    <update id="updateTwo" >
-        UPDATE GGHJ_UNI
-        SET UNI_ABOUT = #{uniAbout}, BIRTH = SYSDATE, NICKNAME = #{nickname}
-        WHERE UNI_ID = #{userId}
-    </update>
-    <update id="mergeToUser">
-        MERGE INTO GGHJ_USER U
-            USING (
-                SELECT UN.UNI_ID,
-                       U.USER_NICKNAME,
-                       U.USER_PASSWORD AS PASSWORD,
-                       U.USER_BIRTH AS BIRTH,
-                       UN.UNI_ABOUT AS ABOUT,
-                       U.USER_ID AS USER_ID,
-                       UN.NICKNAME AS NICKNAME
-                FROM GGHJ_UNI UN
-                         LEFT JOIN GGHJ_USER U
-                                   ON U.USER_ID = UN.USER_ID AND UN.UNI_ID = #{userId}
-            ) MEM
-            ON (U.USER_ID = MEM.USER_ID)
-            WHEN MATCHED THEN
-                UPDATE SET
-                    U.USER_NICKNAME = MEM.NICKNAME,
-                    U.USER_BIRTH = MEM.BIRTH
-    </update>
-    <update id="mergeToKakao">
-        MERGE INTO GGHJ_KAKAO K
-            USING (
-                SELECT UN.KAKAO_ID,
-                       UN.NICKNAME AS NICKNAME
-                FROM GGHJ_UNI UN
-                WHERE UN.UNI_ID = #{userId}
-            ) KOO
-            ON (K.KAKAO_ID = KOO.KAKAO_ID)
-            WHEN MATCHED THEN
-                UPDATE SET
-                    K.NAME = KOO.NICKNAME
-    </update>
-    <!-- 회원정보 전체 셀렉 -->
-    <select id="selectAllInfo" resultType="LifeUserInfoDTO">
-        SELECT UN.UNI_ID AS UNI_ID, COALESCE(K.NAME, U.USER_NICKNAME) NICKNAME,
-               COALESCE (K.PROVIDER_ID, U.USER_EMAIL) EMAIL, U.USER_PASSWORD, U.USER_BIRTH , UN.UNI_ABOUT ,
-               F.USER_FILE_PROFILE_SOURCE , F.USER_FILE_BACK_SOURCE, U.USER_ID , K.KAKAO_ID
-        FROM GGHJ_UNI UN
-                 LEFT JOIN GGHJ_USER U ON U.USER_ID = UN.USER_ID
-                 LEFT JOIN GGHJ_KAKAO K ON K.KAKAO_ID = UN.KAKAO_ID
-                 LEFT JOIN GGHJ_USER_FILE F ON F.USER_ID = UN.UNI_ID
-        WHERE UN.UNI_ID = #{userId}
-        ORDER BY UNI_ID
     </select>
 </mapper>

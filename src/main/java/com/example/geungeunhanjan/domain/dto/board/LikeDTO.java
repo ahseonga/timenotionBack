@@ -14,6 +14,5 @@ public class LikeDTO {
     private String nickname;
     private Long userId;
     private LocalDateTime likeCreatedDate;
-    private Long uniId;
 
 }

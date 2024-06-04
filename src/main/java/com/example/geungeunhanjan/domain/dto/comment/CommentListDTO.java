@@ -13,7 +13,7 @@ public class CommentListDTO {
     private Long userId;
     private Long commentId;
     private String nickname;
-    private String commentContent;
+    private String content;
     private LocalDateTime commentCreatedDate;
     private String userFileProfileName;
     private String userFileProfileSource;

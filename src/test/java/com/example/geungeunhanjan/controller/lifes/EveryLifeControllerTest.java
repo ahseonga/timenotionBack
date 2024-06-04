@@ -32,38 +32,25 @@ class EveryLifeControllerTest {
     private String userFileProfileSource;
     private String userFileProfileName;
     private String userFileProfileUuid;*/
-    @Autowired
-    BoardService boardService;
-
-    BoardDTO aa;
-
-    @Test
-    void everyLife() {
-  /*      aa = new BoardDTO();
-        aa.setBoardId(100L);
-        aa.setBoardTitle("제목입니다  =====");
-        aa.setBoardLifeCycle("청소년기");
-        aa.setBoardContent("게시글 내용 들어간것것거성러아ㅓㄹ미ㅏㅓㄹ ");
-        aa.setBoardCreatedDate(LocalDateTime.now());
-
-
-<<<<<<< HEAD
-        Criteria criteria = new Criteria();
-        criteria.setAmount(9);
-        criteria.setPage(1);
-        List<BoardDTO> boards = boardService.everyLifeFindPage();
-        Page page = new Page(criteria, boards.size());
-
-        System.out.println("게시글 총 길이 : " + boards.size());
-        System.out.println("PageCount : " + page.getPageCount() + "StartPage : " + page.getStartPage());
-        System.out.println("EndPage : " + page.getEndPage() + "RealEnd : " + page.getRealEnd());
-        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());*/
-//        System.out.println("Total Count : " + boardService.everyLifeFindTotal());
-=======
+//    @Autowired
+//    BoardService boardService;
+//
+//    BoardDTO aa;
+//
+//    @Test
+//    void everyLife() {
+//        aa = new BoardDTO();
+//        aa.setBoardId(100L);
+//        aa.setBoardTitle("제목입니다  =====");
+//        aa.setBoardLifeCycle("청소년기");
+//        aa.setBoardContent("게시글 내용 들어간것것거성러아ㅓㄹ미ㅏㅓㄹ ");
+//        aa.setBoardCreatedDate(LocalDateTime.now());
+//
+//
 //        Criteria criteria = new Criteria();
 //        criteria.setAmount(9);
 //        criteria.setPage(1);
-//        List<BoardDTO> boards = boardService.everyLifeFindPage(Criteria criteria, String boardLifeCycle);
+////        List<BoardDTO> boards = boardService.everyLifeFindPage(criteria);
 //        Page page = new Page(criteria, boards.size());
 //
 //        System.out.println("게시글 총 길이 : " + boards.size());
@@ -71,8 +58,7 @@ class EveryLifeControllerTest {
 //        System.out.println("EndPage : " + page.getEndPage() + "RealEnd : " + page.getRealEnd());
 //        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());
 ////        System.out.println("Total Count : " + boardService.everyLifeFindTotal());
->>>>>>> b9a2b3f642b041bb609be2d12999cb23037f4199
-
-
-    }
+//
+//
+//    }
 }

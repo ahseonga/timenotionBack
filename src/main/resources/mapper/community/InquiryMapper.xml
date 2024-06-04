@@ -54,9 +54,9 @@
 
     <select id="selectAllInquiryPage" parameterType="InquiryCriteria" resultType="InquiryPagingDTO">
     <![CDATA[
-        SELECT INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id, INQUIRY_PUblIC
+        SELECT INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id
         FROM (
-                 SELECT ROWNUM AS RNUM, INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id, inquiry_public
+                 SELECT ROWNUM AS RNUM, INQUIRY_ID, INQUIRY_TITLE, NICKNAME, INQUIRY_CREATED_DATE, user_id
                  FROM (
                           SELECT I.INQUIRY_ID, I.INQUIRY_TITLE,
                                  CASE
@@ -64,8 +64,7 @@
                                      ELSE K.NAME
                                      END AS NICKNAME,
                                  I.INQUIRY_CREATED_DATE,
-                                 i.user_id,
-                                 i.inquiry_public
+                                 i.user_id
                           FROM GGHJ_INQUIRY I
                                    LEFT JOIN GGHJ_UNI UNI ON I.USER_ID = UNI.UNI_ID
                                    LEFT JOIN GGHJ_USER U ON UNI.USER_ID = U.USER_ID
@@ -82,8 +81,8 @@
         select count(inquiry_id) from gghj_inquiry
     </select>
 
-    <select id="selectUserIdByInquiryId" resultType="InquiryDTO" parameterType="Long">
-        select user_id, inquiry_public, inquiry_title, inquiry_content from gghj_inquiry where inquiry_id = #{inquiryId}
+    <select id="selectUserIdByInquiryId" resultType="Long" parameterType="Long">
+        select user_id from gghj_inquiry where inquiry_id = #{inquiryId}
     </select>
 
 </mapper>

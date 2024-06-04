@@ -19,7 +19,7 @@ public class BoardDTO {
     private int boardLikeCount;
     private int boardYear;
     private Long userId;
-    private String userNickname;
+    private String nickname;
     private String userFileProfileSource;
     private String userFileProfileName;
     private String userFileProfileUuid;
