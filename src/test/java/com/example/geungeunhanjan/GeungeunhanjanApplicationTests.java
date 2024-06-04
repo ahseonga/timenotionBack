@@ -11,8 +11,7 @@ import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 
 >>>>>>> main
 
-import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
+
 
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 

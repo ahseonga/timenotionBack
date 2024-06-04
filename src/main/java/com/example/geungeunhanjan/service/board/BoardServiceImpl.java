@@ -121,9 +121,15 @@ public class BoardServiceImpl implements BoardService {
         }
     }
 
+    //일대기별 생활 주기 설정
     @Override
-    public List<BoardVO> selectLifeCycleBoard(String boardLifeCycle) {
-        return boardMapper.selectbyLifeCycle(boardLifeCycle);
+    public List<BoardVO> selectLifeCycle(String boardLifeCycle, Long userId) {
+        return boardMapper.selectBoardLifeCycle(boardLifeCycle, userId);
+    }
+
+    @Override
+    public void boardIntViewCnt(Long boardId) {
+        boardMapper.incViewCnt(boardId);
     }
 
 

@@ -31,7 +31,9 @@ public class CommentApi {
         System.out.println(uniId);
         commentWriteDTO.setBoardId(boardId);
         commentWriteDTO.setUserId(uniId);
+
         System.out.println("boardID : " + boardId + " userId : " + uniId);
+
         commentService.registComment(commentWriteDTO);
     }
     // 2. 댓글 목록 뿌리기
