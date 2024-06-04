@@ -29,6 +29,9 @@ public interface BoardService {
     //일대기별 게시글 조회
     List<BoardVO> selectLifeCycle(String boardLifeCycle, Long userId);
 
+    //특정 게시긓 조회수 +1
+    void boardIntViewCnt(Long boardId);
+
     //게시글 파일 같이 등록하기
     void registerBoardwithFile(BoardVO boardVO, List<MultipartFile> files) throws IOException;
 

@@ -128,6 +128,11 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.selectBoardLifeCycle(boardLifeCycle, userId);
     }
 
+    @Override
+    public void boardIntViewCnt(Long boardId) {
+        boardMapper.incViewCnt(boardId);
+    }
+
 
     //파일에 저장할 날짜 반환
     private String getUploadPath() {

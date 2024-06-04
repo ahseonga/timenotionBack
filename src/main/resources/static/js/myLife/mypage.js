@@ -5,54 +5,56 @@ const adolescence = document.querySelector('#adolescence');
 const adult = document.querySelector('#adult');
 const middleAge = document.querySelector('#middle-age');
 const oldAge = document.querySelector('#old-age');
+const boardListContainer = document.querySelector('#board-list-container');
 
-
-
-async function sendDataToServer(cycle) {
+async function fetchFilteredBoards(cycle) {
+    console.log("사이클:", cycle);
     try {
-        const response = await fetch("/myLife", {
-            method: "POST", // POST 메소드를 사용합니다.
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ cycle: cycle })
-
-        });
-        console.log(cycle);
+        const response = await fetch(`/myLife/filter?cycle=${encodeURIComponent(cycle)}`);
         if (!response.ok) {
-            throw new Error("cycle 전송 실패");
+            throw new Error("생애 주기별 게시글 필터링 실패");
         }
-
-        console.log("cycle 전송 성공");
+        const boards = await response.json();
+        console.log("Filtered boards:", boards);
+        displayBoards(boards);
     } catch (error) {
         console.error(error.message);
     }
 }
 
+function displayBoards(boards) {
+    boardListContainer.innerHTML = ''; // 기존 게시글 리스트 초기화
+    boards.forEach(board => {
+        const boardElement = document.createElement('div');
+        boardElement.textContent = board.boardTitle; // 예시로 제목만 추가
+        boardListContainer.appendChild(boardElement);
+    });
+}
+
 infancy.addEventListener('click', () => {
-    sendDataToServer("유아기");
+    fetchFilteredBoards("유아기");
 });
 
 babyhood.addEventListener('click', () => {
-    sendDataToServer("유년기");
+    fetchFilteredBoards("유년기");
 });
 
 childhood.addEventListener('click', () => {
-    sendDataToServer("아동기");
+    fetchFilteredBoards("아동기");
 });
 
 adolescence.addEventListener('click', () => {
-    sendDataToServer("청소년기");
+    fetchFilteredBoards("청소년기");
 });
 
 adult.addEventListener('click', () => {
-    sendDataToServer("성인기");
+    fetchFilteredBoards("성인기");
 });
 
 middleAge.addEventListener('click', () => {
-    sendDataToServer("중년기");
+    fetchFilteredBoards("중년기");
 });
 
 oldAge.addEventListener('click', () => {
-    sendDataToServer("노년기");
+    fetchFilteredBoards("노년기");
 });

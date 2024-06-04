@@ -106,7 +106,7 @@
                  LEFT JOIN
              GGHJ_USER_FILE uf ON uf.USER_ID = user_id
         WHERE
-            board_rank = 1
+            board_rank = 1 AND ROWNUM = 1
         GROUP BY
             board_id, board_title, board_file_source_name, user_nickname, board_rank
         ORDER BY
@@ -169,15 +169,15 @@
         SELECT
             CASE
                 WHEN u.USER_ID IS NOT NULL THEN u.USER_BIRTH
---                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
---                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
+                WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
+                ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
                 END AS BIRTHDAY
         FROM
             GGHJ_UNI uni
                 LEFT JOIN
             GGHJ_USER u ON uni.USER_ID = u.USER_ID
---                 LEFT JOIN
---             GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
+                LEFT JOIN
+            GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
         WHERE
             uni.UNI_ID = #{uniId}
     </select>
@@ -332,5 +332,20 @@
         ORDER BY
             b.BOARD_LIKE_COUNT DESC;
     </select>
+
+    <!-- 특정 글 조회수 -->
+    <update id="incViewCnt" flushCache="true" >
+        UPDATE GGHJ_BOARD
+        SET BOARD_VIEW_COUNT = BOARD_VIEW_COUNT + 1
+        WHERE BOARD_ID = #{boardId}
+    </update>
+
+<!--    게시글 작성자의 닉네임-->
+        <select id="boardUserName" >
+            SELECT USER_NICKNAME
+            FROM GGHJ_
+
+        </select>
+
 
 </mapper>

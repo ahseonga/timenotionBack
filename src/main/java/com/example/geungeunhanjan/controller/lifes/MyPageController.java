@@ -3,12 +3,15 @@ package com.example.geungeunhanjan.controller.lifes;
 
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
+import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.lifePage.Page;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
+import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.service.MyPageService;
 import com.example.geungeunhanjan.service.board.BoardService;
+import com.example.geungeunhanjan.service.lifes.FollowService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
@@ -23,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -34,6 +38,7 @@ public class MyPageController {
 
     private final BoardService boardService;
     private final MyPageService myPageService;
+    private final FollowService followService;
     BoardVO boardVO;
 
     // 마이페이지에서 내가 쓴 게시글 리스트 뽑기
@@ -46,8 +51,9 @@ public class MyPageController {
         }
         // 사용자 게시판 목록 및 생애 주기별 게시판 목록 가져오기
         List<BoardVO> boards = boardService.selectBoard(uniId);
-
         model.addAttribute("boards", boards);
+        FollowDTO follow = followService.selectFollowDetail(uniId);
+        model.addAttribute("follow", follow);
         System.out.println(boards);
 
 //        // 초기 생애 주기 데이터 로드 (예: 전체 목록)
@@ -55,6 +61,19 @@ public class MyPageController {
 //        model.addAttribute("lifeCycle", lifeCycle);
 //        System.out.println("GetMapping ");
         return "myLife/mypage";
+    }
+
+    @GetMapping("/filter")
+    @ResponseBody
+    public List<BoardVO> filterBoardsByCycle(HttpSession session, @RequestParam String boardLifecycle) {
+        // 로그인 여부 확인
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
+            return Collections.emptyList(); // 로그인이 안 되어 있으면 빈 리스트 반환
+        }
+        // 생애 주기에 해당하는 게시글 목록 가져오기
+        List<BoardVO> filteredBoards = boardService.selectLifeCycle(boardLifecycle, uniId);
+        return filteredBoards;
     }
 
 //    @PostMapping()
@@ -142,9 +161,12 @@ public class MyPageController {
 
     //글쓰기(나의 일대기) 상세페이지로 이동
     @GetMapping("/detail-my")
-    public String detailMy(Model model, Long boardId){
+    public String detailMy(Model model, Long boardId,@SessionAttribute("uniId") Long uniId){
         BoardVO boards = boardService.selectById(boardId);
+        boardService.boardIntViewCnt(boardId);
         model.addAttribute("boards",boards);
+        List<FollowDTO> followers = followService.selectFollower(uniId);
+        model.addAttribute("followers", followers);
         return "myLife/detail-my";
     }
 
