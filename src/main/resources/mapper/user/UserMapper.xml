@@ -85,48 +85,9 @@
         INSERT INTO GGHJ_USER(USER_ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_NICKNAME, USER_BIRTH)
         VALUES (#{userId}, #{userName}, #{userPassword}, #{userEmail}, #{userNickname}, #{userBirth})
     </insert>
-    <!-- 회원가입하면 통합회원id 배정-->
+    <!-- 회원가입하면 통합회원id 배정(대대적인 수정 예정)-->
     <insert id="userUniJoin" parameterType="UniVO">
-        <selectKey keyProperty="uniId" resultType="Long" order="BEFORE">
-            select seq_uni.nextval from dual
-        </selectKey>
         INSERT INTO GGHJ_UNI (UNI_ID, UNI_STATUS, UNI_ABOUT, USER_ID, KAKAO_ID)
-        VALUES (#{uniId}, '일반', null, #{userId}, #{kakaoId})
+        VALUES (#{uniId}, '일반', null, #{userId}, null)
     </insert>
-
-    <select id="uniUserIdNickname" resultType="UserSessionDTO" parameterType="Long">
-        SELECT
-            u.UNI_ID,
-            COALESCE(ku.NAME, uu.USER_NICKNAME) AS USER_NICKNAME
-        FROM
-            GGHJ_UNI u
-                LEFT JOIN
-            GGHJ_KAKAO ku
-            ON
-                u.KAKAO_ID = ku.KAKAO_ID
-                LEFT JOIN
-            GGHJ_USER uu
-            ON
-                u.USER_ID = uu.USER_ID
-        WHERE
-            uu.USER_ID = #{userId}
-    </select>
-
-    <select id="uniKakaoIdNickName" resultType="UserSessionDTO" parameterType="string">
-        SELECT
-            u.UNI_ID,
-            COALESCE(ku.NAME, uu.USER_NICKNAME) AS USER_NICKNAME
-        FROM
-            GGHJ_UNI u
-                LEFT JOIN
-            GGHJ_KAKAO ku
-            ON
-                u.KAKAO_ID = ku.KAKAO_ID
-                LEFT JOIN
-            GGHJ_USER uu
-            ON
-                u.USER_ID = uu.USER_ID
-        WHERE
-            ku.PROVIDER_ID = #{providerId}
-    </select>
 </mapper>

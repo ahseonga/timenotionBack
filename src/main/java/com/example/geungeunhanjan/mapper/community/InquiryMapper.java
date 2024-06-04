@@ -32,6 +32,6 @@ public interface InquiryMapper {
 
     int selectInquiryTotal();
 
-    InquiryDTO selectUserIdByInquiryId(Long inquiryId);
+    Long selectUserIdByInquiryId(Long inquiryId);
     
 }

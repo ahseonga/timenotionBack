@@ -16,5 +16,4 @@ public class FollowDTO {
     private int followerCount;
     private int boardCount;// 일기 수
     private String userFileProfileSource;//파일 소스 추가필드
-    private String userFileBackSource;//파일 배경 소스 추가 필드
 }

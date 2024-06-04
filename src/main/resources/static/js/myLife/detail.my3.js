@@ -1,7 +1,7 @@
 // ---- 삭제 문구 ---- //
-// function del() {
-//   if (confirm('정말 삭제하시겠습니까?')) list_ok.submit();
-// }
+function del() {
+  if (confirm('정말 삭제하시겠습니까?')) list_ok.submit();
+}
 
 // ---- 좋아요 하트 구현 ---- //
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 /* 2. '점점점' 누르면 버튼 나오게 */
 $('.dotdotdot').on('click', function (e) {
-  console.log("점점점 클릭됨");
+  // console.log("점점점 클릭됨");
   // console.log($(this).next);
   // console.log(e.currentTarget.next);
   $('.box-mini-report').css('display', 'none');

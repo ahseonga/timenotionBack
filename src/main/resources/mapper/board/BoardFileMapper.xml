@@ -23,6 +23,4 @@
         WHERE BOARD_ID = #{boardId}
     </select>
 
-
-
 </mapper>

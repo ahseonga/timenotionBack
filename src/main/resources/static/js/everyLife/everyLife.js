@@ -1,4 +1,3 @@
-
 //검색창 기능 구현 //
 function filterContent() {
     const keyword = document.querySelector('input[name="searchKeyword"]').value.toLowerCase();
@@ -16,8 +15,6 @@ function filterContent() {
         }
     });
 }
-
-//유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭 시 페이지 넘어가기//
 
 
 

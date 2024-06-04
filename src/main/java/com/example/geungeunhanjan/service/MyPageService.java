@@ -1,8 +1,6 @@
 package com.example.geungeunhanjan.service;
 
 import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
-import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
-import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
@@ -27,10 +25,4 @@ public interface MyPageService {
     // 4-1. 프사 / 배사 파일 !!
     void registProfileBackFile(UserFileVO userFileVO, List<MultipartFile> files) throws IOException;
     UserFileVO getProfileBackFile(Long userFileId);
-    /* 4-2. 회원 텍스트 정보 수정*/
-    void updateUserInfo(LifeUserInfoDTO lifeUserInfoDTO);
-
-    /* 4-3. 회원 정보 셀렉트 */
-    LifeUserInfoDTO selectAllInfo (Long userId);
-
 }

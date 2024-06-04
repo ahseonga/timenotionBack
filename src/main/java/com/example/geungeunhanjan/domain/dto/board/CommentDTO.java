@@ -13,5 +13,4 @@ public class CommentDTO {
     private String boardTitle;
     private Long boardId;
     private Long userId; // 댓글 작성자 id
-    private Long uniId;
 }

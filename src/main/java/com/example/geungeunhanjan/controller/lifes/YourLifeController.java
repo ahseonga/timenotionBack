@@ -1,13 +1,8 @@
 package com.example.geungeunhanjan.controller.lifes;
 
 
-import com.example.geungeunhanjan.domain.dto.FollowPage.FollowCriteria;
-import com.example.geungeunhanjan.domain.dto.FollowPage.FollowPage;
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
-import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
-import com.example.geungeunhanjan.domain.vo.user.UniVO;
-import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.lifes.FollowService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -25,20 +20,17 @@ import java.util.Map;
 public class YourLifeController {
 
     private final FollowService followService;
-    private final BoardService boardService;
-    //너의 일대기 클릭시
+
     @GetMapping()
     public String yourLife(Model model, HttpSession session) {
         // 로그인 여부 확인
-        Long uniId = (Long) session.getAttribute("uniId");
-        if (uniId == null) {
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
             return "redirect:/user/login";
         }
 
-
-
         //팔로워 리스트 조회
-        List<FollowDTO> followers = followService.selectFollower(uniId);
+        List<FollowDTO> followers = followService.selectFollower();
         model.addAttribute("followers", followers);
         System.out.println(followers);
         //팔로잉 리스트 조회
@@ -47,17 +39,8 @@ public class YourLifeController {
 //        System.out.println(followings);
 //        System.out.println(model);
         //팔로우의 일기수 조회
-//        List<FollowDTO> boards = followService.selectBoardCount(userId);
-//        model.addAttribute("boards", boards);
-
-        //페이지 처리
-//        List<FollowDTO> followLists = followService.selectAllPageFollow((followCriteria));
-//        int total = followService.selectTotalFollow();
-//        FollowPage followPage = new FollowPage(followCriteria,total);
-//
-//        //페이징 정보 가져오기
-//        model.addAttribute("followLists", followLists);
-//        model.addAttribute("page", followPage);
+        List<FollowDTO> boards = followService.selectBoardCount();
+        model.addAttribute("boards", boards);
 
 
         return "yourLife/yourLife";
@@ -68,18 +51,10 @@ public class YourLifeController {
 
 
     //★☆★☆★☆★☆★☆★☆★☆★☆★☆ myLife의 userpage ★☆★☆★☆★☆★☆★☆★☆★☆
-    @GetMapping("/userpage/{uniId}")
-    public String userPage(Model model, @PathVariable("uniId") long userId) {
+    @GetMapping("/userpage/{userId}")
+    public String userPage(Model model, @PathVariable("userId") long userId) {
 
         FollowDTO follow = followService.selectFollowDetail(userId);
-        UniVO about = followService.selectFollowAbout(userId);
-        List<BoardVO> boards = boardService.selectBoard(userId);
-        if(about != null) {
-            model.addAttribute("about",about);
-        }
-
-
-        model.addAttribute("boards", boards);
         model.addAttribute("follow", follow);
         System.out.println("dddddddddd");
 
@@ -87,14 +62,14 @@ public class YourLifeController {
     }
 
     // 유저 페이지 팔로우 기능 구현 컨트롤러 -하트클릭시
-    @PostMapping("/userpage/{uniId}")
+    @PostMapping("/userpage/{userId}")
     public String userPage(
             HttpServletRequest request,
             @RequestBody Map<String, Object> requestBody,
-            @PathVariable("uniId") long userId) {
+            @PathVariable("userId") long userId) {
 
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long loginUserId = (Long) request.getSession().getAttribute("uniId");
+        Long loginUserId = (Long) request.getSession().getAttribute("userId");
         System.out.println(loginUserId);
 //        if (loginUserId == null) {
 //            // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
@@ -129,7 +104,7 @@ public class YourLifeController {
 
         System.out.println("followVO 하트클릭테스트: " + followVO);
 
-        return "redirect:/yourLife/userpage/{uniId}";
+        return "redirect:/yourLife/userpage/{userId}";
     }
 
 
