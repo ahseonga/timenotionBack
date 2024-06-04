@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_iprVQCGoEe-IRL4HT_274Q" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.jkiss.dbeaver.ui.app.standalone" selectedElement="_iprVQSGoEe-IRL4HT_274Q" bindingContexts="_iptxtiGoEe-IRL4HT_274Q">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script.sql&quot; tooltip=&quot;General/Scripts/Script.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-2.sql&quot; tooltip=&quot;General/Scripts/Script-2.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script-2.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-1.sql&quot; tooltip=&quot;General/Scripts/Script-1.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script-1.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-3.sql&quot; tooltip=&quot;General/Scripts/Script-3.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script-3.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script.sql&quot; tooltip=&quot;General/Scripts/Script.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-2.sql&quot; tooltip=&quot;General/Scripts/Script-2.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script-2.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-1.sql&quot; tooltip=&quot;General/Scripts/Script-1.sql&quot;>&#xD;&#xA;&lt;persistable path=&quot;/General/Scripts/Script-1.sql&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.jkiss.dbeaver.defaultKeyScheme</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_iprVQSGoEe-IRL4HT_274Q" elementId="IDEWindow" contributorURI="platform:/plugin/org.jkiss.dbeaver.ui.app.standalone" selectedElement="_iprVQiGoEe-IRL4HT_274Q" label="%trimmedwindow.label.dbeaver" x="0" y="0" width="1440" height="810">
     <persistedState key="coolBarVisible" value="true"/>
@@ -149,22 +149,35 @@
       <tags>categoryTag:&#xc77c;&#xbc18;</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_ipsjayGoEe-IRL4HT_274Q" elementId="org.eclipse.ui.editorss" selectedElement="_ipsjbCGoEe-IRL4HT_274Q">
-      <children xsi:type="basic:PartStack" xmi:id="_ipsjbCGoEe-IRL4HT_274Q" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_ipsjbSGoEe-IRL4HT_274Q">
+      <children xsi:type="basic:PartStack" xmi:id="_ipsjbCGoEe-IRL4HT_274Q" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_2N6XoCGtEe-ItKIUXl61zQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_ipsjbSGoEe-IRL4HT_274Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="&lt;localhost 2> Script-2" iconURI="platform:/plugin/org.jkiss.dbeaver.model/icons/tree/script.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-2.sql&quot; partName=&quot;&amp;lt;localhost 2&amp;gt; Script-2&quot; title=&quot;&amp;lt;localhost 2&amp;gt; Script-2&quot; tooltip=&quot;Script: /General/Scripts/Script-2.sql&amp;#x0A;Connection: localhost 2&amp;#x0A;Type: Oracle&amp;#x0A;URL: jdbc:oracle:thin:@//localhost:1521/XE&amp;#x0A;Schema: GEUNGEUNHANJAN&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/General/Scripts/Script-2.sql&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;12261&quot; selectionTopPixel=&quot;10913&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-2.sql&quot; partName=&quot;&amp;lt;localhost 2&amp;gt; Script-2&quot; title=&quot;&amp;lt;localhost 2&amp;gt; Script-2&quot; tooltip=&quot;Script: /General/Scripts/Script-2.sql&amp;#x0A;Connection: localhost 2&amp;#x0A;Type: Oracle&amp;#x0A;URL: jdbc:oracle:thin:@//localhost:1521/XE&amp;#x0A;Schema: GEUNGEUNHANJAN&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/General/Scripts/Script-2.sql&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;12237&quot; selectionTopPixel=&quot;10460&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.jkiss.dbeaver.ui.editors.sql.SQLEditor</tags>
-          <tags>active</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_ipsjcyGoEe-IRL4HT_274Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="&lt;locallhost> Script" iconURI="platform:/plugin/org.jkiss.dbeaver.model/icons/tree/script.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script.sql&quot; partName=&quot;&amp;lt;locallhost&amp;gt; Script&quot; title=&quot;&amp;lt;locallhost&amp;gt; Script&quot; tooltip=&quot;Script: /General/Scripts/Script.sql&amp;#x0A;Connection: locallhost&amp;#x0A;Type: Oracle&amp;#x0A;URL: jdbc:oracle:thin:@//localhost:1521/XE&amp;#x0A;Schema: GEUNGEUNHANJAN&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/General/Scripts/Script.sql&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;13017&quot; selectionTopPixel=&quot;7929&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.jkiss.dbeaver.ui.editors.sql.SQLEditor</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_yqq6YCGtEe-ItKIUXl61zQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="GGHJ_KAKAO" iconURI="platform:/plugin/org.jkiss.dbeaver.ui/icons/properties.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.jkiss.dbeaver.ui.editors.entity.EntityEditor&quot; name=&quot;GGHJ_KAKAO&quot; partName=&quot;GGHJ_KAKAO&quot; title=&quot;GGHJ_KAKAO&quot; tooltip=&quot;Table: GGHJ_KAKAO &amp;#x0A;Schema: GEUNGEUNHANJAN &amp;#x0A;Connection: localhost 2 &amp;#x0A;&quot;>&#xD;&#xA;&lt;input class=&quot;org.jkiss.dbeaver.ui.editors.DatabaseNodeEditorInput&quot; data-source=&quot;oracle_thin-18fd9d1d2a1-55ead05805580258&quot; factoryID=&quot;org.jkiss.dbeaver.ui.editors.DatabaseEditorInputFactory&quot; node=&quot;node://General/datasources/oracle_thin-18fd9d1d2a1-55ead05805580258/schema/GEUNGEUNHANJAN/table/GGHJ_KAKAO&quot; node-name=&quot;GGHJ_KAKAO&quot; page=&quot;default.object.editor&quot; project=&quot;General&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.jkiss.dbeaver.ui.editors.entity.EntityEditor</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_2N6XoCGtEe-ItKIUXl61zQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="&lt;localhost 2> Script-3" iconURI="platform:/plugin/org.jkiss.dbeaver.model/icons/tree/script.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.jkiss.dbeaver.ui.editors.sql.SQLEditor&quot; name=&quot;Script-3.sql&quot; partName=&quot;&amp;lt;localhost 2&amp;gt; Script-3&quot; title=&quot;&amp;lt;localhost 2&amp;gt; Script-3&quot; tooltip=&quot;Script: /General/Scripts/Script-3.sql&amp;#x0A;Connection: localhost 2&amp;#x0A;Type: Oracle&amp;#x0A;URL: jdbc:oracle:thin:@//localhost:1521/XE&amp;#x0A;Schema: GEUNGEUNHANJAN&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/General/Scripts/Script-3.sql&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;649&quot; selectionTopPixel=&quot;153&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.jkiss.dbeaver.ui.editors.sql.SQLEditor</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -178,7 +191,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_ipsjjSGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.core.databaseNavigator"/>
+      <toolbar xmi:id="_ipsjjSGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.core.databaseNavigator" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_ipsjlSGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.core.projectNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="&#xd504;&#xb85c;&#xc81d;&#xd2b8; " iconURI="platform:/plugin/org.jkiss.dbeaver.ui/icons/projects.png" tooltip="Shows all projects and their contents. Supports project management." closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.jkiss.dbeaver.ui.navigator.project.ProjectNavigatorView"/>
@@ -208,7 +221,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_ipsjmyGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.core.projectExplorer"/>
+      <toolbar xmi:id="_ipsjmyGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.core.projectExplorer" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_ipsjnCGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.core.databaseBrowser" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Database Browser" iconURI="platform:/plugin/org.jkiss.dbeaver.ui/icons/database_navigator.png" tooltip="Browse database connection elements" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.jkiss.dbeaver.ui.navigator.database.DatabaseBrowserView"/>
@@ -307,9 +320,6 @@
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ipsj5iGoEe-IRL4HT_274Q" elementId="org.eclipse.ui.edit.text.actionSet.navigation" visible="false">
-        <tags>Draggable</tags>
-      </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_ipsj6iGoEe-IRL4HT_274Q" elementId="org.jkiss.dbeaver.ui.editors.sql.SQLEditor" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ipsj6yGoEe-IRL4HT_274Q" elementId="group.editor" toBeRendered="false">
@@ -1252,18 +1262,18 @@
   <menuContributions xmi:id="_iptx8SGoEe-IRL4HT_274Q" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.jkiss.dbeaver.ui.app.standalone" positionInParent="popup:toolbar">
     <children xsi:type="menu:HandledMenuItem" xmi:id="_iptx8iGoEe-IRL4HT_274Q" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.jkiss.dbeaver.ui.app.standalone" label="%command.name.customize" command="_ipwOcCGoEe-IRL4HT_274Q"/>
   </menuContributions>
-  <trimContributions xmi:id="_ipwOZSGoEe-IRL4HT_274Q" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
-    <children xsi:type="menu:ToolControl" xmi:id="_ipwOZiGoEe-IRL4HT_274Q" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+  <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
+    <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
       <tags>glue</tags>
       <tags>move_after:PerspectiveSpacer</tags>
       <tags>SHOW_RESTORE_MENU</tags>
     </children>
-    <children xsi:type="menu:ToolControl" xmi:id="_ipwOZyGoEe-IRL4HT_274Q" elementId="SearchField" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField">
+    <children xsi:type="menu:ToolControl" xmi:id="_8tJPcF9tEeO-yojH_y4TJA" elementId="SearchField" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField">
       <tags>move_after:Spacer Glue</tags>
       <tags>HIDEABLE</tags>
       <tags>SHOW_RESTORE_MENU</tags>
     </children>
-    <children xsi:type="menu:ToolControl" xmi:id="_ipwOaCGoEe-IRL4HT_274Q" elementId="Search-PS Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+    <children xsi:type="menu:ToolControl" xmi:id="_9LgmcF9tEeO-yojH_y4TJA" elementId="Search-PS Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
       <tags>glue</tags>
       <tags>move_after:SearchField</tags>
       <tags>SHOW_RESTORE_MENU</tags>

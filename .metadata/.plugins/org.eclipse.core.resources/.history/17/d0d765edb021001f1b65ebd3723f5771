@@ -549,8 +549,6 @@ INSERT INTO GGHJ_BOARD (
                               ON u.user_id = b.USER_ID
         ORDER BY
             b.BOARD_LIKE_COUNT DESC;
-           
-           SELECT * FROM gghj_kakao;
 
 
 

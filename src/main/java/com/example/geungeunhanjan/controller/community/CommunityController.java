@@ -60,6 +60,7 @@ import java.util.stream.Collectors;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
+
     private final InquiryMapper inquiryMapper;
     private final UserService userService;
 
@@ -160,14 +161,11 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
-<<<<<<< HEAD
-                                         inquiryWriteDTO, @SessionAttribute("uniId") Long userId){
-=======
                                          inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
->>>>>>> main
+
 
         String userNickname = userService.selectUserNickname(uniId);
-        ;
+
 
         inquiryWriteDTO.setUserId(uniId);
         System.out.println(uniId);
@@ -201,15 +199,15 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long uniId = (Long) request.getSession().getAttribute("uniId");
+        Long userId = (Long) request.getSession().getAttribute("userId");
 
-        if (uniId == null) {
+        if (userId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
             return "redirect:/login";
         }
 
         // noticeVO에 userId 설정
-        noticeVO.setUserId(uniId);
+        noticeVO.setUserId(userId);
         System.out.println(noticeVO);
         // noticeId 설정 및 공지사항 등록
         noticeVO.setNoticeId(noticeService.getNoticeSeqNext());
