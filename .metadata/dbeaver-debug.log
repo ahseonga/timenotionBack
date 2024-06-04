@@ -71,3 +71,183 @@ Warning: NLS unused message: actions_navigator__objects in: org.jkiss.dbeaver.ui
 2024-06-04 14:01:18.724 - Execution context opened (localhost 2; SQLEditor <Script-3.sql>; 2)
 2024-06-04 14:01:19.936 - Downloading installation file to C:\Users\임숙경\AppData\Local\Temp\dbeaver-ce-latest-win32.win32.x86_64.zip3105413377697290906\dbeaver-ce-latest-win32.win32.x86_64.zip
 2024-06-04 14:01:19.939 - Open [https://dbeaver.io/files/dbeaver-ce-latest-win32.win32.x86_64.zip]
+2024-06-04 14:06:09.109 - SQL Error [911] [22019]: ORA-00911: invalid character
+
+
+Error position: line: 78 pos: 486
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [911] [22019]: ORA-00911: invalid character
+
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+Caused by: Error : 911, Position : 486, SQL = SELECT
+        u.USER_ID AS followerId,
+        u.USER_NICKNAME AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+        f.USER_FILE_PROFILE_SOURCE,
+        f.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_USER u
+        LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
+        WHERE
+        u.USER_ID = #{uniId}
+        UNION ALL
+        SELECT
+        k.KAKAO_ID AS followingId,
+        k.name AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+        ff.USER_FILE_PROFILE_SOURCE,
+        ff.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_KAKAO k
+        LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
+        WHERE
+        k.KAKAO_ID = #{uniId}, Original SQL = SELECT
+        u.USER_ID AS followerId,
+        u.USER_NICKNAME AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+        f.USER_FILE_PROFILE_SOURCE,
+        f.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_USER u
+        LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
+        WHERE
+        u.USER_ID = #{uniId}
+        UNION ALL
+        SELECT
+        k.KAKAO_ID AS followingId,
+        k.name AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+        ff.USER_FILE_PROFILE_SOURCE,
+        ff.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_KAKAO k
+        LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
+        WHERE
+        k.KAKAO_ID = #{uniId}, Error Message = ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 28 more
+2024-06-04 14:32:06.238 - SQL Error [911] [22019]: ORA-00911: invalid character
+
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [911] [22019]: ORA-00911: invalid character
+
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:614)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:505)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:524)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:976)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4133)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:123)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:191)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:121)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5148)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:330)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+Caused by: Error : 911, Position : 486, SQL = SELECT
+        u.USER_ID AS followerId,
+        u.USER_NICKNAME AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+        f.USER_FILE_PROFILE_SOURCE,
+        f.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_USER u
+        LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
+        WHERE
+        u.USER_ID = #{uniId}
+        UNION ALL
+        SELECT
+        k.KAKAO_ID AS followingId,
+        k.name AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+        ff.USER_FILE_PROFILE_SOURCE,
+        ff.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_KAKAO k
+        LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
+        WHERE
+        k.KAKAO_ID = #{uniId}, Original SQL = SELECT
+        u.USER_ID AS followerId,
+        u.USER_NICKNAME AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = u.USER_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = u.USER_ID) AS followerCount,
+        f.USER_FILE_PROFILE_SOURCE,
+        f.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_USER u
+        LEFT JOIN GGHJ_USER_FILE f ON u.USER_ID = f.USER_ID
+        WHERE
+        u.USER_ID = #{uniId}
+        UNION ALL
+        SELECT
+        k.KAKAO_ID AS followingId,
+        k.name AS userNickname,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_FROM_USER = k.KAKAO_ID) AS followingCount,
+        (SELECT COUNT(*) FROM GGHJ_FOLLOW f WHERE f.FOLLOW_TO_USER = k.KAKAO_ID) AS followerCount,
+        ff.USER_FILE_PROFILE_SOURCE,
+        ff.USER_FILE_BACK_SOURCE
+        FROM
+        GGHJ_KAKAO k
+        LEFT JOIN GGHJ_USER_FILE ff ON k.KAKAO_ID = ff.USER_ID
+        WHERE
+        k.KAKAO_ID = #{uniId}, Error Message = ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 28 more
