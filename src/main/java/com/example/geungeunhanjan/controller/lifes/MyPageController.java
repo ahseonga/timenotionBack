@@ -5,7 +5,6 @@ import com.example.geungeunhanjan.domain.dto.board.CommentDTO;
 import com.example.geungeunhanjan.domain.dto.board.LifeUserInfoDTO;
 import com.example.geungeunhanjan.domain.dto.board.LifeUserUpdateDTO;
 import com.example.geungeunhanjan.domain.dto.board.LikeDTO;
-import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
 import com.example.geungeunhanjan.domain.dto.lifePage.Criteria;
 import com.example.geungeunhanjan.domain.dto.lifePage.Page;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
@@ -15,8 +14,6 @@ import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.lifes.FollowService;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
-import java.io.IOException;
-import java.time.LocalDateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 

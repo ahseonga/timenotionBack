@@ -32,7 +32,7 @@ public interface UserMapper {
 
     // 모든 유저 닉네임
     String selectUserNickname(Long uniId);
-//
+    //
     // 통합 유저 id값
     Long findUniIdByUserIdOrKakaoId(@Param("userId") long userId, @Param("kakaoId") long kakaoId);
 

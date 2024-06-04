@@ -3,7 +3,6 @@ package com.example.geungeunhanjan.service.lifes;
 
 import com.example.geungeunhanjan.domain.dto.FollowPage.FollowCriteria;
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
-import com.example.geungeunhanjan.domain.vo.file.UserFileVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.mapper.lifes.FollowMapper;

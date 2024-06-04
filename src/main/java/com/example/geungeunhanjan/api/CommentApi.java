@@ -26,7 +26,7 @@ public class CommentApi {
                              @PathVariable("boardId") Long boardId,
                              HttpServletRequest request){
         /* 요청 본문에서 ReplyWriteDTO 받아오고, url 경로에서 boardId를 추출하여 boardId 파라미터에 바인딩
-        *  세션에서 userId 받아줌 */
+         *  세션에서 userId 받아줌 */
         Long uniId = (Long) request.getSession().getAttribute("uniId");
         System.out.println(uniId);
         commentWriteDTO.setBoardId(boardId);
@@ -51,10 +51,10 @@ public class CommentApi {
         return slice;
     }
     // 4. 댓글 삭제
-     @DeleteMapping("/v1/replies/{commentId}")
+    @DeleteMapping("/v1/replies/{commentId}")
     public void removeComment(@PathVariable("commentId") Long commentId){
         commentService.removeComment(commentId);
-     }
+    }
 
 
     // 5. 댓글 수정

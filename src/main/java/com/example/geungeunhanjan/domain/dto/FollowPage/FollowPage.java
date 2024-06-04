@@ -1,6 +1,5 @@
 package com.example.geungeunhanjan.domain.dto.FollowPage;
 
-import com.example.geungeunhanjan.domain.dto.NoticePage.NoticeCriteria;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

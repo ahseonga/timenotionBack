@@ -50,7 +50,7 @@ public class HomeController {
         List<String> userNicknames = new ArrayList<>();
         if(mainLeft == null) {
             mainLeft = new BoardMainDTO();
-//            mainLeft.setUserId(2L);
+            mainLeft.setUserId(2L);
         }
         for (BoardMainDTO boardList : boards) {
             Long boardId = boardList.getBoardId();
@@ -71,8 +71,13 @@ public class HomeController {
     public String about(HttpSession session) {
 
         // 로그인 여부 확인
+<<<<<<< HEAD
         Long uniId = (Long) session.getAttribute("uniId");
         if (uniId == null) {
+=======
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) {
+>>>>>>> 520c3ccd0b6d9e52c237f141cd8dd6058c0b5c13
             return "redirect:/user/login";
         }
         return "main/about";

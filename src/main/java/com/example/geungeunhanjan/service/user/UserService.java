@@ -1,7 +1,6 @@
 package com.example.geungeunhanjan.service.user;
 
 import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
-import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import org.apache.ibatis.annotations.Param;

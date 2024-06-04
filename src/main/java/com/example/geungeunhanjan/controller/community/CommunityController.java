@@ -1,55 +1,26 @@
 package com.example.geungeunhanjan.controller.community;
 
 
-
+import com.example.geungeunhanjan.domain.dto.NoticePage.NoticeCriteria;
+import com.example.geungeunhanjan.domain.dto.NoticePage.NoticePage;
 import com.example.geungeunhanjan.domain.dto.community.*;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryCriteria;
 import com.example.geungeunhanjan.domain.dto.inquiryPage.InquiryPage;
+import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
 import com.example.geungeunhanjan.mapper.community.InquiryMapper;
 import com.example.geungeunhanjan.service.community.InquiryService;
-
-import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-
-
 import com.example.geungeunhanjan.service.community.NoticeService;
-
 import com.example.geungeunhanjan.service.user.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.geungeunhanjan.domain.dto.NoticePage.NoticeCriteria;
-import com.example.geungeunhanjan.domain.dto.NoticePage.NoticePage;
-import com.example.geungeunhanjan.domain.dto.community.InquiryDTO;
-import com.example.geungeunhanjan.domain.dto.community.NoticePageDTO;
-import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
-import com.example.geungeunhanjan.mapper.community.NoticeMapper;
-import com.example.geungeunhanjan.service.community.InquiryService;
-
-
-import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
-import com.example.geungeunhanjan.service.community.NoticeService;
-
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-
-import org.springframework.web.bind.annotation.*;
-
-
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 // 커뮤티니

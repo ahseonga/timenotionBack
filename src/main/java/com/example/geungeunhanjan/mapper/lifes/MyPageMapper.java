@@ -15,14 +15,14 @@ import java.util.List;
 public interface MyPageMapper {
     // 1. 좋아요 목록 select
     List<LikeDTO>selectMyLike(Long userId);
-        // 페이징
-        List<LikeDTO> selectPageMyLike(@Param("criteria") Criteria criteria, @Param("userId") Long userId);
-        int myLikeTotal(Long userId);
+    // 페이징
+    List<LikeDTO> selectPageMyLike(@Param("criteria") Criteria criteria, @Param("userId") Long userId);
+    int myLikeTotal(Long userId);
     // 2. 내가 쓴 댓글 목록 select
     List<CommentDTO> selectMyComment(Long userId);
-        //페이징
-        List<CommentDTO> selectPageMyComment(@Param("criteria") Criteria criteria, @Param("userId") Long userId);
-        int myCommentTotal(Long userId);
+    //페이징
+    List<CommentDTO> selectPageMyComment(@Param("criteria") Criteria criteria, @Param("userId") Long userId);
+    int myCommentTotal(Long userId);
     // 3. 파일
 
     // 4. 회원정보 수정

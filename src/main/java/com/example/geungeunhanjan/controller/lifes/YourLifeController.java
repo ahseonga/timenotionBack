@@ -1,8 +1,6 @@
 package com.example.geungeunhanjan.controller.lifes;
 
 
-import com.example.geungeunhanjan.domain.dto.FollowPage.FollowCriteria;
-import com.example.geungeunhanjan.domain.dto.FollowPage.FollowPage;
 import com.example.geungeunhanjan.domain.dto.file.FollowDTO;
 import com.example.geungeunhanjan.domain.vo.board.BoardVO;
 import com.example.geungeunhanjan.domain.vo.lifes.FollowVO;
