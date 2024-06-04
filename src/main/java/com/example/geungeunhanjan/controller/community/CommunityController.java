@@ -198,15 +198,16 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long userId = (Long) request.getSession().getAttribute("userId");
+        Long uniId = (Long) request.getSession().getAttribute("uniId");
 
-        if (userId == null) {
+        if (uniId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
-            return "redirect:/login";
+//            return "redirect:/login";
+            System.out.println(uniId);
         }
 
         // noticeVO에 userId 설정
-        noticeVO.setUserId(userId);
+        noticeVO.setUserId(uniId);
         System.out.println(noticeVO);
         // noticeId 설정 및 공지사항 등록
         noticeVO.setNoticeId(noticeService.getNoticeSeqNext());

@@ -50,7 +50,7 @@ public class HomeController {
         List<String> userNicknames = new ArrayList<>();
         if(mainLeft == null) {
             mainLeft = new BoardMainDTO();
-            mainLeft.setUserId(2L);
+//            mainLeft.setUserId(2L);
         }
         for (BoardMainDTO boardList : boards) {
             Long boardId = boardList.getBoardId();
