@@ -31,14 +31,14 @@
                 <img th:if="${userInfo.userFileProfileSource != null}" th:src="${userInfo.userFileProfileSource}" alt="프로필사진" class="img-profile-img">
                 <img th:unless="${userInfo.userFileProfileSource != null}" src="/img/main/basic-profile.png" alt="기본 프로필 사진" class="img-profile-img">          </div>
               <div class="profile-detail">
-                <p style="display: none" id="get-user-id"  th:text="${follow.followerId}" ></p>
+<!--                <p style="display: none" id="get-user-id"  th:text="${follow.followerId}" ></p>-->
                 <p id="profile-nickname" th:text="${userInfo.nickname}" >장윤근</p>
                 <p>
-                  <span class="follower-number" th:text="${follow.followerCount}">36</span>
+                  <span class="follower-number" >36</span>
                   <span class="follower">팔로워</span>
                 </p>
                 <p>
-                  <span class="follower-number" th:text="${follow.followingCount}">128</span>
+                  <span class="follower-number">128</span>
                   <span class="follower">팔로잉</span>
                 </p>
                 <!-- <p class="profile-heart"><img src="./../../img/myLife/mdj-heart_negative.png" alt="하투"></p> -->
