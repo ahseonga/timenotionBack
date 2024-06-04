@@ -72,7 +72,7 @@
     <select id="selectFollowAbout" resultType="UniVO">
         SELECT UNI_ABOUT
         FROM GGHJ_UNI
-        WHERE USER_ID = #{userId} OR KAKAO_ID = #{userId}
+        WHERE UNI_ID = #{userId}
     </select>
 
 
