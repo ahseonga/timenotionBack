@@ -100,9 +100,9 @@
                             <a href="/everyLife/detail-others" class="link-pop-profile">
                                 <div  class="pop-profile-wrap">
                                     <div class="box-profile-img">
-                                        <img th:src="${board.userFileProfileSource}" alt="" />
+                                        <img src="./../../img/everyLife/everyLife_profile.png" alt="" />
                                     </div>
-                                    <div class="box-profile-nickname"><span th:text="${userNicknames[i.index]}"></span></div>
+                                    <div class="box-profile-nickname"><span th:text="${board.userNickname}"></span></div>
                                 </div>
                             </a>
                             <a href="/everyLife/detail-others" class="link-pop-content">
@@ -168,6 +168,6 @@
         </div>
       </main>
     </div>
-    <footer></footer>
+<div th:replace="~{/fragment/footer::footer}"></div>
 </body>
 </html>

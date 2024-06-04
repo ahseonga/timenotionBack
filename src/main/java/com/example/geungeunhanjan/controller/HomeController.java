@@ -2,6 +2,7 @@ package com.example.geungeunhanjan.controller;
 
 import com.example.geungeunhanjan.domain.dto.board.BoardMainDTO;
 
+import com.example.geungeunhanjan.domain.dto.user.UserFileNicknameDTO;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
 import com.example.geungeunhanjan.service.board.BoardService;
 import com.example.geungeunhanjan.service.community.InquiryService;
@@ -31,8 +32,6 @@ public class HomeController {
 
     private final BoardService boardService;
     private final UserService userService;
-    private final UserMapper userMapper;
-    private final InquiryService inquiryService;
 
 
     private final FollowService followService;
@@ -44,22 +43,14 @@ public class HomeController {
 
 
         BoardMainDTO mainLeft = boardService.mainLeftBannerSelect();
-
         List<BoardMainDTO> boards = boardService.mainBoardbyViews();
         List<BoardMainDTO> rightBoards = boardService.mainRightBannerSelect();
-        List<String> userNicknames = new ArrayList<>();
-        if(mainLeft == null) {
-            mainLeft = new BoardMainDTO();
-            mainLeft.setUserId(2L);
-        }
-        for (BoardMainDTO boardList : boards) {
-            Long boardId = boardList.getBoardId();
-            userNicknames.add(userService.mainBoardByViewsNickname(boardId));
-        }
+
+        System.out.println("mainLeft = " + mainLeft);
+
 
         model.addAttribute("mainLeft", mainLeft);
         model.addAttribute("boards", boards);
-        model.addAttribute("userNicknames", userNicknames);
         model.addAttribute("rightBoards", rightBoards);
 
         System.out.println(boards);
@@ -71,8 +62,10 @@ public class HomeController {
     public String about(HttpSession session) {
 
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) {
+
+        Long uniId = (Long) session.getAttribute("uniId");
+        if (uniId == null) {
+
             return "redirect:/user/login";
         }
         return "main/about";
