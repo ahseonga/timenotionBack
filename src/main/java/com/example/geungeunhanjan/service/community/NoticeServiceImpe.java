@@ -6,8 +6,6 @@ import com.example.geungeunhanjan.domain.dto.community.NoticeDTO;
 import com.example.geungeunhanjan.domain.dto.community.NoticePageDTO;
 import com.example.geungeunhanjan.domain.vo.community.NoticeVO;
 import com.example.geungeunhanjan.mapper.community.NoticeMapper;
-
-
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 

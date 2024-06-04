@@ -13,4 +13,5 @@ public class NoticeVO {
     private String noticeContent;
     private LocalDateTime noticeCreatedDate;
     private Long userId;
+    private Long uniId;
 }

@@ -53,8 +53,8 @@ button[type="button"]:hover{
     justify-content: space-between;
     height: 64px;
     line-height: 64px;
-    background-color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
 }
 .contents-title a{
     color: black;

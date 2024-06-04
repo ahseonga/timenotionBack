@@ -36,7 +36,6 @@ public class BoardServiceImpl implements BoardService {
     @Value("C:/upload/")
     private String fileDir;
 
-
     //나의 일대기 게시글 등록하기
     @Override
     public void registerBoard(BoardVO boardVO) {
@@ -121,6 +120,7 @@ public class BoardServiceImpl implements BoardService {
             }
         }
     }
+    /* ---------------------------------------- */
 
     //일대기별 생활 주기 설정
     @Override
@@ -132,7 +132,6 @@ public class BoardServiceImpl implements BoardService {
     public void boardIntViewCnt(Long boardId) {
         boardMapper.incViewCnt(boardId);
     }
-
 
     //파일에 저장할 날짜 반환
     private String getUploadPath() {
@@ -169,25 +168,71 @@ public class BoardServiceImpl implements BoardService {
     // 모두의 일대기 게시물
     @Override
     public List<BoardVO> everyLifeBoardbyViews() {
+        System.out.println("1===========" + boardMapper);
         return boardMapper.everyLifeBoardbyViews();
     }
 
 
     // 모두의 일대기 리스트 + 페이징
-    @Override
-    public List<BoardDTO> everyLifeFindPage(Criteria criteria, String boardLifeCycle) {
-        return boardMapper.everyLifeagepaging(criteria, boardLifeCycle);
-    }
 
     @Override
-    public int agePageMove(String boardLifeCycle) {
-        return 0;
+    public List<BoardDTO> everyLifeFindPage(Criteria criteria) {
+//        System.out.println(criteria);
+        System.out.println("===============" + boardMapper);
+        System.out.println("===============" + criteria + "==========================");
+        System.out.println(boardMapper.everyLifeagepaging(criteria));
+        return boardMapper.everyLifeagepaging(criteria);
     }
 
+
     @Override
-    public int everyLifeFindTotal(String boardLifeCycle) {
-        return boardMapper.agePageMove(boardLifeCycle);
+    public int everyLifeFindTotal() {
+        return boardMapper.everyLifeFindTotal();
     }
+
+
+    @Override
+    public List<BoardDTO> getBoards(String orderBy) {
+        return List.of();
+    }
+
+
+
+//    @Override
+//    public List<BoardDTO> getBoards(String orderBy) {
+//        return List.of();
+//    }
+
+//    @Override
+//    public List<BoardDTO> getBoards(String orderBy) {
+//        return List.of();
+//    }
+
+    // 모두의 일대기 -> 상세페이지 넘어가기
+    @Override
+    public BoardVO everyLifeDetail(Long boardId) {
+        System.out.println(boardId);
+        return boardMapper.selectById(boardId).orElseThrow(() -> new IllegalArgumentException("유효하지 않은 게시물 번호"));
+    }
+
+    //모두의 일대기 -> 조회수 게시판 정렬
+    @Override
+    public List<BoardDTO> getPostsSortedByViews() {
+        return boardMapper.postarrayviews();
+    }
+
+    //모두의 일대기 -> 최신순 게시판 정렬
+    @Override
+    public List<BoardDTO> getPostsSortedByLatest() {
+        return boardMapper.postarrayLatest();
+    }
+
+    //모두의 일대기 -> 인기순 게시판 정렬
+    @Override
+    public List<BoardDTO> getPostsSortedByPopularity() {
+        return boardMapper.postarrayPopularity();
+    }
+
 
     @Override
     public BoardMainDTO mainLeftBannerSelect() {
@@ -199,19 +244,11 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.mainRightBannerSelect();
     }
 
-/*   @Override
-    public List<BoardVO> getBoards(String orderBy) {
-        switch (orderBy) {
-            case "views":
-                return boardMapper.postarrayviews();
-            case "popularity":
-                return boardMapper.postarrayPopularity();
-            case "latest":
-            default:
-                return boardMapper.postarrayLatest();
-        }
- */
 }
+
+
+
+
 
 
 

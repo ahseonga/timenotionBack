@@ -1,21 +1,18 @@
 package com.example.geungeunhanjan.controller.user;
 
 import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
-import com.example.geungeunhanjan.domain.oauth.CustomOAuth2User;
-import com.example.geungeunhanjan.domain.vo.user.KakaoVO;
 import com.example.geungeunhanjan.domain.vo.user.UniVO;
 import com.example.geungeunhanjan.domain.vo.user.UserVO;
 import com.example.geungeunhanjan.mapper.user.UserMapper;
-import com.example.geungeunhanjan.service.user.CustomOAuth2UserService;
-
 import com.example.geungeunhanjan.service.user.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
@@ -76,7 +73,9 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public String userLogin(@RequestParam("userEmail") String userEmail, @RequestParam("userPassword") String userPassword, HttpSession session) {
+    public String userLogin(@RequestParam("userEmail") String userEmail,
+                            @RequestParam("userPassword") String userPassword,
+                            HttpSession session) {
 
         Long userId = userService.userLogin(userEmail, userPassword);
         boolean result = userId != null && userId > 0;

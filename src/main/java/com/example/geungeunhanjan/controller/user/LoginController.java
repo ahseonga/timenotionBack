@@ -3,7 +3,8 @@ package com.example.geungeunhanjan.controller.user;
 
 import com.example.geungeunhanjan.service.user.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 // 로그인으로
 @RequestMapping("/login")

@@ -39,4 +39,13 @@ public class CommentServiceImpl implements CommentService{
         }
         return new Slice<>(hasNext, commentList);
     }
+
+    // 4. 댓글 삭제
+    @Override
+    public void removeComment(Long commentId) {
+        commentMapper.deleteComment(commentId);
+    }
+
+
+
 }

@@ -63,8 +63,13 @@ header {
   height: 175px;
   border-radius: 5px;
 }
-
-.profile-bg-img-box>img {
+.profile-bg-img-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.img-back-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -89,8 +94,13 @@ header {
   border-radius: 20%;
   margin-top: 15px;
 }
+.profile-img-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 
-.profile-img-box>img {
+}
+.img-profile-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -118,9 +128,9 @@ header {
 }
 
 
-/* 수정2 : 프로필 닉네임 */
 #profile-nickname {
   font-weight: 700;
+  margin-top: 10px;
 
 }
 
@@ -234,7 +244,15 @@ hr {
   display: flex;
 
 }
-
+/*button style */
+.third-container button{
+  background-color: transparent;
+  border:none;
+  cursor: pointer;
+}
+.third-container-category{
+  cursor: pointer;
+}
 .infancy {
   background-color: rgb(206, 200, 200);
   width: 80px;
@@ -252,7 +270,7 @@ hr {
 }
 
 .infancy:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .infancy>a:hover {
@@ -277,7 +295,7 @@ hr {
 }
 
 .babyhood:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .babyhood>a:hover {
@@ -301,7 +319,7 @@ hr {
 }
 
 .childhood:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .childhood>a:hover {
@@ -325,7 +343,7 @@ hr {
 }
 
 .adolescence:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .adolescence>a:hover {
@@ -349,7 +367,7 @@ hr {
 }
 
 .adult:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .adult>a:hover {
@@ -373,7 +391,7 @@ hr {
 }
 
 .middle-age:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .middle-age>a:hover {
@@ -397,7 +415,7 @@ hr {
 }
 
 .old-age:hover {
-  background-color: #AAB286;
+  background-color: rgb(191 232 174); /*색 바꿈~*/
 }
 
 .old-age>a:hover {
@@ -419,7 +437,7 @@ hr {
 .list-one {
   border-radius: 10px;
   background-color: #fcfaf7;
-  width: 284px;
+  width: 298px;
   height: 300px;
   box-shadow: 2px 2px 5px 1px rgba(42, 42, 42, 0.152);
   margin-right: 20px;

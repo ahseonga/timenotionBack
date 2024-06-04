@@ -14,4 +14,5 @@ public class UserFileVO {
     private String userFileBackSource;
     private String userFileBackUuid;
     private Long userId;
+    private Long uniId;
 }
