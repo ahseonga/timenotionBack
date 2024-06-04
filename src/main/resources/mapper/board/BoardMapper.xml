@@ -169,18 +169,19 @@
         SELECT
             CASE
                 WHEN u.USER_ID IS NOT NULL THEN u.USER_BIRTH
-                WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
-                ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
+--                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
+--                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
                 END AS BIRTHDAY
         FROM
             GGHJ_UNI uni
                 LEFT JOIN
             GGHJ_USER u ON uni.USER_ID = u.USER_ID
-                LEFT JOIN
-            GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
+--                 LEFT JOIN
+--             GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
         WHERE
             uni.UNI_ID = #{uniId}
     </select>
+
 
     <!-- 게시판 작성자의 생일 가져오기  -->
 <!--    <select id="selectUserBirth" resultType="java.time.LocalDateTime">-->
