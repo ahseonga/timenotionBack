@@ -33,6 +33,9 @@ class EveryLifeControllerTest {
     private String userFileProfileName;
     private String userFileProfileUuid;*/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 //    @Autowired
 //    BoardService boardService;
 //
@@ -48,6 +51,7 @@ class EveryLifeControllerTest {
 //        aa.setBoardCreatedDate(LocalDateTime.now());
 //
 //
+<<<<<<< HEAD
 //        Criteria criteria = new Criteria();
 //        criteria.setAmount(9);
 //        criteria.setPage(1);
@@ -73,6 +77,12 @@ class EveryLifeControllerTest {
 //        criteria.setPage(1);
 //        List<BoardDTO> boards = boardService.everyLifeFindPage(Criteria criteria, String boardLifeCycle);
 >>>>>>> main
+=======
+//        Criteria criteria = new Criteria();
+//        criteria.setAmount(9);
+//        criteria.setPage(1);
+////        List<BoardDTO> boards = boardService.everyLifeFindPage(criteria);
+>>>>>>> main
 //        Page page = new Page(criteria, boards.size());
 //
 //        System.out.println("게시글 총 길이 : " + boards.size());
@@ -81,6 +91,7 @@ class EveryLifeControllerTest {
 //        System.out.println("BoardId : " + aa.getBoardId() + "Content : " + aa.getBoardContent());
 ////        System.out.println("Total Count : " + boardService.everyLifeFindTotal());
 <<<<<<< HEAD
+<<<<<<< HEAD
 //
 //
 //    }
@@ -88,5 +99,10 @@ class EveryLifeControllerTest {
 
 
     }
+>>>>>>> main
+=======
+//
+//
+//    }
 >>>>>>> main
 }

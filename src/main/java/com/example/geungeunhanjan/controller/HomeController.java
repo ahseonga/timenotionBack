@@ -71,7 +71,7 @@ public class HomeController {
     public String about(HttpSession session) {
 
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("uniId");
+        Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/user/login";
         }

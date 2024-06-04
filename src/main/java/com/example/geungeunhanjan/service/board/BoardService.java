@@ -23,22 +23,19 @@ public interface BoardService {
     void registerBoard(BoardVO boardVO);
 
     //게시글 업데이트
-    void modifyBoard(BoardVO boardVO, List<MultipartFile> files) throws IOException;
+    void modifyBoard(BoardVO boardVO, List<MultipartFile> files)  throws IOException;
 
     //게시글 삭제하기
     void removeBoard(Long boardId);
 
     //일대기별 게시글 조회
-    List<BoardVO> selectLifeCycle(String boardLifeCycle, Long userId);
-
-    //특정 게시긓 조회수 +1
-    void boardIntViewCnt(Long boardId);
+    List<BoardVO> selectLifeCycleBoard(String boardLifeCycle);
 
     //게시글 파일 같이 등록하기
-    void registerBoardwithFile(BoardVO boardVO, List<MultipartFile> files) throws IOException;
+    void registerBoardwithFile(BoardVO boardVO, List<MultipartFile> files)  throws IOException;
 
     //파일 저장하기
-    BoardFileVO saveFile(MultipartFile files) throws IOException;
+    BoardFileVO saveFile(MultipartFile files)throws IOException;
 
     //특정 회원의 생일 불러오기
     LocalDateTime writerUserBirth(Long userId);
@@ -73,7 +70,10 @@ public interface BoardService {
     // 메인 배너 왼쪽
     BoardMainDTO mainLeftBannerSelect();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     List<BoardMainDTO> mainRightBannerSelect(String orderBy);
 
     // 모두의 일대기 -> 상세페이지 넘어가기
@@ -85,9 +85,12 @@ public interface BoardService {
     List<BoardDTO> getPostsSortedByLatest();
 
     List<BoardDTO> getPostsSortedByPopularity();
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> main
 }
 
 

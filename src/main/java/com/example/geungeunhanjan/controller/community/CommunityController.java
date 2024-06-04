@@ -60,7 +60,6 @@ import java.util.stream.Collectors;
 public class CommunityController {
     private final InquiryService inquiryService;
     private final NoticeService noticeService;
-
     private final InquiryMapper inquiryMapper;
     private final UserService userService;
 
@@ -70,7 +69,7 @@ public class CommunityController {
     public String community (InquiryCriteria inquiryCriteria, Model model, HttpSession session){
 
         List<InquiryPagingDTO> inquiries = inquiryService.selectAllInquiryPage(inquiryCriteria);
-        Long loginUserId = (Long) session.getAttribute("uniId");
+        Long loginUserId = (Long) session.getAttribute("userId");
 
         int total = inquiryService.selectInquiryTotal();
 
@@ -106,7 +105,7 @@ public class CommunityController {
 
         //로그인 한 유저의 userId 를 같이 보냄
         //userId = 1인 회원만 작성 삭제 가능
-        Long loggedInUserId = (Long) request.getSession().getAttribute("uniId");
+        Long loggedInUserId = (Long) request.getSession().getAttribute("userId");
         model.addAttribute("loggedInUserId", loggedInUserId);
 
         //공지 리스트 정보 가져오기
@@ -161,15 +160,21 @@ public class CommunityController {
 
     @PostMapping("/inquiry/insertInquiry")
     public String insertInquiry (@ModelAttribute("inquiryWriteDTO") InquiryWriteDTO
+                                         inquiryWriteDTO, @SessionAttribute("userId") Long userId){
 
+<<<<<<< HEAD
                                          inquiryWriteDTO, @SessionAttribute("uniId") Long uniId){
 
 
         String userNickname = userService.selectUserNickname(uniId);
 
+=======
+        String userNickname = userService.selectUserNickname(userId);
+        ;
+>>>>>>> main
 
-        inquiryWriteDTO.setUserId(uniId);
-        System.out.println(uniId);
+        inquiryWriteDTO.setUserId(userId);
+        System.out.println(userId);
         inquiryWriteDTO.setUserNickname(userNickname);
 //        inquiryDTO.setInquiryCreatedDate();
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -200,15 +205,15 @@ public class CommunityController {
     public String insertNotice (@ModelAttribute("noticeVO") NoticeVO noticeVO, HttpServletRequest request, Model
             model){
         // 현재 사용자의 userId를 세션에서 가져오기
-        Long uniId = (Long) request.getSession().getAttribute("uniId");
+        Long userId = (Long) request.getSession().getAttribute("userId");
 
-        if (uniId == null) {
+        if (userId == null) {
             // userId가 없으면 에러 처리 또는 로그인 페이지로 리다이렉트
             return "redirect:/login";
         }
 
         // noticeVO에 userId 설정
-        noticeVO.setUserId(uniId);
+        noticeVO.setUserId(userId);
         System.out.println(noticeVO);
         // noticeId 설정 및 공지사항 등록
         noticeVO.setNoticeId(noticeService.getNoticeSeqNext());

@@ -39,11 +39,12 @@ public class EveryLifeController {
     @GetMapping()
     public String everyLife(Model model, HttpSession session, Criteria criteria, @RequestParam(required = false, defaultValue = "latest") String sort) {
         // 로그인 여부 확인
-        Long userId = (Long) session.getAttribute("uniId");
+        Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/user/login";
         }
 
+<<<<<<< HEAD
 //         정렬 기준에 따라 게시물 목록 가져오기
         List<BoardDTO> boardarray;
         switch (sort) {
@@ -58,6 +59,22 @@ public class EveryLifeController {
                 boardarray = boardService.getPostsSortedByLatest();
                 break;
         }
+=======
+        // 정렬 기준에 따라 게시물 목록 가져오기
+//        List<BoardDTO> boardLists;
+//        switch (sort) {
+//            case "view":
+//                boardLists = boardService.getPostsSortedByViews();
+//                break;
+//            case "popularity":
+//                boardLists = boardService.getPostsSortedByPopularity();
+//                break;
+//            case "latest":
+//            default:
+//                boardLists = boardService.getPostsSortedByLatest();
+//                break;
+//        }
+>>>>>>> main
 
         // 일대기 게시물 확인
 //        List<BoardVO> boards = boardService.everyLifeBoardbyViews();

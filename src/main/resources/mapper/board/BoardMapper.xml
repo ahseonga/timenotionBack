@@ -104,7 +104,7 @@
                  LEFT JOIN
              GGHJ_USER_FILE uf ON uf.USER_ID = user_id
         WHERE
-            board_rank = 1 AND ROWNUM = 1
+            board_rank = 1
         GROUP BY
             board_id, board_title, board_file_source_name, user_nickname, board_rank
         ORDER BY
@@ -167,15 +167,15 @@
         SELECT
             CASE
                 WHEN u.USER_ID IS NOT NULL THEN u.USER_BIRTH
-                WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
-                ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
+--                 WHEN k.KAKAO_ID IS NOT NULL THEN k.KAKAO_BIRTH
+--                 ELSE NULL -- 유저 또는 카카오 회원이 없을 경우
                 END AS BIRTHDAY
         FROM
             GGHJ_UNI uni
                 LEFT JOIN
             GGHJ_USER u ON uni.USER_ID = u.USER_ID
-                LEFT JOIN
-            GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
+--                 LEFT JOIN
+--             GGHJ_KAKAO k ON uni.KAKAO_ID = k.KAKAO_ID
         WHERE
             uni.UNI_ID = #{uniId}
     </select>
@@ -216,12 +216,11 @@
         WHERE BOARD_ID = #{boardId}
     </delete>
 
-    <!-- 마이 페이지 내가 쓴 게시판 라이프 사이클 별 조회 -->
-    <select id="selectBoardLifeCycle" parameterType="BoardVO" resultType="BoardVO">
-        SELECT *
+    <!-- 마이 페이지 게시판 라이프 사이클 별 조회 -->
+    <select id="selectBoardLifeCycle" resultType="BoardVO">
+        SELECT BOARD_TITLE, BOARD_VIEW_COUNT, BOARD_CREATED_DATE, BOARD_CONTENT
         FROM GGHJ_BOARD
         WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
-        AND USER_ID = #{userId}
     </select>
 
     <!--키워드 검색(안에 'a'는 임시값)-->
@@ -243,9 +242,9 @@
         ORDER BY BOARD_CREATED_DATE DESC
     </select>
 
-<!--    <select id="selectbyLifeCycle" resultType="BoardVO">-->
-<!--        SELECT BOARD_TITLE, BOARD_VIEW_COUNT, BOARD_CREATED_DATE, BOARD_CONTENT FROM GGHJ_BOARD WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}-->
-<!--    </select>-->
+    <select id="selectbyLifeCycle" resultType="BoardVO">
+        SELECT * FROM GGHJ_BOARD WHERE BOARD_LIFE_CYCLE = #{boardLifeCycle}
+    </select>
 
         <!-- 모두의 일대기 게시판 글 -->
     <select id="everyLifeBoardbyViews" resultType="BoardVO">
@@ -292,7 +291,6 @@
     <select id="everyLifeFindTotal">
         SELECT COUNT(*)FROM GGHJ_BOARD
     </select>
-
 <!--    유아기, 유년기, 아동기, 청소년기, 성인, 중년, 노년 클릭시 페이지 이동-->
     <select id="agePageMove" resultType="int">
         SELECT COUNT(*) AS TOTAL_COUNT
@@ -341,6 +339,7 @@
                       ON G.USER_ID = U.UNI_ID
         WHERE G.BOARD_ID = #{userId}
     </select>
+<<<<<<< HEAD
 
 
     <!-- 특정 글 조회수 -->
@@ -359,3 +358,7 @@
 
 
 </mapper>
+=======
+</mapper>
+
+>>>>>>> main

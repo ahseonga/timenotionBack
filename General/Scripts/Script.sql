@@ -342,6 +342,7 @@ FROM
 ORDER BY 
     b.BOARD_LIKE_COUNT DESC;
    
+<<<<<<< HEAD
    
 SELECT *
 FROM 
@@ -352,6 +353,8 @@ ORDER BY
    
    
    
+=======
+>>>>>>> main
    CREATE TABLE GGHJ_FOLLOW
 (
     FOLLOW_ID        NUMBER PRIMARY KEY,
@@ -432,9 +435,12 @@ INSERT INTO GGHJ_FOLLOW (
  WHERE G.BOARD_ID = #{userId};
 
    
+<<<<<<< HEAD
 
 
 SELECT * FROM gghj_kakao;
+=======
+   
 
 
 
@@ -442,6 +448,16 @@ SELECT * FROM gghj_kakao;
 
 
 
+
+>>>>>>> main
+
+
+
+
+
+
+
+<<<<<<< HEAD
             SELECT BOARD_TITLE, BOARD_CREATED_DATE, BOARD_VIEW_COUNT, BOARD_CONTENT,
                    COALESCE(U.USER_NICKNAME, K.NAME) AS NICKNAME,
                    F.USER_FILE_PROFILE_NAME,
@@ -457,5 +473,7 @@ SELECT * FROM gghj_kakao;
 
            
            SELECT COUNT(*)FROM GGHJ_BOARD; 
+=======
+>>>>>>> main
 
 

@@ -25,10 +25,9 @@ public interface BoardMapper {
     void deleteBoard(Long boardId);
 
     //일대기 별 게시판 조회하기
-    List<BoardVO> selectBoardLifeCycle(String boardLifeCycle, Long userId);
+    List<BoardVO> selectbyLifeCycle(String boardLifeCycle);
 
-    //특정 게시판 조회수 +1
-    int incViewCnt(Long boardId);
+
 
     //특정 회원의 생일 불러오기
     LocalDateTime selectUserBirth(Long userId);

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.geungeunhanjan.config;
 
 import com.example.geungeunhanjan.domain.dto.user.UserSessionDTO;
@@ -74,3 +75,5 @@ public class SecurityConfig {
 
 
 }
+=======
+>>>>>>> main
